@@ -1,13 +1,15 @@
 import "./Root.scss"
 import { Outlet, Link,useNavigate } from "react-router-dom";
 import { getToken } from "../utils/local";
-import { useEffect,useContext } from "react";
+import { useEffect,useContext, useState } from "react";
 import UserContext from "../context/userContext";
+import UserProfile from "./userProfile/UserProfile";
 
 
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
+    const [showProfile, setShowProfile] = useState(false);
 
     useEffect(() => {
         if (!getToken()) {
@@ -23,6 +25,11 @@ const Root = () => {
         }
         setUser(data.data);
       }
+
+      const toggleProfile =() => {
+        setShowProfile(!showProfile);
+    };
+
     return (
         <div id="root-body">
             <nav>  
@@ -33,7 +40,11 @@ const Root = () => {
                 <div>
                     <Link to="/register">Logout </Link>                    
                 </div>
+                <div>
+                    <button onClick={toggleProfile}>Mi Cuenta</button>                    
+                </div>
             </nav>
+            {showProfile ? <UserProfile /> : <Outlet />}                    
             <Outlet />
         </div>
         

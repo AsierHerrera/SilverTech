@@ -34,25 +34,23 @@ app.use("/api",router);
 
 
 
-// multer para almacenar las imágenes
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-      cb(null, 'uploads/'); 
+      cb(null, 'uploads/');
   },
   filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); 
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
 
 const upload = multer({ storage: storage });
 
-// subida de archivos
-app.post('/upload', upload.single('profilePic'), (req, res) => {
+app.post('/uploads', upload.single('file'), (req, res) => {
   try {
       res.json({ message: 'Imagen subida correctamente', file: req.file });
   } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Errror al subir la imagen' });
+      res.status(500).json({ error: 'Error al subir la imagen' });
   }
 });
 

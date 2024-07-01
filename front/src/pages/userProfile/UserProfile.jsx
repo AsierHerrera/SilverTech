@@ -8,11 +8,10 @@ const UserProfile = () => {
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [isVisible, setIsVisible] = useState(true);
     const profileRef = useRef(null);
 
     useEffect(() => {
-        // Simulamos llamada API para obtener datos usuario
+        // simulamos llamada API para obtener datos usuario
         fetch('user.json')
             .then(response => response.json())
             .then(data => {
@@ -20,19 +19,7 @@ const UserProfile = () => {
                 setName(data.name);
             })
             .catch(error => console.error('Error en el fetch user data', error));
-
-        // añadimos evento para clicar fuera del componente y que se cierre.
-        const handleClickOutside = (event) => {
-            if (profileRef.current && !profileRef.current.contains(event.target)) {
-                setIsVisible(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+        },);
 
     // Hacemos llamada API para actualizar nombre usuario:
     const handleNameChange = (e) => {
@@ -49,9 +36,7 @@ const UserProfile = () => {
         setNewPassword('');
     };
 
-    if (!isVisible) { // si el componente no es visible devolver null
-        return null;
-    }
+
 
     return (
         <div className='user-profile' ref={profileRef}>

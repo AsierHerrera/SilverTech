@@ -11,10 +11,10 @@ const ProfilePicUpload = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-        formData.append('profilePic', file);
+        formData.append('file', file);
 
         try {
-            const response = await axios.post('/upload', formData, {
+            const response = await axios.post('/uploads', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -27,9 +27,9 @@ const ProfilePicUpload = () => {
 
     return (
         <div>
-            <h2>Subir Foto de Perfil</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileChange} accept="image/*" required />
+            <h2>{}</h2>
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <input name="file" type="file" onChange={handleFileChange} accept="image/*" required />
                 <button type="submit">Subir Imagen</button>
             </form>
         </div>
