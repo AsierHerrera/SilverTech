@@ -33,6 +33,10 @@ const Root = () => {
                 <div>
                     <Link to="/register">Logout </Link>                    
                 </div>
+
+                <div>
+                    <Link to="/recursos">Recursos </Link>                    
+                </div>
             </nav>
             <Outlet />
         </div>
