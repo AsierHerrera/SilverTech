@@ -1,4 +1,4 @@
-import subforumController from "./subforumController.js";
+import subforumController from "./subforumController.js"
 
 const getAll = async (req, res) => {
     const subforums = await subforumController.getAll();
@@ -12,7 +12,13 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    const subforum = await subforumController.create(req.body);
+    const user = req.user;
+    const { title } = req.body;  // Extraer directamente el título del cuerpo de la solicitud
+    const subforumData = {
+        user,
+        title
+    };
+    const subforum = await subforumController.create(subforumData);
     res.json({ data: subforum });
 }
 
