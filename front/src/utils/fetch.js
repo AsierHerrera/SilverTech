@@ -1,6 +1,6 @@
 import { getToken } from "./local";
 
-const API_URL = "http://localhost:3030";
+const API_URL = "http://localhost:3030/api";
 
 const fetchData = async(route,method,inputData=null)=>{    
     const url = new URL(API_URL + route);
