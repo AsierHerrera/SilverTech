@@ -26,9 +26,9 @@ const Root = () => {
         setUser(data.data);
       }
 
-      const toggleProfile =() => {
-        setShowProfile(!showProfile);
-    };
+const toggleProfile = () => {
+    setShowProfile(!showProfile);
+};
 
     return (
         <div id="root-body">
@@ -44,7 +44,7 @@ const Root = () => {
                     <button onClick={toggleProfile}>Mi Cuenta</button>                    
                 </div>
             </nav>
-            {showProfile ? <UserProfile /> : <Outlet />}                    
+            {showProfile ? <UserProfile /> : <Outlet />}
             <Outlet />
         </div>
         

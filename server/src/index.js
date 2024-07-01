@@ -5,6 +5,7 @@ import router from "./routes/router.js";
 import cors from "cors";
 import multer from 'multer';
 import path from 'path';
+/* import userRouter from "./routes/user.js"; */
 
 
 
@@ -32,7 +33,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api",router);
 
-
+/* app.use("/api/users", userRouter);  *///para componente micuenta
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
