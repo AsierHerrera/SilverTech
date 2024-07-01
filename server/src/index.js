@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import connectDB from "./config/mongo.js";
 import router from "./routes/router.js";
 import cors from "cors";
+import multer from 'multer';
+import path from 'path';
 
-const multer = require('multer');
-const path = require('path'); //multer
 
 
 dotenv.config();
@@ -37,23 +37,24 @@ app.use("/api",router);
 // multer para almacenar las imágenes
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-      cb(null, 'uploads/');
+      cb(null, 'uploads/'); 
   },
   filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); 
   }
 });
 
 const upload = multer({ storage: storage });
 
+// subida de archivos
 app.post('/upload', upload.single('profilePic'), (req, res) => {
   try {
-      res.send({ message: 'Imagen subida correctamente', file: req.file });
+      res.json({ message: 'Imagen subida correctamente', file: req.file });
   } catch (error) {
       console.error(error);
-      res.status(500).send({ error: 'Error al subir la imagen' });
+      res.status(500).json({ error: 'Errror al subir la imagen' });
   }
-}); /////
+});
 
 app.listen(CONTAINER_PORT ,()=>{
     console.log("Aplicacion en marcha en el puerto "+process.env.APP_PORT);

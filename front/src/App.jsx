@@ -3,6 +3,7 @@ import router from './router.jsx'
 import { RouterProvider } from 'react-router-dom'
 import UserContext from './context/userContext'
 import './App.css'
+import UserProfile from './pages/userProfile/UserProfile.jsx'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -13,9 +14,10 @@ function App() {
  
   return (
     <>
-      <UserContext.Provider value={{ user, setUser }}>
+{/*       <UserContext.Provider value={{ user, setUser }}>
         <RouterProvider router={router} />
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+      <UserProfile />
     </>
   )
 }
