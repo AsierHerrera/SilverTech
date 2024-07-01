@@ -1,0 +1,106 @@
+// Primary:
+
+$Primary_Light: rgb(230, 232, 240);
+$Primary_Light_Hover: rgb(218, 220, 232);
+$Primary_Light_Active: rgb(179, 183, 207);
+$Primary_Normal: rgb(9, 24, 100);
+$Primary_Normal_Hover: rgb(8, 22, 90);
+$Primary_Normal_Active: rgb(7, 19, 80);
+$Primary_Dark: rgb(7, 18, 75);
+$Primary_Dark_Hover: rgb(5, 14, 60);
+$Primary_Dark_Active: rgb(4, 11, 45);
+$Primary_Darker: rgb(3, 8, 35);
+
+// Secondary:
+
+$Secondary_Light: rgb(254, 246, 230);
+$Secondary_Light_Hover: rgb(254, 242, 217);
+$Secondary_Light_Active: rgb(253, 228, 176);
+$Secondary_Normal: rgb(248, 168, 0);
+$Secondary_Normal_Hover: rgb(223, 151, 0);
+$Secondary_Normal_Active: rgb(198, 134, 0);
+$Secondary_Dark: rgb(186, 126, 0);
+$Secondary_Dark_Hover: rgb(149, 101, 0);
+$Secondary_Dark_Active: rgb(112, 76, 0);
+$Secondary_Darker: rgb(87, 59, 0);
+
+// Tertiary:
+
+$Tertiary_Light: rgb(238, 255, 250);
+$Tertiary_Light_Hover: rgb(230, 255, 247);
+$Tertiary_Light_Active: rgb(204, 255, 238);
+$Tertiary_Normal: rgb(89, 255, 201);
+$Tertiary_Normal_Hover: rgb(80, 230, 181);
+$Tertiary_Normal_Active: rgb(71, 204, 161);
+$Tertiary_Dark: rgb(67, 191, 151);
+$Tertiary_Dark_Hover: rgb(53, 153, 121);
+$Tertiary_Dark_Active: rgb(40, 115, 90);
+$Tertiary_Darker: rgb(31, 89, 70);
+
+// Neutral:
+
+$Neutral_Light: rgb(252, 252, 252);
+$Neutral_Light_Hover: rgb(251, 251, 251);
+$Neutral_Light_Active: rgb(246, 246, 246);
+$Neutral_Normal: rgb(225, 225, 225);
+$Neutral_Normal_Hover: rgb(203, 203, 203);
+$Neutral_Normal_Active: rgb(180, 180, 180);
+$Neutral_Dark: rgb(169, 169, 169);
+$Neutral_Dark_Hover: rgb(135, 135, 135);
+$Neutral_Dark_Active: rgb(101, 101, 101);
+$Neutral_Darker: rgb(79, 79, 79);
+$Text: rgb(33, 33, 33);
+
+//// Semantic: SE/SC/SI/SW
+
+// Semantic: Error
+
+$SE_Light: rgb(253, 237, 237);
+$SE_Light_Hover: rgb(252, 228, 228);
+$SE_Light_Active: rgb(249, 199, 199);
+$SE_Normal: rgb(235, 73, 73);
+$SE_Normal_Hover: rgb(212, 66, 66);
+$SE_Normal_Active: rgb(188, 58, 58);
+$SE_Dark: rgb(176, 55, 55);
+$SE_Dark_Hover: rgb(141, 44, 44);
+$SE_Dark_Active: rgb(106, 33, 33);
+$SE_Darker: rgb(82, 26, 26);
+
+// Semantic: Correct
+
+$SC_Light: rgb(241, 253, 237);
+$SC_Light_Hover: rgb(234, 252, 228);
+$SC_Light_Active: rgb(212, 249, 199);
+$SC_Normal: rgb(115, 235, 73);
+$SC_Normal_Hover: rgb(104, 212, 66);
+$SC_Normal_Active: rgb(92, 188, 58);
+$SC_Dark: rgb(86, 176, 55);
+$SC_Dark_Hover: rgb(69, 141, 44);
+$SC_Dark_Active: rgb(52, 106, 33);
+$SC_Darker: rgb(40, 82, 26);
+
+// Semantic: Information
+
+$SI_Light: rgb(237, 244, 253);
+$SI_Light_Hover: rgb(228, 239, 252);
+$SI_Light_Active: rgb(199, 222, 249);
+$SI_Normal: rgb(73, 148, 235);
+$SI_Normal_Hover: rgb(66, 133, 212);
+$SI_Normal_Active: rgb(58, 118, 188);
+$SI_Dark: rgb(55, 111, 176);
+$SI_Dark_Hover: rgb(44, 89, 141);
+$SI_Dark_Active: rgb(33, 67, 106);
+$SI_Darker: rgb(26, 52, 82);
+
+// Semantic: Warning
+
+$SW_Light: rgb(253, 252, 237);
+$SW_Light_Hover: rgb(252, 251, 228);
+$SW_Light_Active: rgb(249, 247, 199);
+$SW_Normal: rgb(235, 228, 73);
+$SW_Normal_Hover: rgb(212, 205, 66);
+$SW_Normal_Active: rgb(188, 182, 58);
+$SW_Dark: rgb(176, 171, 55);
+$SW_Dark_Hover: rgb(141, 137, 44);
+$SW_Dark_Active: rgb(106, 103, 33);
+$SW_Darker: rgb(82, 80, 26);

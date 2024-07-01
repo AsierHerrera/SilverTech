@@ -1,0 +1,168 @@
+@import "../../EmpresarialColors.scss";
+
+// Vista para Moviles
+
+@media only screen and (max-width: 500px) {
+  .register-login {
+    width: 70%;
+    background-color: $Neutral_Dark;
+    border-radius: 10px;
+    padding: 2vw 2vw;
+    margin-top: 15vw;
+    margin-left: 14%;
+    border: 1px solid $Neutral_Darker;
+  }
+  
+  .register-login h2 {
+    font-size: 4vw;
+    margin-bottom: 2vw;
+  }
+  
+  .register-login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-login label {
+    margin-bottom: 2vw;
+    font-weight: bolder;
+    font-size: 4vw;
+  }
+  
+  .register-login input {
+    padding: 8px;
+    margin-bottom: 5vw;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .register-login button {
+   
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 4vw;
+    font-size: 5vw;
+  }
+
+  #btn-enter{
+    background-color: $Primary_Dark;
+    border: 1px solid $Primary_Darker;
+    font-weight: bolder; 
+  }
+
+  #btn-change{
+    background-color: $SI_Dark;
+    border: 1px solid $SI_Darker;
+    font-weight: bolder;
+  }
+
+  #Welcome{
+    font-size: 4.8vw;
+    color: white;
+    -webkit-text-stroke-width: 0.2vw;
+    -webkit-text-stroke-color: black;
+  }
+
+  .spaghetti-icon{
+    display: none;
+  }
+
+}
+
+// Vista para computadoras
+
+@media only screen and (min-width: 900px) {
+  .register-login {
+    width: 45%;
+    background-color: $Neutral_Normal;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    margin-top: 15vh;
+    margin-left: 27%;
+    border: 1px solid $Neutral_Darker;
+  }
+  
+  .register-login h2 {
+    font-size: 1.5vw;
+    margin-bottom: 2vh;
+  }
+  
+  .register-login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-login label {
+    margin-bottom: 1vh;
+    font-weight: bolder;
+  }
+  
+  .register-login input {
+    padding: 8px;
+    margin-bottom: 4vh;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .register-login button {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 3vh;
+  }
+
+  #btn-enter{
+    background-color: $Primary_Dark;
+    border: 1px solid $Primary_Darker;
+    font-weight: bolder;
+  }
+
+  #btn-change{
+    background-color: $SI_Dark;
+    border: 1px solid $SI_Darker;
+    font-weight: bolder;
+  }
+
+  #Welcome{
+    font-size: 3vw;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .spaghetti-icon{
+    position: absolute;
+    z-index: 100;
+    width: 10vw;
+    height: auto;
+  }
+
+  #spaghetti-icon-1{
+    top: 10vh;
+    left: 10vw;
+    
+  }
+
+  #spaghetti-icon-2{
+    top: 20vh;
+    right: 10vw;
+  }
+
+  #spaghetti-icon-3{
+    top: 50vh;
+    left: 5vw;
+  }
+
+  #spaghetti-icon-4{
+    top: 60vh;
+    right: 5vw;
+  }
+
+}
+
+
