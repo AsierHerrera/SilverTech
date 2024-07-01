@@ -1,6 +1,6 @@
 import userModel from "../../models/userModel.js";
 import resourceModel from "../../models/resourceModel.js"; // Importar modelo de recursos
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const getAll = async () => {
