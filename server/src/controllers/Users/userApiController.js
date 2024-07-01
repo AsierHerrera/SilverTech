@@ -28,7 +28,7 @@ const register = async (req, res) => {
     if (user.error) {
         return res.json({ error: user.error });
     }
-    console.log("USER ENCAPI CONTROLLER", user);
+    console.log("USER EN API CONTROLLER", user);
     res.json({ data: user });
 }
 
