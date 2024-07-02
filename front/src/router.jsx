@@ -3,6 +3,7 @@ import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
+import Subforum from "./pages/subforom/Subforum";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,20 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register />
-    }
+    },
+    {
+        path: "/subforum",
+        element: (
+          <Subforum />
+        ),
+        // children: [
+          // { index: true, element: <Home /> }, 
+          // {
+          //   path: ":subforumId",
+          //   element: <SubforumDetails />, 
+          // },
+        // ],
+      },
     
   ]);
 

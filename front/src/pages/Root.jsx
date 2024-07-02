@@ -3,6 +3,7 @@ import { Outlet, Link,useNavigate } from "react-router-dom";
 import { getToken } from "../utils/local";
 import { useEffect,useContext } from "react";
 import UserContext from "../context/userContext";
+import { getUserData } from "../utils/fetch";
 
 
 const Root = () => {
@@ -18,6 +19,7 @@ const Root = () => {
 
     async function fetchUserData() {
         const data  = await getUserData();
+     console.log('data :>> ', data);
         if(data.error){
             navigate("/register");
         }
@@ -28,8 +30,10 @@ const Root = () => {
             <nav>  
                 <div>
                     <Link to="/">Inicio</Link>
-                </div>              
-          
+                </div>   
+                <div>
+                    <Link to="/subforum">Forum</Link>
+                </div>             
                 <div>
                     <Link to="/register">Logout </Link>                    
                 </div>
