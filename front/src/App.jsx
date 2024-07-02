@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import router from './router.jsx'
-import NavBar from "./componentes/navbar/NavBar.jsx"
+import NavBar from "./componentes/NavBar/NavBar.jsx"
 import { RouterProvider } from 'react-router-dom'
 import UserContext from './context/userContext'
 import './App.css'
