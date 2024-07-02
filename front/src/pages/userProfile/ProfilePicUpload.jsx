@@ -14,14 +14,14 @@ const ProfilePicUpload = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('/uploads', formData, {
+            const response = await axios.post('http://localhost:3030/uploads', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log('File uploaded successfully', response.data);
+            console.log('Imagen subida correctamente', response.data);
         } catch (error) {
-            console.error('Error uploading file', error);
+            console.error('Error al subir la imagen', error);
         }
     };
 

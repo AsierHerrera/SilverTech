@@ -48,6 +48,8 @@ const upload = multer({ storage: storage });
 
 app.post('/uploads', upload.single('file'), (req, res) => {
   try {
+    console.log(req.file); 
+    console.log(req.body); 
       res.json({ message: 'Imagen subida correctamente', file: req.file });
   } catch (error) {
       console.error(error);
