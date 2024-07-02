@@ -7,8 +7,13 @@ const getToken = ()=>{
     return localStorage.getItem("token");
 }
 
+const deleteToken = ()=>{
+    localStorage.removeItem("token");
+}
+
 
 export{
     saveToken,
-    getToken
+    getToken,
+    deleteToken
 }

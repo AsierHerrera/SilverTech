@@ -1,4 +1,6 @@
 import commentModel from "../../models/commentModel.js";
+import subforumModel from "../../models/subforumModel.js";
+import userModel from "../../models/userModel.js"; // Importa el modelo de usuario
 
 const getAll = async () => {
     try {
@@ -33,9 +35,17 @@ const getByUser = async (userId) => {
     }
 }
 
-const create = async (data) => {
+const create = async (data, subforumId, user) => {
     try {
+        const subforum = await subforumModel.findById(subforumId); // Busca el subforo por ID
+        if (!subforum) {
+            return { error: "Subforo no encontrado", status: 404 };
+        }
+        data.user = user
+        data.subforum = subforum._id; // Asocia el comentario al subforo
         const comment = await commentModel.create(data);
+        await userModel.findByIdAndUpdate(user, { $push: { comments: comment._id } });
+
         return comment;
     } catch (error) {
         console.error(error);
