@@ -8,10 +8,25 @@ const UserProfile = () => {
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [profilePic, setProfilePic] =useState('')
     const profileRef = useRef(null);
 
-    useEffect(() => {
+    const [formData, setFormData] = useState({
+        nombreEmpresa: '',
+        cif: '',
+        direccion: '',
+        codigoPostal: '',
+        sitioWeb: '',
+        telefono: '',
+        sector: '',
+        descripcion: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+/*     useEffect(() => {
         // simulamos llamada API para obtener datos usuario
         fetch('user.json')
             .then(response => response.json())
@@ -20,7 +35,7 @@ const UserProfile = () => {
                 setName(data.name);
             })
             .catch(error => console.error('Error en el fetch user data', error));
-        },);
+        },); */
 
     // Hacemos llamada API para actualizar nombre usuario:
     const handleNameChange = (e) => {
@@ -36,6 +51,37 @@ const UserProfile = () => {
         setCurrentPassword('');
         setNewPassword('');
     };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem('datosEmpresa', JSON.stringify(formData));
+        alert('¡Datos guardados en el almacenamiento local!');
+        // o tb se puede enviar los datos a un servidor
+        // fetch('/api/guardar', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(formData),
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log('Éxito:', data);
+        // })
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        // });
+    };
+
+    const formGroupStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '10px'
+    };
+
+    const labelStyle = {
+        marginRight: '10px',
+        minWidth: '150px'
+    };
     
 
 
@@ -45,25 +91,97 @@ const UserProfile = () => {
 
             <div className='profile-header'>
                 {/* <img src={user.profile.Picture} alt='Profile' className='profile-picture' /> */}
-                {/* <ProfilePic /> */}
 
-                <ProfilePicUpload  />
                 <h2>{/* {user.name} */}</h2>
                 <p>@{/* {user.name} */}</p>
             </div>
             <div className='profile-details'>
-                <p><strong>Nombre de la empresa</strong> {/* {user.email} */}</p>
-                <p><strong>Número de CIF</strong> </p>
-                <p><strong>Dirección:</strong> </p>
-                <p><strong>Código postal</strong> </p>
-                <p><strong>Sitio Web</strong> </p>
-                <p><strong>Teléfono</strong> </p>
-                <p><strong>Sector</strong> {/* {user.address} */}</p>
-                <p><strong>Descripcion</strong> </p>
+            <form onSubmit={handleSubmit}>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Nombre de la empresa:</strong></label>
+                <input
+                    type="text"
+                    name="nombreEmpresa"
+                    placeholder="Nombre de la empresa"
+                    value={formData.nombreEmpresa}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Número de CIF:</strong></label>
+                <input
+                    type="text"
+                    name="cif"
+                    placeholder="Número de CIF"
+                    value={formData.cif}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Dirección:</strong></label>
+                <input
+                    type="text"
+                    name="direccion"
+                    placeholder="Dirección"
+                    value={formData.direccion}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Código postal:</strong></label>
+                <input
+                    type="text"
+                    name="codigoPostal"
+                    placeholder="Código postal"
+                    value={formData.codigoPostal}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Sitio Web:</strong></label>
+                <input
+                    type="text"
+                    name="sitioWeb"
+                    placeholder="Sitio Web"
+                    value={formData.sitioWeb}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Teléfono:</strong></label>
+                <input
+                    type="text"
+                    name="telefono"
+                    placeholder="Teléfono"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Sector:</strong></label>
+                <input
+                    type="text"
+                    name="sector"
+                    placeholder="Sector"
+                    value={formData.sector}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={formGroupStyle}>
+                <label style={labelStyle}><strong>Descripción:</strong></label>
+                <input
+                    type="text"
+                    name="descripcion"
+                    placeholder="Descripción"
+                    value={formData.descripcion}
+                    onChange={handleChange}
+                />
+            </div>
+            </form>
             </div>
             <div className='profile-actions'>
                 <form onSubmit={handleNameChange}>
-                    <h3> Cambiar Nombre </h3>
+                    <h3> Cambiar Nombre Usuario </h3>
                     <input
                         type='text'
                         value={name}
@@ -88,7 +206,9 @@ const UserProfile = () => {
 
                     <button type='submit'> Actualizar Contraseña </button>
                 </form>
+            <ProfilePicUpload  />
             </div>
+            <button type="submit">Guardar</button>
         </div>
     );
 };

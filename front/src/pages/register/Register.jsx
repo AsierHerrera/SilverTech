@@ -51,9 +51,10 @@ const Register = ({ onLogin }) => {
         else {
             result = await login(userData);
             if (!result.error) {
-                setError("login correct");
+                setError("login correcto");
                 saveToken(result.token);
                 //onLogin(result.token);
+                setUser(result.user); //guardar usuario en contexto para cambio contraseña
                 navigate("/");
             }
             else {

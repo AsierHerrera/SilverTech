@@ -49,7 +49,7 @@ const toggleProfile = () => {
                     </li>
                 </ul>
                 <div>
-                    <button onClick={toggleProfile}>Mi Cuenta</button>                    
+                    <button onClick={toggleProfile}>Perfil</button>                    
                 </div>
             </nav>
 
