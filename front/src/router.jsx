@@ -4,6 +4,12 @@ import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
 
+import Forum from './pages/Forum';
+import Courses from './pages/Courses';
+import HireExperts from './pages/HireExperts';
+import UserPanel from './pages/UserPanel';
+
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -21,6 +27,9 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />
     }
+    
+
+
     
   ]);
 
