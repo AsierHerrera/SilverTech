@@ -41,19 +41,25 @@ const UserProfile = () => {
 
     return (
         <div className='user-profile' ref={profileRef}>
-            <h1>Mi Cuenta</h1>
+            <h1>Perfil</h1>  {/*desplegable */}
 
             <div className='profile-header'>
                 {/* <img src={user.profile.Picture} alt='Profile' className='profile-picture' /> */}
                 {/* <ProfilePic /> */}
 
                 <ProfilePicUpload  />
-                <h2>{user.name}</h2>
-                <p>@{user.name}</p>
+                <h2>{/* {user.name} */}</h2>
+                <p>@{/* {user.name} */}</p>
             </div>
             <div className='profile-details'>
-                <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Dirección:</strong> {user.address}</p>
+                <p><strong>Nombre de la empresa</strong> {/* {user.email} */}</p>
+                <p><strong>Número de CIF</strong> </p>
+                <p><strong>Dirección:</strong> </p>
+                <p><strong>Código postal</strong> </p>
+                <p><strong>Sitio Web</strong> </p>
+                <p><strong>Teléfono</strong> </p>
+                <p><strong>Sector</strong> {/* {user.address} */}</p>
+                <p><strong>Descripcion</strong> </p>
             </div>
             <div className='profile-actions'>
                 <form onSubmit={handleNameChange}>

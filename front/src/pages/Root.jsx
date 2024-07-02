@@ -1,11 +1,12 @@
 import "./Root.scss"
-import { Outlet, Link,useNavigate } from "react-router-dom";
-import { getToken } from "../utils/local";
-import { useEffect,useContext, useState } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { deleteToken, getToken } from "../utils/local";
+import { useEffect, useContext, useState } from "react";
 import UserContext from "../context/userContext";
 import UserProfile from "./userProfile/UserProfile";
 
 
+import { fetchUserData } from "../utils/fetch";
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -15,39 +16,47 @@ const Root = () => {
         if (!getToken()) {
             navigate("/register");
         }
-        fetchUserData();
+        getUserData();
     }, []);
 
-    async function fetchUserData() {
-        const data  = await getUserData();
-        if(data.error){
+    async function getUserData() {
+        const data = await fetchUserData();
+        if (data.error) {
             navigate("/register");
         }
         setUser(data.data);
-      }
+    }
+    async function handleLogout(e) {
+        e.preventDefault();
+        setUser(null);
+        deleteToken();
+        navigate("/register");
+    }
 
 const toggleProfile = () => {
     setShowProfile(!showProfile);
 };
 
     return (
-        <div id="root-body">
-            <nav>  
-                <div>
-                    <Link to="/">Inicio</Link>
-                </div>              
-          
-                <div>
-                    <Link to="/register">Logout </Link>                    
-                </div>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Inicio</Link>
+                    </li>
+                    <li>
+                        <Link to="/register">Logout </Link>   
+                    </li>
+                </ul>
                 <div>
                     <button onClick={toggleProfile}>Mi Cuenta</button>                    
                 </div>
             </nav>
+
+            <h1>Hello {user?.username}</h1>
             {showProfile ? <UserProfile /> : <Outlet />}
             <Outlet />
         </div>
-        
     )
 };
 

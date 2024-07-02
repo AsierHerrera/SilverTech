@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/", userApiController.getAll);
 router.get("/byproperty", isAdmin, userApiController.getByProperty);
+router.get("/bytoken",isAuthenticated,userApiController.getByToken);
 router.get("/:id", isAdmin, userApiController.getById);
 router.get("/resource/:resourceId", isAdmin, userApiController.getByResource); // Nueva ruta
 router.post("/", userApiController.create);

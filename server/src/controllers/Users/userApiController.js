@@ -17,6 +17,12 @@ const getByProperty = async (req, res) => {
     res.json({ data: users });
 }
 
+const getByToken = async (req,res) =>{
+    const id = req.user._id;
+    const user = await userController.getById(id);
+    res.json({data:user});
+}
+
 const getByResource = async (req, res) => {
     const resourceId = req.params.resourceId;
     const users = await userController.getByResource(resourceId);
@@ -67,6 +73,7 @@ export default {
     getAll,
     getById,
     getByProperty,
+    getByToken,
     getByResource,
     login,
     register,

@@ -13,6 +13,17 @@ const getAll = async () => {
     }
 }
 
+function getUserData(user){
+    return {
+        _id: user._id,
+        email: user.email,
+        username: user.username,
+        role: user.role,
+        projects: user.projects
+    }
+}
+
+
 const getById = async (id) => {
     try {
         const user = await userModel.findById(id);
@@ -177,6 +188,7 @@ const remove = async (id) => {
 export default {
     getAll,
     getById,
+    getUserData,
     getByProperty,
     getByResource,
     login,
