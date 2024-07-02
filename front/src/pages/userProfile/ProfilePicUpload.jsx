@@ -21,7 +21,7 @@ const ProfilePicUpload = () => {
                 },
             });
             console.log('Imagen subida correctamente', response.data);
-            setProfilePic('http://localhost3030/uploads/${response.data.file.path}');
+            setProfilePic(`http://localhost:3030/uploads/${response.data.file.filename}`);
         } catch (error) {
             console.error('Error al subir la imagen', error);
         }
