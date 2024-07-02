@@ -23,6 +23,8 @@ const commentSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
+}, {
+    timestamps: true // This will add createdAt and updatedAt fields
 });
 
 const commentModel = mongoose.model("Comment", commentSchema);

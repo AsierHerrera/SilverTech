@@ -17,8 +17,14 @@ const parseToken = (token) => {
   };
   
 
+const deleteToken = ()=>{
+    localStorage.removeItem("token");
+}
+
+
 export{
     saveToken,
     getToken,
-    parseToken
+    parseToken,
+    deleteToken
 }

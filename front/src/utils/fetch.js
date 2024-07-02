@@ -40,6 +40,10 @@ const login = async(userData)=>{
     const result = await fetchData("/login","post",userData);
     return result;
 }
+const fetchUserData = async()=>{
+    const result = await fetchData("/users/bytoken","get");
+    return result;
+}
 
 const getUserData = async()=>{
     const result = await fetchData("/users/bytoken","get");
@@ -81,6 +85,7 @@ export {
     createPostInSubforum,
     updatePostInSubforum,
     deletePostInSubforum,
-    getAllUsers
+    getAllUsers,
+    fetchUserData
 
 }
