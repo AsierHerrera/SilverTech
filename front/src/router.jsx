@@ -8,6 +8,7 @@ import Forum from './pages/Forum';
 import Courses from './pages/Courses';
 import HireExperts from './pages/HireExperts';
 import UserPanel from './pages/UserPanel';
+import Recursos from "./pages/recursos/Recursos";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
           element: <Home />,
 
       },
+      {
+        path: "/recursos",
+        element: <Recursos />,
+
+    },
     ]
   },
   {
