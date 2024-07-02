@@ -38,6 +38,23 @@ const Root = () => {
                     <li>
                         <Link to="/register">Logout </Link>   
                     </li>
+                    {/* <li>
+                        <Link to="/foro">Foro</Link>
+                    </li>
+                    <li>
+                        <Link to="/cursos-y-talleres">Cursos y Talleres</Link>
+                    </li>
+                    <li>
+                        <Link to="/contratar-expertos">Contratar Expertos</Link>
+                    </li>
+                    <li>
+                        <Link to="/panel-de-usuario">Panel de Usuario</Link>
+                    </li> */}
+
+                    <li>
+                        
+                    </li>
+
                 </ul>
             </nav>
 
