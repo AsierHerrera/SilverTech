@@ -1,0 +1,9 @@
+.image2Icon {
+  align-self: stretch;
+  height: 246px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
