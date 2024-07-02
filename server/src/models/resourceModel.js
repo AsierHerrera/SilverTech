@@ -37,6 +37,8 @@ const resourceSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     }]
+}, {
+    timestamps: true // This will add createdAt and updatedAt fields
 });
 
 const resourceModel = mongoose.model("Resource", resourceSchema);
