@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getAllPostsInSubforum, createPostInSubforum, updatePostInSubforum, deletePostInSubforum, getAllUsers } from '../../utils/fetch';
 import { getToken, parseToken } from '../../utils/local.js';
+import './Subforum.css';
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
@@ -8,8 +10,11 @@ const Subforum = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [newPostTitle, setNewPostTitle] = useState("");
+  const [newPostText, setNewPostText] = useState("");
   const [editPostId, setEditPostId] = useState(null);
   const [editPostTitle, setEditPostTitle] = useState("");
+  const [editPostText, setEditPostText] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +24,7 @@ const Subforum = () => {
         if (postsResult.error) {
           setError(postsResult.error);
         } else {
-          setPosts(Array.isArray(postsResult.data) ? postsResult.data : []);
+          setPosts(Array.isArray(postsResult.data) ? postsResult.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : []);
         }
         if (usersResult.error) {
           setError(usersResult.error);
@@ -38,14 +43,15 @@ const Subforum = () => {
 
   const handleCreatePost = async () => {
     try {
-      const token = getToken(); 
-      const userId = parseToken(token).userId; 
-      const newPost = { title: newPostTitle, user: userId };
+      const token = getToken();
+      const userId = parseToken(token).userId;
+      const newPost = { title: newPostTitle, text: newPostText, user: userId };
       const result = await createPostInSubforum(newPost);
       console.log('New post created:', result);
       if (!result.error) {
-        setPosts([...posts, result.data]);
+        setPosts([...posts, result.data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         setNewPostTitle("");
+        setNewPostText("");
       } else {
         setError(result.error);
       }
@@ -56,13 +62,14 @@ const Subforum = () => {
 
   const handleEditPost = async (id) => {
     try {
-      const updatedPost = { title: editPostTitle };
+      const updatedPost = { title: editPostTitle, text: editPostText };
       const result = await updatePostInSubforum(id, updatedPost);
       console.log('Post updated:', result);
       if (!result.error) {
-        setPosts(posts.map(post => post._id === id ? result : post));
+        setPosts(posts.map(post => post._id === id ? result.data : post).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         setEditPostId(null);
         setEditPostTitle("");
+        setEditPostText("");
       } else {
         setError(result.error);
       }
@@ -100,27 +107,38 @@ const Subforum = () => {
   return (
     <div>
       <h1>Subforum</h1>
-      <input
-        type="text"
-        value={newPostTitle}
-        onChange={(e) => setNewPostTitle(e.target.value)}
-        placeholder="New post title"
-      />
-      <button onClick={handleCreatePost}>Create Post</button>
-      <ul>
+      <div className="create-post-container">
+        <input
+          type="text"
+          value={newPostTitle}
+          onChange={(e) => setNewPostTitle(e.target.value)}
+          placeholder="New post title"
+        />
+        <textarea
+          value={newPostText}
+          onChange={(e) => setNewPostText(e.target.value)}
+          placeholder="New post text"
+        />
+        <button onClick={handleCreatePost}>Create Post</button>
+      </div>
+      <ul className="post-list">
         {posts.length === 0 ? (
           <li>No posts available</li>
         ) : (
           posts.map((post) => {
             console.log('post:', post);
             return (
-              <li key={post._id}>
+              <li key={post._id} className="post-item">
                 {editPostId === post._id ? (
-                  <div>
+                  <div className="edit-post-container">
                     <input
                       type="text"
                       value={editPostTitle}
                       onChange={(e) => setEditPostTitle(e.target.value)}
+                    />
+                    <textarea
+                      value={editPostText}
+                      onChange={(e) => setEditPostText(e.target.value)}
                     />
                     <button onClick={() => handleEditPost(post._id)}>Save</button>
                     <button onClick={() => setEditPostId(null)}>Cancel</button>
@@ -128,11 +146,14 @@ const Subforum = () => {
                 ) : (
                   <div>
                     <h2>{post.title}</h2>
+                    <p className="post-text">{post.text}</p>
                     <p>Posted by: {findUsernameById(post.user)}</p>
+                    <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
                     <p>{Array.isArray(post.comments) ? post.comments.length : 0} comments</p>
                     <button onClick={() => {
                       setEditPostId(post._id);
                       setEditPostTitle(post.title);
+                      setEditPostText(post.text);
                     }}>Edit</button>
                     <button onClick={() => handleDeletePost(post._id)}>Delete</button>
                   </div>
