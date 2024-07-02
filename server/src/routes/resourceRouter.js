@@ -10,6 +10,8 @@ router.get("/user/:userId", isAuthenticated, resourceApiController.getByUser); /
 router.post("/", isAuthenticated, isAdmin, resourceApiController.create);
 router.put("/:id", isAuthenticated, resourceApiController.update);
 router.delete("/:id", isAdmin, resourceApiController.remove);
+router.get("/busqueda/:busquedaData", resourceApiController.barraDeBusqueda)
+
 
 // Rutas de participación en recursos
 router.post("/:resourceId/requestParticipation/:userId", isAuthenticated, resourceApiController.requestParticipation);

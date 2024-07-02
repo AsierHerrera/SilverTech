@@ -5,6 +5,13 @@ const getAll = async (req, res) => {
     res.json({ data: resources });
 }
 
+const barraDeBusqueda = async(req,res)=>{
+    const busquedaData = req.params.busquedaData
+    console.log("BusquedaData es:",busquedaData)
+    const {error,data} = await resourceController.barraDeBusqueda(busquedaData);
+    res.json({error,data});
+}
+
 const getById = async (req, res) => {
     const id = req.params.id;
     const resource = await resourceController.getById(id);
@@ -62,5 +69,6 @@ export default {
     remove,
     requestParticipation,
     acceptParticipation,
-    rejectParticipation
+    rejectParticipation,
+    barraDeBusqueda
 }
