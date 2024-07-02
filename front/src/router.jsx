@@ -28,18 +28,6 @@ const router = createBrowserRouter([
       path: "/register",
       element: <Register />
   },
-  {
-      path: "/courses",
-      element: <Courses />
-  },
-  {
-      path: "/hire-experts",
-      element: <HireExperts />
-  },
-  {
-      path: "/user-panel",
-      element: <UserPanel />
-  },
   {  path: "/subforum",
     element: 
       <Subforum />

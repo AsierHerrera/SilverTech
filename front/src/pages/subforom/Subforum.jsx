@@ -112,7 +112,7 @@ const Subforum = () => {
           <li>No posts available</li>
         ) : (
           posts.map((post) => {
-            // console.log('post:', post);
+            console.log('post:', post);
             return (
               <li key={post._id}>
                 {editPostId === post._id ? (
