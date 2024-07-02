@@ -15,9 +15,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        enum: ["user", "admin"],
+        default: "admin"
     },
     resources: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +32,8 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
     }]
+}, {
+    timestamps: true // This will add createdAt and updatedAt fields
 });
 
 const userModel = mongoose.model("User", userSchema);
