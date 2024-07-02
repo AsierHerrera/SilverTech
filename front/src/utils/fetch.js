@@ -58,6 +58,11 @@ const createRecurso = async(recursoData)=>{
     return result;
 }
 
+const barraBusqueda = async(busquedaData)=>{
+    const result = await fetchData("/resources/busqueda/"+busquedaData,"get");
+    return result;
+}
+
 
 export {
     register,
@@ -66,5 +71,6 @@ export {
     getRecursos,
     getRecurso,
     createRecurso,
+    barraBusqueda
 
 }
