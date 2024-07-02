@@ -12,7 +12,7 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    const user = req.user;
+    const user = req.user._id;
     const { title, text } = req.body;  // Extraer directamente el título del cuerpo de la solicitud
     const subforumData = {
         user,
