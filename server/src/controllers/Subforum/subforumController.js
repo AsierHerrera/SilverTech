@@ -1,4 +1,5 @@
 import subforumModel from "../../models/subforumModel.js";
+import userModel from "../../models/userModel.js"; // Importa el modelo de usuario
 
 const getAll = async () => {
     try {
@@ -23,9 +24,14 @@ const getById = async (id) => {
     }
 }
 
-const create = async (data) => {
+const create = async (subforumData) => {
     try {
-        const subforum = await subforumModel.create(data);
+        const subforum = await subforumModel.create(subforumData);
+        const userId = subforumData.user;
+
+        // Agregar el ID del subforo creado a la lista de subforos del usuario
+        await userModel.findByIdAndUpdate(userId, { $push: { subforums: subforum._id } });
+
         return subforum;
     } catch (error) {
         console.error(error);
@@ -52,6 +58,10 @@ const remove = async (id) => {
         if (!subforum) {
             return { error: "Subforo no encontrado", status: 404 };
         }
+
+        // También debes quitar el subforo de la lista de subforos del usuario
+        await userModel.updateMany({}, { $pull: { subforums: id } });
+
         return subforum;
     } catch (error) {
         console.error(error);
@@ -66,4 +76,3 @@ export default {
     update,
     remove
 }
-
