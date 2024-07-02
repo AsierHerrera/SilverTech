@@ -54,7 +54,7 @@ const UserProfile = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('datosEmpresa', JSON.stringify(formData));
-        alert('¡Datos guardados en el almacenamiento local!');
+        alert('¡Datos guardados correctamente!');
         // o tb se puede enviar los datos a un servidor
         // fetch('/api/guardar', {
         //     method: 'POST',
@@ -177,6 +177,7 @@ const UserProfile = () => {
                     onChange={handleChange}
                 />
             </div>
+                    <button type="submit">Guardar</button>
             </form>
             </div>
             <div className='profile-actions'>
@@ -208,7 +209,6 @@ const UserProfile = () => {
                 </form>
             <ProfilePicUpload  />
             </div>
-            <button type="submit">Guardar</button>
         </div>
     );
 };
