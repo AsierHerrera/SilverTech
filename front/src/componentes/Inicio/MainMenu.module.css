@@ -1,0 +1,148 @@
+.linkText {
+  position: relative;
+  line-height: 12px;
+  display: inline-block;
+  min-width: 47px;
+}
+.linkMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 8px;
+}
+.linkText1 {
+  position: relative;
+  line-height: 12px;
+  white-space: nowrap;
+}
+.expandMoreIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.linkMenu1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  gap: 8px;
+}
+.linkText2 {
+  position: relative;
+  line-height: 12px;
+  display: inline-block;
+  min-width: 73px;
+}
+.expandMoreIcon1 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.linkMenu2 {
+  background-color: #fcfcfc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  gap: 8px;
+}
+.linkText3 {
+  position: relative;
+  line-height: 12px;
+  display: inline-block;
+  min-width: 78px;
+}
+.expandMoreIcon2 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.linkMenu3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  gap: 8px;
+}
+.linkText4 {
+  position: relative;
+  line-height: 12px;
+  display: inline-block;
+  min-width: 90px;
+}
+.expandMoreIcon3 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.linkMenu4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  gap: 8px;
+}
+.accountCircleIcon {
+  height: 36px;
+  width: 36px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.linkText5 {
+  height: 12px;
+  position: relative;
+  line-height: 160%;
+  display: inline-block;
+  min-width: 42px;
+}
+.linkMenu5 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  gap: 8px;
+}
+.expandMoreIcon4 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.accountMenu,
+.mainMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.mainMenu {
+  align-self: stretch;
+  overflow: hidden;
+  justify-content: flex-end;
+  padding: 13px 48px 13px 441px;
+  gap: 24px;
+  text-align: center;
+  font-size: 18px;
+  color: #212121;
+  font-family: "Atkinson Hyperlegible";
+}
+@media screen and (max-width: 750px) {
+  .mainMenu {
+    padding-left: 220px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mainMenu {
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+}
