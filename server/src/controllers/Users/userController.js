@@ -125,7 +125,7 @@ const register = async (data) => {
             username,
             email,
             password,
-            role: "admin"
+            role: "user"
         };
 
         const user = await create(userData);
