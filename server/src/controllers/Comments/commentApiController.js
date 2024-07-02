@@ -18,7 +18,10 @@ const getByUser = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    const comment = await commentController.create(req.body);
+    const subFormId = req.params.forumid
+    const user = req.user._id
+    console.log("El id del foro es:",subFormId)
+    const comment = await commentController.create(req.body, subFormId, user);
     res.json({ data: comment });
 }
 

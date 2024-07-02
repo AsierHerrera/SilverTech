@@ -13,10 +13,11 @@ const getById = async (req, res) => {
 
 const create = async (req, res) => {
     const user = req.user;
-    const { title } = req.body;  // Extraer directamente el título del cuerpo de la solicitud
+    const { title, text } = req.body;  // Extraer directamente el título del cuerpo de la solicitud
     const subforumData = {
         user,
-        title
+        title,
+        text
     };
     const subforum = await subforumController.create(subforumData);
     res.json({ data: subforum });
