@@ -128,7 +128,7 @@ const acceptParticipation = async (resourceId, userId) => {
 
         // Encontrar la solicitud de participación del usuario
         const participation = resource.participations.find(participation =>
-            participation.user.toString() === userId && participation.status === "pending"
+            participation.user.toString() === userId
         );
 
         if (!participation) {
@@ -169,7 +169,7 @@ const rejectParticipation = async (resourceId, userId) => {
 
         // Encontrar la solicitud de participación del usuario
         const participation = resource.participations.find(participation =>
-            participation.user.toString() === userId && participation.status === "pending"
+            participation.user.toString() === userId
         );
 
         if (!participation) {
