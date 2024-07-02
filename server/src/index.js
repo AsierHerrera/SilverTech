@@ -35,6 +35,7 @@ app.use("/api",router);
 
 /* app.use("/api/users", userRouter);  *///para componente micuenta
 
+///multer:
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
       cb(null, 'uploads/');
@@ -46,6 +47,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.use('/uploads', express.static('uploads'));
+
 app.post('/uploads', upload.single('file'), (req, res) => {
   try {
     console.log(req.file); 
@@ -55,7 +58,7 @@ app.post('/uploads', upload.single('file'), (req, res) => {
       console.error(error);
       res.status(500).json({ error: 'Error al subir la imagen' });
   }
-});
+});////
 
 app.listen(CONTAINER_PORT ,()=>{
     console.log("Aplicacion en marcha en el puerto "+process.env.APP_PORT);

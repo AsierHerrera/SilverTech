@@ -8,6 +8,7 @@ const UserProfile = () => {
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [profilePic, setProfilePic] =useState('')
     const profileRef = useRef(null);
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const UserProfile = () => {
                 {/* <img src={user.profile.Picture} alt='Profile' className='profile-picture' /> */}
                 {/* <ProfilePic /> */}
 
-                <ProfilePicUpload />
+                <ProfilePicUpload  />
                 <h2>{user.name}</h2>
                 <p>@{user.name}</p>
             </div>
