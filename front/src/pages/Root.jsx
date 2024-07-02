@@ -4,6 +4,8 @@ import { deleteToken, getToken } from "../utils/local";
 import { useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
+import NavBar from "../componentes/NavBar/NavBar";
+
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -28,22 +30,41 @@ const Root = () => {
         deleteToken();
         navigate("/register");
     }
-    return (
+
+    /* 
         <div>
+            <NavBar/>
             <nav>
                 <ul>
                     <li>
                         <Link to="/">Inicio</Link>
                     </li>
                     <li>
-                        <Link to="/register">Logout </Link>   
+                        <Link to="/recursos">Recursos</Link>
+                    </li>
+                    <li>
+                        <Link to="/register" onClick={handleLogout}>Logout </Link>   
                     </li>
                 </ul>
             </nav>
 
             <h1>Hello {user?.username}</h1>
             <Outlet />
-        </div>
+        </div>    
+    */
+
+    return (
+        <div>
+            <NavBar/>
+            <nav>
+                <ul>
+   
+                </ul>
+            </nav>
+
+      
+            <Outlet />
+        </div>    
     )
 };
 

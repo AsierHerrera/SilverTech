@@ -45,10 +45,26 @@ const fetchUserData = async()=>{
     return result;
 }
 
+const getRecursos = async()=>{
+    const result = await fetchData("/recursos","get");
+    return result;
+}
+const getRecurso= async(id)=>{
+    const result = await fetchData("/recursos/"+id,"get");
+    return result;
+}
+const createRecurso = async(recursoData)=>{
+    const result = await fetchData("/recursos","post",recursoData);
+    return result;
+}
+
 
 export {
     register,
     login,
     fetchUserData,
+    getRecursos,
+    getRecurso,
+    createRecurso,
 
 }
