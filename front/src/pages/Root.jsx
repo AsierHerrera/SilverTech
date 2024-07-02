@@ -1,10 +1,9 @@
 import "./Root.scss"
-import { Outlet, Link,useNavigate } from "react-router-dom";
-import { getToken } from "../utils/local";
-import { useEffect,useContext } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { deleteToken, getToken } from "../utils/local";
+import { useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
-import { getUserData } from "../utils/fetch";
-
+import { fetchUserData } from "../utils/fetch";
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -13,34 +12,38 @@ const Root = () => {
         if (!getToken()) {
             navigate("/register");
         }
-        fetchUserData();
+        getUserData();
     }, []);
 
-    async function fetchUserData() {
-        const data  = await getUserData();
-        if(data.error){
+    async function getUserData() {
+        const data = await fetchUserData();
+        if (data.error) {
             navigate("/register");
         }
         setUser(data.data);
-      }
+    }
+    async function handleLogout(e) {
+        e.preventDefault();
+        setUser(null);
+        deleteToken();
+        navigate("/register");
+    }
     return (
-        <div id="root-body">
-            <nav>  
-                <div>
-                    <Link to="/">Inicio</Link>
-                </div>              
-          
-                <div>
-                    <Link to="/register">Logout </Link>                    
-                </div>
-
-                <div>
-                    <Link to="/recursos">Recursos </Link>                    
-                </div>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Inicio</Link>
+                    </li>
+                    <li>
+                        <Link to="/register">Logout </Link>   
+                    </li>
+                </ul>
             </nav>
+
+            <h1>Hello {user?.username}</h1>
             <Outlet />
         </div>
-        
     )
 };
 

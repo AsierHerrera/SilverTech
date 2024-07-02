@@ -11,26 +11,23 @@ import UserPanel from './pages/UserPanel';
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      errorElement: <ErrorPage />,
-      children: [
-        {
-            path: "/",
-            element: <Home />
-        },
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+          path: "/",
+          element: <Home />,
 
-      ]
-    },
-    {
-        path: "/register",
-        element: <Register />
-    }
-    
-
-
-    
-  ]);
+      },
+    ]
+  },
+  {
+      path: "/register",
+      element: <Register />
+  }
+  
+]);
 
 export default router;
