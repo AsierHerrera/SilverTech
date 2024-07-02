@@ -1,6 +1,6 @@
 import userModel from "../../models/userModel.js";
 import resourceModel from "../../models/resourceModel.js"; // Importar modelo de recursos
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const getAll = async () => {
@@ -12,6 +12,17 @@ const getAll = async () => {
         return { error: "Error al obtener usuarios", status: 500 };
     }
 }
+
+function getUserData(user){
+    return {
+        _id: user._id,
+        email: user.email,
+        username: user.username,
+        role: user.role,
+        projects: user.projects
+    }
+}
+
 
 const getById = async (id) => {
     try {
@@ -174,6 +185,7 @@ const remove = async (id) => {
 export default {
     getAll,
     getById,
+    getUserData,
     getByProperty,
     getByResource,
     login,

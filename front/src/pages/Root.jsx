@@ -3,7 +3,7 @@ import { Outlet, Link,useNavigate } from "react-router-dom";
 import { getToken } from "../utils/local";
 import { useEffect,useContext } from "react";
 import UserContext from "../context/userContext";
-
+import { getUserData } from "../utils/fetch";
 
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
