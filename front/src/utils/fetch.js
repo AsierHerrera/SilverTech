@@ -112,6 +112,7 @@ export {
     getRecursos,
     getRecurso,
     createRecurso,
-    barraBusqueda
+    barraBusqueda,
+    getUserPanel
 
 }
