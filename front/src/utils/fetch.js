@@ -103,7 +103,6 @@ export {
     updatePostInSubforum,
     deletePostInSubforum,
     getAllUsers,
-    fetchUserData
     fetchUserData,
     getRecursos,
     getRecurso,
