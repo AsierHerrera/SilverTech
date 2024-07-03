@@ -36,6 +36,24 @@ const remove = async (req, res) => {
     const comment = await commentController.remove(id);
     res.json({ data: comment });
 }
+const getByForumId = async (req, res) => {
+    const forumId = req.params.forumid;
+    const comments = await commentController.getByForumId(forumId);
+    res.json({ data: comments });
+}
+const likeComment = async (req, res) => {
+    const { commentId } = req.params;
+    const userId = req.user._id; 
+    const result = await commentController.likeComment(commentId, userId);
+    res.json({ data: result });
+};
+
+const dislikeComment = async (req, res) => {
+    const { commentId } = req.params;
+    const userId = req.user._id; 
+    const result = await commentController.dislikeComment(commentId, userId);
+    res.json({ data: result });
+};
 
 export default {
     getAll,
@@ -43,5 +61,8 @@ export default {
     getByUser,
     create,
     update,
-    remove
+    remove,
+    getByForumId,
+    dislikeComment,
+    likeComment
 }

@@ -44,14 +44,17 @@ const create = async (data, subforumId, user) => {
         data.user = user
         data.subforum = subforum._id; // Asocia el comentario al subforo
         const comment = await commentModel.create(data);
-        await userModel.findByIdAndUpdate(user, { $push: { comments: comment._id } });
 
+        await userModel.findByIdAndUpdate(user, { $push: { comments: comment._id } });
+        await subforumModel.findByIdAndUpdate(subforumId, { $push: { comments: comment._id } });
         return comment;
     } catch (error) {
         console.error(error);
         return { error: "Error al crear el comentario", status: 500 };
     }
 }
+
+
 
 const update = async (id, data) => {
     try {
@@ -79,11 +82,73 @@ const remove = async (id) => {
     }
 }
 
+const getByForumId = async (forumId) => {
+    return await commentModel.find({ subforum: forumId }).populate('user').exec();
+}
+
+const likeComment = async (commentId, userId) => {
+    try {
+        const comment = await commentModel.findById(commentId);
+        if (!comment) {
+            return { error: "Comment not found", status: 404 };
+        }
+
+        if (comment.likes.includes(userId)) {
+            return { error: "You have already liked this comment", status: 400 };
+        }
+
+        if (comment.dislikes.includes(userId)) {
+            comment.dislikes.pull(userId);
+        }
+
+        comment.likes.push(userId);
+        comment.likesCount = comment.likes.length;
+        comment.dislikesCount = comment.dislikes.length;
+
+        await comment.save();
+        return comment;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error liking the comment", status: 500 };
+    }
+};
+
+const dislikeComment = async (commentId, userId) => {
+    try {
+        const comment = await commentModel.findById(commentId);
+        if (!comment) {
+            return { error: "Comment not found", status: 404 };
+        }
+
+        if (comment.dislikes.includes(userId)) {
+            return { error: "You have already disliked this comment", status: 400 };
+        }
+
+        if (comment.likes.includes(userId)) {
+            comment.likes.pull(userId);
+        }
+
+        comment.dislikes.push(userId);
+        comment.likesCount = comment.likes.length;
+        comment.dislikesCount = comment.dislikes.length;
+
+        await comment.save();
+        return comment;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error disliking the comment", status: 500 };
+    }
+};
+
+
 export default {
     getAll,
     getById,
     getByUser,
     create,
     update,
-    remove
+    remove,
+    getByForumId,
+    likeComment,
+    dislikeComment
 }
