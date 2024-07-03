@@ -9,5 +9,8 @@ router.get("/:id", subforumApiController.getById);
 router.post("/", isAuthenticated, subforumApiController.create);
 router.put("/:id", isAuthenticated, subforumApiController.update);
 router.delete("/:id", isAdmin, subforumApiController.remove);
+// router.post("/", subforumApiController.create);
+// router.put("/:id", subforumApiController.update);
+// router.delete("/:id", subforumApiController.remove);
 
 export default router;

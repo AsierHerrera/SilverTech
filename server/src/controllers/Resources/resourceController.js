@@ -1,5 +1,6 @@
 import resourceModel from "../../models/resourceModel.js";
 import userModel from "../../models/userModel.js";
+import subforumModel from "../../models/subforumModel.js";
 
 const getAll = async () => {
     try {
@@ -8,6 +9,37 @@ const getAll = async () => {
     } catch (error) {
         console.error(error);
         return { error: "Error al obtener recursos", status: 500 };
+    }
+}
+
+async function barraDeBusqueda(busquedaData) {
+    try {
+        if (busquedaData.length > 2) {
+            const subforos = await subforumModel.find({
+                $or: [
+                    { name: { $regex: busquedaData, $options: 'i' } },
+                    { description: { $regex: busquedaData, $options: 'i' } }
+                ]
+            });
+
+            const recursos = await resourceModel.find({
+                $or: [
+                    { name: { $regex: busquedaData, $options: 'i' } },
+                    { description: { $regex: busquedaData, $options: 'i' } },
+                    { resourceType: { $regex: busquedaData, $options: 'i' } }
+                ]
+            });
+
+            console.log("SUBFOROS ENCONTRADOS:", subforos);
+            console.log("RECURSOS ENCONTRADOS:", recursos);
+
+            return { data: { subforos, recursos } };
+        } else {
+            return { data: [], message: 'La búsqueda debe tener más de 3 caracteres' };
+        }
+    } catch (error) {
+        console.error("Error al buscar subforos y recursos:", error);
+        return { error: error.message };
     }
 }
 
@@ -203,5 +235,6 @@ export default {
     remove,
     requestParticipation,
     acceptParticipation,
-    rejectParticipation
+    rejectParticipation,
+    barraDeBusqueda
 }

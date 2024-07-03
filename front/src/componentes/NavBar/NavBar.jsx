@@ -14,8 +14,9 @@ const NavBar = () => {
         <nav className="navbar__nav">
           <Link className="navbar__link" to="/">Inicio</Link>
           <Link className="navbar__link" to="/contratar-expertos">Contratacion de Expertos</Link>
-          <Link className="navbar__link" to="/cursos-y-talleres">Cursos y Talleres</Link>
-          <Link className="navbar__link" to="/foro">Foro</Link>
+          <Link className="navbar__link" to="/cursos-y-talleres">Recursos</Link>
+          <Link className="navbar__link" to="/foro">Proyectos</Link>
+          <Link className="navbar__link" to="/foro">Networking</Link>
           <Link className="navbar__link" to="/panel-de-usuario">
             <img src={userIcon} alt="Perfil" className="navbar__user-icon" />
           </Link>

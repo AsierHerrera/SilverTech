@@ -6,6 +6,7 @@ import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
 
+
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -45,6 +46,14 @@ const Root = () => {
                     <li>
                         <Link to="/register" onClick={handleLogout}>Logout </Link>   
                     </li>
+                  <li>
+                        <Link to="/subforum">subforum</Link>
+                  </li>
+
+                    <li>
+                        
+                    </li>
+
                 </ul>
             </nav>
 
@@ -62,7 +71,7 @@ const Root = () => {
                 </ul>
             </nav>
 
-      
+            
             <Outlet />
         </div>    
     )
