@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './UserProfile.css';
+/* import React, { useState, useEffect } from 'react';
+import 'front/src/pages/userProfile/UserProfile.css';
 import ProfilePicUpload from './ProfilePicUpload';
 
 const UserProfile = () => {
@@ -206,3 +206,4 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+ */
