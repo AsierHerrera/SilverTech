@@ -1,5 +1,22 @@
 import mongoose from "mongoose";
 
+const participationSchema = new mongoose.Schema({
+    resource: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Resource"
+    },
+    status: {
+        type: String,
+        enum: ["pending", "accepted", "rejected"],
+        default: "pending"
+    },
+    actionDate: {
+        type: Date,
+        required: true,
+        default: Date.now
+    }
+}, { timestamps: true });
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -18,12 +35,13 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: ["user", "admin"],
-        default: "admin"
+        default: "user"
     },
     resources: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Resource"
     }],
+    participations: [participationSchema],
     subforums: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Subforum"

@@ -32,7 +32,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTgxMDI0MzQsImV4cCI6MTcxODE4ODgzNH0.z1DdbZ82UJzzold-Gc5VK7wcFOCo6gcjWdb5Xa18bos",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -74,7 +74,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTgwNDc2OTgsImV4cCI6MTcxODA1MTI5OH0.serxw8OxhonVkPk2u8Ll9c3cHRyyTwmohbEb1Irl4oI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk5MzMxMDYsImV4cCI6MTcyMDAxOTUwNn0.kik22s1YE7cKuh5KpD_2ofjpFf5F82tzAKBA5iJsb-E",
 									"type": "string"
 								}
 							]
@@ -82,13 +82,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/users/2",
+							"raw": "{{base_url}}/users/6682b7a780090791ee102c47",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"2"
+								"6682b7a780090791ee102c47"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -117,7 +117,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Is_Admin\": 1\n            \n}",
+							"raw": "{\n    \"username\": \"Prueba actualizacion\"\n            \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -125,13 +125,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/5",
+							"raw": "{{base_url}}/users/6683e70dada2f9d694ba4760",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"5"
+								"6683e70dada2f9d694ba4760"
 							]
 						},
 						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -156,6 +156,16 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyYjdhNzgwMDkwNzkxZWUxMDJjNDciLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk4NDI3MzIsImV4cCI6MTcxOTkyOTEzMn0.EFJb5uUNgKp3pkvN0n4Y13OMMhGmP4Gyh3lhELz80EM",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -168,13 +178,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/1",
+							"raw": "{{base_url}}/users/6682b7a780090791ee102c47",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"6682b7a780090791ee102c47"
 							]
 						},
 						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
@@ -203,7 +213,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Email\":\"usao@normal.com\",\n    \"Name\":\"usio\",\n    \"Password\":\"asd\",\n    \"Password_repeat\":\"asd\"\n}",
+							"raw": "{\n\t\"email\":\"usao@normal.com\",\n    \"username\":\"Usuario prueba\",\n    \"password\":\"Asier123456!\",\n    \"passwordRepeat\":\"Asier123456!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -297,7 +307,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Email\":\"asd\",\n    \"Password\":\"asd\"\n}",
+							"raw": "{\n\t\"email\":\"usao@normal.com\",\n    \"password\":\"Asier123456!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -344,7 +354,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -536,7 +546,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -545,7 +555,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"foro de prueba\"\n}",
+							"raw": "{\n\t\"title\":\"foro de prueba 2\",\n    \"text\":\"foro de prueba\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -571,7 +581,7 @@
 			"name": "Comments",
 			"item": [
 				{
-					"name": "GetAllSubForums",
+					"name": "GetAllComments",
 					"event": [
 						{
 							"listen": "test",
@@ -592,7 +602,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -600,12 +610,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/subforum",
+							"raw": "{{base_url}}/comments",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"subforum"
+								"comments"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -613,7 +623,7 @@
 					"response": []
 				},
 				{
-					"name": "GetForumByID",
+					"name": "GetCommentByID",
 					"event": [
 						{
 							"listen": "test",
@@ -634,7 +644,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -642,13 +652,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/subforum/6682d1d720ae3f7e5f1a904f",
+							"raw": "{{base_url}}/comments/6683e80e5b8045958fd4f849",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"subforum",
-								"6682d1d720ae3f7e5f1a904f"
+								"comments",
+								"6683e80e5b8045958fd4f849"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -656,7 +666,7 @@
 					"response": []
 				},
 				{
-					"name": "UpdateForum",
+					"name": "UpdateComment",
 					"event": [
 						{
 							"listen": "test",
@@ -678,7 +688,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -687,7 +697,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Prueba modificar titulo\"\n            \n}",
+							"raw": "{\n    \"content\": \"El comentario se actualiza correctamente\"\n            \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -695,13 +705,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/subforum/6682d15f20ae3f7e5f1a9048",
+							"raw": "{{base_url}}/comments/6683e80e5b8045958fd4f849",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"subforum",
-								"6682d15f20ae3f7e5f1a9048"
+								"comments",
+								"6683e80e5b8045958fd4f849"
 							]
 						},
 						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -709,7 +719,7 @@
 					"response": []
 				},
 				{
-					"name": "DeleteSubforum",
+					"name": "DeleteComment",
 					"event": [
 						{
 							"listen": "test",
@@ -731,7 +741,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -748,13 +758,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/subforum/6682d15f20ae3f7e5f1a9048",
+							"raw": "{{base_url}}/comments/6683ed64b341d42325b1d26d",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"subforum",
-								"6682d15f20ae3f7e5f1a9048"
+								"comments",
+								"6683ed64b341d42325b1d26d"
 							]
 						},
 						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
@@ -784,7 +794,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgyZDBkYWUwNDdkNDYyZmU1NTYxYmIiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5ODQ5MTgzLCJleHAiOjE3MTk5MzU1ODN9.H59IBHIHFl20YLXaD0L0073VEQKi_h9iWn4mYOlpE-8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
 									"type": "string"
 								}
 							]
@@ -793,7 +803,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"foro de prueba\"\n}",
+							"raw": "{\n\t\"content\":\"comentario de prueba\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -801,15 +811,429 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/subforum",
+							"raw": "{{base_url}}/comments/6683ebca7d51ddc045e7f821",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"subforum"
+								"comments",
+								"6683ebca7d51ddc045e7f821"
 							]
 						},
 						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resources",
+			"item": [
+				{
+					"name": "GetAllResources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk5MzMxMDYsImV4cCI6MTcyMDAxOTUwNn0.kik22s1YE7cKuh5KpD_2ofjpFf5F82tzAKBA5iJsb-E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/resources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "GetResouceByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/resources/668418d93690c3c09e47bcb5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources",
+								"668418d93690c3c09e47bcb5"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"El comentario se actualiza correctamente\"\n            \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/6683e80e5b8045958fd4f849",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"6683e80e5b8045958fd4f849"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteResouce",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTM0OTA3LCJleHAiOjE3MjAwMjEzMDd9.Lxjm_gtYExbkTRTSfAy2q7S6DoapaYlCK4yK_r5HuoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/resources/668418d93690c3c09e47bcb5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources",
+								"668418d93690c3c09e47bcb5"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "CreateResource",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk5MzMxMDYsImV4cCI6MTcyMDAxOTUwNn0.kik22s1YE7cKuh5KpD_2ofjpFf5F82tzAKBA5iJsb-E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Curso de JavaScript Avanzado\",\n    \"description\": \"Curso intensivo sobre JavaScript avanzado\",\n    \"modality\": \"Presencial\",\n    \"startDate\": \"2024-07-15T10:00:00Z\",\n    \"endDate\": \"2024-07-15T18:00:00Z\",\n    \"price\": 200,\n    \"instructor\": \"Juan Pérez\",\n    \"resourceType\": \"Formacion\",\n    \"availableSlots\": 20,\n    \"user\": \"60ebea5f3cc2d70015b3db5b\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/resources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "requestParticipation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk5MzMxMDYsImV4cCI6MTcyMDAxOTUwNn0.kik22s1YE7cKuh5KpD_2ofjpFf5F82tzAKBA5iJsb-E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Curso de JavaScript Avanzado\",\n    \"description\": \"Curso intensivo sobre JavaScript avanzado\",\n    \"modality\": \"Presencial\",\n    \"startDate\": \"2024-07-15T10:00:00Z\",\n    \"endDate\": \"2024-07-15T18:00:00Z\",\n    \"price\": 200,\n    \"instructor\": \"Juan Pérez\",\n    \"resourceType\": \"Curso\",\n    \"availableSlots\": 20\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/resources/668418d93690c3c09e47bcb5/requestParticipation/668418af3690c3c09e47bcad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources",
+								"668418d93690c3c09e47bcb5",
+								"requestParticipation",
+								"668418af3690c3c09e47bcad"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "AcceptParticipation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg0MThhZjM2OTBjM2MwOWU0N2JjYWQiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTk5MzMxMDYsImV4cCI6MTcyMDAxOTUwNn0.kik22s1YE7cKuh5KpD_2ofjpFf5F82tzAKBA5iJsb-E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/resources/668418d93690c3c09e47bcb5/acceptParticipation/668418af3690c3c09e47bcad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources",
+								"668418d93690c3c09e47bcb5",
+								"acceptParticipation",
+								"668418af3690c3c09e47bcad"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "RejectParticipation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzZTcwZGFkYTJmOWQ2OTRiYTQ3NjAiLCJ1c2VybmFtZSI6IlVzdWFyaW8gcHJ1ZWJhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE5OTIwNDAxLCJleHAiOjE3MjAwMDY4MDF9.DXaAzzJ9i7GCZfGxpu1zIqQuhq2cSz27lYM-rTuqlYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"El comentario se actualiza correctamente\"\n            \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/resources/668418d93690c3c09e47bcb5/rejectParticipation/668418af3690c3c09e47bcad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"resources",
+								"668418d93690c3c09e47bcb5",
+								"rejectParticipation",
+								"668418af3690c3c09e47bcad"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
 					},
 					"response": []
 				}

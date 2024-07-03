@@ -75,6 +75,23 @@ const getAllUsers = async()=>{
     const result = await fetchData("/users","get");
     return result;
 }
+const getRecursos = async()=>{
+    const result = await fetchData("/recursos","get");
+    return result;
+}
+const getRecurso= async(id)=>{
+    const result = await fetchData("/recursos/"+id,"get");
+    return result;
+}
+const createRecurso = async(recursoData)=>{
+    const result = await fetchData("/recursos","post",recursoData);
+    return result;
+}
+
+const barraBusqueda = async(busquedaData)=>{
+    const result = await fetchData("/resources/busqueda/"+busquedaData,"get");
+    return result;
+}
 
 export {
     register,
@@ -87,5 +104,10 @@ export {
     deletePostInSubforum,
     getAllUsers,
     fetchUserData
+    fetchUserData,
+    getRecursos,
+    getRecurso,
+    createRecurso,
+    barraBusqueda
 
 }
