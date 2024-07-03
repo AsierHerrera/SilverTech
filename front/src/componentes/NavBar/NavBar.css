@@ -1,6 +1,24 @@
-.navbar {
+header {
+  width: 100%;
+}
+
+.navbar__logo-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+.navbar__logo {
+  width: 160px; 
+  height: 35px; 
+  margin-left: 20px;
+}
+
+.navbar__menu-bar {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #ffffff;
   padding: 1rem;
@@ -10,14 +28,6 @@
   display: flex;
   gap: 2rem;
   align-items: center;
-  margin-top: 10px;
-}
-
-.navbar__logo {
-  width: 160px; 
-  height: 35px; 
-  margin-right: 100px;
-  margin-left: 20px;
 }
 
 .navbar__link {
@@ -30,4 +40,9 @@
 
 .navbar__link:hover {
   text-decoration: underline;
+}
+
+.navbar__user-icon {
+  width: 30px;  
+  height: 30px; 
 }
