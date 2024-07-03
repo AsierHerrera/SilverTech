@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "../pages/userProfile/UserProfile.css";
+import "./UserPanel.css"
 
 const UserPanel = () => {
     const [user, setUser] = useState({});
