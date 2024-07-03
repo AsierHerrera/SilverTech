@@ -5,7 +5,7 @@ import { useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
-import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"a
+import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
 import Subforum from './subforom/Subforum';
 
 
