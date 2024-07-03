@@ -1,5 +1,21 @@
 import mongoose from "mongoose";
 
+const participationSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    status: {
+        type: String,
+        enum: ["pending", "accepted", "rejected"],
+        default: "pending"
+    },
+    registrationDate: {
+        type: Date,
+        default: Date.now
+    }
+}, { timestamps: true });
+
 const resourceSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -33,10 +49,11 @@ const resourceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    users: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }]
+    availableSlots: {
+        type: Number,
+        required: true
+    },
+    participations: [participationSchema]
 }, {
     timestamps: true // This will add createdAt and updatedAt fields
 });
