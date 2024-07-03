@@ -123,7 +123,7 @@
   gap: 8px;
 }
 .mainMenu {
-  align-self: stretch;
+  /* align-self: stretch; */
   overflow: hidden;
   justify-content: flex-end;
   padding: 13px 48px 13px 441px;
@@ -132,6 +132,7 @@
   font-size: 18px;
   color: #212121;
   font-family: "Atkinson Hyperlegible";
+
 }
 @media screen and (max-width: 750px) {
   .mainMenu {

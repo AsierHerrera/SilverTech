@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+// models/userModel.js
+import mongoose from 'mongoose';
 
 const participationSchema = new mongoose.Schema({
     resource: {
@@ -49,6 +50,14 @@ const userSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
+    }],
+    company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Company"
+    },
+    projects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
     }]
 }, {
     timestamps: true // This will add createdAt and updatedAt fields
