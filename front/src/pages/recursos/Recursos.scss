@@ -27,6 +27,11 @@
     margin-bottom: 8vh;
     display: flex;
     border-radius: 10px;
+    border: solid 1px $Neutral_Dark;
+}
+
+.card > img{
+    border-radius: 8px 8px 0px 0px;
 }
 
 .seccion1{
@@ -78,6 +83,10 @@
     border-radius: 0px 0px 10px 10px;
     padding-top: 2vh;
     padding-bottom: 2vh;
+}
+
+.ver-mas:hover{
+    cursor: pointer;
 }
 
 .gris{
