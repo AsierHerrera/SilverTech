@@ -242,7 +242,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getOnePostInSubforumById, getAllCommentsByPostId, createComment, updateComment, deleteComment, getAllUsers } from '../../utils/fetch';
+import { getOnePostInSubforumById, getAllCommentsByPostId, createComment, updateComment, deleteComment, getAllUsers } from '../../utils/fetch.js';
 import { getToken, parseToken } from '../../utils/local.js';
 import './SubforumDetails.css';
 
