@@ -1,0 +1,19 @@
+
+.post-detail {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comments-section {
+    margin-top: 20px;
+  }
+  
+  .comment-item {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  

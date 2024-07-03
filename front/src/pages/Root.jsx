@@ -46,6 +46,14 @@ const Root = () => {
                     <li>
                         <Link to="/register" onClick={handleLogout}>Logout </Link>   
                     </li>
+                  <li>
+                        <Link to="/subforum">subforum</Link>
+                  </li>
+
+                    <li>
+                        
+                    </li>
+
                 </ul>
             </nav>
 
