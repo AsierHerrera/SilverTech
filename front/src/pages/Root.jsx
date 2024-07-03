@@ -8,6 +8,7 @@ import NavBar from "../componentes/NavBar/NavBar";
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
 import Subforum from './subforom/Subforum';
 
+
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -72,7 +73,7 @@ const Root = () => {
                 </ul>
             </nav>
 
-            <BarraBusqueda />
+            
             <Outlet />
         </div>    
     )
