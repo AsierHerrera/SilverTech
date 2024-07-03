@@ -93,6 +93,11 @@ const barraBusqueda = async(busquedaData)=>{
     return result;
 }
 
+const getUserPanel= async(id)=>{
+    const result = await fetchData("/panel-de-usuario/"+id,"get");
+    return result;
+}
+
 export {
     register,
     login,

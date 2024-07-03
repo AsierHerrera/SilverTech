@@ -3,9 +3,7 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import { deleteToken, getToken } from "../utils/local";
 import { useEffect, useContext, useState } from "react";
 import UserContext from "../context/userContext";
-import UserProfile from "./userProfile/UserProfile";
-
-
+/* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
 

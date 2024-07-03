@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './UserProfile.css';
-import ProfilePicUpload from './ProfilePicUpload';
+import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 
 const UserPanel = () => {
     const [user, setUser] = useState({});
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [profilePic, setProfilePic] = useState(''); // Cambiado a una cadena
     const [formData, setFormData] = useState({
         nombreEmpresa: '',
         cif: '',
@@ -33,13 +33,20 @@ const UserPanel = () => {
         setName(savedUser.username || '');
     }, []);
 
+    // Cargar URL de la imagen desde localStorage al cargar el componente
+    useEffect(() => {
+        const savedProfilePic = localStorage.getItem('profilePic');
+        if (savedProfilePic) {
+            setProfilePic(savedProfilePic);
+        }
+    }, []);
+
     // Manejar cambio de nombre de usuario
     const handleNameChange = (e) => {
         e.preventDefault();
         const updatedUser = { ...user, username: name };
-        setUser(updatedUser.name);
+        setUser(updatedUser);
         localStorage.setItem('userData', JSON.stringify(updatedUser));
-        setName(name);
         alert('Se ha actualizado tu nombre de usuario');
     };
 
@@ -79,10 +86,11 @@ const UserPanel = () => {
     return (
         <div className='user-profile'>
             <h1>Perfil</h1>
+        {profilePic && <img src={profilePic} alt='Profile' style={{ width: '150px', height: '150px', borderRadius: '50%' }} />}
 
             <div className='profile-header'>
-                <h2>{name}</h2>
-                <p>@{name}</p>
+                <h2>{user.username}</h2>
+                <p>@{user.username}</p>
             </div>
 
             <div className='profile-details'>
@@ -199,7 +207,9 @@ const UserPanel = () => {
                     <button type='submit'>Actualizar Contraseña</button>
                 </form>
 
-                <ProfilePicUpload />
+                {/* Pasar la imagen de perfil a ProfilePicUpload */}
+                <ProfilePicUpload setProfilePic={setProfilePic} />
+                {/* Mostrar la imagen de perfil */}
             </div>
         </div>
     );

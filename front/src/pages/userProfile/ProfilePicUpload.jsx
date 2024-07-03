@@ -25,6 +25,18 @@ const ProfilePicUpload = () => {
         } catch (error) {
             console.error('Error al subir la imagen', error);
         }
+
+        try {
+            const response = await axios.post('http://localhost:3030/uploads', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            setProfilePic(`http://localhost:3030/uploads/${response.data.file.filename}`);
+            localStorage.setItem('profilePic', `http://localhost:3030/uploads/${response.data.file.filename}`); // URL en localStorage
+        } catch (error) {
+            console.error('Error al subir la imagen', error);
+        }
     };
 
     return (
