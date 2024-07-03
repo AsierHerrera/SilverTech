@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
+import "../pages/userProfile/UserProfile.css"
 
 const UserPanel = () => {
     const [user, setUser] = useState({});
@@ -46,7 +47,6 @@ const UserPanel = () => {
         alert('Se ha actualizado tu nombre de usuario');
     };
 
-
     const handlePasswordChange = (e) => {
         e.preventDefault();
         alert('Se ha actualizado tu contraseña');
@@ -54,20 +54,17 @@ const UserPanel = () => {
         setNewPassword('');
     };
 
-    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('datosEmpresa', JSON.stringify(formData));
         alert('¡Datos de la empresa guardados correctamente!');
     };
 
-    
     const formGroupStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -82,7 +79,7 @@ const UserPanel = () => {
     return (
         <div className='user-profile'>
             <h1>Perfil</h1>
-        {profilePic && <img src={profilePic} alt='Profile' style={{ width: '150px', height: '150px', borderRadius: '50%' }} />}
+            {profilePic && <img src={profilePic} alt='Profile' style={{ width: '150px', height: '150px', borderRadius: '50%', alignItems: 'center' }} />}
 
             <div className='profile-header'>
                 <h2>{user.username}</h2>
@@ -171,9 +168,9 @@ const UserPanel = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <button type="submit">Guardar</button>
                 </form>
             </div>
+            <ProfilePicUpload setProfilePic={setProfilePic} />
 
             <div className='profile-actions'>
                 <form onSubmit={handleNameChange}>
@@ -181,6 +178,7 @@ const UserPanel = () => {
                     <input
                         type='text'
                         value={name}
+                        placeholder="Cambiar Nombre"
                         onChange={(e) => setName(e.target.value)}
                     />
                     <button type='submit'>Actualizar Nombre</button>
@@ -203,9 +201,7 @@ const UserPanel = () => {
                     <button type='submit'>Actualizar Contraseña</button>
                 </form>
 
-            
-                <ProfilePicUpload setProfilePic={setProfilePic} />
-               
+                <button type="submit" onClick={handleSubmit}>Guardar</button>
             </div>
         </div>
     );
