@@ -6,7 +6,7 @@ const UserPanel = () => {
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [profilePic, setProfilePic] = useState(''); // Cambiado a una cadena
+    const [profilePic, setProfilePic] = useState(''); 
     const [formData, setFormData] = useState({
         nombreEmpresa: '',
         cif: '',
@@ -18,7 +18,6 @@ const UserPanel = () => {
         descripcion: ''
     });
 
-    // Cargar datos almacenados en localStorage al cargar el componente
     useEffect(() => {
         const savedData = localStorage.getItem('datosEmpresa');
         if (savedData) {
@@ -26,14 +25,12 @@ const UserPanel = () => {
         }
     }, []);
 
-    // Cargar datos de usuario y nombre desde localStorage al cargar el componente
     useEffect(() => {
         const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
         setUser(savedUser);
         setName(savedUser.username || '');
     }, []);
 
-    // Cargar URL de la imagen desde localStorage al cargar el componente
     useEffect(() => {
         const savedProfilePic = localStorage.getItem('profilePic');
         if (savedProfilePic) {
@@ -41,7 +38,6 @@ const UserPanel = () => {
         }
     }, []);
 
-    // Manejar cambio de nombre de usuario
     const handleNameChange = (e) => {
         e.preventDefault();
         const updatedUser = { ...user, username: name };
@@ -50,7 +46,7 @@ const UserPanel = () => {
         alert('Se ha actualizado tu nombre de usuario');
     };
 
-    // Manejar cambio de contraseña
+
     const handlePasswordChange = (e) => {
         e.preventDefault();
         alert('Se ha actualizado tu contraseña');
@@ -58,20 +54,20 @@ const UserPanel = () => {
         setNewPassword('');
     };
 
-    // Manejar cambio en los campos del formulario de datos de empresa
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // Guardar datos de empresa en localStorage al enviar el formulario
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('datosEmpresa', JSON.stringify(formData));
         alert('¡Datos de la empresa guardados correctamente!');
     };
 
-    // Estilos para el formulario
+    
     const formGroupStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -207,9 +203,9 @@ const UserPanel = () => {
                     <button type='submit'>Actualizar Contraseña</button>
                 </form>
 
-                {/* Pasar la imagen de perfil a ProfilePicUpload */}
+            
                 <ProfilePicUpload setProfilePic={setProfilePic} />
-                {/* Mostrar la imagen de perfil */}
+               
             </div>
         </div>
     );
