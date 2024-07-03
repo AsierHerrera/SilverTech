@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from 'react';
+
+
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAllPostsInSubforum, createPostInSubforum, updatePostInSubforum, deletePostInSubforum, getAllUsers } from '../../utils/fetch';
 import { getToken, parseToken } from '../../utils/local.js';
-import './Subforum.css';
+import { FiArrowUpRight } from "react-icons/fi";
+import { BsClock } from "react-icons/bs";
+import { BsPlusCircle } from "react-icons/bs";
+import { HiDotsVertical } from "react-icons/hi";
+import { TfiComment } from "react-icons/tfi";
+import { FaRegTrashCan } from "react-icons/fa6";
+
+import './Subforum.scss';
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
@@ -15,6 +24,12 @@ const Subforum = () => {
   const [editPostTitle, setEditPostTitle] = useState("");
   const [editPostText, setEditPostText] = useState("");
   const navigate = useNavigate();
+  const createPostRef = useRef(null);
+  const token = getToken();
+  const currentUser = parseToken(token);
+  console.log('users :>> ', users);
+  console.log('currentUser :>> ', currentUser);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,9 +62,7 @@ const Subforum = () => {
         alert("Title and text cannot be empty");
         return;
       }
-      const token = getToken(); 
-      const userId = parseToken(token).userId; 
-      const newPost = { title: newPostTitle, text: newPostText, user: userId };
+      const newPost = { title: newPostTitle, text: newPostText, user: currentUser.userId };
       const result = await createPostInSubforum(newPost);
       if (!result.error) {
         setPosts([...posts, result.data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
@@ -79,9 +92,13 @@ const Subforum = () => {
       setError(error.message);
     }
   };
-
   const handleDeletePost = async (id) => {
     try {
+      const confirmed = confirm("Are you sure you want to delete this post?");
+      if (!confirmed) {
+        return; 
+      }
+  
       const result = await deletePostInSubforum(id);
       if (!result.error) {
         setPosts(posts.filter(post => post._id !== id));
@@ -92,6 +109,7 @@ const Subforum = () => {
       setError(error.message);
     }
   };
+  
 
   const findUsernameById = (id) => {
     const user = users.find(user => user._id === id);
@@ -101,6 +119,26 @@ const Subforum = () => {
   const handlePostClick = (id) => {
     navigate(`/subforum/${id}`);
   };
+
+  const handleSortByNewest = () => {
+    const sortedPosts = [...posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setPosts(sortedPosts);
+  };
+
+  const handleSortByMostCommented = () => {
+    const sortedPosts = [...posts].sort((a, b) => (b.comments ? b.comments.length : 0) - (a.comments ? a.comments.length : 0));
+    setPosts(sortedPosts);
+  };
+
+  const handleScrollToCreatePost = () => {
+    setEditPostId('new');
+  };
+
+  useEffect(() => {
+    if (editPostId === 'new' && createPostRef.current) {
+      createPostRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [editPostId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -112,64 +150,91 @@ const Subforum = () => {
 
   return (
     <div>
-      <h1>Subforum</h1>
-      <div className="create-post-container">
-        <input
-          type="text"
-          value={newPostTitle}
-          onChange={(e) => setNewPostTitle(e.target.value)}
-          placeholder="New post title"
-        />
-        <textarea
-          value={newPostText}
-          onChange={(e) => setNewPostText(e.target.value)}
-          placeholder="New post text"
-        />
-        <button onClick={handleCreatePost}>Create Post</button>
+      <div className="hero">
+        <div className='sectionimg'>
+          <img src="../../../public/EllipseForo.jpg" alt="" />
+        </div>
       </div>
+  
+      <div className="filters">
+        <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
+        <button onClick={handleSortByNewest}> <BsClock /> Sort by Newest</button>
+        <button onClick={handleScrollToCreatePost}><BsPlusCircle /> Create New Post</button>
+      </div>
+   
       <ul className="post-list">
         {posts.length === 0 ? (
           <li>No posts available</li>
         ) : (
           posts.map((post) => (
-            <li key={post._id} className="post-item">
-              {editPostId === post._id ? (
-                <div>
-                  <input
-                    type="text"
-                    value={editPostTitle}
-                    onChange={(e) => setEditPostTitle(e.target.value)}
+            <li key={post._id} className="post-item"> 
+              <div>
+                {currentUser.role === 'admin' || post.user === currentUser._id ? (
+                    <HiDotsVertical 
+                    className="icon-dots"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setEditPostId(post._id);
+                      setEditPostTitle(post.title);
+                      setEditPostText(post.text);
+                    }}
                   />
-                  <textarea
-                    value={editPostText}
-                    onChange={(e) => setEditPostText(e.target.value)}
-                  />
-                  <button onClick={() => handleEditPost(post._id)}>Save</button>
-                  <button onClick={() => setEditPostId(null)}>Cancel</button>
-                </div>
-              ) : (
+                  ) : null}
                 <div onClick={() => handlePostClick(post._id)}>
                   <h2>{post.title}</h2>
                   <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
                   <p>Posted by: {findUsernameById(post.user)}</p>
                   <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
-                  <p>{Array.isArray(post.comments) ? post.comments.length : 0} comments</p>
-                  <button onClick={(e) => {
-                    e.stopPropagation();
-                    setEditPostId(post._id);
-                    setEditPostTitle(post.title);
-                    setEditPostText(post.text);
-                  }}>Edit</button>
-                  <button onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeletePost(post._id);
-                  }}>Delete</button>
+                  <p><TfiComment /> {Array.isArray(post.comments) ? post.comments.length : 0} Comments</p>
                 </div>
-              )}
+                {editPostId === post._id && (
+                  <div className="post-actions">
+                {currentUser.role === 'admin' || post.user === currentUser._id ? (
+                    <div className="edit-section">
+                      <input
+                        type="text"
+                        value={editPostTitle}
+                        onChange={(e) => setEditPostTitle(e.target.value)}
+                      />
+                      <textarea
+                        value={editPostText}
+                        onChange={(e) => setEditPostText(e.target.value)}
+                      />
+                      <div className="button-group">
+                        <button className="edit-button" onClick={() => handleEditPost(post._id)}>Edit</button>
+                        <button onClick={() => setEditPostId(null)}>Cancel</button>
+                      </div>
+                    </div>
+                  ) : null}
+                  {currentUser.role === 'admin' &&  (
+                    <button className="delete-button" onClick={() => handleDeletePost(post._id)}><FaRegTrashCan /></button>
+                  ) }
+                </div>
+                )}
+              </div>
             </li>
           ))
         )}
       </ul>
+      {editPostId === 'new' && (
+        <div className="create-post-container" ref={createPostRef}>
+          <input
+            type="text"
+            value={newPostTitle}
+            onChange={(e) => setNewPostTitle(e.target.value)}
+            placeholder="New post title"
+          />
+          <textarea
+            value={newPostText}
+            onChange={(e) => setNewPostText(e.target.value)}
+            placeholder="New post text"
+          />
+          <div className="button-container">
+            <button onClick={handleCreatePost}>Create Post</button>
+            <button className="cancel-button" onClick={() => setEditPostId(null)}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

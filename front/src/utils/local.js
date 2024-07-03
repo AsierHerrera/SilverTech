@@ -16,6 +16,23 @@ const parseToken = (token) => {
     }
   };
   
+//  const parseToken = (token) => {
+//   try {
+//     const decodedToken = jwtDecode(token);
+//     return {
+//       _id: decodedToken._id,
+//       username: decodedToken.username,
+//       role: decodedToken.role,
+//       iat: decodedToken.iat,
+//       exp: decodedToken.exp,
+//       userId: decodedToken.userId 
+//     };
+//   } catch (error) {
+//     console.error('Invalid token:', error);
+//     return null;
+//   }
+// };
+
 
 const deleteToken = ()=>{
     localStorage.removeItem("token");
