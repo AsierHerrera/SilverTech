@@ -181,11 +181,12 @@ const Subforum = () => {
                   />
                   ) : null}
                 <div onClick={() => handlePostClick(post._id)}>
-                  <h2>{post.title}</h2>
+                <p className="post-author"> {findUsernameById(post.user)}</p>
+                <p className="post-date">{new Date(post.createdAt).toLocaleString()}</p>
+                  <h2 className="post-title">{post.title}</h2>
                   <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
-                  <p>Posted by: {findUsernameById(post.user)}</p>
-                  <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
-                  <p><TfiComment /> {Array.isArray(post.comments) ? post.comments.length : 0} Comments</p>
+                 
+                  <p className="post-comments"> <span style={{marginRight: '5px'}}> < TfiComment /></span> {Array.isArray(post.comments) ? post.comments.length : 0}  COMENTARIOS</p>
                 </div>
                 {editPostId === post._id && (
                   <div className="post-actions">
