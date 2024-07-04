@@ -167,7 +167,7 @@ const UserPanel = () => {
 
                 <div className='profile-actions'>
                     <form onSubmit={handleNameChange}>
-                        <h3>Cambiar Nombre de Usuario</h3>
+                        <h5>Cambiar Nombre de Usuario</h5>
                         <input
                             type='text'
                             value={name}
@@ -178,7 +178,7 @@ const UserPanel = () => {
                     </form>
 
                     <form onSubmit={handlePasswordChange}>
-                        <h4>Cambiar Contraseña</h4>
+                        <h5>Cambiar Contraseña</h5>
                         <input
                             type='password'
                             placeholder='Contraseña Actual'
