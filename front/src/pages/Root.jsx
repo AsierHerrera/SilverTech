@@ -6,7 +6,10 @@ import UserContext from "../context/userContext";
 /* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
+
+
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
+import Landing from "./Landing";
 
 
 const Root = () => {
@@ -74,17 +77,10 @@ const toggleProfile = () => {
     */
 
     return (
-        <div>
-            <NavBar/>
-            <nav>
-                <ul>
-
-                </ul>
-            </nav>
-
-            <BarraBusqueda/>
-            <Outlet />
-        </div>    
+        <>
+        <NavBar />
+        <Outlet />
+        </>
     )
 };
 

@@ -121,6 +121,11 @@ const dislikeComment = async (commentId) => {
     return result;
 };
 
+const getCompanyByUserId = async () => {
+    const result = await fetchData(`/companies/user/company`, "get");
+    return result;
+};
+
 
 const getUserPanel= async(id)=>{
     const result = await fetchData("/create/"+id,"get"); //antes/panel-de-usuario/ajustes-perfil
@@ -148,6 +153,7 @@ export {
     updateComment,
     deleteComment,
     likeComment,
-    dislikeComment
+    dislikeComment,
+    getCompanyByUserId
 
 }

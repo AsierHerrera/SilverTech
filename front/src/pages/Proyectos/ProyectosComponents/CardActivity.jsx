@@ -1,59 +1,32 @@
-import PropTypes from "prop-types";
-import styles from "./CardActivity.module.css";
+import React from 'react';
+import banner from "../../../../public/cover.png";
+import "./CardActivity.module.scss";
+import { Link } from "react-router-dom";
 
-const CardActivity = ({ className = "" }) => {
+const Courses = () => {
   return (
-    <div className={[styles.cardActivity, className].join(" ")}>
-      <img
-        className={styles.coverIcon}
-        loading="lazy"
-        alt=""
-        src="/cover@2x.png"
-      />
-      <div className={styles.content}>
-        <div className={styles.cardInfo}>
-          <div className={styles.projectHeader}>
-            <div className={styles.title}>
-              <h3 className={styles.colaboracinParaCreacin}>
-                Colaboración para creación de moda senior
-              </h3>
-            </div>
-            <div className={styles.ellipseParent}>
-              <div className={styles.frameChild} />
-              <b className={styles.b}> 40</b>
-            </div>
-          </div>
-          <div className={styles.date}>
-            <div className={styles.fechaDeInicio}>
-              Fecha de inicio: 20/04/2024
-            </div>
-            <div className={styles.fechaDeCierre}>
-              Fecha de cierre: 20/05/2024
-            </div>
-          </div>
-          <div className={styles.info}>
-            <div className={styles.projectParticipants}>
-              <img
-                className={styles.personIcon}
-                loading="lazy"
-                alt=""
-                src="/person.svg"
-              />
-              <div className={styles.participantes}>4 Participantes</div>
-            </div>
-            <div className={styles.projectInfo} />
-          </div>
+    <>
+      <div className='card'>
+        <img src={banner} alt="banner" className='card-img'/>
+        <div className='seccion1'>
+          <h2 >Cursos UX para las empresas</h2>
+          <p className='card-progress'>40</p>          
         </div>
-        <button className={styles.projectLink}>
-          <b className={styles.verCurso}>Ver Curso</b>
-        </button>
+        <div className='seccion2'>
+          <p>20 de Julio 2024 - 19:00</p>
+          <p className='gris'>Bilbao, Urazurrutia Kalea 3Â</p>
+          <p className='gris'>48003</p>
+          <p className='gris'> Asistentes: 60</p>
+        </div>
+        <div className='seccion3'>
+          
+          <p>Precio: <span>75 EURO</span></p>
+        </div>
+        <Link className="ver-mas" to={`/recursos/1`}>Ver Curso</Link>
       </div>
-    </div>
-  );
+      
+    </>
+  )
 };
 
-CardActivity.propTypes = {
-  className: PropTypes.string,
-};
-
-export default CardActivity;
+export default Courses;
