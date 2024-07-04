@@ -1,37 +1,57 @@
 import companyController from './companyController.js';
 
-const getAll = async (req, res) => {
-    const companies = await companyController.getAll();
-    res.json({ data: companies });
-}
+const createCompany = async (req, res) => {
+    try {
+        const company = await companyController.create(req.body, req.user._id);
+        res.status(201).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
-const getById = async (req, res) => {
-    const id = req.params.id;
-    const company = await companyController.getById(id);
-    res.json({ data: company });
-}
+const getAllCompanies = async (req, res) => {
+    try {
+        const companies = await companyController.getAll();
+        res.status(200).json(companies);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
-const create = async (req, res) => {
-    const company = await companyController.create(req.body);
-    res.json({ data: company });
-}
+const getCompanyById = async (req, res) => {
+    try {
+        const company = await companyController.getById(req.params.id);
+        if (!company) return res.status(404).json({ error: "Empresa no encontrada" });
+        res.status(200).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
-const update = async (req, res) => {
-    const id = req.params.id;
-    const company = await companyController.update(id, req.body);
-    res.json({ data: company });
-}
+const updateCompany = async (req, res) => {
+    try {
+        const company = await companyController.update(req.params.id, req.body);
+        if (!company) return res.status(404).json({ error: "Empresa no encontrada" });
+        res.status(200).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
-const remove = async (req, res) => {
-    const id = req.params.id;
-    const company = await companyController.remove(id);
-    res.json({ data: company });
-}
+const deleteCompany = async (req, res) => {
+    try {
+        const company = await companyController.remove(req.params.id);
+        if (!company) return res.status(404).json({ error: "Empresa no encontrada" });
+        res.status(200).json({ message: "Empresa eliminada con éxito" });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
 export default {
-    getAll,
-    getById,
-    create,
-    update,
-    remove
-}
+    createCompany,
+    getAllCompanies,
+    getCompanyById,
+    updateCompany,
+    deleteCompany
+};
