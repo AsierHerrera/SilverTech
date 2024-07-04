@@ -18,7 +18,7 @@ const ProfilePicUpload = () => {
                 });
                 console.log('Imagen subida correctamente', response.data);
                 const newProfilePicUrl = `http://localhost:3030/uploads/${response.data.file.filename}`;
-                setProfilePic(newProfilePicUrl); // Update parent component state
+                setProfilePic(newProfilePicUrl); 
                 localStorage.setItem('profilePic', newProfilePicUrl); 
                 
             } catch (error) {
