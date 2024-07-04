@@ -44,14 +44,17 @@ const create = async (data, subforumId, user) => {
         data.user = user
         data.subforum = subforum._id; // Asocia el comentario al subforo
         const comment = await commentModel.create(data);
-        await userModel.findByIdAndUpdate(user, { $push: { comments: comment._id } });
 
+        await userModel.findByIdAndUpdate(user, { $push: { comments: comment._id } });
+        await subforumModel.findByIdAndUpdate(subforumId, { $push: { comments: comment._id } });
         return comment;
     } catch (error) {
         console.error(error);
         return { error: "Error al crear el comentario", status: 500 };
     }
 }
+
+
 
 const update = async (id, data) => {
     try {
@@ -66,18 +69,87 @@ const update = async (id, data) => {
     }
 }
 
-const remove = async (id) => {
+const remove = async (id, userId) => {
     try {
-        const comment = await commentModel.findByIdAndDelete(id);
+        const comment = await commentModel.findById(id).populate('user');
         if (!comment) {
             return { error: "Comentario no encontrado", status: 404 };
         }
-        return comment;
+
+        // Verificar si el usuario es el autor del comentario o un administrador
+        if (comment.user._id.toString() !== userId) {
+            const user = await userModel.findById(userId);
+            if (!user || user.role !== 'admin') {
+                return { error: "No tienes permisos para eliminar este comentario", status: 403 };
+            }
+        }
+
+        await commentModel.findByIdAndDelete(id);
+        return { message: "Comentario eliminado con éxito" };
     } catch (error) {
         console.error(error);
         return { error: "Error al eliminar el comentario", status: 500 };
     }
+};
+
+const getByForumId = async (forumId) => {
+    return await commentModel.find({ subforum: forumId }).populate('user').exec();
 }
+
+const likeComment = async (commentId, userId) => {
+    try {
+        const comment = await commentModel.findById(commentId);
+        if (!comment) {
+            return { error: "Comment not found", status: 404 };
+        }
+
+        if (comment.likes.includes(userId)) {
+            return { error: "You have already liked this comment", status: 400 };
+        }
+
+        if (comment.dislikes.includes(userId)) {
+            comment.dislikes.pull(userId);
+        }
+
+        comment.likes.push(userId);
+        comment.likesCount = comment.likes.length;
+        comment.dislikesCount = comment.dislikes.length;
+
+        await comment.save();
+        return comment;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error liking the comment", status: 500 };
+    }
+};
+
+const dislikeComment = async (commentId, userId) => {
+    try {
+        const comment = await commentModel.findById(commentId);
+        if (!comment) {
+            return { error: "Comment not found", status: 404 };
+        }
+
+        if (comment.dislikes.includes(userId)) {
+            return { error: "You have already disliked this comment", status: 400 };
+        }
+
+        if (comment.likes.includes(userId)) {
+            comment.likes.pull(userId);
+        }
+
+        comment.dislikes.push(userId);
+        comment.likesCount = comment.likes.length;
+        comment.dislikesCount = comment.dislikes.length;
+
+        await comment.save();
+        return comment;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error disliking the comment", status: 500 };
+    }
+};
+
 
 export default {
     getAll,
@@ -85,5 +157,8 @@ export default {
     getByUser,
     create,
     update,
-    remove
+    remove,
+    getByForumId,
+    likeComment,
+    dislikeComment
 }

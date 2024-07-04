@@ -11,9 +11,11 @@ import HireExperts from './pages/HireExperts';
 import UserPanel from './pages/UserPanel';
 import Recursos from "./pages/recursos/Recursos";
 import Recurso from "./pages/recursos/Recurso";
+import Eventos from "./pages/eventos/Eventos";
+import Evento from "./pages/eventos/Evento";
 
 import Subforum from "./pages/subforom/Subforum";
-import SubforumDetails from "./pages/subforumDetails/subforumDetails"
+import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
 
 async function fetchRecursos(){
@@ -47,28 +49,40 @@ const router = createBrowserRouter([
       {
         path: "/recursos",
         element: <Recursos />,
-        loader: () => fetchRecursos()
+
       },
       {
         path: "/recursos/:id",
         element: <Recurso />,
-        //loader: ({params}) => fetchRecurso(params.id)
+
       },
+      {
+        path: "/eventos",
+        element: <Eventos />,
+
+      },
+      {
+        path: "/eventos/:id",
+        element: <Evento/>,
+
+      },
+      {  
+        path: "/subforum",
+        element: <Subforum />
+      },
+      {  path: "/subforum/:id",
+        element: 
+          <SubforumDetails/>,
+          loader: ({ params }) => getOnePostInSubforumById(params.id)
+        }
+
     ]
   },
   {
       path: "/register",
       element: <Register />
   },
-  {  path: "/subforum",
-    element: 
-      <Subforum />
-    },
-    {  path: "/subforum/:id",
-      element: 
-        <SubforumDetails/>,
-        loader: ({ params }) => getOnePostInSubforumById(params.id)
-      }
+  
  
   
 ]);

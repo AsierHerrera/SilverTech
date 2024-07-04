@@ -1,0 +1,200 @@
+.coverIcon {
+  align-self: stretch;
+  height: 157.5px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.colaboracinParaCreacin {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-family: inherit;
+}
+.title {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-base) 0 0;
+  opacity: 0.8;
+}
+.b,
+.frameChild {
+  position: absolute;
+}
+.frameChild {
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 0 solid var(--semnticos-informacin-dark);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+.b {
+  top: 22px;
+  left: 9px;
+  letter-spacing: 0.01em;
+  display: flex;
+  white-space: pre-wrap;
+  align-items: center;
+}
+.ellipseParent {
+  height: 67px;
+  width: 70px;
+  position: relative;
+  display: none;
+  font-size: var(--botn-regular-size);
+  color: var(--color-black);
+}
+.projectHeader {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-smi);
+  font-size: var(--heading-01-size);
+}
+.fechaDeCierre,
+.fechaDeInicio {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+.date {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+  opacity: 0.8;
+  color: var(--neutral-texto);
+}
+.personIcon {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 16px;
+}
+.participantes {
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+.projectParticipants {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.projectInfo {
+  height: 11px;
+  width: 64px;
+  margin: 0 !important;
+  position: absolute;
+  top: 0;
+  left: 184px;
+}
+.cardInfo,
+.info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.info {
+  flex-direction: row;
+  padding: 0;
+  position: relative;
+  gap: var(--gap-5xl);
+  opacity: 0.8;
+  color: var(--neutral-darker);
+  font-family: var(--caption-01);
+}
+.cardInfo {
+  align-self: stretch;
+  flex-direction: column;
+  padding: 0 var(--padding-base);
+  gap: var(--gap-7xl);
+}
+.verCurso {
+  position: relative;
+  font-size: var(--body-large-400-size);
+  line-height: 12px;
+  display: inline-block;
+  font-family: var(--link-m-regular);
+  color: var(--primario-light);
+  text-align: left;
+  min-width: 83px;
+}
+.projectLink {
+  cursor: pointer;
+  border: 1px solid var(--primario-normal);
+  padding: var(--padding-4xl) var(--padding-xl);
+  background-color: var(--primario-normal);
+  align-self: stretch;
+  border-radius: 0 0 var(--br-3xs) var(--br-3xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.projectLink:hover {
+  background-color: var(--color-darkslateblue);
+  border: 1px solid var(--color-darkslateblue);
+  box-sizing: border-box;
+}
+.cardActivity,
+.content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.content {
+  align-self: stretch;
+  height: 288px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-smi-5) 0 0;
+  gap: var(--gap-mini);
+}
+.cardActivity {
+  flex: 1;
+  box-shadow: 25px 25px 50px 25px rgba(7, 18, 75, 0.12);
+  border-radius: var(--br-5xs);
+  background-color: var(--neutral-light);
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-lg-5);
+  min-width: 182px;
+  text-align: left;
+  font-size: var(--link-m-regular-size);
+  color: var(--primary-dark);
+  font-family: var(--botn-regular);
+}
+@media screen and (max-width: 450px) {
+  .colaboracinParaCreacin {
+    font-size: var(--font-size-lgi);
+  }
+  .b {
+    font-size: var(--link-m-regular-size);
+  }
+}

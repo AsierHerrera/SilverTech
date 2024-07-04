@@ -1,11 +1,11 @@
 
-import Image1 from "../ProyectComponents/Inicio/Image1";
-import CardActivity from "../ProyectComponents/Inicio/CardActivity";
-import Image2Icon from "../ProyectComponents/Inicio/Image2Icon";
-import FooterBig from "../ProyectComponents/Inicio/FooterBig";
+import Image1 from "../componentes/Inicio/Image1";
+import CardActivity from "../componentes/Inicio/CardActivity";
+import Image2Icon from "../componentes/Inicio/Image2Icon";
+import FooterBig from "../componentes/Inicio/FooterBig";
 /* import Footer from "../ProyectComponents/Footer/Footer.jsx"; */
 
-import styles from "./Inicio.css";
+import styles from "./Inicio.module.css";
 
 const Inicio = () => {
   return (
