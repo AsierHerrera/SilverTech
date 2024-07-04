@@ -29,6 +29,7 @@ const UserPanel = () => {
 
     useEffect(() => {
         const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
+        console.log("savedUser: ", savedUser);
         setUser(savedUser);
         setName(savedUser.username || '');
     }, []);
@@ -47,6 +48,7 @@ const UserPanel = () => {
             return;
         }
         const updatedUser = { ...user, username: name };
+        console.log("updatedUser: ", updatedUser);
         setUser(updatedUser);
         localStorage.setItem('userData', JSON.stringify(updatedUser));
         alert('Se ha actualizado tu nombre de usuario');
@@ -86,6 +88,7 @@ const UserPanel = () => {
                 const updatedUser = { ...user, company: data._id };
                 setUser(updatedUser);
                 localStorage.setItem('userData', JSON.stringify(updatedUser));
+                window.location.href = '/ajustes-perfil';
             } else {
                 alert('Error al guardar los datos de la empresa');
             }
