@@ -1,34 +1,17 @@
-
-import Image1 from "../componentes/Inicio/Image1";
-import CardActivity from "../componentes/Inicio/CardActivity";
-import Image2Icon from "../componentes/Inicio/Image2Icon";
-import FooterBig from "../componentes/Inicio/FooterBig";
+import React from 'react';
+import Image1 from "../componentes/Landing/Image1";
+import CardActivity from "../componentes/Landing/CardActivity";
+import Image2Icon from "../componentes/Landing/Image2Icon";
+import FooterBig from "../componentes/Landing/FooterBig";
 /* import Footer from "../ProyectComponents/Footer/Footer.jsx"; */
 
-import styles from "./Inicio.module.css";
+import styles from "./Landing.module.css";
 
-const Inicio = () => {
+const Landing = () => {
   return (
-    
     <div className={styles.inicio}>
       <header className={styles.headerLogin}>
-{/*         <div className={styles.logo}>
-          <img
-            className={styles.logoContainerIcon}
-            loading="lazy"
-            alt=""
-            src="/frame-31@2x.png"
-          />
-          <div className={styles.linkMenu}>
-            <div className={styles.menuLink}>Idioma</div>
-            <img
-              className={styles.arrowDropDownIcon}
-              alt=""
-              src="/arrow-drop-down.svg"
-            />
-          </div>
-        </div> */}
-
+      {/* Header content if needed */}
       </header>
       <main className={styles.companyInfoContainer}>
         <section className={styles.companyInfoOuterContainer}>
@@ -41,7 +24,6 @@ const Inicio = () => {
                     alt=""
                     src="/cover@2x.png"
                   />
-                  {/* Panel izquierdo */}
                   <div className={styles.content}>
                     <div className={styles.contentText}>
                       <div className={styles.title}>
@@ -85,7 +67,6 @@ const Inicio = () => {
                 <div className={styles.description}>
                   <div className={styles.companyDetailsContainer}>
                     <div className={styles.company}>
-                     {/*  Panel derecho */}
                       <div className={styles.companyNameReviews}>
                         <div className={styles.nameCompany}>
                           <h2 className={styles.rr}>{`R&R`}</h2>
@@ -99,13 +80,13 @@ const Inicio = () => {
                           />
                           <b className={styles.reviewSeparator}>100%</b>
                           <div className={styles.valoraciones}>
-                            (32valoraciones)
+                            (32 valoraciones)
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={styles.rrSeDedica}
-                      >{`R&R se dedica a crear actividades culturales adaptadas a las necesidades y gustos de las personas mayores. Ofrecieron talleres de escritura, pintura, cerámica y otras artes, así como recorridos por museos, galerías de arte y teatros. También organizaron viajes culturales y escapadas de fin de semana para disfrutar de la naturaleza y la cultura en su máximo esplendor.`}</div>
+                      <div className={styles.rrSeDedica}>
+                        {`R&R se dedica a crear actividades culturales adaptadas a las necesidades y gustos de las personas mayores. Ofrecieron talleres de escritura, pintura, cerámica y otras artes, así como recorridos por museos, galerías de arte y teatros. También organizaron viajes culturales y escapadas de fin de semana para disfrutar de la naturaleza y la cultura en su máximo esplendor.`}
+                      </div>
                       <button className={styles.button1}>
                         <div className={styles.saberMsDe}>
                           Saber más de la empresa
@@ -125,35 +106,13 @@ const Inicio = () => {
                           <div className={styles.historiadoraDelArte}>
                             Historiadora del Arte
                           </div>
-                          <div
-                            className={
-                              styles.experienciaProfesionalAnaContainer
-                            }
-                          >
-                            <span>
-                              <p className={styles.experienciaProfesionalAna}>
-                                Experiencia profesional: Ana ha trabajado como
-                                guía en diferentes museos de España durante los
-                                últimos 10 años. Actualmente, trabaja en el
-                                Museo Nacional del Prado en Madrid, donde ha
-                                sido guía desde el año 2016. Además de guiar a
-                                los visitantes a través de las colecciones del
-                                museo, Ana también ha realizado investigaciones
-                                sobre algunas de las obras más destacadas del
-                                Prado y ha escrito varios artículos académicos
-                                sobre arte español.
-                              </p>
-                              <p className={styles.conocimientosEspecializados}>
-                                Conocimientos especializados: Ana tiene un
-                                amplio conocimiento sobre arte español, en
-                                particular de la Edad de Oro. También ha
-                                estudiado a fondo la obra de algunos de los
-                                artistas más importantes de la historia del
-                                arte, como Velázquez, Goya y Picasso. Ana
-                                también es experta en la historia de la pintura
-                                flamenca y holandesa.
-                              </p>
-                            </span>
+                          <div className={styles.experienciaProfesionalAnaContainer}>
+                            <p className={styles.experienciaProfesionalAna}>
+                              Experiencia profesional: Ana ha trabajado como guía en diferentes museos de España durante los últimos 10 años. Actualmente, trabaja en el Museo Nacional del Prado en Madrid, donde ha sido guía desde el año 2016. Además de guiar a los visitantes a través de las colecciones del museo, Ana también ha realizado investigaciones sobre algunas de las obras más destacadas del Prado y ha escrito varios artículos académicos sobre arte español.
+                            </p>
+                            <p className={styles.conocimientosEspecializados}>
+                              Conocimientos especializados: Ana tiene un amplio conocimiento sobre arte español, en particular de la Edad de Oro. También ha estudiado a fondo la obra de algunos de los artistas más importantes de la historia del arte, como Velázquez, Goya y Picasso. Ana también es experta en la historia de la pintura flamenca y holandesa.
+                            </p>
                           </div>
                           <div className={styles.leerCompleto}>
                             Leer completo
@@ -169,7 +128,6 @@ const Inicio = () => {
           <div className={styles.activityContainer}>
             <div className={styles.activityItemWrapper}>
               <div className={styles.cardActivityItem}>
-                {/* Paneles inferiore */}
                 <div className={styles.cardCover}>
                   <img
                     className={styles.videoIcon}
@@ -248,7 +206,6 @@ const Inicio = () => {
               </div>
               <CardActivity text="No Publicada" />
               <div className={styles.activityCardImage}>
-                {/* Panel inferior derecho */}
                 <Image2Icon />
                 <div className={styles.cardInfoCompany2}>
                   <div className={styles.cardInfoCompany3}>
@@ -295,8 +252,7 @@ const Inicio = () => {
       </main>
       <FooterBig />
     </div>
-    
   );
 };
 
-export default Inicio;
+export default Landing;
