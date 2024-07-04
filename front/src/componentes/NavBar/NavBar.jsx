@@ -95,7 +95,7 @@ const NavBar = () => {
             <button className="navbar__link" onClick={() => toggleDropdown('networking')}>Networking</button>
             {dropdowns.networking && (
               <div className="dropdown__menu anchura2">
-                <Link className="dropdown__item" to="/subforom">Foro</Link>
+                <Link className="dropdown__item" to="/subforum">Foro</Link>
                 <Link className="dropdown__item" to="/eventos">Eventos</Link>
                 <Link className="dropdown__item" to="/charlas">Charlas</Link>
               </div>
