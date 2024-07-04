@@ -1,32 +1,42 @@
 import React from 'react';
-import banner from "../../../../public/cover.png";
-import "./CardActivity.module.scss";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Courses = () => {
+const CardActivity = ({ project }) => {
   return (
-    <>
-      <div className='card'>
-        <img src={banner} alt="banner" className='card-img'/>
-        <div className='seccion1'>
-          <h2 >Cursos UX para las empresas</h2>
-          <p className='card-progress'>40</p>          
-        </div>
-        <div className='seccion2'>
-          <p>20 de Julio 2024 - 19:00</p>
-          <p className='gris'>Bilbao, Urazurrutia Kalea 3Â</p>
-          <p className='gris'>48003</p>
-          <p className='gris'> Asistentes: 60</p>
-        </div>
-        <div className='seccion3'>
-          
-          <p>Precio: <span>75 EURO</span></p>
-        </div>
-        <Link className="ver-mas" to={`/recursos/1`}>Ver Curso</Link>
+    <div className='card'>
+      {/* Banner de la imagen del proyecto (banner) */}
+      {/* Ajusta la ruta de la imagen de fondo según corresponda */}
+      <img src="/cover@2x.png" alt="" className='card-img'/> 
+
+      {/* Sección 1: Título y progreso */}
+      <div className='seccion1'>
+        <h2>{project.title}</h2>
+        {/* Mostrar los impactos esperados */}
+        <p className='card-progress'>{project.expectedResults.economicImpact}</p>
       </div>
-      
-    </>
-  )
+
+      {/* Sección 2: Detalles del proyecto */}
+      <div className='seccion2'>
+        {/* Fecha de inicio y detalles adicionales */}
+        <p>{new Date(project.startDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })} - 19:00</p>
+        <p className='gris'>{project.contactInfo}</p>
+        <p className='gris'>{project.beneficiaries}</p>
+      </div>
+
+      {/* Sección 3: Información adicional */}
+      <div className='seccion3'>
+        <p>Precio: <span>{project.price} EURO</span></p>
+      </div>
+
+      {/* Botón para ver más detalles del proyecto */}
+      <Link className="ver-mas" to={`/recursos/${project._id}`}>Ver Proyecto</Link>
+    </div>
+  );
 };
 
-export default Courses;
+CardActivity.propTypes = {
+  project: PropTypes.object.isRequired,
+};
+
+export default CardActivity;

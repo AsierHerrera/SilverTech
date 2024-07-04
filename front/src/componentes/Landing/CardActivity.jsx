@@ -3,6 +3,7 @@ import styles from "./CardActivity.module.css";
 
 const CardActivity = ({ className = "", text = "No Publicada" }) => {
   return (
+  
     <div className={[styles.cardActivity, className].join(" ")}>
       <img
         className={styles.coverIcon}

@@ -17,7 +17,7 @@ const Root = () => {
     const navigate = useNavigate();
     const [showProfile, setShowProfile] = useState(false);
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (!getToken()) {
             navigate("/register");
         }
@@ -36,7 +36,7 @@ const Root = () => {
         setUser(null);
         deleteToken();
         navigate("/register");
-    }
+    } */
 
 
 const toggleProfile = () => {
@@ -78,6 +78,8 @@ const toggleProfile = () => {
 
     return (
         <>
+{/*         <BarraBusqueda />
+        <Outlet /> */}
         <NavBar />
         <Outlet />
         </>
