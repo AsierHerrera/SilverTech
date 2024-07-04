@@ -123,7 +123,7 @@ const dislikeComment = async (commentId) => {
 
 
 const getUserPanel= async(id)=>{
-    const result = await fetchData("/ajustes-perfil/"+id,"get"); //antes/panel-de-usuario/
+    const result = await fetchData("/create/"+id,"get"); //antes/panel-de-usuario/ajustes-perfil
     return result;
 }
 

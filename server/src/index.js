@@ -5,6 +5,7 @@ import router from "./routes/router.js";
 import cors from "cors";
 import multer from 'multer';
 import path from 'path';
+import companyRoutes from "./routes/companyRouter.js"; 
 /* import userRouter from "./routes/user.js"; */
 
 

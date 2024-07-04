@@ -42,6 +42,10 @@ const UserPanel = () => {
 
     const handleNameChange = (e) => {
         e.preventDefault();
+        if (name.trim() === '') {
+            alert('El nombre de usuario no puede estar vacío');
+            return;
+        }
         const updatedUser = { ...user, username: name };
         setUser(updatedUser);
         localStorage.setItem('userData', JSON.stringify(updatedUser));
@@ -50,6 +54,10 @@ const UserPanel = () => {
 
     const handlePasswordChange = (e) => {
         e.preventDefault();
+        if (currentPassword.trim() === '' || newPassword.trim() === '') {
+            alert('Los campos de contraseña no pueden estar vacíos');
+            return;
+        }
         alert('Se ha actualizado tu contraseña');
         setCurrentPassword('');
         setNewPassword('');
@@ -63,7 +71,7 @@ const UserPanel = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/companies/create', {
+            const response = await fetch('/api/companies/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

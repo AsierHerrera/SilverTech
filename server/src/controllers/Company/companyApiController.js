@@ -1,10 +1,12 @@
 import companyController from './companyController.js';
 
 const createCompany = async (req, res) => {
+    console.log('Datos recibidos:', req.body);
     try {
         const company = await companyController.create(req.body, req.user._id);
         res.status(201).json(company);
     } catch (error) {
+        console.error('Error al crear la empresa:', error.message);
         res.status(400).json({ error: error.message });
     }
 };
