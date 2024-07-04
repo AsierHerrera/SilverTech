@@ -43,8 +43,9 @@ const Register = ({ onLogin }) => {
             if (!result.error) {
                 setIsRegister(false);
                 setError("user registered correctly");
-                setUser(result.user); // Actualizo usuario en el contexto
+                setUser(result.user); 
                 localStorage.setItem('userData', JSON.stringify(result.user));
+                navigate("/ajustes"); 
             }
             else {
                 setError(result.error);
