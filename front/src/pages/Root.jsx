@@ -65,13 +65,6 @@ const Root = () => {
     return (
         <div>
             <NavBar/>
-            <nav>
-                <ul>
-   
-                </ul>
-            </nav>
-
-            
             <Outlet />
         </div>    
     )

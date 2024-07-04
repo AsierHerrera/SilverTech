@@ -1,0 +1,457 @@
+@import "../../EmpresarialColors.scss";
+
+#Banner{
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+#cuerpo-principal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 82.64vw;
+    margin-left: 8.68vw; 
+    
+}
+
+// columna 1
+
+.navegation-history{
+    font-weight: 500;
+}
+
+.navegation-history > span{
+    padding-bottom: 1px;
+    border-bottom: 2px solid black;
+}
+
+.navegation-history > span:first-child{
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.navegation-history > span{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.course-category{
+    display: flex;
+    margin-top: 4vh;
+    margin-bottom: 12vh;
+}
+
+.course-category > p{
+    width: auto;
+    background-color: $Primary_Darker;
+    color: white;
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 80%;
+}
+
+.curso-title{
+    font-weight: 700;
+    color: $Text;
+    margin-bottom: 2vh;
+}
+
+.datos-curso{
+    display: flex;
+    margin-bottom: 10vh;
+}
+
+.datos-curso  img{
+    height: 75%;
+    margin-top: -2px;
+}
+
+.datos-curso > p{
+    font-size: 90%;
+    font-weight: 600;
+    
+}
+
+.barra-separacion{
+    margin: 0px 15px;
+
+}
+
+.curso-info{
+    color: $Text;
+    font-weight: 400;
+}
+
+.curso-info > img{
+    margin-bottom: 2vh;
+}
+
+.curso-info > p{
+    margin: 0px;
+    font-size: 120%;
+}
+
+.curso-info > button{
+    padding: 1.5vh 2.5vw;
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+    background-color: $Primary_Dark;
+    color: white;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+.curso-info > button:hover{
+    background-color: $Primary_Normal;
+}
+
+.curso-introduccion{
+    margin-bottom: 10vh;
+}
+
+
+.curso-introduccion > h3{
+    font-size: 115%;
+    font-weight: 700;
+    margin-bottom: 3vh;
+}
+
+.curso-introduccion  p{
+    width: 42vw;
+    font-weight: 500;
+    font-size: 108%;
+
+}
+
+.curso-introduccion  li{
+    width: 37vw;
+    font-weight: 500;
+    font-size: 108%;
+
+}
+
+.curso-contenido{
+    margin-bottom: 10vh;
+}
+
+
+.curso-contenido > h3{
+    font-size: 125%;
+    font-weight: 700;
+    margin-bottom: 3vh;
+}
+
+.curso-contenido p{
+    width: 42vw;
+    font-weight: 500;
+    font-size: 108%;
+    margin: 0px;
+}
+
+.curso-contenido  ul:first-of-type{
+    margin-bottom: 4vh;
+}
+
+.curso-contenido  ul{
+    margin: 0px;
+}
+
+.curso-contenido  li{
+    width: 37vw;
+    font-weight: 500;
+    font-size: 108%;
+    margin: 0px;
+}
+
+.curso-adicional {
+    width: 47.08vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+
+.curso-adicional > div{
+    width: 15.28vw;
+    display: flex;
+    flex-direction: row; 
+    margin-top: 2vh;
+    
+}
+
+.curso-adicional > div > img{
+    width: 40px;
+    height: 40px;
+    
+}
+
+.curso-adicional > div > div{
+    width: 156px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 15px;
+}
+
+.curso-adicional > div > div > p:first-of-type{
+    margin: 0px;
+    font-size: 120%;
+    color:  $Text;
+    font-weight: 500;
+}
+
+.curso-adicional > div > div > p:last-of-type{
+    margin: 0px;
+    font-size: 90%;
+    color:  $Text;
+    font-weight: 500;
+}
+
+.curso-mapa{
+    margin-top: 5vh;
+    margin-bottom: 300px;
+}
+
+.curso-mapa > h3{
+    margin-bottom: 5vh;
+}
+
+.curso-mapa > img{
+    border-radius: 5px;
+    margin: 0px;
+    margin-bottom: -180px;
+}
+
+.curso-mapa > button{
+    margin: 0px;
+    margin-left: 220px;
+    border-radius: 5px;
+    border: 1.5px solid $Neutral_Darker;
+    background-color: white;
+    color: $Text;
+    font-weight: 500;
+
+}
+
+.curso-mapa > button:hover{
+    background-color: white;
+    border: 1.5px solid $Primary_Normal;
+    color: $Primary_Normal;
+}
+
+#reservar-plazas{
+    margin-left: 18vw;
+    margin-bottom: 8vh;
+    width: 54.17vw;
+    background-color: $Primary_Dark;
+    border-radius: 10px;
+    color: white;
+    font-weight: 400;
+    padding: 4vh 0px;
+}
+
+//columna 2
+
+.curso-precio{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 23vh;
+    font-size: 200%;
+  
+}
+
+.curso-fecha{
+    width: 100%;
+    border: 1px solid $Neutral_Darker;
+    background-color: $Neutral_Light;
+    color: $Neutral_Darker;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 2.5vh;
+    margin-bottom: 5vh;
+}
+
+.curso-fecha p{
+    margin: 2px;
+    font-weight: 500;
+}
+
+
+
+.calendar {
+    text-align: center;
+    width: 380px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    font-size: 1.5ch;
+    font-weight: 600;
+   
+}
+
+.calendar > h4 {
+    margin-bottom: 3vh;
+    padding: 0;
+    font-size: 120%;
+    font-weight: 600;
+    color: $Primary_Darker;
+}
+
+.calendar > div  {
+    border: 1px solid $Neutral_Normal;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 4vh 1vw 2vh 1vw;
+}
+
+
+.calendar > div > h3 {
+    margin-bottom: 2vh;
+    padding: 0;
+    font-size: 120%;
+    font-weight: 500;
+    color: $Primary_Darker;
+}
+
+.calendar > div > h3 > span {
+    margin-left: 1vw;
+}
+
+.first-day {
+    grid-column-start: var(--first-day-start, 0);
+}
+
+.day-name {
+    
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.gris{
+    color: $Neutral_Dark;
+}
+
+.curso-horario{
+    display: flex;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.curso-horario > div{
+    border: 1px solid $Neutral_Normal;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    
+}
+
+.curso-horario > div:first-of-type{
+    margin-left: 2vw;
+    padding: 2px 1vw;
+}
+
+.curso-horario > div:last-of-type{
+    margin-left: 1vw;
+    padding: 2px 1vw;
+    width: 65%;
+}
+
+.curso-horario > div > p{
+    margin: 0px;
+ 
+}
+
+.curso-horario > div > p:first-of-type{
+    font-size: 80%;
+    font-weight: 600;
+    margin-bottom: -5px;
+}
+
+.curso-horario > div > p:last-of-type{
+    font-size: 150%;
+    font-weight: 500;
+}
+
+.curso-apartar{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin-bottom: 5vh;
+}
+
+.curso-apartar > button:first-of-type{
+    background-color: $Primary_Darker;
+    border-radius: 5px;
+    color: white;    
+    margin-bottom: 2vh;
+}
+
+.curso-apartar > button:last-of-type{
+    background-color: white;
+    border-radius: 5px;
+    color: $Primary_Darker;
+    border: 2px solid $Primary_Darker;
+    font-weight: 500;
+}
+
+.curso-contactos{
+    margin: 0px;
+}
+
+.curso-contactos > h3{
+    margin-bottom: 5vh;
+    padding: 0;
+    font-size: 100%;
+    font-weight: 600;
+    color: $Primary_Darker;
+    text-align: center;
+}
+
+.curso-contactos > div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.curso-contactos > div > div{
+    margin: 0px 1vw;
+}
+
+.curso-contactos > div > div > img{
+    border-radius: 50%;
+}
+
+.curso-contactos > div > div > p{
+    text-align: center;
+}
