@@ -4,7 +4,10 @@ import { deleteToken, getToken } from "../utils/local";
 import { useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
-import Inicio from "../pages/Inicio";
+import Inicio from "../componentes/Inicio";
+import Inicio from "../componentes/NavBar";
+import Inicio from "../componentes/Footer";
+import NavBar from "../componentes/NavBar/NavBar";
 /* import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda" */
 
 
@@ -64,7 +67,10 @@ const Root = () => {
     */
 
     return (
+        <> 
+        <NavBar />
         <Inicio />
+        </>
     )
 };
 
