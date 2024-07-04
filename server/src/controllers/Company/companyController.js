@@ -1,6 +1,7 @@
 import Company from '../../models/companyModel.js';
 import User from '../../models/userModel.js';
 
+
 // Crear una nueva empresa
 const create = async (data, userId) => {
     const { name, cif, address, postalCode, website, phone, sector, description, imageUrl } = data;
@@ -82,7 +83,7 @@ const remove = async (id) => {
     }
 };
 
-export default {
+export default{
     create,
     getAll,
     getById,

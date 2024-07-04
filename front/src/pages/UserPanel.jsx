@@ -60,10 +60,30 @@ const UserPanel = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        localStorage.setItem('datosEmpresa', JSON.stringify(formData));
-        alert('¡Datos de la empresa guardados correctamente!');
+        try {
+            const response = await fetch('/companies/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert('¡Datos de la empresa guardados correctamente!');
+                const updatedUser = { ...user, company: data._id };
+                setUser(updatedUser);
+                localStorage.setItem('userData', JSON.stringify(updatedUser));
+            } else {
+                alert('Error al guardar los datos de la empresa');
+            }
+        } catch (error) {
+            alert('Error de red al guardar los datos de la empresa');
+        }
     };
 
     return (
@@ -162,6 +182,7 @@ const UserPanel = () => {
                             <label className="labelStyle"></label>
                             <ProfilePicUpload setProfilePic={setProfilePic} />
                         </div>
+                        <button type="submit">Guardar</button>
                     </form>
                 </div>
 

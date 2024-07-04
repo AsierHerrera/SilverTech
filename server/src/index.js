@@ -32,6 +32,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api",router);
+app.use('/api/companies', companyRoutes);
 
 /* app.use("/api/users", userRouter);  *///para componente micuenta
 
