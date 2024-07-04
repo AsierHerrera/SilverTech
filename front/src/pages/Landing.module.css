@@ -983,19 +983,19 @@
   align-self: stretch;
   flex-direction: row;
   justify-content: center;
-  padding: 0 26px 534.3px 20px;
+/*   padding: 0 26px 534.3px 20px; */
   max-width: 100%;
   flex-shrink: 0;
 }
 .inicio {
   width: 100%;
-  height: 2234px;
+  height: auto;
   position: relative;
   background-color: #fff;
   overflow-y: auto;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 0 898.7px;
+/*   padding: 0 0 898.7px; */
   gap: 24.4px;
   line-height: normal;
   letter-spacing: normal;
@@ -1005,7 +1005,7 @@
     gap: 31px;
   }
   .companyInfoContainer {
-    padding-bottom: 347px;
+/*     padding-bottom: 347px; */
     box-sizing: border-box;
   }
 }
@@ -1021,7 +1021,7 @@
     flex-wrap: wrap;
   }
   .companyInfoContainer {
-    padding-bottom: 226px;
+/*     padding-bottom: 226px; */
     box-sizing: border-box;
   }
   .inicio {
@@ -1074,7 +1074,7 @@
     gap: 18px;
   }
   .companyInfoContainer {
-    padding-bottom: 147px;
+/*     padding-bottom: 147px; */
     box-sizing: border-box;
   }
 }

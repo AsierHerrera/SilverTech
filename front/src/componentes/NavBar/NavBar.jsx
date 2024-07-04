@@ -53,7 +53,7 @@ const NavBar = () => {
 
       <div className="navbar__menu-bar">
         <nav className="navbar__nav" ref={navRef}>
-          <Link className="navbar__link" to="/">Inicio</Link>
+          <Link className="navbar__link" to="/Landing">Inicio</Link>
 
           <div className="navbar__item">
             <button className="navbar__link" onClick={() => toggleDropdown('expertos')}>Contratación de Expertos</button>
@@ -83,10 +83,10 @@ const NavBar = () => {
             <button className="navbar__link" onClick={() => toggleDropdown('proyectos')}>Proyectos</button>
             {dropdowns.proyectos && (
               <div className="dropdown__menu anchura1">
-                <Link className="dropdown__item" to="/ProyectosComponents">Mis Proyectos</Link>
-                <Link className="dropdown__item" to="/Proyectos">Crear Nuevo Proyecto</Link>
-                <Link className="dropdown__item" to="/proyectos-finalizados">Proyectos Finalizados</Link>
-                <Link className="dropdown__item" to="/documentacion-legal">Documentación Legal</Link>
+                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                <Link className="dropdown__item" to="/crear-proyecto">Crear Nuevo Proyecto</Link>
+                <Link className="dropdown__item" to="/mis-proyectos">Proyectos Finalizados</Link>
+                <Link className="dropdown__item" to="/mis-proyectos">Documentación Legal</Link>
               </div>
             )}
           </div>
@@ -110,8 +110,8 @@ const NavBar = () => {
               <div className="dropdown__menu anchura1">
                 <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
-                <Link className="dropdown__item" to="/mis-formaciones">Mis Formaciones</Link>
-                <Link className="dropdown__item" to="/UserPanel">Ajustes de Perfil</Link>
+                <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
+                <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
               </div>
             )}
           </div>
