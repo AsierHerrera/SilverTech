@@ -69,7 +69,7 @@ const Root = () => {
     return (
         <>
         <NavBar />
-        <Landing />
+        <Outlet />
         </>
     )
 };

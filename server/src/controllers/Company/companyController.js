@@ -82,10 +82,19 @@ const remove = async (id) => {
     }
 };
 
+const getByUserId = async (userId) => {
+    try {
+        return await Company.findOne({ userId }).populate('userId', 'username email');
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
 export default {
     create,
     getAll,
     getById,
     update,
-    remove
+    remove,
+    getByUserId
 };

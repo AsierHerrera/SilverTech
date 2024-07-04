@@ -121,6 +121,11 @@ const dislikeComment = async (commentId) => {
     return result;
 };
 
+const getCompanyByUserId = async () => {
+    const result = await fetchData(`/companies/user/company`, "get");
+    return result;
+};
+
 
 export {
     register,
@@ -142,6 +147,7 @@ export {
     updateComment,
     deleteComment,
     likeComment,
-    dislikeComment
+    dislikeComment,
+    getCompanyByUserId
 
 }

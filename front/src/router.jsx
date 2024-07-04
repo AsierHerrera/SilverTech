@@ -1,21 +1,18 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
+
+// Importaciones de páginas
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
-
-
 import Courses from './pages/Courses';
 import HireExperts from './pages/HireExperts';
 import UserPanel from './pages/UserPanel';
 import Recursos from "./pages/recursos/Recursos";
-
 import Subforum from "./pages/subforom/Subforum";
 import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
-
 import Landing from "./pages/Landing";
-
 import Guias from "./pages/Guias";
 import Libros from "./pages/Libros";
 import DocumentacionLegalAccesibilidad from "./pages/DocumentacionLegalAccesibilidad";
@@ -33,16 +30,13 @@ import Charlas from "./pages/Charlas"; */
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
 
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-  errorElement: <ErrorPage />, 
- children: [
-
-  { path: "/Landing", element: <Landing /> },
-
+    errorElement: <ErrorPage />, 
+    children: [
+      { path: "/Landing", element: <Landing /> },
       { path: "/recursos", element: <Recursos /> },
       { path: "/foro", element: <Subforum /> },
       {
@@ -59,14 +53,12 @@ const router = createBrowserRouter([
       { path: "/biblioteca", element: <Biblioteca /> },
       { path: "/publicaciones", element: <Publicaciones /> },
       { path: "/silver-economy", element: <SilverEconomy /> }, 
-
-/*       { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
-      { path: "/mis-proyectos", element: <PERFILEMPRESA /> },
-      { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
-/*       { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
-/*       { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
-
-/*       { path: "/eventos", element: <Eventos /> },
+/*    { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
+      { path: "/proyectos", element: <PERFILEMPRESA /> },
+/*    { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
+/*    { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
+/*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
+/*    { path: "/eventos", element: <Eventos /> },
       { path: "/charlas", element: <Charlas /> }, */
       { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
