@@ -1,0 +1,28 @@
+@import "../../EmpresarialColors.scss";
+
+#eventos-title{
+    color: rgb(0,0,0);
+    text-align: start;
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 14vw;
+    margin-bottom: 4vh;
+}
+
+#eventos-p-title{
+    color: rgb(0,0,0);
+    text-align: start;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 15vw;
+    margin-bottom: 6vh;
+}
+
+.eventos-list{
+    width: 70.07vw; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 15vw;
+}
