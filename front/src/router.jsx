@@ -11,7 +11,7 @@ import UserPanel from './pages/UserPanel';
 import Recursos from "./pages/recursos/Recursos";
 
 import Subforum from "./pages/subforom/Subforum";
-import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
+import SubforumDetails from "./pages/subforumDetails/subforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
 
 const router = createBrowserRouter([
