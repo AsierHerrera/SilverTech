@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Content.module.css';
+
 import { getCompanyByUserId } from '../../../utils/fetch'; 
 
 const Content = ({ className = '' }) => {
@@ -54,10 +55,9 @@ const Content = ({ className = '' }) => {
             <div className={styles.profileContact}>
               <div className={styles.contactContainer}>
                 <div className={styles.direccinNmeroCifContainer}>
-                  <p className={styles.direccin}>Dirección:</p>
+                  <p className={styles.direccin}>Dirección: {company.address}</p>
                   <p className={styles.nmeroCif}>Número CIF: {company.cif}</p>
-                  <p className={styles.sitioWeb}>Sitio Web: {company.website}</p>
-                  <p className={styles.contacto}>Contacto: {company.email}</p>
+                  <p className={styles.sitioWeb}>Sitio Web: <a href={company.website} target="_blank" rel="noopener noreferrer">{company.website}</a></p>                  <p className={styles.contacto}>Contacto: {company.phone}</p>
                 </div> 
               </div>
             </div>

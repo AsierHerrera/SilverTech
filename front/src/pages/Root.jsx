@@ -72,7 +72,6 @@ const Root = () => {
                     </ul>
                 </nav>
 
-                <BarraBusqueda/>
                 <Outlet />
             </div>    
     )

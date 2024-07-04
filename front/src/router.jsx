@@ -13,6 +13,7 @@ import Recursos from "./pages/recursos/Recursos";
 import Subforum from "./pages/subforom/Subforum";
 import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
+import PERFILEMPRESA from "./pages/Proyectos/PERFILEMPRESA";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
         element: 
           <SubforumDetails/>,
           loader: ({ params }) => getOnePostInSubforumById(params.id)
-        }
+        },
+        {
+          path: "/proyectos",
+          element: <PERFILEMPRESA />,
+
+      },
 
     ]
   },
