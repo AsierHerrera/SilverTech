@@ -31,6 +31,7 @@ import Charlas from "./pages/Charlas";
 import MisDatos from "./pages/MisDatos";
 import MisFormaciones from "./pages/MisFormaciones"; */
 import AjustesPerfil from "./pages/UserPanel";
+import PERFILEMPRESA from "./pages/Proyectos/PERFILEMPRESA";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       { path: "/silver-economy", element: <SilverEconomy /> }, */
 /*       { path: "/cursos-talleres", element: <CursosTalleres /> },
       { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
-      { path: "/mis-proyectos", element: <MisProyectos /> },
+      { path: "/mis-proyectos", element: <PERFILEMPRESA /> },
       { path: "/crear-proyecto", element: <CrearProyecto /> },
 /*       { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> },
       { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
