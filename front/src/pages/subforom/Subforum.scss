@@ -1,0 +1,204 @@
+@import "../../EmpresarialColors.scss";
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+// Header and overall layout
+.hero {
+  background-color: #1a2238;
+  position: relative;
+  height: 524px;
+  overflow: hidden;
+}
+
+.sectionimg {
+  img {
+    background-color: #1a2238;
+    width: 60%;
+    height: 524px;
+    position: absolute;
+    border-radius: 800px 0 0 800px;
+    right: -170px;
+    overflow: hidden;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  color: #1a2238;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  
+    button {
+      background-color: #EAEAEA;
+      color: #808080;
+      border: none;
+
+      padding: 10px 20px;
+      margin: 0 10px;
+     border-radius: 100px;
+      cursor: pointer;
+      &:hover {
+        border-radius: 100px;
+        color: #ddd;
+        background: #565353;
+      }
+    }
+  }
+  
+
+// Create post container
+.create-post-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1074px;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  
+      button {
+        background-color: #07124B;
+        border-radius: 8px;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #0f1a51;
+        }
+  
+        &.cancel-button {
+          background-color: #07124B;
+          &:hover {
+            background-color: darken( #0f1a51, 10%);
+          }
+        }
+      }
+    }
+  }
+// Post list
+// Post list
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    list-style-type: none;
+  
+    .post-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1074px;
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+  
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #1a2238;
+      }
+  
+      .post-text {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 12px;
+        color: #888;
+        margin: 5px 0;
+      }
+  
+      .icon-dots {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+  
+        &:hover {
+          color: darken(#1a2238, 10%);
+        }
+      }
+  
+      .post-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+  
+        button {
+          background-color: #f0f0f0;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: darken(#f0f0f0, 10%);
+          }
+        }
+      }
+    }
+  }
+  .post-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-actions input,
+  .post-actions textarea {
+    
+    margin-right: 10px; 
+  }
+  
+  .button-group {
+    margin-right: auto; 
+  }
+  .edit-button{
+    margin-right:10px;
+  }
+  .delete-button {
+   
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+    

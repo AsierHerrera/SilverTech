@@ -92,9 +92,38 @@ const barraBusqueda = async(busquedaData)=>{
     const result = await fetchData("/resources/busqueda/"+busquedaData,"get");
     return result;
 }
+const getAllCommentsByPostId = async (forumId) => {
+    const result = await fetchData(`/comments/subforum/${forumId}`, "get");
+    return result;
+};
+
+const createComment = async (forumId, commentData) => {
+    const result = await fetchData(`/comments/${forumId}`, "post", commentData);
+    return result;
+};
+
+const updateComment = async (commentId, commentData) => {
+    const result = await fetchData(`/comments/${commentId}`, "put", commentData);
+    return result;
+};
+
+const deleteComment = async (commentId) => {
+    const result = await fetchData(`/comments/${commentId}`, "delete");
+    return result;
+};
+const likeComment = async (commentId) => {
+    const result = await fetchData(`/comments/${commentId}/like`, "post");
+    return result;
+};
+
+const dislikeComment = async (commentId) => {
+    const result = await fetchData(`/comments/${commentId}/dislike`, "post");
+    return result;
+};
+
 
 const getUserPanel= async(id)=>{
-    const result = await fetchData("/panel-de-usuario/"+id,"get");
+    const result = await fetchData("/ajustes-perfil/"+id,"get"); //antes/panel-de-usuario/
     return result;
 }
 
@@ -113,6 +142,12 @@ export {
     getRecurso,
     createRecurso,
     barraBusqueda,
-    getUserPanel
+    getUserPanel,
+    getAllCommentsByPostId,
+    createComment,
+    updateComment,
+    deleteComment,
+    likeComment,
+    dislikeComment
 
 }

@@ -6,6 +6,7 @@ import UserContext from "../context/userContext";
 /* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
+import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
 
 
 const Root = () => {
@@ -77,11 +78,11 @@ const toggleProfile = () => {
             <NavBar/>
             <nav>
                 <ul>
-   
+
                 </ul>
             </nav>
 
-            
+            <BarraBusqueda/>
             <Outlet />
         </div>    
     )

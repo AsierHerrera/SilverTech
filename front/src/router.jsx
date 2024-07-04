@@ -12,7 +12,7 @@ import Recursos from "./pages/recursos/Recursos";
 
 
 import Subforum from "./pages/subforom/Subforum";
-import SubforumDetails from "./pages/subforumDetails/subforumDetails"
+import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
 
 const router = createBrowserRouter([
@@ -31,26 +31,23 @@ const router = createBrowserRouter([
         element: <Recursos />,
 
     },
-    {
-      path: "/panel-de-usuario",
-      element: <UserPanel />,
+    {  path: "/subforum",
+      element: 
+        <Subforum />
+      },
+      {  path: "/subforum/:id",
+        element: 
+          <SubforumDetails/>,
+          loader: ({ params }) => getOnePostInSubforumById(params.id)
+        }
 
-  },
     ]
   },
   {
       path: "/register",
       element: <Register />
   },
-  {  path: "/subforum",
-    element: 
-      <Subforum />
-    },
-    {  path: "/subforum/:id",
-      element: 
-        <SubforumDetails/>,
-        loader: ({ params }) => getOnePostInSubforumById(params.id)
-      }
+  
  
   
 ]);
