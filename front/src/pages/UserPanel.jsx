@@ -69,7 +69,7 @@ const UserPanel = () => {
     return (
         <div className='user-profile'>
             <div className='form-container'>
-                <h1>Formulario de la empresa</h1>
+                <h2>Formulario de la empresa</h2>
                 <div className='profile-header'>
                     {profilePic && <img src={profilePic} alt='Profile' className='profile-pic' />}
                     <h2>{user.username}</h2>
@@ -159,7 +159,7 @@ const UserPanel = () => {
                             />
                         </div>
                         <div className="formGroupStyle">
-                            <label className="labelStyle">Subir imagen</label>
+                            <label className="labelStyle"></label>
                             <ProfilePicUpload setProfilePic={setProfilePic} />
                         </div>
                     </form>

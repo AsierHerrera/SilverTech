@@ -12,7 +12,7 @@
     padding: 40px;
     border-radius: 10px;
     box-shadow: 25px 25px 50px 25px rgba(0, 0, 0, 0.12);
-    width: 767px;
+    width: 700px;
   }
   
   .profile-header {
@@ -39,9 +39,11 @@
   .formGroupStyle {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 5px;
   }
+
+
   
   .labelStyle {
     font-family: 'Montserrat', sans-serif;
@@ -85,14 +87,19 @@
     margin-top: 20px;
   }
 
-  
+  .formGroupStyle .upload-button{
+    align-items: right;
+    justify-content: right;
+    
+  }
 
   
   .upload-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 100px 130px;
     background-color: #f0f0f0;
     color: #333;
     border: 1px solid #ccc;
