@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       { path: "/recursos", element: <Recursos /> },
       { path: "/foro", element: <Subforum /> },
       {
-        path: "/subforum/:id",
+        path: "/foro/:id",
         element: <SubforumDetails />,
         loader: ({ params }) => getOnePostInSubforumById(params.id),
       },

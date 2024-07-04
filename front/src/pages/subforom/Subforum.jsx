@@ -117,7 +117,7 @@ const Subforum = () => {
   };
 
   const handlePostClick = (id) => {
-    navigate(`/subforum/${id}`);
+    navigate(`/foro/${id}`);
   };
 
   const handleSortByNewest = () => {
