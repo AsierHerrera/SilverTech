@@ -20,6 +20,7 @@ const getAllCompanies = async (req, res) => {
 
 const getCompanyById = async (req, res) => {
     try {
+        console.log("llego aqui")
         const company = await companyController.getById(req.params.id);
         if (!company) return res.status(404).json({ error: "Empresa no encontrada" });
         res.status(200).json(company);
@@ -48,10 +49,25 @@ const deleteCompany = async (req, res) => {
     }
 };
 
+const getCompanyByUserId = async (req, res) => {
+    try {
+        console.log("Llego aqui")
+        const company = await companyController.getByUserId(req.user._id);
+        if (!company) {
+            return res.status(404).json({ error: "No se encontró la empresa asociada al usuario" });
+        }
+        res.status(200).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
 export default {
     createCompany,
     getAllCompanies,
     getCompanyById,
     updateCompany,
-    deleteCompany
+    deleteCompany,
+    getCompanyByUserId
 };

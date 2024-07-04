@@ -71,7 +71,7 @@ const Root = () => {
 {/*         <BarraBusqueda />
         <Outlet /> */}
         <NavBar />
-        <Landing />
+        <Outlet />
         </>
     )
 };

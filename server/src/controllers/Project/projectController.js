@@ -184,6 +184,13 @@ const removeUserFromProject = async (projectId, userEmail) => {
     }
 };
 
+const getByUserId = async (userId) => {
+    try {
+        return await Project.find({ users:userId }).populate('users', 'username email');
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
 export default {
     create,
     getAll,
@@ -191,5 +198,6 @@ export default {
     update,
     remove,
     addUserToProject,
-    removeUserFromProject
+    removeUserFromProject,
+    getByUserId
 };

@@ -78,6 +78,20 @@ const removeUserFromProject = async (req, res) => {
     }
 };
 
+
+const getProjectByUserId = async (req, res) => {
+    try {
+        console.log("Llego aqui")
+        const company = await projectController.getByUserId(req.user._id);
+        if (!company) {
+            return res.status(404).json({ error: "No se encontró el proyecto asociado al usuario" });
+        }
+        res.status(200).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
 export default {
     getAll,
     getById,
@@ -85,5 +99,6 @@ export default {
     update,
     remove,
     addUserToProject,
-    removeUserFromProject
+    removeUserFromProject,
+    getProjectByUserId
 };

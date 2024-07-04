@@ -13,5 +13,7 @@ router.put('/:id', isAuthenticated, projectApiController.update);
 router.delete('/:id', isAuthenticated, projectApiController.remove);
 router.post('/:id/addUser', isAuthenticated, projectApiController.addUserToProject);
 router.post('/:id/removeUser', isAuthenticated, projectApiController.removeUserFromProject);
+router.get('/user/project', isAuthenticated, projectApiController.getProjectByUserId);
+
 
 export default router;
