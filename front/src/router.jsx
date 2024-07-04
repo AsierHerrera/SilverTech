@@ -39,7 +39,11 @@ const router = createBrowserRouter([
         element: 
           <SubforumDetails/>,
           loader: ({ params }) => getOnePostInSubforumById(params.id)
-        }
+        },
+    {  path: "/ajustes-perfil",
+      element: 
+        <UserPanel />
+      },
 
     ]
   },
