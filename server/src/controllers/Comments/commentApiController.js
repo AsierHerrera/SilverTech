@@ -33,7 +33,8 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
     const id = req.params.id;
-    const comment = await commentController.remove(id);
+    const userid = req.user._id
+    const comment = await commentController.remove(id,userid);
     res.json({ data: comment });
 }
 const getByForumId = async (req, res) => {

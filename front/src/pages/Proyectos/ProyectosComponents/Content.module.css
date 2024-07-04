@@ -1,0 +1,201 @@
+.perfilDeEmpresa {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  line-height: 40px;
+  font-weight: 800;
+  font-family: inherit;
+}
+.avaIcon,
+.avatarBackgroundIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1188px;
+  height: 228px;
+  object-fit: cover;
+}
+.avaIcon {
+  top: 143px;
+  left: 27px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+.avatarBackgroundParent {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.profileDetailsInner {
+  align-self: stretch;
+  height: 343px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.nikcname,
+.time {
+  margin: 0;
+  position: relative;
+  font-family: inherit;
+}
+.nikcname {
+  align-self: stretch;
+  font-size: inherit;
+  letter-spacing: 0.02em;
+  line-height: 35px;
+  font-weight: 800;
+}
+.time {
+  font-size: var(--subheading-01-size);
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  color: var(--subtitle-text-color);
+}
+.nameTimeContainer,
+.profileNameTime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.nameTimeContainer {
+  align-self: stretch;
+  gap: var(--gap-5xs);
+}
+.profileNameTime {
+  width: 367px;
+  max-width: 100%;
+}
+.contacto,
+.direccin,
+.nmeroCif,
+.sitioWeb {
+  margin: 0;
+}
+.direccinNmeroCifContainer {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 114px;
+}
+.a12345678,
+.alcobendasMadrid,
+.wwwzapateriaslolacom,
+.zapateriaslolanegociocom {
+  margin: 0;
+}
+.alcobendasMadridA12345678Container {
+  position: relative;
+  font-size: var(--botn-regular-size);
+  line-height: 26px;
+  font-weight: 300;
+  display: inline-block;
+  min-width: 284px;
+}
+.contactContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-3xl);
+}
+.profileContact {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--padding-5xs);
+  font-size: var(--body-large-400-size);
+  color: var(--color-black);
+}
+.profileContact,
+.profileDetails,
+.profileInfo {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.profileInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-3xl);
+  max-width: 100%;
+}
+.profileDetails {
+  align-self: stretch;
+  border: 1px solid var(--neutral-dark);
+  box-sizing: border-box;
+  padding: var(--padding-xl) var(--padding-2xl);
+  gap: var(--gap-10xl);
+  text-align: left;
+  font-size: var(--display-02-size);
+}
+.companyProfile,
+.content,
+.profileDetails {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.companyProfile {
+  width: 1232px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-31xl);
+}
+.content {
+  width: 1404px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-3xs-4);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--display-01-size);
+  color: var(--neutral-texto);
+  font-family: var(--botn-regular);
+}
+@media screen and (max-width: 800px) {
+  .perfilDeEmpresa {
+    font-size: var(--font-size-10xl);
+    line-height: 32px;
+  }
+  .nikcname {
+    font-size: var(--font-size-7xl);
+    line-height: 28px;
+  }
+  .alcobendasMadridA12345678Container,
+  .direccinNmeroCifContainer {
+    flex: 1;
+  }
+  .contactContainer {
+    flex-wrap: wrap;
+  }
+  .companyProfile {
+    gap: var(--gap-6xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .perfilDeEmpresa {
+    font-size: var(--subheading-01-size);
+    line-height: 24px;
+  }
+  .nikcname {
+    font-size: var(--font-size-lgi);
+    line-height: 21px;
+  }
+  .time {
+    font-size: var(--body-large-400-size);
+  }
+  .alcobendasMadridA12345678Container {
+    font-size: var(--link-m-regular-size);
+    line-height: 21px;
+  }
+}
