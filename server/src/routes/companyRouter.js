@@ -9,5 +9,7 @@ router.get('/:id', isAuthenticated, companyApiController.getCompanyById);
 router.post('/', isAuthenticated, companyApiController.createCompany);
 router.put('/:id', isAuthenticated, companyApiController.updateCompany);
 router.delete('/:id', isAuthenticated, companyApiController.deleteCompany);
+router.get('/user/company', isAuthenticated, companyApiController.getCompanyByUserId);
+
 
 export default router;

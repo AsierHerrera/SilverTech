@@ -5,14 +5,17 @@ import { useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
+
+
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
+import Landing from "./Landing";
 
 
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (!getToken()) {
             navigate("/register");
         }
@@ -31,7 +34,7 @@ const Root = () => {
         setUser(null);
         deleteToken();
         navigate("/register");
-    }
+    } */
 
     /* 
         <div>
@@ -64,17 +67,12 @@ const Root = () => {
     */
 
     return (
-            <div>
-                <NavBar/>
-                <nav>
-                    <ul>
-
-                    </ul>
-                </nav>
-
-                <BarraBusqueda/>
-                <Outlet />
-            </div>    
+        <>
+{/*         <BarraBusqueda />
+        <Outlet /> */}
+        <NavBar />
+        <Outlet />
+        </>
     )
 };
 
