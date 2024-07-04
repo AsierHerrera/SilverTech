@@ -131,9 +131,13 @@ const getProjectByUserId = async () => {
     return result;
 };
 
+const createCompany = async (userId, companyData) => {
+    const result = await fetchData(`/companies/${userId}`, "post", companyData);
+    return result;
+};
 
 const getUserPanel= async(id)=>{
-    const result = await fetchData("/create/"+id,"get"); //antes/panel-de-usuario/ajustes-perfil
+    const result = await fetchData("/create/"+id,"get"); 
     return result;
 }
 
@@ -160,6 +164,7 @@ export {
     likeComment,
     dislikeComment,
     getCompanyByUserId,
-    getProjectByUserId
+    getProjectByUserId,
+    createCompany
 
 }

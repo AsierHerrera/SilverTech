@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
-import "../pages/userProfile/UserProfile.css";
+/* import "../pages/userProfile/UserProfile.css"; */
 import "./UserPanel.css"
 
 const UserPanel = () => {
@@ -72,8 +72,12 @@ const UserPanel = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!user._id) {
+            alert('Error: ID de usuario no encontrado');
+            return;
+        }
         try {
-            const response = await fetch('/api/companies/create', {
+            const response = await fetch(`/api/companies/${user._id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,9 +94,11 @@ const UserPanel = () => {
                 localStorage.setItem('userData', JSON.stringify(updatedUser));
                 window.location.href = '/ajustes-perfil';
             } else {
-                alert('Error al guardar los datos de la empresa');
+                const errorData = await response.json();
+                alert(`Error al guardar los datos de la empresa: ${errorData.error}`);
             }
         } catch (error) {
+            console.error('Error de red al guardar los datos de la empresa:', error);
             alert('Error de red al guardar los datos de la empresa');
         }
     };
@@ -193,6 +199,7 @@ const UserPanel = () => {
                             <label className="labelStyle"></label>
                             <ProfilePicUpload setProfilePic={setProfilePic} />
                         </div>
+                        <p></p>
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
