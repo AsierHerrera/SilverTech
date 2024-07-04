@@ -1,14 +1,12 @@
 import React from 'react';
-import banner from "../../public/cover.png";
-import "../pages/recursos/Recursos.scss";
 import { Link } from "react-router-dom";
-import iconUser from "../../public/icon_box.png";
+import iconUser from "../../../public/icon_box.png";
 
-const Courses = () => {
+export default function EventoPasados({ img }) {
   return (
     <>
       <div className='card'>
-        <img src={banner} alt="banner" className='card-img'/>
+        <img src={img} alt="banner" className='card-img'/> 
         <div className='seccion1'>
           <h2 >Cursos UX para las empresas</h2>
           <p className='card-progress'>40</p>          
@@ -30,4 +28,4 @@ const Courses = () => {
   )
 };
 
-export default Courses;
+

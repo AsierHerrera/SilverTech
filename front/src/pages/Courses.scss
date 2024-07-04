@@ -1,34 +1,3 @@
-@import "../../EmpresarialColors.scss";
-
-*{
-    font-family: "Montserrat", sans-serif;
-}
-
-#Banner{
-    width: 100%;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-#cursos-talleres{
-    color: rgb(0,0,0);
-    text-align: start;
-    font-weight: bold;
-    font-size: 40px;
-    margin-top: 10vh;
-    margin-bottom: 3vh;
-    margin-left: 15vw;
-}
-
-#card-list{
-   width: 70.07vw; 
-   display: flex;
-   flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 15vw;
-}
-
 .card{
     width: 19.44vw;
     margin-bottom: 8vh;
@@ -104,40 +73,4 @@
 }
 .gris{
     color: $Neutral_Dark;
-}
-
-#btn-create{
-    margin-left: 2.5vw;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.cursos-compromiso{
-    width: 82.01vw;
-    margin-left: 8.995vw;
-    font-weight: 400;
-    font-size: 130%;
-    
-}
-
-.cursos-beneficios{
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-}
-
-.cursos-beneficios p{
-    margin: 0px;
-    font-weight: 400;
-    font-size: 130%;
-}
-
-.cursos-beneficios li{
-    margin: 0px;
-    font-weight: 400;
-    font-size: 120%;
-}
-
-.iconUser{
-    height: 75%;
-    margin-top: -5px;
 }

@@ -76,15 +76,15 @@ const getAllUsers = async()=>{
     return result;
 }
 const getRecursos = async()=>{
-    const result = await fetchData("/recursos","get");
+    const result = await fetchData("/resources","get");
     return result;
 }
 const getRecurso= async(id)=>{
-    const result = await fetchData("/recursos/"+id,"get");
+    const result = await fetchData("/resources/"+id,"get");
     return result;
 }
 const createRecurso = async(recursoData)=>{
-    const result = await fetchData("/recursos","post",recursoData);
+    const result = await fetchData("/resources","post",recursoData);
     return result;
 }
 

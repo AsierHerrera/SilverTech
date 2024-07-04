@@ -9,6 +9,9 @@ import Courses from './pages/Courses';
 import HireExperts from './pages/HireExperts';
 import UserPanel from './pages/UserPanel';
 import Recursos from "./pages/recursos/Recursos";
+import Recurso from "./pages/recursos/Recurso";
+import Eventos from "./pages/eventos/Eventos";
+import Evento from "./pages/eventos/Evento";
 import Subforum from "./pages/subforom/Subforum";
 import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
@@ -38,6 +41,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/Landing", element: <Landing /> },
       { path: "/recursos", element: <Recursos /> },
+      { path: "/recursos/:id", element: <Recurso /> },
       { path: "/foro", element: <Subforum /> },
       {
         path: "/subforum/:id",
@@ -58,8 +62,9 @@ const router = createBrowserRouter([
 /*    { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
 /*    { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
 /*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
-/*    { path: "/eventos", element: <Eventos /> },
-      { path: "/charlas", element: <Charlas /> }, */
+      { path: "/eventos", element: <Eventos /> },
+      { path: "/eventos/:id", element: <Evento /> },
+     /* { path: "/charlas", element: <Charlas /> }, */
       { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
