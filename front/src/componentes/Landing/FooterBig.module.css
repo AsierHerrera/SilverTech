@@ -1,23 +1,23 @@
-.footerLeftIcon {
+/* .footerLeftIcon {
   width: 202.2px;
   height: 56.6px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
   object-fit: contain;
-}
-.helpTitle {
+} */
+/* .helpTitle {
   position: relative;
   line-height: 26px;
   display: inline-block;
   min-width: 52px;
-}
-.helpLinkOne,
+} */
+/* .helpLinkOne,
 .helpLinkTwo {
   position: relative;
   text-decoration: underline;
   line-height: 26px;
-}
+} */
 .helpLinkTwo {
   height: 11px;
   line-height: 160%;
@@ -184,7 +184,6 @@
   font-size: 16px;
 }
 .footerBig {
-  margin-top: 480px;
   align-self: stretch;
   background-color: #050e3c;
   overflow: hidden;
