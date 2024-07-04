@@ -69,18 +69,28 @@ const update = async (id, data) => {
     }
 }
 
-const remove = async (id) => {
+const remove = async (id, userId) => {
     try {
-        const comment = await commentModel.findByIdAndDelete(id);
+        const comment = await commentModel.findById(id).populate('user');
         if (!comment) {
             return { error: "Comentario no encontrado", status: 404 };
         }
-        return comment;
+
+        // Verificar si el usuario es el autor del comentario o un administrador
+        if (comment.user._id.toString() !== userId) {
+            const user = await userModel.findById(userId);
+            if (!user || user.role !== 'admin') {
+                return { error: "No tienes permisos para eliminar este comentario", status: 403 };
+            }
+        }
+
+        await commentModel.findByIdAndDelete(id);
+        return { message: "Comentario eliminado con éxito" };
     } catch (error) {
         console.error(error);
         return { error: "Error al eliminar el comentario", status: 500 };
     }
-}
+};
 
 const getByForumId = async (forumId) => {
     return await commentModel.find({ subforum: forumId }).populate('user').exec();
