@@ -64,17 +64,17 @@ const Root = () => {
     */
 
     return (
-        <div>
-            <NavBar/>
-            <nav>
-                <ul>
+            <div>
+                <NavBar/>
+                <nav>
+                    <ul>
 
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
 
-            <BarraBusqueda/>
-            <Outlet />
-        </div>    
+                <BarraBusqueda/>
+                <Outlet />
+            </div>    
     )
 };
 
