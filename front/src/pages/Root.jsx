@@ -15,7 +15,7 @@ const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (!getToken()) {
             navigate("/register");
         }
@@ -34,7 +34,7 @@ const Root = () => {
         setUser(null);
         deleteToken();
         navigate("/register");
-    }
+    } */
 
     /* 
         <div>
@@ -68,6 +68,8 @@ const Root = () => {
 
     return (
         <>
+{/*         <BarraBusqueda />
+        <Outlet /> */}
         <NavBar />
         <Outlet />
         </>
