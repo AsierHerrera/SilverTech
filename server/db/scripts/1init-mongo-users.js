@@ -16,9 +16,9 @@ db.users.insertMany([
 
       },    
       {
-        _id: ObjectId("6684ff751d2e2648d5dee955"),
+        _id: ObjectId("6686ef98f95cfdd376f3bc66"),
         username: "anna",   
-        password: "$2a$10$$$2a$10$k3Rl8Hr8IYCih7pJ8xiw.elUd9AjMejSOqlaawbnmNaaUPc3F6NJa",     
+        password: "$2a$10$cMuSAk04oe7t9beSji4Ik.bvQTdtQZHcI/4Yptj064yusLyjN0JYG",     
         email:  "anna@anna.com",
         role: "user",
         resources:  [],
