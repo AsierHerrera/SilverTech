@@ -4,7 +4,7 @@ import styles from "./FooterBig.module.css";
 const FooterBig = ({ className = "" }) => {
   return (
     <footer className={[styles.footerBig, className].join(" ")}>
-      <img className={styles.footerLeftIcon} alt="" src="/frame-31-1@2x.png" />
+      <img className={styles.footerLeftIcon} alt="" src="/silvertech_logo.png" />
       <div className={styles.footerRight}>
         <div className={styles.footerContent}>
           <div className={styles.help}>
