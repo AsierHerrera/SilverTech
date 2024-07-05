@@ -3,6 +3,11 @@ import dotenv from "dotenv";
 import connectDB from "./config/mongo.js";
 import router from "./routes/router.js";
 import cors from "cors";
+import multer from 'multer';
+import path from 'path';
+import companyRoutes from "./routes/companyRouter.js"; 
+/* import userRouter from "./routes/user.js"; */
+
 
 
 dotenv.config();
@@ -28,6 +33,34 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api",router);
+app.use('/api/companies', companyRoutes);
+
+/* app.use("/api/users", userRouter);  *///para componente micuenta
+
+///multer:
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.use('/uploads', express.static('uploads'));
+
+app.post('/uploads', upload.single('file'), (req, res) => {
+  try {
+    console.log(req.file); 
+    console.log(req.body); 
+      res.json({ message: 'Imagen subida correctamente', file: req.file });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error al subir la imagen' });
+  }
+});////
 
 app.listen(CONTAINER_PORT ,()=>{
     console.log("Aplicacion en marcha en el puerto "+process.env.APP_PORT);
