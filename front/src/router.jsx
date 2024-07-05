@@ -28,8 +28,8 @@ import PERFILEMPRESA from "./pages/Proyectos/PERFILEMPRESA";
 /* import CrearProyecto from "./pages/Proyectos/PERFILEMPRESA"; */
 /* import ProyectosFinalizados from "./pages/ProyectosFinalizados";
 import DocumentacionLegal from "./pages/DocumentacionLegal"; */
-/* import Eventos from "./pages/Eventos";
-import Charlas from "./pages/Charlas"; */
+/*  import Eventos from "./pages/Eventos"; */
+import Charlas from "./pages/Charlas"; 
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
 
@@ -58,13 +58,13 @@ const router = createBrowserRouter([
       { path: "/publicaciones", element: <Publicaciones /> },
       { path: "/silver-economy", element: <SilverEconomy /> }, 
 /*    { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
-      { path: "/proyectos", element: <PERFILEMPRESA /> },
-/*    { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
+      { path: "/mis-proyectos", element: <PERFILEMPRESA /> },
+    { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
 /*    { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
 /*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
       { path: "/eventos", element: <Eventos /> },
       { path: "/eventos/:id", element: <Evento /> },
-     /* { path: "/charlas", element: <Charlas /> }, */
+      { path: "/charlas", element: <Charlas /> }, 
       { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },

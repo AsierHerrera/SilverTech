@@ -86,7 +86,7 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/crear-proyecto">Crear Nuevo Proyecto</Link>
                 <Link className="dropdown__item" to="/mis-proyectos">Proyectos Finalizados</Link>
-                <Link className="dropdown__item" to="/mis-proyectos">Documentación Legal</Link>
+                <Link className="dropdown__item" to="/documentacion-legal-accesibilidad">Documentación Legal</Link>
               </div>
             )}
           </div>
