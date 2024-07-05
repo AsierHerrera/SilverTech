@@ -5,6 +5,7 @@ import { getToken, parseToken } from '../../utils/local.js';
 import './SubforumDetails.css';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
+import moment from 'moment';
 
 const SubforumDetails = () => {
     const { id } = useParams();
@@ -136,10 +137,11 @@ const SubforumDetails = () => {
         <div className="post-page">
             {post && (
                 <div className="post-details">
+                    <p className="username"> {findUsernameById(post.user)}</p>
+                    <p className="date"> Publicado el {moment(post.createdAt).format('DD/MM/YYYY')}</p>
                     <h2>{post.title}</h2>
-                    <p>{post.text}</p>
-                    <p>Posted by: {findUsernameById(post.user)}</p>
-                    <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
+                    <p className="text">{post.text}</p>
+                    
                 </div>
             )}
             <div className="comments-section">
@@ -164,7 +166,8 @@ const SubforumDetails = () => {
                                 ) : (
                                     <div>
                                         <div className="comment-details">
-                                            <p className="comment-details-item">{new Date(comment.createdAt).toLocaleString()}</p>
+                                            <p className="comment-details-item">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
+                                            }</p>
                                             <p className="comment-details-item"><BiLike /></p>
                                         </div>
                                         

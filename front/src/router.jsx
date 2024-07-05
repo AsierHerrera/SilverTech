@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       { path: "/eventos", element: <Eventos /> },
       { path: "/eventos/:id", element: <Evento /> },
       { path: "/charlas", element: <Charlas /> }, 
-      { path: "/mis-datos", element: <UserPanel /> },
+     { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
     ],

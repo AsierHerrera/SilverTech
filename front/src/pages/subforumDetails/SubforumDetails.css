@@ -16,13 +16,16 @@
 }
 
 .post-details h2 {
-  font-size: 24px;
-  color: #333;
+  color: #212121;
+
+  font-family: Montserrat;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
 }
 
 .post-details p {
-  font-size: 16px;
-  color: #555;
   margin: 10px 0;
 }
 
@@ -64,7 +67,7 @@
 }
 
 .comment-item button {
-  background-color: rgb(5, 14, 60);
+  background-color:  #F8A800;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -74,7 +77,10 @@
 }
 
 .comment-item button:hover {
-  background-color: rgb(5, 14, 60);
+  background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  opacity: 0.8;
 }
 
 .new-comment {
@@ -91,19 +97,10 @@
   color: #555;
 }
 
-.new-comment button {
-  background-color: rgb(5, 14, 60);
-  margin: 0 auto;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-top: 10px;
-}
 
 .new-comment button:hover {
-  background-color: rgb(5, 14, 60);
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .error-message {
@@ -118,16 +115,6 @@
   align-items: center;
 }
 
-.new-comment button {
-  background-color:  #07124B;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 200px; 
-}
 
 .comment-item textarea {
   width: 100%;
@@ -176,7 +163,9 @@ comment-item {
 }
 
 .comment-actions button {
-  background-color: #07124B;
+  background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
   border: none;
   padding: 5px 10px;
@@ -186,11 +175,15 @@ comment-item {
 }
 
 .comment-actions button:last-child {
-  background-color: #07124B;
+  background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .comment-actions button:hover {
-  background-color: rgb(5, 14, 60);
+  background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   opacity: 0.8;
 }
 .comment-details {
@@ -224,4 +217,45 @@ comment-item {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+.new-comment button {
+  background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.username{
+color: #000000;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.09px;
+}
+
+.date{
+color: #808080;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.08px;
+}
+
+.text {
+  color: #000;
+
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 300;
+line-height: 32px;
 }
