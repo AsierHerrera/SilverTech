@@ -1,0 +1,52 @@
+
+.silver-economy {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section.right-text .text {
+  order: 2;
+  margin-left: 20px;
+}
+
+.section.right-text .image {
+  order: 1;
+  margin-right: 20px;
+}
+
+.section.left-text .text {
+  order: 1;
+  margin-right: 20px;
+}
+
+.section.left-text .image {
+  order: 2;
+  margin-left: 20px;
+}
+
+.text {
+  flex: 1;
+  max-width: 50%;
+  font-size: 28px;
+  line-height: 1.5;
+
+}
+
+.image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #00008B; /* Azul oscuro */
+}
