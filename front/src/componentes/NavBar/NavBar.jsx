@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import logo from './logo_azul.png';
+import logo from './silvertech_logo2.jpg';
 import userIcon from './user_icon.png';
 
 const NavBar = () => {
@@ -47,7 +47,7 @@ const NavBar = () => {
 
   return (
     <header className="navbar">
-      <div className="navbar__logo-bar">
+      <div >
         <img src={logo} alt="Logo" className="navbar__logo" />
       </div>
 
@@ -86,7 +86,7 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/crear-proyecto">Crear Nuevo Proyecto</Link>
                 <Link className="dropdown__item" to="/mis-proyectos">Proyectos Finalizados</Link>
-                <Link className="dropdown__item" to="/mis-proyectos">Documentación Legal</Link>
+                <Link className="dropdown__item" to="/documentacion-legal-accesibilidad">Documentación Legal</Link>
               </div>
             )}
           </div>
