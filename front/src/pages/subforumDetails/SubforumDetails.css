@@ -1,19 +1,227 @@
+/* SubforumDetails.css */
 
-.post-detail {
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .comments-section {
-    margin-top: 20px;
-  }
-  
-  .comment-item {
-    background: #f8f8f8;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
+.post-page {
+  font-family: Arial, sans-serif;
+  max-width: 1074px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+.post-details {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.post-details h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.post-details p {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.comments-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+
+}
+
+.comments-section h3 {
+  font-size: 32px;
+  font-weight: bold;
+  display: inline;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.comments-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-item {
+  background-color: #fcfcfc;;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 12px -10px rgba(129, 136, 172, 5);
+}
+
+.comment-item div {
+  margin-bottom: 10px;
+}
+
+.comment-item p {
+  font-size: 14px;
+  color: #555;
+}
+
+.comment-item button {
+  background-color: rgb(5, 14, 60);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.comment-item button:hover {
+  background-color: rgb(5, 14, 60);
+}
+
+.new-comment {
+  margin-top: 20px;
+}
+
+.new-comment textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.new-comment button {
+  background-color: rgb(5, 14, 60);
+  margin: 0 auto;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.new-comment button:hover {
+  background-color: rgb(5, 14, 60);
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+
+.new-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-comment button {
+  background-color:  #07124B;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 200px; 
+}
+
+.comment-item textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+
+
+.comment-item div button {
+  align-self: flex-start;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.edit-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-buttons button {
+  margin-right: 10px;
+}
+
+comment-item {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.comment-actions button {
+  background-color: #07124B;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.comment-actions button:last-child {
+  background-color: #07124B;
+}
+
+.comment-actions button:hover {
+  background-color: rgb(5, 14, 60);
+  opacity: 0.8;
+}
+.comment-details {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px; /* Optional: add some spacing between items */
+}
+
+.comment-details-item {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.new-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.new-comment-title {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.comments-section-h2{
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

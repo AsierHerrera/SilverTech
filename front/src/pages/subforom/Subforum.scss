@@ -32,33 +32,89 @@ h1 {
 }
 
 .filters {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
   
-    button {
-      background-color: #EAEAEA;
-      color: #808080;
-      border: none;
-
-      padding: 10px 20px;
-      margin: 0 10px;
-     border-radius: 100px;
-      cursor: pointer;
-      &:hover {
-        border-radius: 100px;
-        color: #ddd;
-        background: #565353;
-      }
+  button {
+    background-color: #EAEAEA;
+    color: #808080;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    &:hover {
+      border-radius: 100px;
+      color: #ddd;
+      background: #565353;
     }
   }
-  
+}
 
 // Create post container
 .create-post-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1074px;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+    button {
+      background-color: #07124B;
+      border-radius: 8px;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #0f1a51;
+      }
+      
+      &.cancel-button {
+        background-color: #07124B;
+        &:hover {
+          background-color: darken(#0f1a51, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Post list
+.post-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style-type: none;
+  
+  .post-item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    width: 100%;
     max-width: 1074px;
     padding: 40px 20px;
     background-color: white;
@@ -67,138 +123,138 @@ h1 {
     margin-bottom: 20px;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
-  
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+    
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-  
-    .button-container {
+    
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #1a2238;
+    }
+    .post-author {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      color:  #000000;
+      margin-bottom: 10px;
+    }
+    .post-date {
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      color: #808080;
+    }
+    .post-title {
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+    }
+    .post-text {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+      font-family: Montserrat;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      flex-grow: 1;
+    }
+
+    .post-comments {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #888;
+      margin: 0;
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      align-items: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+
   
-      button {
-        background-color: #07124B;
-        border-radius: 8px;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-  
-        &:hover {
-          background-color: #0f1a51;
-        }
-  
-        &.cancel-button {
-          background-color: #07124B;
-          &:hover {
-            background-color: darken( #0f1a51, 10%);
-          }
-        }
+    }
+    
+    p {
+      font-size: 12px;
+      color: #888;
+      margin: 5px 0;
+    }
+    
+    .icon-dots {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      
+      &:hover {
+        color: darken(#1a2238, 10%);
       }
     }
-  }
-// Post list
-// Post list
-.post-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    list-style-type: none;
-  
-    .post-item {
-      position: relative;
+    
+    .post-actions {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      max-width: 1074px;
-      padding: 40px 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-  
-      &:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-  
-      h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        color: #1a2238;
-      }
-  
-      .post-text {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 10px;
-      }
-  
-      p {
-        font-size: 12px;
-        color: #888;
-        margin: 5px 0;
-      }
-  
-      .icon-dots {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-  
-        &:hover {
-          color: darken(#1a2238, 10%);
+      gap: 10px;
+      margin-top: 10px;
+      
+      .edit-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        
+        input, textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        
+        .button-group {
+          display: flex;
+          gap: 10px;
+          
+          button {
+            background-color: #07124B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            
+            &:hover {
+              background-color: #0f1a51;
+            }
+            
+            &.cancel-button {
+              background-color: #ccc;
+              color: #333;
+              
+              &:hover {
+                background-color: darken(#ccc, 10%);
+              }
+            }
+          }
         }
       }
-  
-      .post-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-  
-        button {
-          background-color: #f0f0f0;
-          border: none;
-          padding: 5px 10px;
-          border-radius: 4px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: darken(#f0f0f0, 10%);
-          }
+      
+      .delete-button {
+        align-self: flex-start;
+        background-color: #07124B;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: darken(#07124B, 10%);
         }
       }
     }
   }
-  .post-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .post-actions input,
-  .post-actions textarea {
-    
-    margin-right: 10px; 
-  }
-  
-  .button-group {
-    margin-right: auto; 
-  }
-  .edit-button{
-    margin-right:10px;
-  }
-  .delete-button {
-   
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-    
+}

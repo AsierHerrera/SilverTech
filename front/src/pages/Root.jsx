@@ -1,8 +1,9 @@
 import "./Root.scss"
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { deleteToken, getToken } from "../utils/local";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import UserContext from "../context/userContext";
+/* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
 
@@ -14,6 +15,7 @@ import Landing from "./Landing";
 const Root = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
+    const [showProfile, setShowProfile] = useState(false);
 
 /*     useEffect(() => {
         if (!getToken()) {
@@ -35,6 +37,11 @@ const Root = () => {
         deleteToken();
         navigate("/register");
     } */
+
+
+const toggleProfile = () => {
+    setShowProfile(!showProfile);
+};
 
     /* 
         <div>
@@ -59,6 +66,9 @@ const Root = () => {
                     </li>
 
                 </ul>
+                <div>
+                    <button onClick={toggleProfile}>Perfil</button>                    
+                </div>
             </nav>
 
             <h1>Hello {user?.username}</h1>
