@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import iconUser from "../../../public/icon_box.png";
+import "./EventoPasados.scss"
 
 export default function EventoPasados({ img }) {
   return (
@@ -21,7 +22,7 @@ export default function EventoPasados({ img }) {
           
           <p>Precio: <span>75 EURO</span></p>
         </div>
-        <Link className="ver-mas" to={`/recursos/1`}>Ver Curso</Link>
+        <Link className="ver-eventos-p" to={`/eventos/1`}>Ver Eventos</Link>
       </div>
       
     </>
