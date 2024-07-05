@@ -43,6 +43,9 @@ const Register = ({ onLogin }) => {
             if (!result.error) {
                 setIsRegister(false);
                 setError("user registered correctly");
+                setUser(result.user); 
+                localStorage.setItem('userData', JSON.stringify(result.user));
+                navigate("/ajustes"); 
             }
             else {
                 setError(result.error);
@@ -51,9 +54,11 @@ const Register = ({ onLogin }) => {
         else {
             result = await login(userData);
             if (!result.error) {
-                setError("login correct");
+                setError("login correcto");
                 saveToken(result.token);
                 //onLogin(result.token);
+                setUser(result.user); 
+                localStorage.setItem("userData", JSON.stringify(result.user));
                 navigate("/");
             }
             else {
