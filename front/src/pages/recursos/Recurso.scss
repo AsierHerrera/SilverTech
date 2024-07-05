@@ -2,7 +2,7 @@
 
 #Banner{
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-bottom: 10vh;
 }
 
@@ -21,6 +21,9 @@
 
 .navegation-history{
     font-weight: 500;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-bottom: 0vh;
 }
 
 .navegation-history > span{
@@ -93,22 +96,30 @@
 }
 
 .curso-info > p{
-    margin: 0px;
+    margin-top: 2vh;
     font-size: 120%;
+}
+
+.curso-info > p > span{
+    font-weight: 700;
 }
 
 .curso-info > button{
     padding: 1.5vh 2.5vw;
     margin-top: 3vh;
     margin-bottom: 10vh;
-    background-color: $Primary_Dark;
-    color: white;
-    font-weight: 400;
+    background-color: $Secondary_Normal;
+    border: none;
+    color: $Primary_Dark;
+    font-weight: 700;
     border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
 }
 
 .curso-info > button:hover{
-    background-color: $Primary_Normal;
+    background-color: $Secondary_Normal_Hover;
 }
 
 .curso-introduccion{
@@ -149,13 +160,10 @@
 
 .curso-contenido p{
     width: 42vw;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 108%;
-    margin: 0px;
-}
-
-.curso-contenido  ul:first-of-type{
     margin-bottom: 4vh;
+    margin-top: 4vh;
 }
 
 .curso-contenido  ul{
@@ -167,6 +175,13 @@
     font-weight: 500;
     font-size: 108%;
     margin: 0px;
+}
+
+.info-adicional{
+    color: $Primary_Normal;
+    font-weight: 700;
+    font-size: 140%;
+    margin-bottom: 2vh;
 }
 
 .curso-adicional {
@@ -188,7 +203,6 @@
 .curso-adicional > div > img{
     width: 40px;
     height: 40px;
-    
 }
 
 .curso-adicional > div > div{
@@ -234,28 +248,36 @@
     margin: 0px;
     margin-left: 220px;
     border-radius: 5px;
-    border: 1.5px solid $Neutral_Darker;
-    background-color: white;
-    color: $Text;
-    font-weight: 500;
-
+    border: none;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 1vh 1vw;
 }
 
 .curso-mapa > button:hover{
-    background-color: white;
-    border: 1.5px solid $Primary_Normal;
-    color: $Primary_Normal;
+    color: white;
 }
 
 #reservar-plazas{
-    margin-left: 18vw;
-    margin-bottom: 8vh;
-    width: 54.17vw;
-    background-color: $Primary_Dark;
+    display: flex;
+    justify-content: center;
+}
+
+#reservar-plazas > button{
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    margin-bottom: 10vh;
     border-radius: 10px;
-    color: white;
-    font-weight: 400;
-    padding: 4vh 0px;
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 3vh 6vw;
+    border: none;
 }
 
 //columna 2
@@ -265,7 +287,7 @@
     text-align: center;
     margin-top: 23vh;
     font-size: 200%;
-  
+    color: $Secondary_Normal;
 }
 
 .curso-fecha{
@@ -408,19 +430,25 @@ li {
 }
 
 .curso-apartar > button:first-of-type{
-    background-color: $Primary_Darker;
+    margin-bottom: 3vh;
     border-radius: 5px;
-    color: white;    
-    margin-bottom: 2vh;
-    padding: 1vh 0px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 1vh 0vw;
+    width: 100%;
 }
 
 .curso-apartar > button:last-of-type{
-    background-color: white;
-    border-radius: 5px;
+    background-color: $Secondary_Light;
+    border-radius: 10px;
     color: $Primary_Darker;
     border: 2px solid $Primary_Darker;
-    font-weight: 500;
+    font-weight: 700;
     padding: 1vh 0px;
 }
 

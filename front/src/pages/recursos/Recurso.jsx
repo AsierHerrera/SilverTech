@@ -1,20 +1,21 @@
 import "./Recurso.scss";
 import { useLoaderData } from "react-router-dom";
-import banner from "../../../public/Banner.png";
-import banner2 from "../../../public/Banner2.png";
+import banner from "../../../public/banner_curso.png";
+import banner2 from "../../../public/banner2_curso.png";
 import avatar1 from "../../../public/avatar_angel.png";
 import avatar2 from "../../../public/avatar_mila.png";
 import avatar3 from "../../../public/avatar_juanjo.png";
-import icon1 from "../../../public/icon_languages.png";
-import icon2 from "../../../public/icon_clock.png";
-import icon3 from "../../../public/icon_users.png";
-import icon4 from "../../../public/icon_edit.png";
-import icon5 from "../../../public/icon_check_circle.png";
-import icon6 from "../../../public/icon_receipt.png";
+import icon1 from "../../../public/lucide_languages.png";
+import icon2 from "../../../public/lucide_clock2.png";
+import icon3 from "../../../public/Group.png";
+import icon4 from "../../../public/lucide_edit.png";
+import icon5 from "../../../public/lucide_check_circle.png";
+import icon6 from "../../../public/lucide_receipt.png";
 import mapa from "../../../public/map.png";
 import iconDate from "../../../public/icon_calendar.png";
 import iconUser from "../../../public/icon_box.png";
 import iconHeart from "../../../public/icon_heart.png";
+import Footer2 from "../../componentes/Footer/Footer2";
 
 const Recurso = ()=>{
     const recurso = useLoaderData();
@@ -22,11 +23,13 @@ const Recurso = ()=>{
 
     return (
         <>
+            <p className="navegation-history" > <span>Inicio</span>  {">"} <span>Recursos</span> {">"} <span></span>Cursos y Talleres</p>
+                   
             <img src={banner} alt="" id="Banner"/>
             <section id="cuerpo-principal">
                 
                 <article>
-                    <p className="navegation-history" > <span>Inicio</span>  {">"} <span>Recursos</span> {">"} <span></span>Cursos y Talleres</p>
+                     {/*
                     <div className="course-category">
                         <p>Nuevo</p>
                         <p>Cursos y talleres</p>
@@ -39,14 +42,14 @@ const Recurso = ()=>{
                         <p className="barra-separacion">|</p>
                         <p> <img src={iconHeart} alt="" /> Dificultad Baja</p>
                     </div>
+                    */}
                     <div className="curso-info">
                         <img src={banner2} alt="" />
-                        <p>16 de Agosto 2024 - 15:30</p>
-                        <p>Bilbao, Urazurrutia Kalea 3,</p>
-                        <p>48003</p>
-                        <p>Asistentes 60</p>
-                        <p>Plazas disponibles 40 </p>
-                        <p>Precio:   75 EURO </p>
+                        <p>Fecha: <span>16 de Agosto 2024 - 15:30</span></p>
+                        <p>Lugar: <span>Bilbao, Urazurrutia Kalea 3,c48003</span></p>
+                        <p>Asistentes: <span>60</span> </p>
+                        <p>Plazas disponibles: <span>40</span> </p>
+                        <p>Precio: <span>75 EURO</span></p>
                         <button>Reservar plaza</button>
                     </div>
                     <div className="curso-introduccion">
@@ -87,7 +90,7 @@ const Recurso = ()=>{
 
                     </div>
                     <div >
-                        <h3>Información adicional</h3>
+                        <h3 className="info-adicional">Información adicional</h3>
                         <div className="curso-adicional">
                             <div>
                                 <img src={icon1} alt="" />
@@ -134,7 +137,7 @@ const Recurso = ()=>{
                         </div>
                     </div>
                     <div className="curso-mapa">
-                        <h3>Mapa de la zona</h3>
+                        <h3 className="info-adicional">Mapa de la zona</h3>
                         <img src={mapa} alt="" />
                         <button>Abrir en Google Maps</button>
                     </div>
@@ -209,7 +212,7 @@ const Recurso = ()=>{
 
                     </div>                        
                     <div className="curso-apartar">
-                        <button>Comprar Actividad</button>
+                        {/*<button>Comprar Actividad</button>*/}
                         <button>⁖ Enviar una Invitación</button>
                     </div>
                     <div className="curso-contactos">
@@ -231,9 +234,11 @@ const Recurso = ()=>{
                     </div>
                 </article>
             </section>
+            <div id="reservar-plazas">
+                <button>Reservar Plazas</button>                
+            </div>
 
-            <button id="reservar-plazas">Reservar Plazas</button>
-
+            <Footer2/>
         </>
     )
 }
