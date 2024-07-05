@@ -9,7 +9,7 @@ const DocumentacionLegalAccesibilidad = () => {
 <br />
 <h3>1. Información General</h3>
 <br />
-La presente aplicación web es operada por Seniority, con sede en [dirección de la empresa]. Al acceder y utilizar esta aplicación, el usuario acepta cumplir con los siguientes términos y condiciones de uso.
+La presente aplicación web es operada por Seniority. Al acceder y utilizar esta aplicación, el usuario acepta cumplir con los siguientes términos y condiciones de uso.
 <br /><br />
 <h3>2. Propiedad Intelectual</h3>
 <br />
