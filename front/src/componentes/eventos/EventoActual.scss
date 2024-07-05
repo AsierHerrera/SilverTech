@@ -45,10 +45,10 @@
     margin-bottom: 3vh;
 }
 
-.evento-contenido > p:last-of-type{
+.evento-contenido > div{
     font-size: 110%;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 2vh;
+    color: $Neutral_Darker;
 }
 
 .evento-detalles{
@@ -56,9 +56,10 @@
     text-decoration: none;
     display: flex;
     justify-content: center;
-    //background-color: $Secondary_Normal;    
-    padding: 2vh 0px 5vh 0px;
+    background-color: $Secondary_Normal;    
+    padding: 2vh 0px 2vh 0px;
     border-radius: 0px 0px 10px 10px;
+    margin-top: 4vh;
 }
 
 .evento-detalles > *{
@@ -66,6 +67,9 @@
     font-size: 130%;
     font-weight: bold;
     color: $Primary_Dark;
-
+    
 }
 
+.evento-detalles:hover{
+    cursor: pointer;
+}

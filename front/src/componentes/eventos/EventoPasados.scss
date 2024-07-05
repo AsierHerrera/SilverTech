@@ -2,24 +2,32 @@
 
 .card{
     width: 19.44vw;
-    margin-bottom: 8vh;
     display: flex;
     border-radius: 10px;
     border: solid 1px $Neutral_Dark;
     -webkit-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
 }
 
-.card > img{
+.card img{
     border-radius: 8px 8px 0px 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.card > div{
+    margin: 0px;
+    width: 100%;
+    background-color: white;
 }
 
 .seccion1{
-    align-self: center;
+    align-self: start;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     margin: 3vh 1vw;
 }
 
@@ -28,6 +36,7 @@
     font-size: 18px;
     font-weight: bold;
     color: rgb(9,24,100);
+    margin: 0px;
 }    
 
 .seccion1 > p{
@@ -50,7 +59,8 @@
 }
 
 .seccion3{
-    align-self: center;
+    display: flex;
+    justify-content: center;
     font-weight: 500;
 }
 
@@ -58,9 +68,9 @@
     font-weight: bold;
 }
 
-.ver-eventosp{
-    background-color: rgb(9,24,100);
-    color: white;
+.ver-eventos-p{
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
     text-decoration: none;
     text-align: center;
     font-weight: bold;
@@ -70,7 +80,7 @@
     padding-bottom: 2vh;
 }
 
-.ver-eventosp:hover{
+.ver-eventos-p:hover{
     cursor: pointer;
 }
 .gris{
