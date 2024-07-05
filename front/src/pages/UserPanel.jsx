@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { login } from "../utils/fetch";
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "./UserPanel.css";
+import UserContext from "../context/userContext";
 
 const UserPanel = () => {
+    const { setUser: setGlobalUser } = useContext(UserContext); 
     const [user, setUser] = useState({});
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
@@ -27,12 +30,21 @@ const UserPanel = () => {
     }, []);
 
     useEffect(() => {
-        const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
-        console.log("savedUser: ", savedUser);
-        setUser(savedUser);
-        setName(savedUser.username || '');
+        const savedUser = localStorage.getItem('userData');
+        if (savedUser) {
+            const parsedUser = JSON.parse(savedUser);
+            console.log("parsedUser: ", parsedUser);
+            if (parsedUser && parsedUser._id) {
+                setUser(parsedUser);
+                setName(parsedUser.username || '');
+            } else {
+                console.error('User ID no encontrado');
+            }
+        } else {
+            console.error('No saved user data found in localStorage');
+        }
     }, []);
-
+    
     useEffect(() => {
         const savedProfilePic = localStorage.getItem('profilePic');
         if (savedProfilePic) {
@@ -46,24 +58,46 @@ const UserPanel = () => {
             alert('El nombre de usuario no puede estar vacío');
             return;
         }
+        if (name === user.username) {
+            alert('El nombre no puede ser el mismo');
+            return;
+        }
         const updatedUser = { ...user, username: name };
         console.log("updatedUser: ", updatedUser);
         setUser(updatedUser);
+        setGlobalUser(updatedUser); // Update the global user context
         localStorage.setItem('userData', JSON.stringify(updatedUser));
         alert('Se ha actualizado tu nombre de usuario');
     };
-
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = async (e) => {
         e.preventDefault();
+        const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
         if (currentPassword.trim() === '' || newPassword.trim() === '') {
             alert('Los campos de contraseña no pueden estar vacíos');
             return;
         }
+    
+
+        const verificationResult = await login({ username: savedUser.username, password: currentPassword });
+    
+        if (verificationResult.error) {
+            alert('La contraseña actual no coincide con la contraseña registrada');
+            return;
+        }
+    
+        if (currentPassword === newPassword) {
+            alert('La nueva contraseña no puede ser la misma que la actual');
+            return;
+        }
+    
+
         alert('Se ha actualizado tu contraseña');
+        const updatedUser = { ...savedUser, password: newPassword };
+        setUser(updatedUser);
+        localStorage.setItem('userData', JSON.stringify(updatedUser));
         setCurrentPassword('');
         setNewPassword('');
     };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -90,6 +124,7 @@ const UserPanel = () => {
                 alert('¡Datos de la empresa guardados correctamente!');
                 const updatedUser = { ...user, company: data._id };
                 setUser(updatedUser);
+                setGlobalUser(updatedUser); 
                 localStorage.setItem('userData', JSON.stringify(updatedUser));
                 window.location.href = '/ajustes-perfil';
             } else {
