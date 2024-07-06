@@ -3,6 +3,7 @@ import { login } from "../utils/fetch";
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "./UserPanel.css";
 import UserContext from "../context/userContext";
+import { updateUser } from '../utils/fetch';
 
 const UserPanel = () => {
     const { setUser: setGlobalUser } = useContext(UserContext); 
@@ -34,9 +35,8 @@ const UserPanel = () => {
         if (savedUser) {
             const parsedUser = JSON.parse(savedUser);
             console.log("parsedUser: ", parsedUser);
-            if (parsedUser && parsedUser._id) {
+            if (parsedUser) {
                 setUser(parsedUser);
-                setName(parsedUser.username || '');
             } else {
                 console.error('User ID no encontrado');
             }

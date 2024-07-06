@@ -1,0 +1,67 @@
+.card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #8e44ad;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.cardImg {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.date, .location, .attendees, .spots {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.verMas {
+  background-color: #F8A800;
+  color: #091864;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-top: auto;
+}
+
+.verMas:hover {
+  background-color: #e09700;
+}

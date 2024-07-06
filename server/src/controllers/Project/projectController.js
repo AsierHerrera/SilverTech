@@ -21,7 +21,7 @@ const create = async (data, userId) => {
         const project = new Project({
             title,
             category,
-            professionalReference,
+            professionalReference:userId,
             contactInfo,
             description,
             beneficiaries,
