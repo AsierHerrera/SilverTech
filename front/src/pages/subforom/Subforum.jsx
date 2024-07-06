@@ -16,7 +16,7 @@ import Footer2 from "../../componentes/Footer/Footer2";
 
 
 import './Subforum.scss';
-import FooterBig from '../../componentes/Landing/FooterBig.jsx';
+
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
