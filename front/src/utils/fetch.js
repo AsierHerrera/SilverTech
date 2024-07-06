@@ -140,6 +140,10 @@ const getUserPanel= async(id)=>{
     const result = await fetchData("/create/"+id,"get"); 
     return result;
 }
+const updateUser = async (userId, userData) => {
+    const result = await fetchData(`/users/${userId}`, "put", userData);
+    return result;
+};
 
 export {
     register,
@@ -165,6 +169,7 @@ export {
     dislikeComment,
     getCompanyByUserId,
     getProjectByUserId,
-    createCompany
+    createCompany,
+    updateUser
 
 }

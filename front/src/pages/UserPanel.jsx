@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { login } from "../utils/fetch";
+import { login, getUserData, updateUser } from "../utils/fetch"; // Importar getUserData
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "./UserPanel.css";
 import UserContext from "../context/userContext";
@@ -22,35 +22,51 @@ const UserPanel = () => {
         descripcion: ''
     });
 
-    useEffect(() => {
-        const savedData = localStorage.getItem('datosEmpresa');
-        if (savedData) {
-            setFormData(JSON.parse(savedData));
+    const storeUserData = (userData) => {
+        try {
+            localStorage.setItem('userData', JSON.stringify(userData));
+            console.log('User data stored in localStorage:', JSON.stringify(userData));
+        } catch (e) {
+            console.error('Error storing user data in localStorage', e);
         }
-    }, []);
+    };
+
+    const fetchUserData = async () => {
+        const result = await getUserData(); // Usar la función getUserData del fetch.js
+        console.log('User data from server:', result);
+        return result.data; // Asegurarse de acceder a la propiedad data
+    };
 
     useEffect(() => {
-        const savedUser = localStorage.getItem('userData');
-        if (savedUser) {
-            const parsedUser = JSON.parse(savedUser);
-            console.log("parsedUser: ", parsedUser);
-            if (parsedUser && parsedUser._id) {
-                setUser(parsedUser);
-                setName(parsedUser.username || '');
+        const fetchUser = async () => {
+            const userData = await fetchUserData();
+            if (userData && !userData.error) {
+                console.log("user: ", userData);
+                const { _id, username } = userData; // Desestructurar _id y username
+                if (_id) {
+                    console.log("user._id: ", _id); // Verificar que _id está presente
+                    setUser(userData);
+                    setName(username || '');
+                } else {
+                    console.error('User ID no encontrado:', userData);
+                }
             } else {
-                console.error('User ID no encontrado');
+                console.error('No saved user data found in localStorage');
             }
-        } else {
-            console.error('No saved user data found in localStorage');
-        }
+        };
+        fetchUser();
     }, []);
-    
+
     useEffect(() => {
         const savedProfilePic = localStorage.getItem('profilePic');
         if (savedProfilePic) {
             setProfilePic(savedProfilePic);
         }
     }, []);
+
+    useEffect(() => {
+        console.log("User state updated:", user);
+    }, [user]);
 
     const handleNameChange = (e) => {
         e.preventDefault();
@@ -65,18 +81,18 @@ const UserPanel = () => {
         const updatedUser = { ...user, username: name };
         console.log("updatedUser: ", updatedUser);
         setUser(updatedUser);
-        setGlobalUser(updatedUser); // Update the global user context
-        localStorage.setItem('userData', JSON.stringify(updatedUser));
+        setGlobalUser(updatedUser); 
+        storeUserData(updatedUser);
         alert('Se ha actualizado tu nombre de usuario');
     };
+
     const handlePasswordChange = async (e) => {
         e.preventDefault();
-        const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
+        const savedUser = user || {};
         if (currentPassword.trim() === '' || newPassword.trim() === '') {
             alert('Los campos de contraseña no pueden estar vacíos');
             return;
         }
-    
 
         const verificationResult = await login({ username: savedUser.username, password: currentPassword });
     
@@ -89,15 +105,15 @@ const UserPanel = () => {
             alert('La nueva contraseña no puede ser la misma que la actual');
             return;
         }
-    
 
         alert('Se ha actualizado tu contraseña');
         const updatedUser = { ...savedUser, password: newPassword };
         setUser(updatedUser);
-        localStorage.setItem('userData', JSON.stringify(updatedUser));
+        storeUserData(updatedUser);
         setCurrentPassword('');
         setNewPassword('');
     };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -110,30 +126,15 @@ const UserPanel = () => {
             return;
         }
         try {
-            const response = await fetch(`/api/companies/${user._id}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                alert('¡Datos de la empresa guardados correctamente!');
-                const updatedUser = { ...user, company: data._id };
-                setUser(updatedUser);
-                setGlobalUser(updatedUser); 
-                localStorage.setItem('userData', JSON.stringify(updatedUser));
-                window.location.href = '/ajustes-perfil';
-            } else {
-                const errorData = await response.json();
-                alert(`Error al guardar los datos de la empresa: ${errorData.error}`);
-            }
+            const result = await updateUser(user._id, formData); 
+            alert('¡Datos de la empresa guardados correctamente!');
+            const updatedUser = { ...user, company: result._id };
+            setUser(updatedUser);
+            setGlobalUser(updatedUser);
+            storeUserData(updatedUser);
+            window.location.href = '/ajustes';
         } catch (error) {
-            console.error('Error de red al guardar los datos de la empresa:', error);
-            alert('Error de red al guardar los datos de la empresa');
+            alert(`Error al guardar los datos de la empresa: ${error.message}`);
         }
     };
 
