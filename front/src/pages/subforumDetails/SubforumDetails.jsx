@@ -6,7 +6,8 @@ import './SubforumDetails.css';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
 import moment from 'moment';
-import FooterBig from '../../componentes/Landing/FooterBig.jsx';
+import Footer2 from "../../componentes/Footer/Footer2";
+
 
 const SubforumDetails = () => {
     const { id } = useParams();
@@ -202,7 +203,7 @@ const SubforumDetails = () => {
                 </div>
             </div>
         </div>
-        <FooterBig/>
+        <Footer2 />
         </div>
     );
 };
