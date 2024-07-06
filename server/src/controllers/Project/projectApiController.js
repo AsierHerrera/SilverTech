@@ -24,7 +24,7 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
-        const project = await projectController.create(req.body.data, userId);
+        const project = await projectController.create(req.body, userId);
         res.status(201).json({ data: project });
     } catch (error) {
         res.status(500).json({ error: error.message });

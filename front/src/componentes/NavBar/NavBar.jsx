@@ -46,7 +46,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className="navbar">
+    <header className="navbar container" >
       <div >
         <img src={logo} alt="Logo" className="navbar__logo" />
       </div>
@@ -83,9 +83,9 @@ const NavBar = () => {
             <button className="navbar__link" onClick={() => toggleDropdown('proyectos')}>Proyectos</button>
             {dropdowns.proyectos && (
               <div className="dropdown__menu anchura1">
-                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                <Link className="dropdown__item" to="/proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/crear-proyecto">Crear Nuevo Proyecto</Link>
-                <Link className="dropdown__item" to="/mis-proyectos">Proyectos Finalizados</Link>
+                <Link className="dropdown__item" to="/proyectos-finalizados">Proyectos Finalizados</Link>
                 <Link className="dropdown__item" to="/documentacion-legal-accesibilidad">Documentación Legal</Link>
               </div>
             )}

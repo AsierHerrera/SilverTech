@@ -33,8 +33,11 @@ import PERFILEMPRESA from "./pages/Proyectos/PERFILEMPRESA";
 import DocumentacionLegal from "./pages/DocumentacionLegal"; */
 /*  import Eventos from "./pages/Eventos"; */
 import Charlas from "./pages/Charlas"; 
+import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
+import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
+
 
 const router = createBrowserRouter([
   {
@@ -61,8 +64,11 @@ const router = createBrowserRouter([
       { path: "/publicaciones", element: <Publicaciones /> },
       { path: "/silver-economy", element: <SilverEconomy /> }, 
 /*    { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
-      { path: "/mis-proyectos", element: <PERFILEMPRESA /> },
-    { path: "/crear-proyecto", element: <PERFILEMPRESA /> },
+      { path: "/proyectos", element: <PERFILEMPRESA /> },
+      { path: "/crear-proyecto", element: <CrearProyecto /> },
+      { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> },
+
+
 /*    { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
 /*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
       { path: "/eventos", element: <Eventos /> },
@@ -71,7 +77,7 @@ const router = createBrowserRouter([
       { path: "/pago2/:id", element: <Pago2 /> },
       { path: "/pago3/:id", element: <Pago3 /> },
       { path: "/charlas", element: <Charlas /> }, 
-      { path: "/mis-datos", element: <UserPanel /> },
+     { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
     ],

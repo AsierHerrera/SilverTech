@@ -10,6 +10,8 @@ import { BsPlusCircle } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
 import { TfiComment } from "react-icons/tfi";
 import { FaRegTrashCan } from "react-icons/fa6";
+import hero from "../../../public/hero.jpeg";
+import moment from 'moment';
 
 import './Subforum.scss';
 
@@ -149,13 +151,37 @@ const Subforum = () => {
   }
 
   return (
-    <div>
-      <div className="hero">
-        <div className='sectionimg'>
-          <img src="../../../public/EllipseForo.jpg" alt="" />
-        </div>
-      </div>
-  
+    <div className="container">
+                {/* <div className="hero"> */}
+                  {/* <div className='sectionimg'> */}
+                    {/* <img className='sectionimg' src="../../../public/EllipseForo.jpg" alt="" /> */}
+                  {/* </div> */}
+          {/* <div className="hero">
+          <img src={hero} alt="" id="Banner"/>
+                          <p className="cursos-compromiso">
+                          En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En [Nombre de tu Empresa], hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.
+                          </p>
+          </div>
+                  */}
+                {/* </div> */}
+                <div className="hero">
+                <div className="hero-content">
+                  <div className="text-content">
+                    <h1>Foro de <span className="highlight">SILVER</span><span className="highlightSilver">TECH</span></h1>
+                    <p>Forma parte de la comunidad de empresarios y emprendedores que quieren mejorar la experiencia de usuario de tu empresa.</p>
+                  </div>
+                  <div className="image-content">
+                    <img src={hero} alt="Forum banner" />
+                  </div>
+                </div>
+                {/* <button className="messaging-button">
+                  <span className="icon">📩</span> Mensajería
+                </button> */}
+              </div>
+
+
+
+  <div className="container" >
       <div className="filters">
         <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
         <button onClick={handleSortByNewest}> <BsClock /> Sort by Newest</button>
@@ -182,7 +208,8 @@ const Subforum = () => {
                   ) : null}
                 <div onClick={() => handlePostClick(post._id)}>
                 <p className="post-author"> {findUsernameById(post.user)}</p>
-                <p className="post-date">{new Date(post.createdAt).toLocaleString()}</p>
+                <p className="post-date">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
+                }</p>
                   <h2 className="post-title">{post.title}</h2>
                   <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
                  
@@ -236,6 +263,7 @@ const Subforum = () => {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
