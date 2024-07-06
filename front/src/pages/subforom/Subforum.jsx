@@ -16,7 +16,7 @@ import Footer2 from "../../componentes/Footer/Footer2";
 
 
 import './Subforum.scss';
-import FooterBig from '../../componentes/Landing/FooterBig.jsx';
+
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
@@ -170,9 +170,6 @@ const Subforum = () => {
                     <span className="icon">📩</span> Mensajería
                   </button> */}
                 </div>
-
-
-
     <div className="container" >
         <div className="filters">
           <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
@@ -225,7 +222,7 @@ const Subforum = () => {
                         </div>
                       </div>
                     ) : null}
-                    {currentUser.role === 'admin' &&  (
+                    {(currentUser.role === 'admin'|| post.user === currentUser._id )  &&  (
                       <button className="delete-button" onClick={() => handleDeletePost(post._id)}><FaRegTrashCan /></button>
                     ) }
                   </div>
