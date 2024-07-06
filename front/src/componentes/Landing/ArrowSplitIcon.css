@@ -1,0 +1,7 @@
+.arrow-split-icon {
+  display: flex;
+  align-self: center;
+  width: 85px;
+  height: 85px;
+  z-index: 1;
+}

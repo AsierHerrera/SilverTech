@@ -1,0 +1,34 @@
+.dependes-mucho-de1 {
+  flex: 1;
+  position: relative;
+  line-height: 32px;
+  display: inline-block;
+  max-width: 100%;
+}
+.lift-to-talk-icon2 {
+  height: 0;
+  width: 0;
+  position: relative;
+  display: none;
+}
+.dependes-mucho-de-whatsapp-par-group {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 130.2px 0 0;
+  box-sizing: border-box;
+  max-width: 103%;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  font-family: Montserrat;
+}
+@media screen and (max-width: 450px) {
+  .dependes-mucho-de1 {
+    font-size: 19px;
+    line-height: 26px;
+  }
+}

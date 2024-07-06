@@ -1,54 +1,215 @@
-.footer {
-  background-color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-
-}
-
-.footer__section {
-  display: flex;
-  gap: 1rem;
-}
-
-.footer__button {
-  background-color: #050E3C;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.footer__dropdown {
+.footer-top-icon {
+  width: 258px;
+  height: 65px;
   position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.help-title,
+.text,
+.text1 {
+  position: relative;
+  line-height: 26px;
+}
+.help-title {
   display: inline-block;
+  min-width: 52px;
 }
-
-.footer__dropdown-toggle {
-  background-color: #050E3C;
-  color: white;
+.text,
+.text1 {
+  text-decoration: underline;
 }
-
-.footer__dropdown-menu {
+.text1 {
+  height: 11px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  min-width: 118px;
+}
+.help,
+.sub-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.sub-links {
+  gap: 21px;
+  font-size: 16px;
+}
+.help {
+  gap: 17px;
+  min-width: 154px;
+}
+.contact-title {
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+  display: inline-block;
+  text-align: left;
+  min-width: 76px;
+}
+.svg-icon6 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.infosilvertechcom {
+  position: relative;
+  line-height: 11px;
+  white-space: nowrap;
+}
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.svg-icon7 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.div2 {
+  position: relative;
+  line-height: 11px;
+  white-space: nowrap;
+}
+.contact-links,
+.link1 {
+  display: flex;
+  align-items: center;
+}
+.link1 {
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 0 0 6px;
+  gap: 8px;
+}
+.contact-links {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.text2 {
+  width: 99px;
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
   display: none;
-  position: absolute;
-  background-color: #add8e6;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  z-index: 1;
 }
-
-.footer__dropdown:hover .footer__dropdown-menu {
-  display: block;
+.vector-icon1 {
+  height: 25px;
+  width: 25px;
+  position: relative;
 }
-
-.footer__dropdown-item {
-  color: #050E3C;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: block;
+.social-media-placeholder {
+  height: 32px;
+  width: 32px;
+  position: relative;
 }
-
-.footer__dropdown-item:hover {
-  background-color: #87cefa;
+.social-media-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.contact,
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.social-media {
+  align-self: stretch;
+  gap: 16px;
+  color: #363636;
+  font-family: Inter;
+}
+.contact {
+  width: 185px;
+  gap: 17px;
+  min-width: 185px;
+  text-align: right;
+  font-size: 16px;
+}
+.footer-links {
+  width: 419px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 80%;
+}
+.footer-content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 80%;
+}
+.seniority-2023 {
+  position: relative;
+  line-height: 11px;
+  display: inline-block;
+  min-width: 121px;
+}
+.link2,
+.link3,
+.link4 {
+  position: relative;
+  text-decoration: underline;
+  line-height: 11px;
+}
+.copyright,
+.footer-big {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 80%;
+}
+.copyright {
+  flex-direction: row;
+  align-items: center;
+  padding: 18.5px 0;
+  gap: 36px;
+  font-size: 16px;
+}
+.footer-big {
+  align-self: stretch;
+  background-color: #050e3c;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px;
+  text-align: left;
+  font-size: 18px;
+  color: #fcfcfc;
+  font-family: "Atkinson Hyperlegible";
+}
+@media screen and (max-width: 800px) {
+  .copyright {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .contact,
+  .help {
+    flex: 1;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+  }
 }

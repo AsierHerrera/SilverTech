@@ -1,0 +1,50 @@
+.navbar-blanco-1 {
+  height: 65.1px;
+  width: 258px;
+  position: relative;
+  object-fit: cover;
+}
+.link-text8 {
+  position: relative;
+  line-height: 12px;
+  display: inline-block;
+  min-width: 58px;
+}
+.expand-more-icon5 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.link-menu3,
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 8px;
+  gap: 8px;
+}
+.logo {
+  align-self: stretch;
+  background-color: #fcfcfc;
+  overflow: hidden;
+  justify-content: space-between;
+  padding: 16px 48px 8px;
+  gap: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #000;
+  font-family: "Atkinson Hyperlegible";
+}
+@media screen and (max-width: 800px) {
+  .logo {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .logo {
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+}

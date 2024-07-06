@@ -1,4 +1,4 @@
-import FooterBig from "../componentes/Landing/FooterBig";
+import Footer from "../componentes/Footer/Footer";
 
 import React from 'react';
 import './SilverEconomy.css'; 
@@ -31,7 +31,7 @@ const SilverEconomy = () => {
           </div>
         </div>
       ))}
-<FooterBig/>
+<Footer/>
     </div>
   );
 };

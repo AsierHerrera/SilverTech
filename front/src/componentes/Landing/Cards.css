@@ -1,0 +1,35 @@
+.voice-message {
+  width: 354px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1px 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.card-items,
+.card-items1 {
+  height: 322.2px;
+  width: 354px;
+  position: relative;
+  max-width: 100%;
+}
+.cards {
+  width:862px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  font-family: Montserrat;
+}
+@media screen and (max-width: 1300px) {
+  .cards {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,12 @@
+.image-8-icon {
+  width: 900px;
+  height: 400px;
+  display: flex;
+  align-self: center;
+  /* position: absolute; */
+ /*  margin: 0 !important; */
+/*   top: 270.7px;
+  right: -2.5px; */
+ /*  flex-shrink: 0; */
+  /* object-fit: cover; */
+}
