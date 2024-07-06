@@ -1,71 +1,88 @@
 @import "../../EmpresarialColors.scss";
 
-.card-evento{
-    width: 30vw;
+.card{
+    width: 19.44vw;
+    display: flex;
     border-radius: 10px;
     border: solid 1px $Neutral_Dark;
     -webkit-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.1);
-
-    margin-bottom: 10vh;
+    background-color: $Secondary_Normal;
 }
 
-.card-evento > img{
+.card img{
     border-radius: 8px 8px 0px 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
-.card-evento > h2{
-    font-size: 150%;
+.card > div{
+    margin: 0px;
+    width: 100%;
+    background-color: white;
+}
+
+.seccion1{
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 3vh 1vw;
+}
+
+
+.seccion1 > h2{
+    font-size: 18px;
     font-weight: bold;
     color: rgb(9,24,100);
-    margin-top: 2vh;
-    margin-left: 2vw;
+    margin: 0px;
+}    
+
+.seccion1 > p{
+    border-top: 4px solid $SI_Normal_Active;
+    border-right: 4px solid white;
+    border-left: 4px solid $SI_Normal_Active;
+    border-bottom: 4px solid $SI_Normal_Active;
+    padding: 5% 6%;
+    border-radius: 50% ;
+    font-weight: bolder;
+    margin-bottom: -25px;
 }
 
-.evento-contenido{
-    text-align: start;
-    margin-left: 5vw;
-    font-size: 110%;
+
+.seccion2{
+    align-self: start;
+    margin-left: 1vw;
+    font-weight: 500;
     margin-top: 0px;
-    margin-bottom: 0px;
+}
+
+.seccion3{
+    display: flex;
+    justify-content: center;
     font-weight: 500;
 }
 
-.evento-contenido > p{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 100%;
-    color: $Neutral_Darker;
-}
-
-.evento-contenido > p:first-of-type{
-    font-size: 120%;
-    margin-top: 2vh;
-    margin-bottom: 3vh;
-}
-
-.evento-contenido > p:last-of-type{
-    font-size: 110%;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-}
-
-.evento-detalles{
-    width: 100%;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    //background-color: $Secondary_Normal;    
-    padding: 2vh 0px 5vh 0px;
-    border-radius: 0px 0px 10px 10px;
-}
-
-.evento-detalles > *{
-    text-decoration: none;
-    font-size: 130%;
+.seccion3  span{
     font-weight: bold;
-    color: $Primary_Dark;
-
 }
 
+.ver-eventos-p{
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.ver-eventos-p:hover{
+    cursor: pointer;
+}
+.gris{
+    color: $Neutral_Dark;
+}

@@ -1,0 +1,56 @@
+@import "../../EmpresarialColors.scss";
+
+footer{
+    width: 100%;
+    background-color: $Primary_Dark_Hover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 6vh 4vw;
+}
+
+footer > img {
+    height: 65px;
+    width: 258px;
+}
+
+#footer-seccion1{
+    align-self: end;
+    display: flex;
+}
+
+#footer-seccion1 > div{
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 25vh;
+    margin-left: 6vw;
+    font-size: 90%;
+}
+
+#footer-seccion1 > div > p > img{
+    margin-left: 2vw;
+}
+
+.negrita{
+    font-weight: 600;
+}
+
+.subrayado{
+    border-bottom: 1px solid white;
+}
+
+#footer-seccion2{
+    align-self: start;
+    display: flex;
+    margin-bottom: 0px;
+}
+
+#footer-seccion2 > p{
+    margin-right: 2vw;
+    font-size: 80%;
+    margin-bottom: 0px;
+}
