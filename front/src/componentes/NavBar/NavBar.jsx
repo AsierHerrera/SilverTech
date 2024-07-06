@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css';
 import logo from './logo_azul.png';
 import userIcon from './user_icon.png';
@@ -14,6 +14,7 @@ const NavBar = () => {
   });
 
   const navRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleDropdown = (name) => {
     setDropdowns((prevDropdowns) => ({
@@ -44,6 +45,12 @@ const NavBar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/register');
+  };
+
 
   return (
     <header className="navbar">
@@ -112,6 +119,7 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
+                <button className="dropdown__item" onClick={handleLogout}>Logout</button>
               </div>
             )}
           </div>
