@@ -12,3 +12,39 @@
  
 }
 
+.logout {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 62px;
+    right: 150px;
+  }
+  
+  .logout p {
+    margin: 0;
+    margin-right: 10px; 
+    color:  #212121;
+text-align: center;
+
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+
+  }
+  
+  .logout a {
+    text-decoration: none;
+    color: #091864;
+    margin-left: 10px;
+    font-weight: 700;
+    text-align: center;
+
+font-family: Montserrat;
+font-size: 16px;
+    
+  }
+  
+  .logout a:hover {
+    text-decoration: underline;
+  }
