@@ -13,7 +13,6 @@ const CardActivity = ({ project }) => {
       <div className='seccion1'>
         <h2>{project.title}</h2>
         {/* Mostrar los impactos esperados */}
-        <p className='card-progress'>{project.expectedResults.economicImpact}</p>
       </div>
 
       {/* Sección 2: Detalles del proyecto */}
