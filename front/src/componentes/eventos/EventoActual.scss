@@ -7,12 +7,17 @@
     -webkit-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
     box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.1);
-
+    overflow-x: hidden;
     margin-bottom: 10vh;
 }
 
 .card-evento > img{
     border-radius: 8px 8px 0px 0px;
+}
+
+.card-evento > div {
+    padding-left: 4vw;
+    margin-bottom: 0vh;
 }
 
 .card-evento > h2{
@@ -26,7 +31,7 @@
 .evento-contenido{
     text-align: start;
     margin-left: 5vw;
-    font-size: 110%;
+    font-size: 140%;
     margin-top: 0px;
     margin-bottom: 0px;
     font-weight: 500;
@@ -35,12 +40,12 @@
 .evento-contenido > p{
     margin-top: 0px;
     margin-bottom: 0px;
-    font-size: 100%;
+    font-size: 130%;
     color: $Neutral_Darker;
 }
 
 .evento-contenido > p:first-of-type{
-    font-size: 120%;
+    font-size: 150%;
     margin-top: 2vh;
     margin-bottom: 3vh;
 }
@@ -48,8 +53,11 @@
 .evento-contenido > div{
     font-size: 110%;
     margin-top: 2vh;
+    margin-bottom: 0px;
     color: $Neutral_Darker;
 }
+
+
 
 .evento-detalles{
     width: 100%;
@@ -67,7 +75,8 @@
     font-size: 130%;
     font-weight: bold;
     color: $Primary_Dark;
-    
+    margin-left: -4vw;
+    margin-top: 0px;
 }
 
 .evento-detalles:hover{

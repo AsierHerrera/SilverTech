@@ -12,6 +12,9 @@ import Recursos from "./pages/recursos/Recursos";
 import Recurso from "./pages/recursos/Recurso";
 import Eventos from "./pages/eventos/Eventos";
 import Evento from "./pages/eventos/Evento";
+import Pago1 from "./pages/pagos/Pago1";
+import Pago2 from "./pages/pagos/Pago2";
+import Pago3 from "./pages/pagos/Pago3";
 import Subforum from "./pages/subforom/Subforum";
 import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
@@ -64,6 +67,9 @@ const router = createBrowserRouter([
 /*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
       { path: "/eventos", element: <Eventos /> },
       { path: "/eventos/:id", element: <Evento /> },
+      { path: "/pago/:id", element: <Pago1 /> },
+      { path: "/pago2/:id", element: <Pago2 /> },
+      { path: "/pago3/:id", element: <Pago3 /> },
       { path: "/charlas", element: <Charlas /> }, 
       { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },

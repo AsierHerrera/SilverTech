@@ -1,4 +1,5 @@
 import "./Evento.scss"
+import { Link } from "react-router-dom";
 
 import banner from "../../../public/Banner.png";
 import banner2 from "../../../public/banner_evento2.png";
@@ -135,7 +136,7 @@ const Evento = ()=>{
                     </div>
                 </article>
                 <article>
-                    <h3 className="curso-precio">39.00€</h3>
+                    <h3 className="evento-precio">39.00€</h3>
                     <div className="curso-fecha">
                         <p><img src={iconDate} alt="" /> Viernes</p>
                         <p>🕜 15:30 - 18:30</p>
@@ -204,7 +205,7 @@ const Evento = ()=>{
 
                     </div>                        
                     <div className="curso-apartar">
-                        <button>Reservar</button>
+                        <Link to={`/pago/1`} id="reservar">Reservar </Link>    
                         <button>⁖ Enviar una Invitación</button>
                     </div>
                     <div className="curso-contactos">
