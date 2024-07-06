@@ -10,10 +10,11 @@ import { BsPlusCircle } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
 import { TfiComment } from "react-icons/tfi";
 import { FaRegTrashCan } from "react-icons/fa6";
-import hero from "../../../public/hero.jpeg";
+import hero from "../../../public/circuloforo.jpg";
 import moment from 'moment';
 
 import './Subforum.scss';
+import FooterBig from '../../componentes/Landing/FooterBig.jsx';
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
@@ -152,22 +153,10 @@ const Subforum = () => {
 
   return (
     <div className="container">
-                {/* <div className="hero"> */}
-                  {/* <div className='sectionimg'> */}
-                    {/* <img className='sectionimg' src="../../../public/EllipseForo.jpg" alt="" /> */}
-                  {/* </div> */}
-          {/* <div className="hero">
-          <img src={hero} alt="" id="Banner"/>
-                          <p className="cursos-compromiso">
-                          En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En [Nombre de tu Empresa], hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.
-                          </p>
-          </div>
-                  */}
-                {/* </div> */}
                 <div className="hero">
                 <div className="hero-content">
                   <div className="text-content">
-                    <h1>Foro de <span className="highlight">SILVER</span><span className="highlightSilver">TECH</span></h1>
+                    <h1 className="hero-title">Foro de <span className="highlight">SILVER</span><span className="highlightSilver">TECH</span></h1>
                     <p>Forma parte de la comunidad de empresarios y emprendedores que quieren mejorar la experiencia de usuario de tu empresa.</p>
                   </div>
                   <div className="image-content">
@@ -208,8 +197,7 @@ const Subforum = () => {
                   ) : null}
                 <div onClick={() => handlePostClick(post._id)}>
                 <p className="post-author"> {findUsernameById(post.user)}</p>
-                <p className="post-date">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
-                }</p>
+                <p className="post-date">{moment(post.createdAt).fromNow()}</p>
                   <h2 className="post-title">{post.title}</h2>
                   <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
                  
@@ -264,6 +252,7 @@ const Subforum = () => {
         </div>
       )}
       </div>
+      <FooterBig />
     </div>
   );
 };
