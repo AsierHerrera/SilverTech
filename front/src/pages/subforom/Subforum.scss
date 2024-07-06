@@ -5,16 +5,26 @@
 }
 .hero {
   width: 100%;
-  background-color: #FFF8E1; // Light yellow background
+  background-color: #FDE4B0; // Light yellow background
+  
   // padding: 40px 0;
   position: relative;
   overflow: hidden;
 }
 
+
+.container {
+  width: 1460px;
+  margin: 0 auto;
+  /* padding: 40px 40px; */
+  box-sizing: border-box;
+
+}
+
 .hero-content {
   display: flex;
-  max-width: 1440px;
-  padding: 0 0 0 40px;
+  // max-width: 1440px;
+  // padding: 0 0 0 40px;
   margin: 0 auto;
   align-items: center;
 }
@@ -27,7 +37,7 @@
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
-
+    margin-left: 40px;
    
     .highlightSilver{
       color: #F8A800
@@ -36,8 +46,10 @@
       color: #656565
   }
   }
+ 
 
   p {
+    margin-left: 40px;
     color: var(--Primario-Normal, #091864);
   
     font-family: Montserrat;
@@ -54,10 +66,10 @@
   position: relative;
 
   img {
-    width: 118%;
+    width: 100%;
     display: block;
     height: auto;
-    border-radius: 1200px 1200px 0 1200px;
+    // border-radius: 1200px 1200px 0 1200px;
     object-fit: cover;
     overflow: hidden;
   }
@@ -68,10 +80,10 @@
 
 .filters {
   display: flex;
-  justify-content: flex-start; // змінено з center на flex-start
-  max-width: 1074px; // додано максимальну ширину
-  margin: 20px auto; // змінено margin для центрування
-  padding: 0 20px; // додано відступи з боків
+  justify-content: flex-start; 
+  max-width: 1074px; 
+  margin: 20px auto; 
+  padding: 0 20px; 
   
   
   button {
@@ -79,6 +91,11 @@
     background-color: #FDE4B0;;
     color: #091864;
     border: none;
+    font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+
     padding: 10px 20px;
     margin: 0 10px;
     cursor: pointer;
@@ -123,7 +140,10 @@
       background-color:  #F8A800;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      color: white;
+  font-weight: 600;
+      color: #07124B;
+      font-size: 20px;
+font-style: normal;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
@@ -272,7 +292,13 @@
             background-color:  #F8A800;
             border-radius: 8px;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            color: white;
+    
+            color:  #07124B;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px; 
             border: none;
             padding: 5px 10px;
             cursor: pointer;
@@ -299,9 +325,14 @@
       .delete-button {
         align-self: flex-start;
         background-color:  #F8A800;
-  border-radius: 8px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        color: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        color:  #07124B;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; 
         border: none;
         padding: 5px 10px;
         position: absolute; 
