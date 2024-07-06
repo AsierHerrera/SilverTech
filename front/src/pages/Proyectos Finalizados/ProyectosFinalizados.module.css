@@ -1,0 +1,135 @@
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #000;
+  }
+  
+  .banner {
+    display: flex;
+    align-items: center;
+    background-color: #FDE4B0;
+    position: relative;
+    height: 500px; /* Ajusta la altura del banner según sea necesario */
+  }
+  
+  .text {
+    flex: 1;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra horizontalmente */
+  }
+  
+  .text h1 {
+    font-size: 40px;
+    color: #091864;
+    max-width: 600px; /* Ajusta este valor según sea necesario */
+    margin: 0 auto; /* Centra el texto si el contenedor es más ancho que el texto */
+    word-wrap: break-word; /* Permite que las palabras largas se ajusten a la siguiente línea si es necesario */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 48px */
+  }
+  
+  .text h1 span {
+    color: #BA7E00;
+  }
+  
+  .imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDE4B0;
+    overflow: hidden; /* Oculta la parte de la imagen que no cabe en el contenedor */
+    height: 100%; /* Asegura que el contenedor de la imagen se ajuste a la altura del banner */
+  }
+  
+  .cuerpoprincipal {
+    color: #091864;
+    margin-top: 100px;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px; /* 111.111% */
+    text-align: center;
+  }
+  
+  .projectsGrid {
+    display: flex;
+    padding: 22px;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en líneas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 34px; /* Espacio entre las tarjetas */
+  }
+  
+  .banner2 {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #FDE4B0 41.56%, #C2DCEF 65.39%);
+    position: relative;
+    height: 500px; /* Ajusta la altura del banner según sea necesario */
+  }
+  
+  .pinchaAqui {
+    background-color: #F8A800;
+    color: #091864;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+    text-align: center; /* Alinea el texto al centro */
+    border-radius: 8px;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+  }
+  
+  .pinchaAqui:hover {
+    background-color: #e09700;
+  }
+  
+  .banner3 {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #C2DCEF 29.47%, #FDE4B0 59.13%);
+    position: relative;
+    height: 500px; /* Ajusta la altura del banner según sea necesario */
+    margin-bottom: 200px;
+  }
+  
+  .tranquilidad {
+    text-align: center;
+  }
+  
+  .legal {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.12px;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+  }
+  
+  .pinchaAqui2 {
+    background-color: #F8A800;
+    color: #091864;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+    width: 200px;
+    text-align: center; /* Alinea el texto al centro */
+    border-radius: 8px;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+  }
+  
+  .pinchaAqui2:hover {
+    background-color: #e09700;
+  }
+  
