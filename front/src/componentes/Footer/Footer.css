@@ -24,8 +24,10 @@
   height: 11px;
   line-height: 160%;
   display: flex;
-  align-items: center;
-  min-width: 118px;
+  justify-content: center;
+  margin: 0px;
+  width: 100%;
+
 }
 .help,
 .sub-links {

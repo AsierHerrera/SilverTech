@@ -1,0 +1,216 @@
+/* .footerLeftIcon {
+  width: 202.2px;
+  height: 56.6px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+} */
+/* .helpTitle {
+  position: relative;
+  line-height: 26px;
+  display: inline-block;
+  min-width: 52px;
+} */
+/* .helpLinkOne,
+.helpLinkTwo {
+  position: relative;
+  text-decoration: underline;
+  line-height: 26px;
+} */
+.helpLinkTwo {
+  height: 10px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  min-width: 68px;
+  
+}
+.help,
+.subLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.subLinks {
+  gap: 18px;
+  font-size: 16px;
+}
+.help {
+  gap: 17px;
+  min-width: 154px;
+}
+.contactTitle {
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+  display: inline-block;
+  text-align: left;
+  min-width: 76px;
+}
+.svgIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.infosenioritycom {
+  position: relative;
+  line-height: 11px;
+  white-space: nowrap;
+}
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1px;
+  gap: 8px;
+}
+.div,
+.svgIcon1 {
+  position: relative;
+}
+.svgIcon1 {
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.div {
+  line-height: 11px;
+  white-space: nowrap;
+}
+.contactLinks,
+.link1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.contactLinks {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.text {
+  width: 99px;
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  display: none;
+}
+.socialIcon {
+  height: 25px;
+  width: 25px;
+  position: relative;
+}
+.socialIconPlaceholder {
+  height: 30px;
+  width: 30px;
+  position: relative;
+}
+.socialIconContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.contact,
+.socialMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.socialMedia {
+  align-self: stretch;
+  gap: 16px;
+  color: #363636;
+  font-family: Inter;
+}
+.contact {
+  width: 185px;
+  gap: 15px;
+  min-width: 185px;
+  text-align: right;
+  font-size: 16px;
+}
+.footerContent {
+  width: 419px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  max-width: 100%;
+}
+.footerRight {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.seniority2023 {
+  position: relative;
+  line-height: 11px;
+  display: inline-block;
+  min-width: 120px;
+}
+.link2,
+.link3,
+.link4 {
+  position: relative;
+  text-decoration: underline;
+  line-height: 4px;
+}
+.copyright,
+.footerBig {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.copyright {
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 0;
+  gap: 15px;
+  font-size: 16px;
+}
+.footerBig {
+  align-self: stretch;
+  background-color: #050e3c;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  text-align: left;
+  font-size: 18px;
+  color: #fcfcfc;
+  font-family: "Atkinson Hyperlegible";
+  max-height: 370px;
+  max-width: 1380px;
+}
+@media screen and (max-width: 750px) {
+  .copyright {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .contact,
+  .help {
+    flex: 1;
+  }
+  .footerContent {
+    flex-wrap: wrap;
+  }
+}
