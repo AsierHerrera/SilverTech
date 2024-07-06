@@ -6,7 +6,14 @@ import UserContext from "../../context/userContext";
 import Modal from "../../componentes/modal/Modal";
 import CreateRecurso from "../../componentes/recurso/CreateRecurso";
 import Courses from "../Courses";
-import banner from "../../../public/Banner.png";
+import banner from "../../../public/banner_cursos.png";
+import evento1 from "../../../public/evento1.png";
+import evento2 from "../../../public/evento2.png";
+import evento3 from "../../../public/evento3.png";
+import evento4 from "../../../public/evento4.png";
+import evento5 from "../../../public/evento5.png";
+import evento6 from "../../../public/evento6.png";
+import Footer2 from "../../componentes/Footer/Footer2";
 
 
 const Recursos = ()=>{
@@ -56,7 +63,7 @@ const Recursos = ()=>{
 
                 <img src={banner} alt="" id="Banner"/>
                 <p className="cursos-compromiso">
-                En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En [Nombre de tu Empresa], hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.
+                En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En <span>SILVER</span><span>TECH</span>, hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.
                 </p>
                 <h1 id="cursos-talleres">Cursos y Talleres</h1>
                 {/* 
@@ -66,9 +73,9 @@ const Recursos = ()=>{
                 */}            
             
                 <div id="card-list">
-                    <Courses/>
-                    <Courses/>
-                    <Courses/>
+                    <Courses img={evento1}/>
+                    <Courses img={evento2}/>
+                    <Courses img={evento3}/>
               
                     <div className="cursos-beneficios">                    
                         <p>Beneficios de Participar</p>
@@ -79,12 +86,13 @@ const Recursos = ()=>{
                             <li>Oportunidades de Empleo y Emprendimiento: Prepárate para nuevas oportunidades laborales y de negocios.</li>
                         </ul>
                     </div>
-                    <Courses/>
-                    <Courses/>
-                    <Courses/>                
+                    <Courses img={evento4}/>
+                    <Courses img={evento5}/>
+                    <Courses img={evento6}/>                
                 </div>
-
+                <Footer2/>
             </section>
+       
         </>   
     )
 }
