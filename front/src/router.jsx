@@ -33,6 +33,8 @@ import Charlas from "./pages/Charlas";
 import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
+import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
+
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,9 @@ const router = createBrowserRouter([
 /*    { path: "/plantillas-herramientas", element: <PlantillasHerramientas /> }, */
       { path: "/proyectos", element: <PERFILEMPRESA /> },
       { path: "/crear-proyecto", element: <CrearProyecto /> },
+      { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> },
+
+
 /*    { path: "/proyectos-finalizados", element: <ProyectosFinalizados /> }, */
 /*    { path: "/documentacion-legal", element: <DocumentacionLegal /> }, */
       { path: "/eventos", element: <Eventos /> },
