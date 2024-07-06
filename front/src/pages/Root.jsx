@@ -17,7 +17,8 @@ const Root = () => {
     const navigate = useNavigate();
     const [showProfile, setShowProfile] = useState(false);
 
-/*     useEffect(() => {
+
+    useEffect(() => {
         if (!getToken()) {
             navigate("/register");
         }
@@ -36,51 +37,56 @@ const Root = () => {
         setUser(null);
         deleteToken();
         navigate("/register");
-    } */
+    } 
 
 
 const toggleProfile = () => {
     setShowProfile(!showProfile);
 };
 
-    /* 
-        <div>
-            <NavBar/>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Inicio</Link>
-                    </li>
-                    <li>
-                        <Link to="/recursos">Recursos</Link>
-                    </li>
-                    <li>
-                        <Link to="/register" onClick={handleLogout}>Logout </Link>   
-                    </li>
-                  <li>
-                        <Link to="/subforum">subforum</Link>
-                  </li>
+    // // if (user)
+    //     <div>
+    //         <NavBar/>
+    //         <nav>
+    //             <ul>
+    //                 <li>
+    //                     <Link to="/">Inicio</Link>
+    //                 </li>
+    //                 <li>
+    //                     <Link to="/recursos">Recursos</Link>
+    //                 </li>
+    //                 <li>
+    //                     <Link to="/register" onClick={handleLogout}>Logout </Link>   
+    //                 </li>
+    //               <li>
+    //                     <Link to="/foro">Foro</Link>
+    //               </li>
 
-                    <li>
+    //                 <li>
                         
-                    </li>
+    //                 </li>
 
-                </ul>
-                <div>
-                    <button onClick={toggleProfile}>Perfil</button>                    
-                </div>
-            </nav>
+    //             </ul>
+    //             <div>
+    //                 <button onClick={toggleProfile}>Perfil</button>                    
+    //             </div>
+    //         </nav>
 
-            <h1>Hello {user?.username}</h1>
-            <Outlet />
-        </div>    
-    */
+    //         <h1>Hello {user?.username}</h1>
+    //         <Outlet />
+    //     </div>    
+    
 
     return (
         <>
 {/*         <BarraBusqueda />
         <Outlet /> */}
         <NavBar />
+        <div className="logout">
+        <p>Hola, {user?.username}</p>
+        <Link to="/register" onClick={handleLogout}>Logout </Link>  
+        </div>
+                 
         <Outlet />
         </>
     )

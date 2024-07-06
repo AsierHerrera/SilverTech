@@ -1,4 +1,4 @@
-import { createBrowserRouter, redirect } from "react-router-dom";
+import { Navigate, createBrowserRouter, redirect } from "react-router-dom";
 
 // Importaciones de páginas
 import Root from "./pages/Root";
@@ -37,6 +37,7 @@ import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
 import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
+
 
 
 const router = createBrowserRouter([
