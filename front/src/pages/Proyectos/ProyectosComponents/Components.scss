@@ -1,0 +1,178 @@
+@import "../../../EmpresarialColors.scss";
+
+#proyecto-title{
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+
+.navegation-history-proyecto{
+    font-weight: 500;
+    margin-top: 10vh;
+    margin-left: 0vw;
+    margin-bottom: 0vh;
+}
+
+.navegation-history-proyecto > span{
+    padding-bottom: 1px;
+    border-bottom: 2px solid black;
+}
+
+.navegation-history-proyecto > span:first-child{
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.navegation-history-proyecto > span{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#proyectos-datos{
+    border: 1px solid $Neutral_Dark;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px;
+    padding: 2vh 1vw 3vh 1vw;
+}
+
+#proyectos-datos img:first-of-type{
+    width: 100%;
+}
+
+#proyectos-datos h2{
+    color: $Text;
+    text-align: start;
+    font-weight: 800;
+    font-size: 35px;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+}
+
+#proyectos-datos h3{
+    color: $Neutral_Dark;
+    text-align: start;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+}
+
+#proyecto-contacto{
+    display: flex;
+}
+
+#proyecto-contacto > div:last-of-type{
+    margin-left: 2vw;
+}
+
+#proyecto-contacto > div:last-of-type > p{
+    color: $Text;
+    text-align: start;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+}
+
+#proyecto-contacto > div:first-of-type > p{
+    color: $Text;
+    text-align: start;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    margin-bottom: 1vh;
+}
+
+#proyecto-descripcion > h2{
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin-top: 6vh;
+    margin-bottom: 5vh;
+}
+
+#proyecto-descripcion > h3{
+    color: $Text;
+    text-align: start;
+    font-weight: 400;
+    font-size: 22px;
+    border: 1px solid $Neutral_Dark;
+    border-radius: 5px;
+    width: 100%;
+    padding: 2vh 1vw 2vh 1vw;
+    margin-top: 0vh;
+    margin-bottom: 5vh;
+}
+
+#creacion-proyectos{
+    width: 100%;
+    background-color: $Secondary_Light_Hover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 40vh;
+
+}
+
+#creacion-proyectos > h1{
+    width: 25%;
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#creacion-proyectos > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#creacion-proyectos > div  > h3{
+    width: 80%;
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+}
+
+#creacion-proyectos > div  > div{
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+}
+
+#lista-proyectos{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 5vh;
+    border: 1px solid $Neutral_Dark;
+    padding: 3vh 2vw;
+
+}
+
+#mis-proyectos{
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    margin-top: 6vh;
+    margin-bottom: 5vh;
+}

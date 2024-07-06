@@ -1,0 +1,89 @@
+@import "../../../EmpresarialColors.scss";
+
+.card-proyecto{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: solid 1px $Neutral_Dark;
+    -webkit-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+}
+
+.card-proyecto img{
+    border-radius: 8px 8px 0px 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.card-proyecto > div{
+    margin: 0px;
+    width: 100%;
+    background-color: white;
+}
+
+.seccion1-proyecto{
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 3vh 1vw;
+}
+
+
+.seccion1-proyecto > h2{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(9,24,100);
+    margin: 0px;
+}    
+
+.seccion1-proyecto > p{
+    border-top: 4px solid $SI_Normal_Active;
+    border-right: 4px solid white;
+    border-left: 4px solid $SI_Normal_Active;
+    border-bottom: 4px solid $SI_Normal_Active;
+    padding: 5% 6%;
+    border-radius: 50% ;
+    font-weight: bolder;
+    margin-bottom: -25px;
+}
+
+
+.seccion2-proyecto{
+    align-self: start;
+    margin-left: 1vw;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+.seccion3-proyecto{
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.seccion3-proyecto  span{
+    font-weight: bold;
+}
+
+.ver-proyecto{
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.ver-proyecto:hover{
+    cursor: pointer;
+}
+.gris{
+    color: $Neutral_Dark;
+}
