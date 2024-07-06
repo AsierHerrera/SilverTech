@@ -2,7 +2,7 @@ import React from 'react';
 import Image1 from "../componentes/Landing/Image1";
 import CardActivity from "../componentes/Landing/CardActivity";
 import Image2Icon from "../componentes/Landing/Image2Icon";
-import FooterBig from "../componentes/Landing/FooterBig";
+import FooterBig from "../componentes/Footer/Footer2";
 /* import Footer from "../ProyectComponents/Footer/Footer.jsx"; */
 
 import styles from "./Landing.module.css";

@@ -10,10 +10,13 @@ import { BsPlusCircle } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
 import { TfiComment } from "react-icons/tfi";
 import { FaRegTrashCan } from "react-icons/fa6";
-import hero from "../../../public/hero.jpeg";
+import hero from "../../../public/circuloforo.jpg";
 import moment from 'moment';
+import Footer2 from "../../componentes/Footer/Footer2";
+
 
 import './Subforum.scss';
+
 
 const Subforum = () => {
   const [posts, setPosts] = useState([]);
@@ -151,120 +154,108 @@ const Subforum = () => {
   }
 
   return (
-    <div className="container">
-                {/* <div className="hero"> */}
-                  {/* <div className='sectionimg'> */}
-                    {/* <img className='sectionimg' src="../../../public/EllipseForo.jpg" alt="" /> */}
-                  {/* </div> */}
-          {/* <div className="hero">
-          <img src={hero} alt="" id="Banner"/>
-                          <p className="cursos-compromiso">
-                          En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En [Nombre de tu Empresa], hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.
-                          </p>
-          </div>
-                  */}
-                {/* </div> */}
-                <div className="hero">
-                <div className="hero-content">
-                  <div className="text-content">
-                    <h1>Foro de <span className="highlight">SILVER</span><span className="highlightSilver">TECH</span></h1>
-                    <p>Forma parte de la comunidad de empresarios y emprendedores que quieren mejorar la experiencia de usuario de tu empresa.</p>
-                  </div>
-                  <div className="image-content">
-                    <img src={hero} alt="Forum banner" />
-                  </div>
-                </div>
-                {/* <button className="messaging-button">
-                  <span className="icon">📩</span> Mensajería
-                </button> */}
-              </div>
-
-
-
-  <div className="container" >
-      <div className="filters">
-        <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
-        <button onClick={handleSortByNewest}> <BsClock /> Sort by Newest</button>
-        <button onClick={handleScrollToCreatePost}><BsPlusCircle /> Create New Post</button>
-      </div>
-   
-      <ul className="post-list">
-        {posts.length === 0 ? (
-          <li>No posts available</li>
-        ) : (
-          posts.map((post) => (
-            <li key={post._id} className="post-item"> 
-              <div>
-                {currentUser.role === 'admin' || post.user === currentUser._id ? (
-                    <HiDotsVertical 
-                    className="icon-dots"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setEditPostId(post._id);
-                      setEditPostTitle(post.title);
-                      setEditPostText(post.text);
-                    }}
-                  />
-                  ) : null}
-                <div onClick={() => handlePostClick(post._id)}>
-                <p className="post-author"> {findUsernameById(post.user)}</p>
-                <p className="post-date">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
-                }</p>
-                  <h2 className="post-title">{post.title}</h2>
-                  <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
-                 
-                  <p className="post-comments"> <span style={{marginRight: '5px'}}> < TfiComment /></span> {Array.isArray(post.comments) ? post.comments.length : 0}  COMENTARIOS</p>
-                </div>
-                {editPostId === post._id && (
-                  <div className="post-actions">
-                {currentUser.role === 'admin' || post.user === currentUser._id ? (
-                    <div className="edit-section">
-                      <input
-                        type="text"
-                        value={editPostTitle}
-                        onChange={(e) => setEditPostTitle(e.target.value)}
-                      />
-                      <textarea
-                        value={editPostText}
-                        onChange={(e) => setEditPostText(e.target.value)}
-                      />
-                      <div className="button-group">
-                        <button className="edit-button" onClick={() => handleEditPost(post._id)}>Edit</button>
-                        <button onClick={() => setEditPostId(null)}>Cancel</button>
-                      </div>
+    <>
+      <div className="container">
+                  <div className="hero">
+                  <div className="hero-content">
+                    <div className="text-content">
+                      <h1 className="hero-title">Foro de <span className="highlight">SILVER</span><span className="highlightSilver">TECH</span></h1>
+                      <p>Forma parte de la comunidad de empresarios y emprendedores que quieren mejorar la experiencia de usuario de tu empresa.</p>
                     </div>
-                  ) : null}
-                  {currentUser.role === 'admin' &&  (
-                    <button className="delete-button" onClick={() => handleDeletePost(post._id)}><FaRegTrashCan /></button>
-                  ) }
+                    <div className="image-content">
+                      <img src={hero} alt="Forum banner" />
+                    </div>
+                  </div>
+                  {/* <button className="messaging-button">
+                    <span className="icon">📩</span> Mensajería
+                  </button> */}
                 </div>
-                )}
-              </div>
-            </li>
-          ))
-        )}
-      </ul>
-      {editPostId === 'new' && (
-        <div className="create-post-container" ref={createPostRef}>
-          <input
-            type="text"
-            value={newPostTitle}
-            onChange={(e) => setNewPostTitle(e.target.value)}
-            placeholder="New post title"
-          />
-          <textarea
-            value={newPostText}
-            onChange={(e) => setNewPostText(e.target.value)}
-            placeholder="New post text"
-          />
-          <div className="button-container">
-            <button onClick={handleCreatePost}>Create Post</button>
-            <button className="cancel-button" onClick={() => setEditPostId(null)}>Cancel</button>
-          </div>
+    <div className="container" >
+        <div className="filters">
+          <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
+          <button onClick={handleSortByNewest}> <BsClock /> Sort by Newest</button>
+          <button onClick={handleScrollToCreatePost}><BsPlusCircle /> Create New Post</button>
         </div>
-      )}
+    
+        <ul className="post-list">
+          {posts.length === 0 ? (
+            <li>No posts available</li>
+          ) : (
+            posts.map((post) => (
+              <li key={post._id} className="post-item"> 
+                <div>
+                  {currentUser.role === 'admin' || post.user === currentUser._id ? (
+                      <HiDotsVertical 
+                      className="icon-dots"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setEditPostId(post._id);
+                        setEditPostTitle(post.title);
+                        setEditPostText(post.text);
+                      }}
+                    />
+                    ) : null}
+                  <div onClick={() => handlePostClick(post._id)}>
+                  <p className="post-author"> {findUsernameById(post.user)}</p>
+                  <p className="post-date">{moment(post.createdAt).fromNow()}</p>
+                    <h2 className="post-title">{post.title}</h2>
+                    <p className="post-text">{post.text.length > 100 ? `${post.text.substring(0, 100)}...` : post.text}</p>
+                  
+                    <p className="post-comments"> <span style={{marginRight: '5px'}}> < TfiComment /></span> {Array.isArray(post.comments) ? post.comments.length : 0}  COMENTARIOS</p>
+                  </div>
+                  {editPostId === post._id && (
+                    <div className="post-actions">
+                  {currentUser.role === 'admin' || post.user === currentUser._id ? (
+                      <div className="edit-section">
+                        <input
+                          type="text"
+                          value={editPostTitle}
+                          onChange={(e) => setEditPostTitle(e.target.value)}
+                        />
+                        <textarea
+                          value={editPostText}
+                          onChange={(e) => setEditPostText(e.target.value)}
+                        />
+                        <div className="button-group">
+                          <button className="edit-button" onClick={() => handleEditPost(post._id)}>Edit</button>
+                          <button onClick={() => setEditPostId(null)}>Cancel</button>
+                        </div>
+                      </div>
+                    ) : null}
+                    {(currentUser.role === 'admin'|| post.user === currentUser._id )  &&  (
+                      <button className="delete-button" onClick={() => handleDeletePost(post._id)}><FaRegTrashCan /></button>
+                    ) }
+                  </div>
+                  )}
+                </div>
+              </li>
+            ))
+          )}
+        </ul>
+        {editPostId === 'new' && (
+          <div className="create-post-container" ref={createPostRef}>
+            <input
+              type="text"
+              value={newPostTitle}
+              onChange={(e) => setNewPostTitle(e.target.value)}
+              placeholder="New post title"
+            />
+            <textarea
+              value={newPostText}
+              onChange={(e) => setNewPostText(e.target.value)}
+              placeholder="New post text"
+            />
+            <div className="button-container">
+              <button onClick={handleCreatePost}>Create Post</button>
+              <button className="cancel-button" onClick={() => setEditPostId(null)}>Cancel</button>
+            </div>
+          </div>
+        )}
+        </div>
+        
       </div>
-    </div>
+      <Footer2 />
+    </>
   );
 };
 

@@ -1,10 +1,16 @@
 /* SubforumDetails.css */
 
+.container{
+  width: 1440px;
+  margin: 0 auto;
+
+}
 .post-page {
   font-family: Arial, sans-serif;
   max-width: 1074px;
   margin: 0 auto;
   padding: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -13,6 +19,7 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .post-details h2 {
@@ -32,7 +39,9 @@
 .comments-section {
   background-color: #fff;
   padding: 20px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
+  margin-top: 5px;
+
 
 }
 
@@ -40,7 +49,7 @@
   font-size: 32px;
   font-weight: bold;
   display: inline;
-  color: #333;
+  color: #091864;
   margin-bottom: 20px;
 }
 
@@ -62,8 +71,12 @@
 }
 
 .comment-item p {
-  font-size: 14px;
-  color: #555;
+  color:  #212121;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 26px;
 }
 
 .comment-item button {
@@ -91,16 +104,21 @@
   width: 100%;
   height: 100px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 1.5px solid #050e3c;
+  border-radius: 8px;
   font-size: 14px;
-  color: #555;
+
+}
+textarea:focus {
+  outline: none;
+  border-color: #050e3c;
 }
 
 
 .new-comment button:hover {
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
 }
 
 .error-message {
@@ -166,7 +184,8 @@ comment-item {
   background-color:  #F8A800;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: white;
+    color: #07124B;
+    font-weight: 600;
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
@@ -194,11 +213,13 @@ comment-item {
 }
 
 .comment-details-item {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  color: #555;
+  color: #4F4F4F!important;
+  font-family: "Atkinson Hyperlegible";
+  font-size: 16px!important;
+  font-style: normal;
+  font-weight: 400;
 }
+
 
 .new-comment {
   display: flex;
@@ -209,12 +230,14 @@ comment-item {
 
 .new-comment-title {
   align-self: flex-start;
+  color: #091864;
   margin-bottom: 10px;
 }
 
 .comments-section-h2{
   text-align: center;
   font-size: 36px;
+  color: #091864;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -223,7 +246,9 @@ comment-item {
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0 auto;
-  color: white;
+  color: #07124B;
+  font-style: normal;
+  font-weight: 600;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
@@ -250,7 +275,7 @@ line-height: normal;
 letter-spacing: 0.08px;
 }
 
-.text {
+.textpost {
   color: #000;
 
 font-family: Montserrat;
