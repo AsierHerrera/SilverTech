@@ -1,3 +1,13 @@
+
+.contenedor {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px;
+
+
+  
+}
+
 /* Subforum.css */
 .post-list {
     list-style: none;

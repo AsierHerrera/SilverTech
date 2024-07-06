@@ -46,7 +46,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className="navbar">
+    <header className="navbar container" >
       <div >
         <img src={logo} alt="Logo" className="navbar__logo" />
       </div>
