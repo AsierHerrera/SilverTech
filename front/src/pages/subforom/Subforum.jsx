@@ -222,7 +222,7 @@ const Subforum = () => {
                       </div>
                     </div>
                   ) : null}
-                  {currentUser.role === 'admin' &&  (
+                  {(currentUser.role === 'admin'|| post.user === currentUser._id )  &&  (
                     <button className="delete-button" onClick={() => handleDeletePost(post._id)}><FaRegTrashCan /></button>
                   ) }
                 </div>
