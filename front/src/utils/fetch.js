@@ -4,6 +4,7 @@ const API_URL = "http://localhost:3030/api";
 
 const fetchData = async(route,method,inputData=null)=>{    
     const url = new URL(API_URL + route);
+    const token = localStorage.getItem('token'); 
     const fetchOptions = {
         method:method,
         headers:{
