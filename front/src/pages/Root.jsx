@@ -82,10 +82,12 @@ const toggleProfile = () => {
 {/*         <BarraBusqueda />
         <Outlet /> */}
         <NavBar />
+        {user && (
         <div className="logout">
-        <p>Hola, {user?.username}</p>
-        <Link to="/register" onClick={handleLogout}>Logout </Link>  
+          {/* <p>Hola, {user?.username}</p> */}
+          <Link to="/register" onClick={handleLogout}>Logout</Link>
         </div>
+      )}
                  
         <Outlet />
         </>
