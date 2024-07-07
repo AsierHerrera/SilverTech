@@ -1,13 +1,14 @@
 @import "../../EmpresarialColors.scss";
 
 .register-login {
+
   width: 100%;
   max-width: 800px;
-  background-color: white;
-  border-radius: 10px;
   padding: 30px;
   margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 25px 25px 50px 25px rgba(0, 0, 0, 0.12);
 }
 
 .register-login h2 {
