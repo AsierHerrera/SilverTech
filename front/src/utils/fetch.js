@@ -152,6 +152,11 @@ const createProject = async(postData)=>{
     return result;
 }
 
+const userFormData = async (id, userData) => {
+    const result = await fetchData(`/users/${id}`, "put", userData);
+    return result;
+};
+
 
 export {
     register,
@@ -180,6 +185,7 @@ export {
     createCompany,
     updateUser,
     createProject,
+    userFormData
 
 
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { getUserData, updateUser } from "../utils/fetch";
+import { getUserData, userFormData, login } from "../utils/fetch";
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "./UserPanel.css";
 import UserContext from "../context/userContext";
@@ -21,7 +21,6 @@ const UserPanel = () => {
         sector: '',
         descripcion: ''
     });
-    
 
     useEffect(() => {
         const init = async () => {
@@ -147,7 +146,7 @@ const UserPanel = () => {
         }
     
         try {
-            const result = await updateUser(user._id, { ...user, companyData: formData });
+            const result = await userFormData(user._id, { ...user, companyData: formData });
             if (result.error) {
                 alert(`Error al guardar los datos de la empresa: ${result.error}`);
             } else {
@@ -156,7 +155,6 @@ const UserPanel = () => {
                 setUser(updatedUser);
                 setGlobalUser(updatedUser);
                 storeUserData(updatedUser);
-
             }
         } catch (error) {
             alert(`Error al guardar los datos de la empresa: ${error.message}`);

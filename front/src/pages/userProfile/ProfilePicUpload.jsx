@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ProfilePicUpload = () => {
-    const [profilePic, setProfilePic] = useState('');
-
+const ProfilePicUpload = ({ setProfilePic }) => {
     const handleFileChange = async (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -29,13 +27,13 @@ const ProfilePicUpload = () => {
 
     return (
         <div>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          style={{ display: 'none' }}
-          id="profilePicUpload"
-        />
+            <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+                id="profilePicUpload"
+            />
         <label htmlFor="profilePicUpload" className="upload-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="upload-icon">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>

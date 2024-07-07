@@ -84,7 +84,7 @@ const toggleProfile = () => {
         <NavBar />
         {user && (
         <div className="logout">
-          {/* <p>Hola, {user?.username}</p> */}
+           <p>Hola, {user?.username}</p> 
           <Link to="/register" onClick={handleLogout}>Logout</Link>
         </div>
       )}
