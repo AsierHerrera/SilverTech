@@ -1,4 +1,5 @@
-.pioneers-description-child {
+/* Estilos específicos para .pioneers-description-child */
+.pioneers-description .pioneers-description-child {
   width: 1000px;
   height: 679px;
   position: relative;
@@ -6,11 +7,15 @@
   display: none;
   max-width: 80%;
 }
-.para-personas-senior,
-.somos-pioneros-en {
+
+/* Estilos específicos para .para-personas-senior y .somos-pioneros-en */
+.pioneers-description .para-personas-senior,
+.pioneers-description .somos-pioneros-en {
   margin: 0;
 }
-.somos-pioneros-en-container {
+
+/* Estilos específicos para .somos-pioneros-en-container */
+.pioneers-description .somos-pioneros-en-container {
   margin: 0;
   display: flex;
   align-self: center;
@@ -20,7 +25,9 @@
   font-family: inherit;
   z-index: 2;
 }
-.somos-pioneros-en-desarrollar-wrapper {
+
+/* Estilos específicos para .somos-pioneros-en-desarrollar-wrapper */
+.pioneers-description .somos-pioneros-en-desarrollar-wrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -29,10 +36,14 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.descubre-nuestra-plataforma {
+
+/* Estilos específicos para .descubre-nuestra-plataforma */
+.pioneers-description .descubre-nuestra-plataforma {
   margin: 0;
 }
-.descubre-nuestra-plataforma-container {
+
+/* Estilos específicos para .descubre-nuestra-plataforma-container */
+.pioneers-description .descubre-nuestra-plataforma-container {
   position: relative;
   font-size: 24px;
   letter-spacing: 0.01em;
@@ -41,6 +52,8 @@
   max-width: 100%;
   z-index: 2;
 }
+
+/* Estilos específicos para .pioneers-description */
 .pioneers-description {
   align-self: stretch;
   background: linear-gradient(180deg, #fff, #050e3c 40.09%);
@@ -54,7 +67,9 @@
   max-width: 100%;
   z-index: 1;
 }
-.pioneers-button-child {
+
+/* Estilos específicos para .pioneers-button-child */
+.pioneers-button .pioneers-button-child {
   height: 274px;
   width: 1440px;
   position: relative;
@@ -63,7 +78,8 @@
   max-width: 100%;
 }
 
-.link-text18 {
+/* Estilos específicos para .link-text18 */
+.pioneers-button .link-text18 {
   height: 42px;
   flex: 1;
   position: relative;
@@ -75,7 +91,9 @@
   text-align: center;
   display: inline-block;
 }
-.button-hero-primary2 {
+
+/* Estilos específicos para .button-hero-primary2 */
+.pioneers-button .button-hero-primary2 {
   cursor: pointer;
   border: 0;
   padding: 21px 63px;
@@ -91,9 +109,12 @@
   white-space: nowrap;
   z-index: 4;
 }
-.button-hero-primary2:hover {
+
+.pioneers-button .button-hero-primary2:hover {
   background-color: #c47500;
 }
+
+/* Estilos específicos para .pioneers-button y .pioneers-description-parent */
 .pioneers-button,
 .pioneers-description-parent {
   align-self: stretch;
@@ -101,6 +122,7 @@
   align-items: flex-start;
   max-width: 100%;
 }
+
 .pioneers-button {
   background-color: #080912;
   flex-direction: row;
@@ -110,6 +132,7 @@
   z-index: 3;
   margin-top: -120px;
 }
+
 .pioneers-description-parent {
   flex-direction: column;
   justify-content: flex-start;
@@ -118,6 +141,8 @@
   color: #ba7e00;
   font-family: Montserrat;
 }
+
+/* Estilos específicos para dispositivos móviles */
 @media screen and (max-width: 1125px) {
   .pioneers-description {
     padding-top: 390px;
@@ -125,8 +150,9 @@
     box-sizing: border-box;
   }
 }
+
 @media screen and (max-width: 800px) {
-  .somos-pioneros-en-container {
+  .pioneers-description .somos-pioneros-en-container {
     font-size: 29px;
     line-height: 32px;
   }
@@ -134,12 +160,13 @@
     gap: 27px;
   }
 }
+
 @media screen and (max-width: 450px) {
-  .somos-pioneros-en-container {
+  .pioneers-description .somos-pioneros-en-container {
     font-size: 22px;
     line-height: 24px;
   }
-  .descubre-nuestra-plataforma-container {
+  .pioneers-description .descubre-nuestra-plataforma-container {
     font-size: 19px;
   }
   .pioneers-description {
@@ -147,7 +174,7 @@
     padding-bottom: 37px;
     box-sizing: border-box;
   }
-  .button-hero-primary2 {
+  .pioneers-button .button-hero-primary2 {
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;

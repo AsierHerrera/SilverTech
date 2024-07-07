@@ -1,0 +1,8 @@
+.group-wrapper {
+  height: 96px;
+  width: 370px;
+}
+
+.group-wrapper .group-78 {
+  width: unset !important;
+}

@@ -1,0 +1,20 @@
+.link-text {
+  height: 12px;
+  position: relative;
+  width: 47px;
+}
+
+.link-text .text-wrapper-2 {
+  color: var(--text-900);
+  display: block;
+  font-family: "Atkinson Hyperlegible", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 28.8px;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+}

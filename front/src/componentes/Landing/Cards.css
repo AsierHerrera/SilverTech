@@ -1,5 +1,5 @@
 .voice-message {
-  width: 354px;
+  width: 318.6px; /* 354px * 0.9 */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,15 +8,17 @@
   box-sizing: border-box;
   max-width: 100%;
 }
+
 .card-items,
 .card-items1 {
-  height: 322.2px;
-  width: 354px;
+  height: 290px; /* 322.2px * 0.9 */
+  width: 318.6px; /* 354px * 0.9 */
   position: relative;
   max-width: 100%;
 }
+
 .cards {
-  width:862px;
+  width: 595.8px; /* 662px * 0.9 */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -24,10 +26,11 @@
   max-width: 100%;
   gap: 20px;
   text-align: center;
-  font-size: 24px;
+  font-size: 21.6px; /* 24px * 0.9 */
   color: #000;
   font-family: Montserrat;
 }
+
 @media screen and (max-width: 1300px) {
   .cards {
     flex-wrap: wrap;
