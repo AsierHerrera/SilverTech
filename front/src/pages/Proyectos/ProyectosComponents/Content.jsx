@@ -15,6 +15,7 @@ const Content = ({ className = '' }) => {
     const fetchCompanyData = async () => {
       try {
         const companyData = await getCompanyByUserId(); 
+        
         setCompany(companyData); 
       } catch (error) {
         console.error('Error al obtener los datos de la empresa:', error.message);
@@ -61,21 +62,14 @@ const Content = ({ className = '' }) => {
               <div className={styles.profileContact}>
                 <div className={styles.contactContainer}>
                   <div className={styles.direccinNmeroCifContainer}>
-                    <h2>ArcelorMittal</h2>
-                    <h3>Compañía siderúrgica</h3>
                     <div id='proyecto-contacto'>
                       <div>
-                        <p className={styles.direccin}>Dirección: {/*{company.address}*/}</p>
-                        <p className={styles.nmeroCif}>Número CIF: {/*{company.cif}*/}</p>
-                        <p className={styles.sitioWeb}>Sitio Web:{/*<a href={company.website} target="_blank" rel="noopener noreferrer">{company.website}</a></p>                  <p className={styles.contacto}>Contacto: {company.phone}*/}</p>
-                        <p className={styles.nmeroCif}>Contacto </p>
+                        <p className={styles.direccin}>Dirección: {company.address}</p>
+                        <p className={styles.nmeroCif}>Número CIF: {company.cif}</p>
+                        <p className={styles.sitioWeb}>Sitio Web: <a href={company.website} target="_blank" rel="noopener noreferrer">{company.website}</a></p>                  
+                        <p className={styles.contacto}>Contacto: {company.phone}</p>
                       </div>
-                      <div>
-                        <p className={styles.direccin}>Eguetiaga Eribarri, s/n, 48450 Basauri, Bizkaia{/*{company.address}*/}</p>
-                        <p className={styles.nmeroCif}>A12345678{/*{company.cif}*/}</p>
-                        <p className={styles.sitioWeb}>www.arcelormittal.com{/*<a href={company.website} target="_blank" rel="noopener noreferrer">{company.website}</a></p>                  <p className={styles.contacto}>Contacto: {company.phone}*/}</p>
-                        <p className={styles.nmeroCif}>arcelormittal@negocio.com</p>
-                      </div>
+
                     </div>
                   </div> 
                 </div>
