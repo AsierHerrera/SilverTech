@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Elipse2 from "../../../public/Ellipse 2.png";
 import styles from "./ProyectosFinalizados.module.css";
-import CardActivity from '../Proyectos/ProyectosComponents/CardActivity';
+import Card2 from '../Proyectos/ProyectosComponents/Card2';
 import { getProjectByUserId } from '../../utils/fetch';
 import { Link } from 'react-router-dom';
+import cover1 from "../../../public/proyecto1.png";
+import cover2 from "../../../public/proyecto2.png";
+import cover3 from "../../../public/proyecto3.png";
 
 const ProyectosFinalizados = ({ className = '' }) => {
   const [projects, setProjects] = useState([]);
@@ -27,6 +30,8 @@ const ProyectosFinalizados = ({ className = '' }) => {
     return <div>Cargando proyectos...</div>;
   }
 
+  const covers = [cover1, cover2, cover3];
+
   return (
     <>
       <section>
@@ -48,8 +53,8 @@ const ProyectosFinalizados = ({ className = '' }) => {
       <section>
         <h3 className={styles.cuerpoprincipal}>Nuevos proyectos que buscan colaboradores</h3>    
         <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <CardActivity key={project._id} project={project} />
+          {projects.map((project, index) => (
+            <Card2 key={project._id} img={covers[index % covers.length]} project={project} />
           ))}
         </div>
       </section>
@@ -73,8 +78,8 @@ const ProyectosFinalizados = ({ className = '' }) => {
       <section>
         <h3 className={styles.cuerpoprincipal}>Proyectos finalizados</h3>    
         <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <CardActivity key={project._id} project={project} />
+          {projects.map((project, index) => (
+            <Card2 key={project._id} img={covers[index % covers.length]} project={project} />
           ))}
         </div>
       </section>
