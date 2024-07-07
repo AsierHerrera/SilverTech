@@ -19,11 +19,12 @@
   line-height: 26px;
 } */
 .helpLinkTwo {
-  height: 11px;
+  height: 10px;
   line-height: 160%;
   display: flex;
   align-items: center;
-  min-width: 69px;
+  min-width: 68px;
+  
 }
 .help,
 .subLinks {
@@ -33,7 +34,7 @@
   justify-content: flex-start;
 }
 .subLinks {
-  gap: 21px;
+  gap: 18px;
   font-size: 16px;
 }
 .help {
@@ -108,8 +109,8 @@
   position: relative;
 }
 .socialIconPlaceholder {
-  height: 32px;
-  width: 32px;
+  height: 30px;
+  width: 30px;
   position: relative;
 }
 .socialIconContainer {
@@ -134,7 +135,7 @@
 }
 .contact {
   width: 185px;
-  gap: 17px;
+  gap: 15px;
   min-width: 185px;
   text-align: right;
   font-size: 16px;
@@ -145,7 +146,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 15px;
   max-width: 100%;
 }
 .footerRight {
@@ -160,14 +161,14 @@
   position: relative;
   line-height: 11px;
   display: inline-block;
-  min-width: 121px;
+  min-width: 120px;
 }
 .link2,
 .link3,
 .link4 {
   position: relative;
   text-decoration: underline;
-  line-height: 11px;
+  line-height: 4px;
 }
 .copyright,
 .footerBig {
@@ -179,8 +180,8 @@
 .copyright {
   flex-direction: row;
   align-items: center;
-  padding: 18.5px 0;
-  gap: 36px;
+  padding: 2px 0;
+  gap: 15px;
   font-size: 16px;
 }
 .footerBig {
@@ -190,16 +191,18 @@
   flex-shrink: 0;
   flex-direction: column;
   align-items: flex-start;
-  padding: 36px;
+  padding: 5px;
   text-align: left;
   font-size: 18px;
   color: #fcfcfc;
   font-family: "Atkinson Hyperlegible";
+  max-height: 370px;
+  max-width: 1380px;
 }
 @media screen and (max-width: 750px) {
   .copyright {
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 8px;
   }
 }
 @media screen and (max-width: 450px) {

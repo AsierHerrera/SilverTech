@@ -11,13 +11,13 @@
 }
 
 #cursos-talleres{
-    color: rgb(0,0,0);
-    text-align: start;
-    font-weight: bold;
-    font-size: 40px;
+    color: $Primary_Normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 35px;
     margin-top: 10vh;
-    margin-bottom: 3vh;
-    margin-left: 15vw;
+    margin-bottom: 10vh;
+
 }
 
 #card-list{
@@ -27,83 +27,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-left: 15vw;
-}
-
-.card{
-    width: 19.44vw;
-    margin-bottom: 8vh;
-    display: flex;
-    border-radius: 10px;
-    border: solid 1px $Neutral_Dark;
-    -webkit-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 16px 10px rgba(0,0,0,0.1);
-}
-
-.card > img{
-    border-radius: 8px 8px 0px 0px;
-}
-
-.seccion1{
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 3vh 1vw;
-}
-
-
-.seccion1 > h2{
-    font-size: 18px;
-    font-weight: bold;
-    color: rgb(9,24,100);
-}    
-
-.seccion1 > p{
-    border-top: 4px solid $SI_Normal_Active;
-    border-right: 4px solid white;
-    border-left: 4px solid $SI_Normal_Active;
-    border-bottom: 4px solid $SI_Normal_Active;
-    padding: 5% 6%;
-    border-radius: 50% ;
-    font-weight: bolder;
-    margin-bottom: -25px;
-}
-
-
-.seccion2{
-    align-self: start;
-    margin-left: 1vw;
-    font-weight: 500;
-    margin-top: 0px;
-}
-
-.seccion3{
-    align-self: center;
-    font-weight: 500;
-}
-
-.seccion3  span{
-    font-weight: bold;
-}
-
-.ver-mas{
-    background-color: rgb(9,24,100);
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 0px;
-    border-radius: 0px 0px 10px 10px;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-}
-
-.ver-mas:hover{
-    cursor: pointer;
-}
-.gris{
-    color: $Neutral_Dark;
+    
 }
 
 #btn-create{
@@ -121,8 +45,10 @@
 }
 
 .cursos-beneficios{
+    width: 100%;
     margin-top: 5vh;
     margin-bottom: 10vh;
+    width: 100%;
 }
 
 .cursos-beneficios p{

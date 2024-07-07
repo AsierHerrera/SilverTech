@@ -5,6 +5,9 @@ import { getToken, parseToken } from '../../utils/local.js';
 import './SubforumDetails.css';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { BiLike } from "react-icons/bi";
+import moment from 'moment';
+import Footer2 from "../../componentes/Footer/Footer2";
+
 
 const SubforumDetails = () => {
     const { id } = useParams();
@@ -133,20 +136,22 @@ const SubforumDetails = () => {
     }
 
     return (
+        <div className="container">
         <div className="post-page">
             {post && (
                 <div className="post-details">
+                    <p className="username"> {findUsernameById(post.user)}</p>
+                    <p className="date"> Publicado el {moment(post.createdAt).format('DD/MM/YYYY')}</p>
                     <h2>{post.title}</h2>
-                    <p>{post.text}</p>
-                    <p>Posted by: {findUsernameById(post.user)}</p>
-                    <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
+                    <p className="textpost">{post.text}</p>
+                    
                 </div>
             )}
             <div className="comments-section">
                 <h2 className="comments-section-h2">Respuestas ({Array.isArray(comments) ? comments.length : 0})</h2>
                 <ul>
                     {comments.length === 0 ? (
-                        <li>No comments available</li>
+                        <li style={{color: '#091864'}}>No hay comentarios</li>
                     ) : (
                         comments.map(comment => (
                             <li key={comment._id} className="comment-item">
@@ -164,11 +169,12 @@ const SubforumDetails = () => {
                                 ) : (
                                     <div>
                                         <div className="comment-details">
-                                            <p className="comment-details-item">{new Date(comment.createdAt).toLocaleString()}</p>
-                                            <p className="comment-details-item"><BiLike /></p>
+                                            <p className="comment-details-item">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
+                                            }</p>
+                                            <p className="comment-details-item"><BiLike style={{ width: '24px', height: '24px' }}  /></p>
                                         </div>
                                         
-                                        <p style={{ fontSize: 20, fontWeight: 'bold', }}>{findUsernameById(comment.user)}</p>
+                                        <p style={{ fontSize: 18, fontWeight: 'bold',  color: '#212121', fontamily: "Montserrat"}}>{findUsernameById(comment.user)}</p>
                                         <p>{comment.content}</p>
                                         {(comment.user._id === userId || userRole === 'admin') && (
                                             <div className="comment-actions">
@@ -190,12 +196,14 @@ const SubforumDetails = () => {
                     <textarea
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
-                        placeholder="Write a comment..."
+                        placeholder="Escribe aqui..."
                     />
-                    <button onClick={handleCreateComment}>Add Comment</button>
+                    <button onClick={handleCreateComment}>Enviar</button>
                     {error && <p className="error-message">{error}</p>}
                 </div>
             </div>
+        </div>
+        <Footer2 />
         </div>
     );
 };

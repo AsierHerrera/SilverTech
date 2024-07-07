@@ -21,16 +21,17 @@ const UserPanel = () => {
         sector: '',
         descripcion: ''
     });
+    
 
     useEffect(() => {
         const init = async () => {
             let userData = localStorage.getItem('userData');
             userData = userData ? JSON.parse(userData) : null;
             
-            if (!userData) { // No user data in local storage, fetch from server
+            if (!userData) {
                 userData = await fetchUserData();
                 if (userData && !userData.error) {
-                    localStorage.setItem('userData', JSON.stringify(userData)); // Save to local storage
+                    localStorage.setItem('userData', JSON.stringify(userData));
                 }
             }
     

@@ -1,69 +1,129 @@
 @import "../../EmpresarialColors.scss";
 
+footer{
+  margin-top: 20vh;
+}
+
 * {
   font-family: "Montserrat", sans-serif;
 }
-
-// Header and overall layout
 .hero {
-  background-color: #1a2238;
+  width: 100%;
+  background-color: #FDE4B0; // Light yellow background
+  
+  // padding: 40px 0;
   position: relative;
-  height: 524px;
   overflow: hidden;
 }
 
-.sectionimg {
-  img {
-    background-color: #1a2238;
-    width: 60%;
-    height: 524px;
-    position: absolute;
-    border-radius: 800px 0 0 800px;
-    right: -170px;
-    overflow: hidden;
+
+.container {
+  width: 1460px;
+  margin: 0 auto;
+  /* padding: 40px 40px; */
+  box-sizing: border-box;
+
+}
+
+.hero-content {
+  display: flex;
+  // max-width: 1440px;
+  // padding: 0 0 0 40px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 40px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 40px;
+   
+    .highlightSilver{
+      color: #F8A800
+    }
+    .highlight{
+      color: #656565
+  }
+  }
+ 
+
+  p {
+    margin-left: 40px;
+    color: var(--Primario-Normal, #091864);
+  
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.11px;
   }
 }
 
-h1 {
-  font-size: 24px;
-  color: #1a2238;
-  margin: 20px 0;
-  text-align: center;
+.image-content {
+  flex: 1;
+  position: relative;
+
+  img {
+    width: 100%;
+    display: block;
+    height: auto;
+    // border-radius: 1200px 1200px 0 1200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+
+  
 }
 
 .filters {
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  justify-content: flex-start; 
+  max-width: 1074px; 
+  margin: 20px auto; 
+  padding: 0 20px; 
+  
   
   button {
-    background-color: #EAEAEA;
-    color: #808080;
+    border-radius: 100px;
+    background-color: #FDE4B0;;
+    color: #091864;
     border: none;
+    font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+
     padding: 10px 20px;
     margin: 0 10px;
-    border-radius: 100px;
     cursor: pointer;
     &:hover {
       border-radius: 100px;
-      color: #ddd;
-      background: #565353;
+      background-color: #F8A800;;
+      color: #091864;
     }
   }
 }
 
-// Create post container
+
+
 .create-post-container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1074px;
+  width: 100%; 
+  max-width: 1074px; 
   padding: 40px 20px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  cursor: pointer;
   transition: box-shadow 0.3s ease;
   
   input,
@@ -81,26 +141,39 @@ h1 {
     gap: 20px;
     
     button {
-      background-color: #07124B;
-      border-radius: 8px;
-      color: white;
+      background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+      color: #07124B;
+      font-size: 20px;
+font-style: normal;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
       
       &:hover {
-        background-color: #0f1a51;
+        background-color:  #F8A800;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        opacity: 0.8;
       }
       
       &.cancel-button {
-        background-color: #07124B;
+        background-color:  #F8A800;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         &:hover {
-          background-color: darken(#0f1a51, 10%);
+          background-color:  #F8A800;
+          border-radius: 8px;
+          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+          opacity: 0.8;
         }
       }
     }
   }
 }
+
 
 // Post list
 .post-list {
@@ -201,6 +274,7 @@ h1 {
       flex-direction: column;
       gap: 10px;
       margin-top: 10px;
+      position: relative; 
       
       .edit-section {
         display: flex;
@@ -219,15 +293,25 @@ h1 {
           gap: 10px;
           
           button {
-            background-color: #07124B;
-            color: white;
+            background-color:  #F8A800;
+            border-radius: 8px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    
+            color:  #07124B;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px; 
             border: none;
             padding: 5px 10px;
-            border-radius: 4px;
             cursor: pointer;
             
             &:hover {
-              background-color: #0f1a51;
+              background-color:  #F8A800;
+              border-radius: 8px;
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+              opacity: 0.8;
             }
             
             &.cancel-button {
@@ -244,15 +328,28 @@ h1 {
       
       .delete-button {
         align-self: flex-start;
-        background-color: #07124B;
-        color: white;
+        background-color:  #F8A800;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        color:  #07124B;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; 
         border: none;
         padding: 5px 10px;
-        border-radius: 4px;
+        position: absolute; 
+        top: 135px; 
+        right: 10px;
+   
         cursor: pointer;
         
         &:hover {
-          background-color: darken(#07124B, 10%);
+          background-color:  #F8A800;
+          border-radius: 8px;
+          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+          opacity: 0.8;
         }
       }
     }

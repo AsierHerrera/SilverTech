@@ -1,5 +1,103 @@
 @import "../../EmpresarialColors.scss";
 
+.navegation-history-evento{
+    font-weight: 500;
+    margin-top: 10vh;
+    margin-left: 0vw;
+    margin-bottom: 0vh;
+}
+
+
+.evento-precio{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 23vh;
+    font-size: 200%;
+    color: $Secondary_Normal;
+}
+
+
+.navegation-history-evento > span{
+    padding-bottom: 1px;
+    border-bottom: 2px solid black;
+}
+
+.navegation-history-evento > span:first-child{
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.navegation-history-evento > span{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.course-category-evento{
+    display: flex;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.course-category-evento > p{
+    width: auto;
+    background-color: $Neutral_Normal;
+    color: $Text;
+    text-align: center;
+    padding: 1px 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 80%;
+}
+
+.datos-evento{
+    display: flex;
+    margin-bottom: 6vh;
+}
+
+.curso-title-evento{
+    font-weight: 800;
+    color: $Primary_Normal;
+    margin-bottom: 2vh;
+}
+
+.evento-info{
+    color: $Text;
+    font-weight: 400;
+    margin-top: 0px;
+}
+
+.evento-info > img{
+    margin-bottom: 6vh;
+}
+
+
+.evento-contenido{
+    margin-bottom: 10vh;
+    margin-left: 0px;
+}
+
+.evento-contenido > h3{
+    font-weight: 600;
+    color: $Primary_Normal;
+    margin-bottom: 0vh;
+    font-size: 120%;
+}
+
+.evento-contenido > p:first-of-type{
+   margin-bottom: 0px;
+   font-weight: 600;
+   font-size: 95%;
+}
+
+.evento-contenido > p{
+    width: 42vw;
+    font-weight: 500;
+    font-size: 90%;
+    margin-bottom: 0px;
+    margin-top: 0vh;
+}
+
 .tutor-info{    
     width: 680px;
     border: 1px solid $Neutral_Normal;
@@ -45,12 +143,17 @@
 }
 
 .tutor-info > button{
-    background-color: $Primary_Darker;
+    margin-bottom: 3vh;
+    border-radius: 5px;
     border: none;
-    border-radius: 7px;
-    color: white;    
-    margin-bottom: 2vh;
-    padding: 2px 2vw;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 1vh 0vw;
+    width: 60%;
 }
 
 .tutor-info > .barra{
@@ -90,7 +193,7 @@
 
 .seniority-ofrece{
     width: 100%;
-    background-color: rgb(238,255,250);
+    background-color: $Secondary_Light_Active;
 }
 
 .seniority-ofrece > h2{
@@ -134,4 +237,20 @@
     font-size: 30px;
     margin-top: 5vh;
     margin-bottom: 6vh;
+}
+
+#reservar{
+    margin-bottom: 3vh;
+    border-radius: 5px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 1vh 0vw;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
 }

@@ -1,7 +1,11 @@
 import { useCallback } from "react";
 import Content from "./ProyectosComponents/Content";
 import UserProjects from "./ProyectosComponents/UserProjects";
+import  Card2 from './ProyectosComponents/Card2';
 import styles from "./PERFILEMPRESA.module.css";
+import "./ProyectosComponents/Components.scss"
+import Footer2 from "../../componentes/Footer/Footer2";
+import { Link } from "react-router-dom";
 
 const PERFILEMPRESA = () => {
   const onButtonCrearCuentaContainerClick = useCallback(() => {
@@ -9,15 +13,15 @@ const PERFILEMPRESA = () => {
   }, []);
 
   return (
+    <>
     <div className={styles.perfilEmpresa}>
       <main className={styles.frameParent}>
 
         <Content />
-        <section className={styles.profileDescription}>
-          <div className={styles.descriptionContainer}>
-            <h1 className={styles.descripcin}>Descripción</h1>
-            <div className={styles.loremIpsumDolorSitAmetCoWrapper}>
-              <h3 className={styles.loremIpsumDolor}>
+        <section>
+          <div id="proyecto-descripcion">
+            <h2>Descripción</h2>
+              <h3 >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -26,31 +30,37 @@ const PERFILEMPRESA = () => {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </h3>
-            </div>
           </div>
         </section>
-        <UserProjects />
+
+        <h2 id="mis-proyectos"></h2>
+
+      {/*Dentro de este div mete las card generadas por el back y a esas card dile que llamen a Card2.scss para que se vean iguales a estas*/}
+      <div id="lista-proyectos">
+      <UserProjects />
+
+      </div>
+
+        
       </main>
-      <div className={styles.projectCallToAction}>
-        <h1 className={styles.tienesUnaIdea}>
+
+    </div>      
+    <div id="creacion-proyectos">
+        <h1 >
           ¿Tienes una idea para un proyecto y quieres colaborar con esta
           empresa?
         </h1>
-        <div className={styles.projectProposal}>
-          <h3 className={styles.comienzaUnProyecto}>
+        <div >
+          <h3 >
             Comienza un proyecto y colaborad juntos
           </h3>
-          <div
-            className={styles.buttonCrearCuenta}
-            onClick={onButtonCrearCuentaContainerClick}
-          >
-            <div className={styles.createProjectLink}>
-              Crear Proyecto Colaborativo
-            </div>
+          <div className={styles.buttonCrearCuenta} onClick={onButtonCrearCuentaContainerClick}>
+            <a href="/crear-proyecto">Crear proyecto colaborativo</a>
           </div>
         </div>
       </div>
-    </div>
+      <Footer2/>
+    </>
   );
 };
 

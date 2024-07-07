@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import CardActivity from './CardActivity';
 import PropTypes from 'prop-types';
 import styles from './UserProjects.module.css';
-import { getProjectByUserId } from '../../../utils/fetch'; // Ajusta la ruta según corresponda
+import { getProjectByUserId } from '../../../utils/fetch';
+import Card2 from './Card2';
+import cover1 from "../../../../public/proyecto1.png"
+import cover2 from "../../../../public/proyecto2.png"
+import cover3 from "../../../../public/proyecto3.png"
 
 const UserProjects = ({ className = '' }) => {
   const [projects, setProjects] = useState([]);
@@ -10,38 +13,33 @@ const UserProjects = ({ className = '' }) => {
   useEffect(() => {
     const fetchProjectsData = async () => {
       try {
-        const projectsData = await getProjectByUserId(); // Obtener los proyectos del usuario
+        const projectsData = await getProjectByUserId();
         console.log("Proyectos obtenidos:", projectsData);
-        setProjects(projectsData); // Actualizar el estado con los proyectos obtenidos
+        setProjects(projectsData);
       } catch (error) {
         console.error('Error al obtener los proyectos:', error.message);
-        // Manejar el error según sea necesario
       }
     };
-
     fetchProjectsData();
   }, []);
 
-  // Verificar si projects no es un array o está vacío
   if (!Array.isArray(projects) || projects.length === 0) {
     return <div>No se encontraron proyectos.</div>;
   }
 
-  // Renderizar los proyectos si hay datos
+  const covers = [cover1, cover2, cover3];
+
   return (
-    <section className={[styles.userProjects, className].join(' ')}>
-      <div className={styles.projectsContainer}>
-        <h1 className={styles.misProyectos}>Mis proyectos</h1>
-        <div className={styles.projectsList}>
-          <div className={styles.projectCard}>
-            {projects.map(project => (
-              <CardActivity
-                key={project._id}
-                project={project}
-              />
-            ))}
-          </div>
-        </div>
+    <section className={`${styles.userProjects} ${className}`}>
+      <h1 className={styles.misProyectos}>Mis proyectos</h1> <br /><br />
+      <div className={`${styles.projectsGrid} projectsGrid`}>
+        {projects.map((project, index) => (
+          <Card2
+            key={project._id}
+            img={covers[index % covers.length]} // Asigna una imagen de la lista de covers de manera cíclica
+            project={project}
+          />
+        ))}
       </div>
     </section>
   );

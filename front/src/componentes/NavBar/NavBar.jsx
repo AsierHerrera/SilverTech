@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css';
-import logo from './logo_azul.png';
+import logo from './silvertech_logo2.jpg';
 import userIcon from './user_icon.png';
 
 const NavBar = () => {
@@ -46,15 +46,10 @@ const NavBar = () => {
     };
   }, []);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate('/register');
-  };
-
 
   return (
-    <header className="navbar">
-      <div className="navbar__logo-bar">
+    <header className="navbar container" >
+      <div >
         <img src={logo} alt="Logo" className="navbar__logo" />
       </div>
 
@@ -90,10 +85,10 @@ const NavBar = () => {
             <button className="navbar__link" onClick={() => toggleDropdown('proyectos')}>Proyectos</button>
             {dropdowns.proyectos && (
               <div className="dropdown__menu anchura1">
-                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                <Link className="dropdown__item" to="/proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/crear-proyecto">Crear Nuevo Proyecto</Link>
-                <Link className="dropdown__item" to="/mis-proyectos">Proyectos Finalizados</Link>
-                <Link className="dropdown__item" to="/mis-proyectos">Documentación Legal</Link>
+                <Link className="dropdown__item" to="/proyectos-finalizados">Proyectos Finalizados</Link>
+                <Link className="dropdown__item" to="/documentacion-legal-accesibilidad">Documentación Legal</Link>
               </div>
             )}
           </div>
@@ -119,7 +114,6 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
-                <button className="dropdown__item" onClick={handleLogout}>Logout</button>
               </div>
             )}
           </div>

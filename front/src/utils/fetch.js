@@ -140,6 +140,13 @@ const getUserPanel= async(id)=>{
     const result = await fetchData("/create/"+id,"get"); 
     return result;
 }
+
+
+const createProject = async(postData)=>{
+    const result = await fetchData("/projects","post",postData);
+    return result;
+}
+
 const updateUser = async (userId, userData) => {
     const result = await fetchData(`/users/${userId}`, "put", userData);
     return result;
@@ -180,6 +187,7 @@ export {
     getProjectByUserId,
     createCompany,
     updateUser,
+    createProject,
     createOrUpdateUserAndCompany
 
 }

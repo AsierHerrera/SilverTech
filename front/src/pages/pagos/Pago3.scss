@@ -1,0 +1,188 @@
+@import "../../EmpresarialColors.scss";
+
+#pago2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 25vh;
+}
+
+#pago2 > article{
+    width: 100%;   
+}
+
+#pago2 > article > div:first-of-type{
+    margin-left: 8.68vw; 
+}
+
+.pago-info{
+    color: $Text;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  
+}
+
+.pago-info > img{
+    margin-bottom: 5vh;
+    width: 705px;
+    height: 466px;
+}
+
+.pago2-formulario {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.pago2-formulario > form{
+    border: 1px solid $Neutral_Normal;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 705px;
+    margin: 0px;
+    padding: 5vh 8vw 2vh 6vw;
+}
+
+.pago2-formulario > form > p{
+    font-weight: 600;
+}
+
+.pago2-formulario > form > p > span{
+    font-weight: 800;
+}
+
+.pago2-formulario > form > p:last-of-type{
+    display: flex;
+    margin-bottom: 5vh;
+    justify-content: start;
+}
+
+.pago2-formulario > form > p:last-of-type > p{
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+    background-color: $Secondary_Light;
+    color: $Primary_Dark;
+    border: 1px solid $Primary_Dark;
+    font-weight: 500;
+    padding: 0.5vh 1vw;
+    width: 100%;
+    text-decoration: none;
+    width: auto;
+    margin-top: 2vh;
+}
+
+label > span{
+    color: $SI_Normal;
+    text-decoration: underline;
+}
+
+.pago2-formulario > form  h3{
+    font-weight: 700;
+    color: $Text;
+    font-size: 100%;
+    margin-top: 4vh;
+}
+
+.pago2-formulario > form > div:first-of-type{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+}
+
+.form-control{
+    border: 1px solid $Neutral_Dark;
+}
+
+.form-check-input{
+    border: 2px solid $Neutral_Darker;
+}
+
+.form-group{
+    margin-bottom: 2vh;
+}
+
+.c-checkbox{
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+#btn-pagar2{
+    display: flex;
+    margin-bottom: 5vh;
+    justify-content: center;
+}
+
+#btn-pagar2 > *{
+    
+    border-radius: 5px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    background-color: $Secondary_Normal;
+    color: $Primary_Dark;
+    font-weight: 700;
+    padding: 1vh 7vw;
+    width: 100%;
+    text-decoration: none;
+    width: auto;
+
+}
+
+
+.final-compra{
+    display: flex;
+    justify-content: center;
+}
+
+.final-compra > div{
+    border: 1px solid $Neutral_Normal;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 705px;
+    margin: 0px;
+    padding: 5vh 8vw 2vh 6vw;
+}
+
+.final-compra > div > h2{
+    color: $Tertiary_Dark_Hover;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8vh;
+}
+
+.final-compra > div > h3{
+    color: $Text;
+    font-weight: 600;
+    text-align: start;
+    margin-bottom: 2vh;
+    font-size: 125%;
+}
+
+.final-compra > div > h3 > span{
+    color: $Secondary_Normal;
+}
+
+.final-compra > div > p{
+    color: $Text;
+    font-weight: 400;
+    text-align: start;
+    margin-bottom: 4vh;
+    font-size: 100%;
+    width: 90%;
+}
