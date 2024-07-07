@@ -1,0 +1,68 @@
+.chat-message-backgrounds {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 1.5px 1.5px 1.46px rgba(0, 0, 0, 0.25);
+  border-radius: 7.28px;
+  background-color: #fff;
+}
+.chat-message-icons {
+  height: 46.6px;
+  width: 46.6px;
+  position: relative;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+}
+.carlos-garca {
+  flex: 1;
+  position: relative;
+  line-height: 160%;
+  z-index: 1;
+}
+.silvereconomygroup {
+  height: 10px;
+  width: 131px;
+  position: absolute;
+  margin: 0 !important;
+  right: -18px;
+  bottom: -2.4px;
+  font-size: 14.6px;
+  line-height: 160%;
+  display: inline-block;
+  z-index: 2;
+}
+.chat-message-user {
+  align-self: stretch;
+  flex-direction: row;
+  position: relative;
+}
+.chat-message-backgrounds-parent,
+.chat-message-user,
+.chat-message-user-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.chat-message-user-wrapper {
+  width: 112px;
+  flex-direction: column;
+  padding: 8.8px 0 0;
+  box-sizing: border-box;
+}
+.chat-message-backgrounds-parent {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 16px 11px 27.6px;
+  position: relative;
+  gap: 21.3px;
+  text-align: center;
+  font-size: 17.5px;
+  color: #000;
+  font-family: "Atkinson Hyperlegible";
+}

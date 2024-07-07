@@ -1,0 +1,24 @@
+.group {
+  height: 96px;
+  width: 370px;
+}
+
+.group .de-las-empresas-espa-wrapper {
+  height: 96px;
+  position: relative;
+  width: 372px;
+}
+
+.group .de-las-empresas-espa {
+  color: #000000;
+  font-family: var(--text-font-family);
+  font-size: var(--text-font-size);
+  font-style: var(--text-font-style);
+  font-weight: var(--text-font-weight);
+  left: 0;
+  letter-spacing: var(--text-letter-spacing);
+  line-height: var(--text-line-height);
+  position: absolute;
+  text-align: center;
+  top: 0;
+}

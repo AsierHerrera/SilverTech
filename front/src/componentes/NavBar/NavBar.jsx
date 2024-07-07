@@ -59,8 +59,9 @@ const NavBar = () => {
             <button className="navbar__link" onClick={() => toggleDropdown('expertos')}>Contratación de Expertos</button>
             {dropdowns.expertos && (
               <div className="dropdown__menu anchura1">
-                <Link className="dropdown__item" to="/guias">Guías</Link>
-                <Link className="dropdown__item" to="/libros">Libros</Link>
+                <Link className="dropdown__item" to="/expertos">Nuestros Expertos</Link>
+                {/* <Link className="dropdown__item" to="/guias">Guías</Link> */}
+{/*                 <Link className="dropdown__item" to="/libros">Libros</Link> */}
                 <Link className="dropdown__item" to="/documentacion-legal-accesibilidad">Documentación Legal y Accesibilidad</Link>
               </div>
             )}

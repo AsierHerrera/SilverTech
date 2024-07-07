@@ -1,0 +1,36 @@
+.button-hero-primary {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 8px;
+  height: 48px;
+  justify-content: center;
+  padding: 8px 36px;
+  position: relative;
+}
+
+.button-hero-primary .text-wrapper {
+  color: var(--text-900);
+  font-family: var(--paragraph-l-regular-font-family);
+  font-size: var(--paragraph-l-regular-font-size);
+  font-style: var(--paragraph-l-regular-font-style);
+  font-weight: var(--paragraph-l-regular-font-weight);
+  letter-spacing: var(--paragraph-l-regular-letter-spacing);
+  line-height: var(--paragraph-l-regular-line-height);
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.button-hero-primary.default {
+  background-color: var(--secundariolight);
+}
+
+.button-hero-primary.variant-3 {
+  background-color: var(--secundariodark);
+}
+
+.button-hero-primary.variant-2 {
+  background-color: var(--secundarionormal);
+}
