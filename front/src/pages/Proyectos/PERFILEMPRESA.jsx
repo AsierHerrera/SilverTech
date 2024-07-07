@@ -55,7 +55,7 @@ const PERFILEMPRESA = () => {
             Comienza un proyecto y colaborad juntos
           </h3>
           <div className={styles.buttonCrearCuenta} onClick={onButtonCrearCuentaContainerClick}>
-            <a href="/crear-proyecto">Crear proyecto colaborativo</a>
+          <Link className={styles.pinchaAqui} to={`/crear-proyecto`}>Crear proyecto colaborativo</Link>
           </div>
         </div>
       </div>
