@@ -5,9 +5,7 @@ import  Card2 from './ProyectosComponents/Card2';
 import styles from "./PERFILEMPRESA.module.css";
 import "./ProyectosComponents/Components.scss"
 import Footer2 from "../../componentes/Footer/Footer2";
-import cover1 from "../../../public/proyecto1.png"
-import cover2 from "../../../public/proyecto2.png"
-import cover3 from "../../../public/proyecto3.png"
+import { Link } from "react-router-dom";
 
 const PERFILEMPRESA = () => {
   const onButtonCrearCuentaContainerClick = useCallback(() => {
@@ -35,17 +33,15 @@ const PERFILEMPRESA = () => {
           </div>
         </section>
 
-        <h2 id="mis-proyectos">Mis Proyectos</h2>
+        <h2 id="mis-proyectos"></h2>
 
       {/*Dentro de este div mete las card generadas por el back y a esas card dile que llamen a Card2.scss para que se vean iguales a estas*/}
       <div id="lista-proyectos">
-        <Card2 img={cover1} title={"Colaboración: Accesibilidad robótica"}/>
-        <Card2 img={cover2} title={"Colaboración de comunicación "}/>
-        <Card2 img={cover3} title={"Implementación de AI en diseños UX"}/>        
+      <UserProjects />
+
       </div>
 
         
-        {/*<UserProjects />*/}
       </main>
 
     </div>      
@@ -59,9 +55,7 @@ const PERFILEMPRESA = () => {
             Comienza un proyecto y colaborad juntos
           </h3>
           <div className={styles.buttonCrearCuenta} onClick={onButtonCrearCuentaContainerClick}>
-            <div >
-              Crear Proyecto Colaborativo
-            </div>
+            <a href="/crear-proyecto">Crear proyecto colaborativo</a>
           </div>
         </div>
       </div>
