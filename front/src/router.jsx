@@ -81,12 +81,16 @@ const router = createBrowserRouter([
      { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
-  {
-    path: "/register",
-    element: <Register />,
-  },
+  // {
+  //   path: "/register",
+  //   element: <Register />,
+  // },
 ]);
 
 export default router;
