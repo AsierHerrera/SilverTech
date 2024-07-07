@@ -1,0 +1,62 @@
+.digital-agility-icon {
+  height: 101.8px;
+  width: 107.2px;
+  position: relative;
+  flex-shrink: 0;
+}
+.user-focus-icon {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 21px 0 20px;
+}
+.prescindir-de-tecnologa-avanz,
+.que-tus-usuarios {
+  margin: 0;
+}
+.que-tus-usuarios-container {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 40px;
+  font-weight: 800;
+  font-family: inherit;
+}
+.que-tus-usuarios-no-sean-gile-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+.user-focus-icon-parent {
+  width: 876px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40.2px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 36px;
+  color: #091864;
+  font-family: Montserrat;
+}
+@media screen and (max-width: 800px) {
+  .que-tus-usuarios-container {
+    font-size: 29px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .que-tus-usuarios-container {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .user-focus-icon-parent {
+    gap: 20px;
+  }
+}

@@ -25,6 +25,9 @@ import DocumentacionLegalAccesibilidad from "./pages/DocumentacionLegalAccesibil
 import Biblioteca from "./pages/Biblioteca";
 import Publicaciones from "./pages/Publicaciones";
 import SilverEconomy from "./pages/SilverEconomy";
+
+import NuestrosExpertos from "./pages/NuestrosExpertos";
+
 import CursosTalleres from "./pages/recursos/Recursos";
 /* import PlantillasHerramientas from "./pages/PlantillasHerramientas"; */
 import PERFILEMPRESA from "./pages/Proyectos/PERFILEMPRESA";
@@ -55,8 +58,8 @@ const router = createBrowserRouter([
         element: <SubforumDetails />,
         loader: ({ params }) => getOnePostInSubforumById(params.id),
       },
-      { path: "/guias", element: <Guias /> },
-      { path: "/libros", element: <Libros /> },
+      { path: "/expertos", element: <NuestrosExpertos /> },
+/*       { path: "/libros", element: <Libros /> }, */
       {
         path: "/documentacion-legal-accesibilidad",
         element: <DocumentacionLegalAccesibilidad />,
@@ -81,12 +84,16 @@ const router = createBrowserRouter([
      { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
-  {
-    path: "/register",
-    element: <Register />,
-  },
+  // {
+  //   path: "/register",
+  //   element: <Register />,
+  // },
 ]);
 
 export default router;

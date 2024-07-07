@@ -1,6 +1,4 @@
-/* import img1 from './silver1.jpg';
-import img2 from './silver2.jpg';
-import img3 from './silver3.jpg'; */
+import Footer2 from "../componentes/Footer/Footer2";
 
 import React from 'react';
 import './SilverEconomy.css'; 
@@ -33,6 +31,7 @@ const SilverEconomy = () => {
           </div>
         </div>
       ))}
+<Footer2/>
     </div>
   );
 };

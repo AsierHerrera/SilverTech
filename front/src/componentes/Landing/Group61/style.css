@@ -1,0 +1,28 @@
+.group-61 {
+  height: 322px;
+  position: relative;
+  width: 354px;
+}
+
+.group-61 .dependes-mucho-de {
+  color: #000000;
+  font-family: var(--body-XXL-400-font-family);
+  font-size: var(--body-XXL-400-font-size);
+  font-style: var(--body-XXL-400-font-style);
+  font-weight: var(--body-XXL-400-font-weight);
+  left: 0;
+  letter-spacing: var(--body-XXL-400-letter-spacing);
+  line-height: var(--body-XXL-400-line-height);
+  position: absolute;
+  text-align: center;
+  top: 129px;
+  width: 354px;
+}
+
+.group-61 .lift-to-talk {
+  height: 86px;
+  left: 134px;
+  position: absolute;
+  top: 0;
+  width: 85px;
+}

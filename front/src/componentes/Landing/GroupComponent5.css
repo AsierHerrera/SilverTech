@@ -1,0 +1,40 @@
+.lift-to-talk-icon {
+  height: 85.9px;
+  width: 85px;
+  position: relative;
+}
+.voice-message-icon {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 21px 0 20px;
+}
+.dependes-mucho-de {
+  align-self: stretch;
+  position: relative;
+  line-height: 32px;
+  white-space: pre-wrap;
+}
+.voice-message-icon-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 44.3px;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  font-family: Montserrat;
+}
+@media screen and (max-width: 450px) {
+  .dependes-mucho-de {
+    font-size: 19px;
+    line-height: 26px;
+  }
+  .voice-message-icon-parent {
+    gap: 22px;
+  }
+}

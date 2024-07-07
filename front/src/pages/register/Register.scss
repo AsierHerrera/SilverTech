@@ -1,168 +1,159 @@
 @import "../../EmpresarialColors.scss";
 
-// Vista para Moviles
+.register-login {
 
-@media only screen and (max-width: 500px) {
-  .register-login {
-    width: 70%;
-    background-color: $Neutral_Dark;
-    border-radius: 10px;
-    padding: 2vw 2vw;
-    margin-top: 15vw;
-    margin-left: 14%;
-    border: 1px solid $Neutral_Darker;
-  }
-  
-  .register-login h2 {
-    font-size: 4vw;
-    margin-bottom: 2vw;
-  }
-  
-  .register-login form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .register-login label {
-    margin-bottom: 2vw;
-    font-weight: bolder;
-    font-size: 4vw;
-  }
-  
-  .register-login input {
-    padding: 8px;
-    margin-bottom: 5vw;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .register-login button {
-   
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 4vw;
-    font-size: 5vw;
-  }
-
-  #btn-enter{
-    background-color: $Primary_Dark;
-    border: 1px solid $Primary_Darker;
-    font-weight: bolder; 
-  }
-
-  #btn-change{
-    background-color: $SI_Dark;
-    border: 1px solid $SI_Darker;
-    font-weight: bolder;
-  }
-
-  #Welcome{
-    font-size: 4.8vw;
-    color: white;
-    -webkit-text-stroke-width: 0.2vw;
-    -webkit-text-stroke-color: black;
-  }
-
-  .spaghetti-icon{
-    display: none;
-  }
-
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 25px 25px 50px 25px rgba(0, 0, 0, 0.12);
 }
 
-// Vista para computadoras
+.register-login h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-@media only screen and (min-width: 900px) {
-  .register-login {
-    width: 45%;
-    background-color: $Neutral_Normal;
-    border-radius: 10px;
-    padding: 2vh 2vw;
-    margin-top: 15vh;
-    margin-left: 27%;
-    border: 1px solid $Neutral_Darker;
-  }
-  
-  .register-login h2 {
-    font-size: 1.5vw;
-    margin-bottom: 2vh;
-  }
-  
-  .register-login form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .register-login label {
-    margin-bottom: 1vh;
-    font-weight: bolder;
-  }
-  
-  .register-login input {
-    padding: 8px;
-    margin-bottom: 4vh;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .register-login button {
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 3vh;
-  }
+#Welcome {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
 
-  #btn-enter{
-    background-color: $Primary_Dark;
-    border: 1px solid $Primary_Darker;
-    font-weight: bolder;
-  }
+.yellow{
+  color:#F8A800;
+}
+.register-login form {
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
 
-  #btn-change{
-    background-color: $SI_Dark;
-    border: 1px solid $SI_Darker;
-    font-weight: bolder;
-  }
+.register-login label {
+  color: #212121;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
 
-  #Welcome{
-    font-size: 3vw;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-  }
+.register-login input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-  .spaghetti-icon{
+.register-login button {
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#btn-enter {
+  background-color: #F8A800;
+  border-radius: 8px;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+color:#091864;
+}
+
+#btn-change {
+  background-color: transparent;
+  color: #091864;
+  text-decoration: underline;
+  padding: 0;
+  margin: 15px auto 0;
+  display: block;
+  text-align: center;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 5px;
+  color: #000;
+
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 130%;
+}
+
+.checkbox-container label {
+  font-size: 14px;
+  font-size: 16px;
+  color: #000;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.help-text {
+  text-align: center;
+
+  margin-top: 20px;
+  color: #000;
+
+text-align: center;
+/* Body/Small/300 */
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; 
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .lock-icon {
     position: absolute;
-    z-index: 100;
-    width: 10vw;
-    height: auto;
+    left: 10px;
+    top: 15px;
+    color: #ccc;
   }
 
-  #spaghetti-icon-1{
-    top: 10vh;
-    left: 10vw;
-    
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
-  #spaghetti-icon-2{
-    top: 20vh;
-    right: 10vw;
-  }
+  .toggle-password {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
 
-  #spaghetti-icon-3{
-    top: 50vh;
-    left: 5vw;
+    &:focus {
+      outline: none;
+    }
   }
-
-  #spaghetti-icon-4{
-    top: 60vh;
-    right: 5vw;
-  }
-
 }
-
-

@@ -1,0 +1,41 @@
+.gestionando-muchas-tareas,
+.usas-un-programa {
+  margin: 0;
+}
+.dependes-mucho-de-container {
+  flex: 1;
+  position: relative;
+  line-height: 32px;
+  display: inline-block;
+  max-width: 100%;
+}
+.lift-to-talk-icon1 {
+  height: 85.9px;
+  width: 85px;
+  position: relative;
+  display: none;
+}
+.dependes-mucho-de-whatsapp-par-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 130.2px 0 32px;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  font-family: Montserrat;
+}
+@media screen and (max-width: 450px) {
+  .dependes-mucho-de-container {
+    font-size: 19px;
+    line-height: 26px;
+  }
+}

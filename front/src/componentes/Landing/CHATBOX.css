@@ -1,0 +1,160 @@
+/* Mantener los estilos específicos para .chat-background */
+.chat-background {
+  height: 446.7px;
+  margin: 0 !important;
+  box-shadow: 0 5.8px 5.82px rgba(0, 0, 0, 0.25);
+  background-color: #eefffa;
+  position: relative;
+  border-radius: 7.28px;
+  opacity: 1; /* Modificar la opacidad para hacerla visible */
+  box-sizing: border-box;
+}
+
+/* Mantener los estilos específicos para .search-input-background */
+.search-input-background {
+  height: auto;
+  bottom: 0;
+  background-color: #fff;
+  border: 0.3px solid gray;
+  box-sizing: border-box;
+  border-radius: 7.28px;
+  position: relative;
+  opacity: 1; /* Modificar la opacidad para hacerla visible */
+  box-sizing: border-box;
+}
+
+/* Ajustar estilos para iconos de búsqueda */
+.carbonsearch-icon {
+  height: 62.09%;
+  width: 10.59%;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Estilo para el contenedor de la búsqueda */
+.search-input-background-parent {
+  height: 42.2px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ajustar estilos de la sección de búsqueda de chat */
+.chat-search {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 0 22px 0 21px;
+}
+
+/* Ajustar estilos de los mensajes de chat */
+.chat-message {
+  height: 314.3px;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 0 112px;
+  box-sizing: border-box;
+  gap: 21.8px;
+  z-index: 1;
+}
+
+/* Ajustar estilos de los contenedores de mensajes de chat */
+.chat-messages {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 0 22px 0 21px;
+}
+
+/* Ajustar estilos para el fondo de los mensajes salientes */
+.outgoing-message-background {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 7.28px;
+  background-color: #68d3b5;
+}
+
+/* Estilos específicos para los iconos de perfil */
+.iconoirprofile-circle {
+  height: 34.9px;
+  width: 34.9px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Estilo para el nombre del mensajero */
+.mensajera {
+  position: relative;
+  line-height: 35px;
+  font-weight: 500;
+}
+
+/* Ajustar estilos del contenedor del nombre del mensajero */
+.mensajera-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.4px 6px 0 0;
+}
+
+/* Ajustar estilos para los iconos de flecha */
+.weuiarrow-filled-icon {
+  width: 34.9px;
+  height: 17.5px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Estilo para el contenedor de los iconos de flecha */
+.weuiarrow-filled-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10.1px 0 0;
+}
+
+/* Ajustar estilos del contenedor de los iconos de perfil */
+.iconoirprofile-circle-parent {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2px 0.1px 0;
+  gap: 16px;
+  z-index: 1;
+}
+
+/* Ajustar estilos del contenedor principal del chat */
+.chat-box1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20.4px 0 0;
+  box-sizing: border-box;
+  gap: 24.7px;
+  text-align: center;
+  font-size: 17.5px;
+  color: #000;
+  font-family: "Atkinson Hyperlegible";
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media screen and (max-width: 450px) {
+  .chat-message {
+    height: 314.3px;
+  }
+  .mensajera {
+    font-size: 21px;
+    line-height: 28px;
+  }
+}

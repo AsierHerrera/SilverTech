@@ -1,0 +1,36 @@
+.div-wrapper {
+  height: 262px;
+  position: relative;
+  width: 876px;
+}
+
+.div-wrapper .que-tus-usuarios-no-wrapper {
+  height: 120px;
+  left: 0;
+  position: absolute;
+  top: 142px;
+  width: 878px;
+}
+
+.div-wrapper .que-tus-usuarios-no {
+  color: var(--primarionormal);
+  font-family: var(--display-01-font-family);
+  font-size: var(--display-01-font-size);
+  font-style: var(--display-01-font-style);
+  font-weight: var(--display-01-font-weight);
+  height: 120px;
+  left: 0;
+  letter-spacing: var(--display-01-letter-spacing);
+  line-height: var(--display-01-line-height);
+  position: absolute;
+  text-align: center;
+  top: 0;
+}
+
+.div-wrapper .frame-person {
+  height: 102px;
+  left: 384px;
+  position: absolute;
+  top: 0;
+  width: 107px;
+}

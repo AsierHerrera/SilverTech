@@ -141,25 +141,17 @@ const getUserPanel= async(id)=>{
     return result;
 }
 
+const updateUser = async(id)=>{
+    const result = await fetchData("/users/"+id,"put"); 
+    return result;
+}
+
 
 const createProject = async(postData)=>{
     const result = await fetchData("/projects","post",postData);
     return result;
 }
 
-const updateUser = async (userId, userData) => {
-    const result = await fetchData(`/users/${userId}`, "put", userData);
-    return result;
-};
-const createOrUpdateUserAndCompany = async (formData, userId) => {
-    try {
-        const result = await fetchData(`/companies/${userId}`, "post", formData); // Asegúrate de que esto coincide con la ruta en el backend
-        return result;
-    } catch (error) {
-        console.error(error);
-        return { error: error.message };
-    }
-};
 
 export {
     register,
@@ -188,6 +180,6 @@ export {
     createCompany,
     updateUser,
     createProject,
-    createOrUpdateUserAndCompany
+
 
 }

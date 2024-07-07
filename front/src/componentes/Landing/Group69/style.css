@@ -1,0 +1,25 @@
+.group-69 {
+  height: 322px;
+  width: 354px;
+}
+
+.group-69 .dependes-mucho-de-wrapper {
+  height: 322px;
+  left: 10px;
+  position: relative;
+}
+
+.group-69 .div {
+  color: #000000;
+  font-family: var(--body-XXL-400-font-family);
+  font-size: var(--body-XXL-400-font-size);
+  font-style: var(--body-XXL-400-font-style);
+  font-weight: var(--body-XXL-400-font-weight);
+  left: 0;
+  letter-spacing: var(--body-XXL-400-letter-spacing);
+  line-height: var(--body-XXL-400-line-height);
+  position: absolute;
+  text-align: center;
+  top: 129px;
+  width: 354px;
+}
