@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { login, getUserData, updateUser } from "../utils/fetch"; // Importar getUserData
+import { getUserData, updateUser } from "../utils/fetch";
 import ProfilePicUpload from '../../src/pages/userProfile/ProfilePicUpload';
 import "./UserPanel.css";
 import UserContext from "../context/userContext";
 
 const UserPanel = () => {
-    const { setUser: setGlobalUser } = useContext(UserContext); 
+    const { setUser: setGlobalUser } = useContext(UserContext);
     const [user, setUser] = useState({});
     const [name, setName] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [profilePic, setProfilePic] = useState(''); 
+    const [profilePic, setProfilePic] = useState('');
     const [formData, setFormData] = useState({
         nombreEmpresa: '',
         cif: '',
@@ -22,51 +22,72 @@ const UserPanel = () => {
         descripcion: ''
     });
 
+    useEffect(() => {
+        const init = async () => {
+            let userData = localStorage.getItem('userData');
+            userData = userData ? JSON.parse(userData) : null;
+            
+            if (!userData) { // No user data in local storage, fetch from server
+                userData = await fetchUserData();
+                if (userData && !userData.error) {
+                    localStorage.setItem('userData', JSON.stringify(userData)); // Save to local storage
+                }
+            }
+    
+            if (userData) {
+                setUser(userData);
+                setName(userData.username || '');
+                setFormData(userData.companyData || loadFormData());
+                setProfilePic(localStorage.getItem('profilePic') || '');
+            } else {
+                console.log('No user data available');
+            }
+        };
+    
+        init();
+    }, []);
+
+    const loadFormData = () => {
+        const savedFormData = localStorage.getItem('formData');
+        return savedFormData ? JSON.parse(savedFormData) : {};
+    };
+
     const storeUserData = (userData) => {
-        try {
-            localStorage.setItem('userData', JSON.stringify(userData));
-            console.log('User data stored in localStorage:', JSON.stringify(userData));
-        } catch (e) {
-            console.error('Error storing user data in localStorage', e);
-        }
+        localStorage.setItem('userData', JSON.stringify(userData));
+    };
+
+    const storeFormData = (formData) => {
+        localStorage.setItem('formData', JSON.stringify(formData));
     };
 
     const fetchUserData = async () => {
-        const result = await getUserData(); // Usar la función getUserData del fetch.js
-        console.log('User data from server:', result);
-        return result.data; // Asegurarse de acceder a la propiedad data
+        const result = await getUserData();
+        return result.data;
     };
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const init = async () => {
             const userData = await fetchUserData();
             if (userData && !userData.error) {
-                console.log("user: ", userData);
-                const { _id, username } = userData; // Desestructurar _id y username
-                if (_id) {
-                    console.log("user._id: ", _id); // Verificar que _id está presente
-                    setUser(userData);
-                    setName(username || '');
-                } else {
-                    console.error('User ID no encontrado:', userData);
-                }
-            } else {
-                console.error('No saved user data found in localStorage');
+                setUser(userData);
+                setName(userData.username || '');
+                setFormData(userData.companyData || loadFormData());
+                setProfilePic(localStorage.getItem('profilePic') || '');
             }
         };
-        fetchUser();
+
+        init();
     }, []);
 
     useEffect(() => {
-        const savedProfilePic = localStorage.getItem('profilePic');
-        if (savedProfilePic) {
-            setProfilePic(savedProfilePic);
+        storeFormData(formData);
+    }, [formData]);
+
+    useEffect(() => {
+        if (profilePic) {
+            localStorage.setItem('profilePic', profilePic);
         }
-    }, []);
-
-    useEffect(() => {
-        console.log("User state updated:", user);
-    }, [user]);
+    }, [profilePic]);
 
     const handleNameChange = (e) => {
         e.preventDefault();
@@ -79,22 +100,20 @@ const UserPanel = () => {
             return;
         }
         const updatedUser = { ...user, username: name };
-        console.log("updatedUser: ", updatedUser);
         setUser(updatedUser);
-        setGlobalUser(updatedUser); 
+        setGlobalUser(updatedUser);
         storeUserData(updatedUser);
         alert('Se ha actualizado tu nombre de usuario');
     };
 
     const handlePasswordChange = async (e) => {
         e.preventDefault();
-        const savedUser = user || {};
         if (currentPassword.trim() === '' || newPassword.trim() === '') {
             alert('Los campos de contraseña no pueden estar vacíos');
             return;
         }
 
-        const verificationResult = await login({ username: savedUser.username, password: currentPassword });
+        const verificationResult = await login({ username: user.username, password: currentPassword });
     
         if (verificationResult.error) {
             alert('La contraseña actual no coincide con la contraseña registrada');
@@ -106,12 +125,12 @@ const UserPanel = () => {
             return;
         }
 
-        alert('Se ha actualizado tu contraseña');
-        const updatedUser = { ...savedUser, password: newPassword };
+        const updatedUser = { ...user, password: newPassword };
         setUser(updatedUser);
         storeUserData(updatedUser);
         setCurrentPassword('');
         setNewPassword('');
+        alert('Se ha actualizado tu contraseña');
     };
 
     const handleChange = (e) => {
@@ -125,19 +144,23 @@ const UserPanel = () => {
             alert('Error: ID de usuario no encontrado');
             return;
         }
+    
         try {
-            const result = await updateUser(user._id, formData); 
-            alert('¡Datos de la empresa guardados correctamente!');
-            const updatedUser = { ...user, company: result._id };
-            setUser(updatedUser);
-            setGlobalUser(updatedUser);
-            storeUserData(updatedUser);
-            window.location.href = '/ajustes';
+            const result = await updateUser(user._id, { ...user, companyData: formData });
+            if (result.error) {
+                alert(`Error al guardar los datos de la empresa: ${result.error}`);
+            } else {
+                alert('¡Datos de la empresa guardados correctamente!');
+                const updatedUser = { ...user, companyData: formData };
+                setUser(updatedUser);
+                setGlobalUser(updatedUser);
+                storeUserData(updatedUser);
+
+            }
         } catch (error) {
             alert(`Error al guardar los datos de la empresa: ${error.message}`);
         }
     };
-
     return (
         <div className='user-profile'>
             <div className='form-container'>
@@ -274,3 +297,124 @@ const UserPanel = () => {
 };
 
 export default UserPanel;
+
+
+
+/*     const storeUserData = (userData) => {
+        try {
+            localStorage.setItem('userData', JSON.stringify(userData));
+            console.log('User data stored in localStorage:', JSON.stringify(userData));
+        } catch (e) {
+            console.error('Error storing user data in localStorage', e);
+        }
+    };
+
+    const storeFormData = (formData) => {
+        try {
+            localStorage.setItem('formData', JSON.stringify(formData));
+            console.log('Form data stored in localStorage:', JSON.stringify(formData));
+        } catch (e) {
+            console.error('Error storing form data in localStorage', e);
+        }
+    };
+
+    const fetchUserData = async () => {
+        const result = await getUserData(); // Usar la función getUserData del fetch.js
+        console.log('User data from server:', result);
+        return result.data; // Asegurarse de acceder a la propiedad data
+    };
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const userData = await fetchUserData();
+            if (userData && !userData.error) {
+                console.log("user: ", userData);
+                const { _id, username } = userData; // Desestructurar _id y username
+                if (_id) {
+                    console.log("user._id: ", _id); // Verificar que _id está presente
+                    setUser(userData);
+                    setName(username || '');
+                } else {
+                    console.error('User ID no encontrado:', userData);
+                }
+            } else {
+                console.error('No saved user data found in localStorage');
+            }
+        };
+        fetchUser();
+
+        const savedFormData = localStorage.getItem('formData');
+        if (savedFormData) {
+            setFormData(JSON.parse(savedFormData));
+        }
+
+        const savedProfilePic = localStorage.getItem('profilePic');
+        if (savedProfilePic) {
+            setProfilePic(savedProfilePic);
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log("User state updated:", user);
+    }, [user]);
+
+    useEffect(() => {
+        storeFormData(formData);
+    }, [formData]);
+
+    useEffect(() => {
+        if (profilePic) {
+            localStorage.setItem('profilePic', profilePic);
+        }
+    }, [profilePic]);
+
+    const handleNameChange = (e) => {
+        e.preventDefault();
+        if (name.trim() === '') {
+            alert('El nombre de usuario no puede estar vacío');
+            return;
+        }
+        if (name === user.username) {
+            alert('El nombre no puede ser el mismo');
+            return;
+        }
+        const updatedUser = { ...user, username: name };
+        console.log("updatedUser: ", updatedUser);
+        setUser(updatedUser);
+        setGlobalUser(updatedUser); 
+        storeUserData(updatedUser);
+        alert('Se ha actualizado tu nombre de usuario');
+    };
+
+    const handlePasswordChange = async (e) => {
+        e.preventDefault();
+        const savedUser = user || {};
+        if (currentPassword.trim() === '' || newPassword.trim() === '') {
+            alert('Los campos de contraseña no pueden estar vacíos');
+            return;
+        }
+
+        const verificationResult = await login({ username: savedUser.username, password: currentPassword });
+    
+        if (verificationResult.error) {
+            alert('La contraseña actual no coincide con la contraseña registrada');
+            return;
+        }
+    
+        if (currentPassword === newPassword) {
+            alert('La nueva contraseña no puede ser la misma que la actual');
+            return;
+        }
+
+        alert('Se ha actualizado tu contraseña');
+        const updatedUser = { ...savedUser, password: newPassword };
+        setUser(updatedUser);
+        storeUserData(updatedUser);
+        setCurrentPassword('');
+        setNewPassword('');
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    }; */

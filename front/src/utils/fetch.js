@@ -144,6 +144,15 @@ const updateUser = async (userId, userData) => {
     const result = await fetchData(`/users/${userId}`, "put", userData);
     return result;
 };
+const createOrUpdateUserAndCompany = async (formData, userId) => {
+    try {
+        const result = await fetchData(`/companies/${userId}`, "post", formData); // Asegúrate de que esto coincide con la ruta en el backend
+        return result;
+    } catch (error) {
+        console.error(error);
+        return { error: error.message };
+    }
+};
 
 export {
     register,
@@ -170,6 +179,7 @@ export {
     getCompanyByUserId,
     getProjectByUserId,
     createCompany,
-    updateUser
+    updateUser,
+    createOrUpdateUserAndCompany
 
 }
