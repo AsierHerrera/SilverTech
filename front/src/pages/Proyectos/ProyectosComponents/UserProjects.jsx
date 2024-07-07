@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import CardActivity from './CardActivity';
 import PropTypes from 'prop-types';
 import styles from './UserProjects.module.css';
 import { getProjectByUserId } from '../../../utils/fetch';
+import Card2 from './Card2';
+import cover1 from "../../../../public/proyecto1.png"
+import cover2 from "../../../../public/proyecto2.png"
+import cover3 from "../../../../public/proyecto3.png"
 
 const UserProjects = ({ className = '' }) => {
   const [projects, setProjects] = useState([]);
@@ -24,13 +27,16 @@ const UserProjects = ({ className = '' }) => {
     return <div>No se encontraron proyectos.</div>;
   }
 
+  const covers = [cover1, cover2, cover3];
+
   return (
     <section className={`${styles.userProjects} ${className}`}>
-      <h1 className={styles.misProyectos}>Mis proyectos</h1>
-      <div className={styles.projectsGrid}>
-        {projects.map(project => (
-          <CardActivity
+      <h1 className={styles.misProyectos}>Mis proyectos</h1> <br /><br />
+      <div className={`${styles.projectsGrid} projectsGrid`}>
+        {projects.map((project, index) => (
+          <Card2
             key={project._id}
+            img={covers[index % covers.length]} // Asigna una imagen de la lista de covers de manera cíclica
             project={project}
           />
         ))}

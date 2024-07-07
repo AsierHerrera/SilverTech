@@ -52,10 +52,26 @@
 
 .buttonCrearCuenta {
   background-color: #FFC107;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 5px;
+  color: #091864;
+  border-radius: 8px;
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+  text-decoration: none; 
+  text-align: center;
+}
+
+.buttonCrearCuenta a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.buttonCrearCuenta a:hover {
+  text-decoration: none;
 }
