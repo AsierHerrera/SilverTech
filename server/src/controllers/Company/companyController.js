@@ -1,10 +1,25 @@
 import Company from '../../models/companyModel.js';
 import User from '../../models/userModel.js';
 
-
 // Crear una nueva empresa
 const create = async (data, userId) => {
-    const { name, cif, address, postalCode, website, phone, sector, description, imageUrl } = data;
+    const {
+        name,
+        cif,
+        address,
+        postalCode,
+        website,
+        phone,
+        sector,
+        description,
+        imageUrl,
+        size,
+        nivelDeConocimiento,
+        edadPublico,
+        queBuscas,
+        presupuesto,
+        contenidoInteres
+    } = data;
 
     try {
         const newCompany = new Company({
@@ -17,7 +32,13 @@ const create = async (data, userId) => {
             sector,
             description,
             imageUrl,
-            userId
+            userId,
+            size,
+            nivelDeConocimiento,
+            edadPublico,
+            queBuscas,
+            presupuesto,
+            contenidoInteres
         });
 
         const savedCompany = await newCompany.save();
@@ -91,7 +112,7 @@ const getByUserId = async (userId) => {
     }
 };
 
-export default{
+export default {
     create,
     getAll,
     getById,

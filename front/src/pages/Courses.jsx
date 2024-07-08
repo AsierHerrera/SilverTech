@@ -1,38 +1,31 @@
 import React from 'react';
-import banner from "../../public/cover.png";
-import "../pages/recursos/Recursos.scss";
 import { Link } from "react-router-dom";
 import iconUser from "../../public/icon_box.png";
-import "./Courses.scss"
+import "./Courses.scss";
 
-export default function Courses({ img }) {
+export default function Courses({ img, name, startDate, modality, availableSlots, price }) {
+  const formattedDate = new Date(startDate).toLocaleDateString('es-ES', {
+    day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+  });
+
   return (
-    <>
-      <div className='card'>          
-        <img src={img} alt="banner" className='card-img'/>
-        <div>
-          <div className='seccion1'>
-            <h2 >Cursos Lorem Ipsum</h2>
-            {/*<p className='card-progress'>40</p>*/}     
-          </div>
-          <div className='seccion2'>
-            <p>20 de Julio 2024 - 19:00</p>
-            <p className='gris'>Bilbao, Urazurrutia Kalea 3 </p>
-            <p className='gris'>48003</p>
-            <p className='gris'><img src={iconUser} alt="" className='iconUser'/> Asistentes: 60</p>
-            <p className='amarillo'><img src={iconUser} alt="" className='iconUser'/> Plazas Disponibles: 40</p>
-          </div>
-          <div className='seccion3'>
-            
-            <p>Precio: <span>75€</span></p>
-          </div>          
+    <div className='card'>
+      <img src={img} alt="banner" className='card-img' />
+      <div>
+        <div className='seccion1'>
+          <h2>{name}</h2>
         </div>
-
-        <Link className="ver-mas" to={`/recursos/1`}>Ver Curso</Link>
+        <div className='seccion2'>
+          <p>{formattedDate}</p>
+          <p className='gris'>{modality}</p>
+          <p className='gris'><img src={iconUser} alt="" className='iconUser' /> Asistentes: 20</p>
+          <p className='amarillo'><img src={iconUser} alt="" className='iconUser' /> Plazas Disponibles: {availableSlots}</p>
+        </div>
+        <div className='seccion3'>
+          <p>Precio: <span>{price}€</span></p>
+        </div>
       </div>
-      
-    </>
-  )
-};
-
-
+      <Link className="ver-mas" to={`/recursos/${name}`}>Ver Curso</Link>
+    </div>
+  );
+}
