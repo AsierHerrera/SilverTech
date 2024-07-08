@@ -14,8 +14,6 @@ import logo5 from "../../../public/logo_inicio5.png"
 import logo6 from "../../../public/logo_inicio6.png"
 import logo7 from "../../../public/logo_inicio7.png"
 
-
-
 const Home = ()=>{
     
     return (
