@@ -79,7 +79,6 @@ const Pago1 = ()=>{
                 </article>
 
             </section>
-            <Footer2/>
         </>
     )
 }

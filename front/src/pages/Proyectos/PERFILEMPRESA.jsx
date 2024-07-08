@@ -59,7 +59,6 @@ const PERFILEMPRESA = () => {
           </div>
         </div>
       </div>
-      <Footer2/>
     </>
   );
 };

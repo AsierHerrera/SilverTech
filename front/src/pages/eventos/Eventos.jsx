@@ -31,7 +31,6 @@ const Eventos = ()=>{
 
                 <div className="separacion"></div>
   
-                <Footer2/>
         </>   
     )
 }

@@ -258,7 +258,6 @@ const Subforum = () => {
         </div>
         
       </div>
-      <Footer2 />
     </>
   );
 };

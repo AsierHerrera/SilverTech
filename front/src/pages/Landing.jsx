@@ -13,7 +13,6 @@ const Landing = () => {
       <img src="/Landing6.jpg" alt="Landing 6" className="i" />
       <img src="/Landing7.jpg" alt="Landing 7" className="i" />
 
-      <Footer2 />
     </div>
   );
 };
