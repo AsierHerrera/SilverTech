@@ -40,6 +40,7 @@ import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
 import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
+import Formulario2 from "./pages/longform/Formulario2";
 
 
 
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />, 
     children: [
+      { path: "/form2", element: <Formulario2 /> },
       { path: "/Landing", element: <Landing /> },
       { path: "/recursos", element: <Recursos /> },
       { path: "/recursos/:id", element: <Recurso /> },
