@@ -157,8 +157,7 @@ const Register = ({ onLogin }) => {
             </button>
             <p className="help-text">Si necesitas ayuda, llama al +34 600 000 000.</p>
         </section>
-    )
-    <Footer2 />
+    
     </>
     )
 }

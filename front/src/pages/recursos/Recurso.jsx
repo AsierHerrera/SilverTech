@@ -238,7 +238,6 @@ const Recurso = ()=>{
                 <button>Reservar Plazas</button>                
             </div>
 
-            <Footer2/>
         </>
     )
 }

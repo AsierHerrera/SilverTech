@@ -31,7 +31,6 @@ const SilverEconomy = () => {
           </div>
         </div>
       ))}
-<Footer2/>
     </div>
   );
 };

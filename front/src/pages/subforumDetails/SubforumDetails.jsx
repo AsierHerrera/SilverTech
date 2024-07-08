@@ -205,7 +205,6 @@ const SubforumDetails = () => {
                 </div>
             </div>
         </div>
-        <Footer2 />
         </div>
         </>
     );

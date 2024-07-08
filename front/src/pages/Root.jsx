@@ -6,6 +6,7 @@ import UserContext from "../context/userContext";
 /* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
+import Footer2 from "../componentes/Footer/Footer2"
 
 
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
@@ -90,6 +91,7 @@ const toggleProfile = () => {
       )}
                  
         <Outlet />
+        <Footer2 />
         </>
     )
 };

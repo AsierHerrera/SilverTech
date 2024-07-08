@@ -90,7 +90,6 @@ const Recursos = ()=>{
                     <Courses img={evento5}/>
                     <Courses img={evento6}/>                
                 </div>
-                <Footer2/>
             </section>
        
         </>   

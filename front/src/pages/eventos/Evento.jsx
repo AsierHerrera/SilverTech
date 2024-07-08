@@ -263,7 +263,6 @@ const Evento = ()=>{
                     <Eventos2 img={banner5}/>
                     <Eventos2 img={banner6}/>                        
                 </div>
-                <Footer2/>
             </section>
 
         </>

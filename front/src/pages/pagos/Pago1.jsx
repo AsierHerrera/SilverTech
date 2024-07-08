@@ -102,7 +102,6 @@ const Pago1 = ()=>{
                 </div>
                 
             </section>
-            <Footer2/>
         </>
     )
 }
