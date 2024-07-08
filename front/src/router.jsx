@@ -41,6 +41,9 @@ import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 import MisFormaciones from "./pages/UserPanel"; */
 import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
 import Formulario2 from "./pages/longform/Formulario2";
+import CrearEventos from "./pages/Crear evento/CrearEventos";
+import CrearRecurso from "./pages/Crear recurco/CrearRecurso";
+
 
 
 
@@ -90,6 +93,16 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/crear-recurso",
+        element: <CrearRecurso/>
+
+      },
+      {
+        path: "/crear-evento", 
+        element: <CrearEventos/>
+
+      }
     ],
   },
   // {
