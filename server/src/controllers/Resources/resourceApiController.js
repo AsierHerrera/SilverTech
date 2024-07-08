@@ -2,7 +2,7 @@ import resourceController from "./resourceController.js";
 
 const getAll = async (req, res) => {
     const resources = await resourceController.getAll();
-    res.json({ data: resources });
+    res.json( resources );
 }
 
 const barraDeBusqueda = async(req,res)=>{

@@ -131,8 +131,8 @@ const getProjectByUserId = async () => {
     return result;
 };
 
-const createCompany = async (userId, companyData) => {
-    const result = await fetchData(`/companies/${userId}`, "post", companyData);
+const createCompany = async (companyData) => {
+    const result = await fetchData(`/companies/`, "post", companyData);
     return result;
 };
 
