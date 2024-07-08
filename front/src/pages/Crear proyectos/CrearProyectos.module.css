@@ -149,3 +149,10 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+  .error{
+    color: red;
+    padding: 5px;
+  }
+  .alert alert-success {
+    color: green
+}
