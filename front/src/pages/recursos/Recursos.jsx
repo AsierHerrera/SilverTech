@@ -47,7 +47,7 @@ const Recursos = ()=>{
     return (
         <>
             <section id="recursoList">
-                {user?.role == "admin2" ? 
+                {user?.role == "admin" ? 
                 <>
                     {creatingRecurso ?
                         <Modal onClose={()=>setCreatingRecurso(false)}>

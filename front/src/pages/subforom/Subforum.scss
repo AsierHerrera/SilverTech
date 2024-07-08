@@ -7,11 +7,34 @@ footer{
 * {
   font-family: "Montserrat", sans-serif;
 }
+
+.navegation-history-foro{
+  font-weight: 500;
+  margin-top: 10vh;
+  margin-left: 8vw;
+  margin-bottom: 5vh;
+}
+
+.navegation-history-foro > span{
+  padding-bottom: 1px;
+  border-bottom: 2px solid black;
+}
+
+.navegation-history-foro > span:first-child{
+  margin-right: 5px;
+  margin-left: 0px;
+}
+
+.navegation-history-foro > span{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 .hero {
   width: 100%;
   background-color: #FDE4B0; // Light yellow background
   
-  // padding: 40px 0;
+  padding: 0px 0px 0px  5vw;
   position: relative;
   overflow: hidden;
 }
