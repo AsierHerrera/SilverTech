@@ -136,6 +136,8 @@ const SubforumDetails = () => {
     }
 
     return (
+        <>
+        <p className="navegation-history-foro" > <span>Inicio</span>  {">"} <span>Networking</span> {">"} <span></span>Foro</p>
         <div className="container">
         <div className="post-page">
             {post && (
@@ -205,6 +207,7 @@ const SubforumDetails = () => {
         </div>
         <Footer2 />
         </div>
+        </>
     );
 };
 
