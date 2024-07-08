@@ -5,7 +5,6 @@ import logo from './silvertech_logo2.jpg';
 import userIcon from './user_icon.png';
 import { getToken, deleteToken, parseToken } from '../../utils/local';
 import UserContext from '../../context/userContext';
-import CrearEvento from '../../pages/Crear proyectos/CrearProyecto';
 
 const NavBar = () => {
     const { user, setUser } = useContext(UserContext);
@@ -89,7 +88,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/silver-economy">Silver Economy</Link>
                                 <Link className="dropdown__item" to="/recursos">Cursos y Talleres</Link>
                                 <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas y Herramientas</Link>
-                                {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
+
                             </div>
                         )}
                     </div>
@@ -113,7 +112,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/foro">Foro</Link>
                                 <Link className="dropdown__item" to="/eventos">Eventos</Link>
                                 <Link className="dropdown__item" to="/charlas">Charlas</Link>
-                               {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-evento">Crear Evento</Link>}
+                                {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
