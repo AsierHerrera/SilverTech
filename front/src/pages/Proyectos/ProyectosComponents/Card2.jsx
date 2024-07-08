@@ -20,10 +20,10 @@ export default function Card2({ img, project }) {
           <p className='amarillo'><img src={iconUser} alt="" className='iconUser'/> Plazas Disponible: 40</p>
         </div>
         <div className='seccion3-proyecto'>
-          <p>Beneficiarios: <span>{project.beneficiaries} </span></p>
+          <p className='test2'> <span>Beneficiarios:</span> {project.beneficiaries}</p>
         </div>       
       </div>
-        <Link className="ver-proyecto" to={`/recursos/${project._id}`}>Ver Eventos</Link>
+        <Link className="ver-proyecto" to={`/recursos/${project._id}`}> Ver Eventos</Link>
     </div>
   );
 };
