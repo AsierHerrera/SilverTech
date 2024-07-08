@@ -232,6 +232,10 @@
 .curso-mapa{
     margin-top: 5vh;
     margin-bottom: 300px;
+    width: 678px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .curso-mapa > h3{
@@ -242,11 +246,13 @@
     border-radius: 5px;
     margin: 0px;
     margin-bottom: -180px;
+    width: 678px;
 }
 
 .curso-mapa > button{
     margin: 0px;
-    margin-left: 220px;
+    width: 50%;
+    margin-left: 25%;
     border-radius: 5px;
     border: none;
     -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
