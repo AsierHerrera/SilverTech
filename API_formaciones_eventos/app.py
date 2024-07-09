@@ -324,8 +324,8 @@ def update_graphs_eventos(selected_months, selected_names):
     ingresos_mes = ingresos_mes.sort_values(by='month')
 
     fig_Eventos_mes = go.Figure()
-    fig_Eventos_mes.add_trace(go.Bar(x=Eventos_mes['month'], y=Eventos_mes['count'], name='Cantidad Eventos', marker_color='#359979', yaxis='y'))
-    fig_Eventos_mes.add_trace(go.Scatter(x=ingresos_mes['month'], y=ingresos_mes['sum'], name='Suma de Ingresos', line=dict(color='#091864'), yaxis='y2'))
+    fig_Eventos_mes.add_trace(go.Bar(x=Eventos_mes['month'], y=Eventos_mes['count'], name='Cantidad Eventos', marker_color='#f8a800', yaxis='y'))
+    fig_Eventos_mes.add_trace(go.Scatter(x=ingresos_mes['month'], y=ingresos_mes['sum'], name='Suma de Ingresos', line=dict(color='#c68600'), yaxis='y2'))
 
     fig_Eventos_mes.update_layout(
         title='Cantidad de Eventos e Ingresos Mensuales',
@@ -343,7 +343,7 @@ def update_graphs_eventos(selected_months, selected_names):
     if percentage_achieved_filtered < 0.6:
         gauge_color = "red"
     elif 0.6 <= percentage_achieved_filtered < 1:
-        gauge_color = "#091864"
+        gauge_color = "#c68600"
     else:
         gauge_color = "green"
 
@@ -371,8 +371,8 @@ def update_graphs_eventos(selected_months, selected_names):
 
     # Gráfico de plazas meta y inscripciones por ID
     fig_plazas_meta = go.Figure(data=[
-        go.Bar(name='Plazas Meta', x=filtered_df['id'].astype(str), y=filtered_df['availableSlots'], marker_color='#091864'),
-        go.Bar(name='Inscripciones', x=filtered_df['id'].astype(str), y=filtered_df['participations'], marker_color='#359979')
+        go.Bar(name='Plazas Meta', x=filtered_df['id'].astype(str), y=filtered_df['availableSlots'], marker_color='#c68600'),
+        go.Bar(name='Inscripciones', x=filtered_df['id'].astype(str), y=filtered_df['participations'], marker_color='#f8a800')
     ])
 
     fig_plazas_meta.update_layout(
