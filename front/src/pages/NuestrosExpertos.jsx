@@ -1,11 +1,17 @@
 import React from 'react';
-import './NuestrosExpertos.css'; 
+import next from "../../public/next.jpg";
+import "./img.scss"
 
 const NuestrosExpertos = () => {
 
+  return (
+    <>
+      <div>
+        <img src={next} alt="" />      
+      </div>
+    </>
+  )
 
-    return 
-  <img src="./proximamente.png" alt="" />
 };
 
 export default NuestrosExpertos;

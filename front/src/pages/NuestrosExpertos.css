@@ -1,4 +1,4 @@
-
+/*
 .silver-economy {
   background-color: white;
   color: black;
@@ -48,10 +48,17 @@
 .image img {
   width: 100%;
   height: auto;
-  border: 2px solid #00008B; /* Azul oscuro */
+  border: 2px solid #00008B;  Azul oscuro 
 }
 
 .centrar{
 
  text-align: center;
+}
+*/
+
+img{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
 }

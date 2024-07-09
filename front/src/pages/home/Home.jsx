@@ -1,6 +1,6 @@
 import "./Home.scss"
 
-import banner from "../../../public/banner_inicio.png"
+import banner from "../../../public/banner_inicio_recorted.png"
 import telephone from "../../../public/lift_to_talk.png"
 import arrows from "../../../public/arrow_split.png"
 import breaklink from "../../../public/link.png"

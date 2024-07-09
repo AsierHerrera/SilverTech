@@ -75,7 +75,7 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/publicaciones">Publicaciones</Link>
                 <Link className="dropdown__item" to="/silver-economy">Silver Economy</Link>
                 <Link className="dropdown__item" to="/recursos">Cursos y Talleres</Link>
-                <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas y Herramientas</Link>
+           
               </div>
             )}
           </div>
