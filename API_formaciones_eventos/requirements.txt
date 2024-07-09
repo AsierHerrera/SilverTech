@@ -1,0 +1,7 @@
+pymysql
+pandas
+plotly
+dash
+dash-bootstrap-components
+configparser
+flask
