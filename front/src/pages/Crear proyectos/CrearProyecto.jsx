@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from "./CrearProyectos.module.css";
 import { createProject } from '../../utils/fetch';
 
-const CrearEvento = () => {
+const CrearProyecto = () => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -257,4 +257,4 @@ const CrearEvento = () => {
   );
 }
 
-export default CrearEvento;
+export default CrearProyecto;
