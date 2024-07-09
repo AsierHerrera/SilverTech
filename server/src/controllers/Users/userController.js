@@ -23,7 +23,6 @@ function getUserData(user){
     }
 }
 
-
 const getById = async (id) => {
     try {
         const user = await userModel.findById(id);
@@ -62,7 +61,7 @@ const getByResource = async (resourceId) => {
 
 const login = async (data) => {
     const { email, username, password } = data;
-    console.log("La dta es:_", data)
+    console.log("La data es:_", data)
     if ((!email || !username) && !password) {
         return { error: "Faltan datos", status: 400 };
     }
@@ -133,7 +132,14 @@ const register = async (data) => {
             return user;
         }
 
-        return user;
+        // Llamar a la función de login después de la creación del usuario
+        const loginData = { username: user.username, password: data.password };
+        const loginResult = await login(loginData);
+        if (loginResult.error) {
+            return loginResult;
+        }
+
+        return loginResult;
     } catch (error) {
         console.error(error);
         return { error: "Error al registrar el usuario", status: 500 };
