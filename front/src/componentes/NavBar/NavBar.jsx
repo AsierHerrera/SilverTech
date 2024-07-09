@@ -69,7 +69,7 @@ const NavBar = () => {
 
             <div className="navbar__menu-bar">
                 <nav className="navbar__nav" ref={navRef}>
-                    <Link className="navbar__link" to="/Landing">Inicio</Link>
+                    <Link className="navbar__link" to="/landing">Inicio</Link>
 
                     <div className="navbar__item">
                         <button className="navbar__link" onClick={() => toggleDropdown('expertos')}>Contratación de Expertos</button>
