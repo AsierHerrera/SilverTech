@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from "../../../context/userContext";
 import PropTypes from 'prop-types';
 import styles from './UserProjects.module.css';
 import { getProjectByUserId } from '../../../utils/fetch';
@@ -7,23 +8,42 @@ import cover1 from "../../../../public/proyecto1.png"
 import cover2 from "../../../../public/proyecto2.png"
 import cover3 from "../../../../public/proyecto3.png"
 
-const UserProjects = ({ className = '' }) => {
-  const [projects, setProjects] = useState([]);
+const ProximosAsistencias = ({ className = '' }) => {
+    const { user } = useContext(UserContext);
+    const [projects, setProjects] = useState([]);
+    let fechaActual = Date.now();
+
+    function checkAssistance(project) {
+        return user._id != project.createdBy;
+    }
+
+    function checkAssistanceTime(project) {
+        let fechaFinal = Date.parse(project.endDate)
+        return fechaActual < fechaFinal;
+        // la asistencia todavia no ha terminado
+    }
+
 
   useEffect(() => {
     const fetchProjectsData = async () => {
       try {
         const projectsData = await getProjectByUserId();
-        console.log("Proyectos obtenidos:", projectsData);
-        setProjects(projectsData);
+        const isAssistanceData = projectsData.filter(checkAssistance);
+        const nextAssistanceData = isAssistanceData.filter(checkAssistanceTime);
+
+        console.log("user id ", user._id)
+        console.log("createBY", projectsData[0].createdBy)
+
+        console.log("Asistencias proximas obtenidos:", nextAssistanceData);
+        setProjects(nextAssistanceData);
       } catch (error) {
-        console.error('Error al obtener los proyectos:', error.message);
+        console.error('Error al obtener las asitencias:', error.message);
       }
     };
     fetchProjectsData();
   }, []);
 
-  if (!Array.isArray(projects) || projects.length === 0) {
+  if (!Array.isArray(projects) ) {
     return <div>No se encontraron proyectos.</div>;
   }
 
@@ -45,8 +65,8 @@ const UserProjects = ({ className = '' }) => {
   );
 };
 
-UserProjects.propTypes = {
+ProximosAsistencias.propTypes = {
   className: PropTypes.string,
 };
 
-export default UserProjects;
+export default ProximosAsistencias;

@@ -6,7 +6,7 @@ import "./img.scss"
 const Biblioteca = () => {
   return (
   <>
-      <div>
+      <div className='proximamente'>
         <img src={next} alt="" />      
       </div>
   </>

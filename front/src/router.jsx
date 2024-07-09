@@ -41,6 +41,8 @@ import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 import MisFormaciones from "./pages/UserPanel"; */
 import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
 import Formulario2 from "./pages/longform/Formulario2";
+import CrearRecurso from "./pages/Crear recurco/CrearRecurso";
+
 
 
 
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />, 
     children: [
       { path: "/form2", element: <Formulario2 /> },
-      { path: "/Landing", element: <Home /> },
+      { path: "/landing", element: <Home /> },
       { path: "/recursos", element: <Recursos /> },
       { path: "/recursos/:id", element: <Recurso /> },
       { path: "/foro", element: <Subforum /> },
@@ -90,6 +92,11 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/crear-recurso",
+        element: <CrearRecurso/>
+
+      }
     ],
   },
   // {

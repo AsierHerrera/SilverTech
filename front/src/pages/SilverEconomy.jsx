@@ -8,7 +8,7 @@ import "./img.scss"
 const SilverEconomy = () => {
   return (
     <>
-        <div>
+        <div className='proximamente'>
           <img src={next} alt="" />      
         </div>
     </>

@@ -33,12 +33,12 @@ const Root = () => {
         }
         setUser(data.data);
     }
-    async function handleLogout(e) {
-        e.preventDefault();
-        setUser(null);
-        deleteToken();
-        navigate("/register");
-    } 
+    // async function handleLogout(e) {
+    //     e.preventDefault();
+    //     setUser(null);
+    //     deleteToken();
+    //     navigate("/register");
+    // } 
 
 
 const toggleProfile = () => {
@@ -83,12 +83,12 @@ const toggleProfile = () => {
 {/*         <BarraBusqueda />
         <Outlet /> */}
         <NavBar />
-        {user && (
+        {/* {user && (
         <div className="logout">
           {/* <p>Hola, {user?.username}</p> */}
-          <Link to="/register" onClick={handleLogout}>Logout</Link>
-        </div>
-      )}
+          {/* <Link to="/register" onClick={handleLogout}>Logout</Link>
+        </div> *
+      {/* )} */}
                  
         <Outlet />
         <Footer2 />

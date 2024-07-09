@@ -5,7 +5,7 @@ import "./img.scss"
 const Libros = () => {
   return (
     <>
-        <div>
+        <div className='proximamente'>
           <img src={next} alt="" />      
         </div>
     </>

@@ -176,3 +176,52 @@
     margin-top: 6vh;
     margin-bottom: 5vh;
 }
+
+.proyectos-asistencias{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.proyectos-asistencias > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 4vh;
+   
+}
+
+.proyectos-asistencias > div > h2{
+    font-size: 200%;
+    font-weight: 700;
+    color: $Secondary_Darker;
+    cursor: pointer;
+}
+
+.proyectos-asistencias > div > h3{
+    font-size: 120%;
+    font-weight: 700;
+    color: $Neutral_Dark;
+    cursor: pointer;
+}
+
+.elegido1{
+    color: $Secondary_Dark !important;
+    border-bottom: 5px solid $Secondary_Dark;
+}
+
+.elegido2{
+    color: $Text !important;
+}
+
+.oculto{
+    display: none;
+    visibility: hidden;
+}
+
+.oculto div{
+    display: none;
+    visibility: hidden;
+    color: transparent;
+}

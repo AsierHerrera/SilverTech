@@ -145,9 +145,22 @@
   
   .formInput {
     width: 100%;
+    max-width: 100%; /* Asegura que no desborde */
+
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+
+  }
+  .formInput {
+    width: 100%;
+  }
+  
+  select.formInput {
+    width: 100%; /* Ajusta el ancho del select para que no desborde */
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .error{
     color: red;
