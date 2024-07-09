@@ -119,28 +119,33 @@ const NavBar = () => {
                         )}
                     </div>
 
-                    <div className="navbar__item">
-                        <button className="navbar__link" onClick={() => toggleDropdown('usuario')}>
-                            <img src={userIcon} alt="Usuario" className="navbar__user-icon" />
-                        </button>
-                        {dropdowns.usuario && (
-                            <div className="dropdown__menu anchura1">
-                                <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
-                                <Link className="dropdown__item" to="/mis-proyectos">Mis Проекти</Link>
-                                <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
-                                <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
-                                {!user ? (
-                                    <Link className="dropdown__item" to="/register">Login</Link>
-                                ) : (
-                                    <Link className="dropdown__item" to="/register" onClick={handleLogout}>Logout</Link>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </nav>
-            </div>
-        </header>
-    );
+          <div className="navbar__item">
+            <button className="navbar__link" onClick={() => toggleDropdown('usuario')}>
+              <img src={userIcon} alt="Usuario" className="navbar__user-icon" />
+            </button>
+            {dropdowns.usuario && (
+              <div className="dropdown__menu anchura1">
+                <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
+                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
+                <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
+                {userRole === 'admin' && <Link className="dropdown__item" to="/dashboard-formaciones">Dashboard formaciones</Link>}
+                {userRole === 'admin' && <Link className="dropdown__item" to="/dashboard-eventos">Dashboard eventos</Link>}
+                {!user ? (
+                    <Link className="dropdown__item" to="/register">Login</Link>
+                ) : (
+                    <Link className="dropdown__item" to="/register" onClick={handleLogout}>Logout</Link>
+                )}
+
+
+              </div>
+              
+            )}
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
 };
 
 export default NavBar;
