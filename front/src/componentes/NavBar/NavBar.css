@@ -1,26 +1,21 @@
 .navbar {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #ffffff;
   padding: 0.5rem 1rem;
 }
 
-.navbar__logo-bar {
+.navbar__logo-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ffffff;
+  width: 100%;
   padding: 0.5rem 0;
 }
 
 .navbar__logo {
-/*   display: flex;
-  justify-content: flex-start;
-  align-items:start;
-  background-color: #ffffff; */
   width: 180px;
   height: auto;
- /*  padding: 0.5rem 0; */
 }
 
 .navbar__menu-bar {
@@ -66,10 +61,7 @@
   display: flex;
   flex-direction: column;
   z-index: 1000;
-
 }
-
-
 
 .dropdown__item {
   color: black;
@@ -88,12 +80,12 @@
 
 /* ANCHURAS DE LOS SUBMENUS */
 
-.anchura1{
+.anchura1 {
   width: 200px;
-  max-width: 200 ;
+  max-width: 200;
 }
 
-.anchura2{
+.anchura2 {
   width: 100px;
-  max-width: 100 ;
+  max-width: 100;
 }

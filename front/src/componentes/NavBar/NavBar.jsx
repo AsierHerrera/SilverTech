@@ -63,7 +63,7 @@ const NavBar = () => {
 
     return (
         <header className="navbar container">
-            <div>
+            <div className="navbar__logo-container">
                 <img src={logo} alt="Logo" className="navbar__logo" />
             </div>
 
@@ -89,8 +89,8 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/publicaciones">Publicaciones</Link>
                                 <Link className="dropdown__item" to="/silver-economy">Silver Economy</Link>
                                 <Link className="dropdown__item" to="/recursos">Cursos y Talleres</Link>
-                                <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas y Herramientas</Link>
-
+                                <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas і Herramientas</Link>
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
@@ -114,7 +114,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/foro">Foro</Link>
                                 <Link className="dropdown__item" to="/eventos">Eventos</Link>
                                 <Link className="dropdown__item" to="/charlas">Charlas</Link>
-                                {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
@@ -126,7 +126,7 @@ const NavBar = () => {
                         {dropdowns.usuario && (
                             <div className="dropdown__menu anchura1">
                                 <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
-                                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                                <Link className="dropdown__item" to="/mis-proyectos">Mis Проекти</Link>
                                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
                                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
                                 {!user ? (
