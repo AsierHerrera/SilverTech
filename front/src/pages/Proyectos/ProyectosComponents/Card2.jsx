@@ -23,7 +23,7 @@ export default function Card2({ img, project }) {
           <p className='test2'> <span>Beneficiarios:</span> {project.beneficiaries}</p>
         </div>       
       </div>
-        <Link className="ver-proyecto" to={`/recursos/${project._id}`}> Ver Eventos</Link>
+        <Link className="ver-proyecto"> Ver proyecto</Link>
     </div>
   );
 };

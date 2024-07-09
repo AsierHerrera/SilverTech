@@ -82,7 +82,9 @@ const Register = ({ onLogin }) => {
 
     return (
         <>
+        <br /><br /><br /><br /><br /><br />
             <section className="register-login">
+
                 <h2 id="Welcome">¡Te damos la bienvenida a SILVER<span className="yellow">TECH</span>!</h2>
                 {error && <p className="error-message">{error}</p>}
                 <form onSubmit={handleSubmit}>

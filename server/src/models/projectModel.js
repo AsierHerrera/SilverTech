@@ -56,6 +56,10 @@ const projectSchema = new mongoose.Schema({
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User' // Referencia al modelo de usuario
+    }],
+    invitations: [{
+        userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' }
     }]
 }, {
     timestamps: true

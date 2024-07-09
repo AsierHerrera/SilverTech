@@ -1,50 +1,43 @@
-import React, { useState, useEffect, useContext } from 'react';
-import UserContext from "../../../context/userContext";
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './UserProjects.module.css';
 import { getProjectByUserId } from '../../../utils/fetch';
 import Card2 from './Card2';
-import cover1 from "../../../../public/proyecto1.png"
-import cover2 from "../../../../public/proyecto2.png"
-import cover3 from "../../../../public/proyecto3.png"
+import cover1 from '../../../../public/proyecto1.png';
+import cover2 from '../../../../public/proyecto2.png';
+import cover3 from '../../../../public/proyecto3.png';
 
 const ProximosProyectos = ({ className = '' }) => {
-    const { user } = useContext(UserContext);
-    const [projects, setProjects] = useState([]);
-    let fechaActual = Date.now();
+  const [projects, setProjects] = useState([]);
+  let fechaActual = Date.now();
 
+  function checkProjectTime(project) {
+    let fechaFinal = Date.parse(project.endDate);
+    return fechaActual < fechaFinal; // El proyecto todavía no ha terminado
+  }
 
-    function checkProject(project) {
-        return user._id == project.createdBy;
+  const fetchProjectsData = async () => {
+    try {
+      const projectsData = await getProjectByUserId();
+      const nextProjectsData = projectsData.filter(checkProjectTime);
+      setProjects(nextProjectsData);
+    } catch (error) {
+      console.error('Error al obtener los proyectos:', error.message);
     }
-
-    function checkProjectTime(project) {
-        let fechaFinal = Date.parse(project.endDate)
-        return fechaActual < fechaFinal;
-        // el proyecto todavia no ha terminado
-    }
-
+  };
 
   useEffect(() => {
-    const fetchProjectsData = async () => {
-      try {
-        const projectsData = await getProjectByUserId();
-        const isProjectsData = projectsData.filter(checkProject);
-        const nextProjectsData = isProjectsData.filter(checkProjectTime);
-
-        console.log("user id ", user._id)
-        console.log("createBY ", projectsData[0].createdBy)
-
-        console.log("Proyectos proximos obtenidos:", nextProjectsData);
-        setProjects(nextProjectsData);
-      } catch (error) {
-        console.error('Error al obtener los proyectos:', error.message);
-      }
-    };
+    // Realiza la primera llamada para obtener los proyectos
     fetchProjectsData();
+
+    // Configura el polling para actualizar los proyectos cada 30 segundos (30000 ms)
+    const intervalId = setInterval(fetchProjectsData, 500);
+
+    // Limpia el intervalo cuando el componente se desmonta
+    return () => clearInterval(intervalId);
   }, []);
 
-  if (!Array.isArray(projects) ) {
+  if (!Array.isArray(projects)) {
     return <div>No se encontraron proyectos.</div>;
   }
 
@@ -52,7 +45,6 @@ const ProximosProyectos = ({ className = '' }) => {
 
   return (
     <section className={`${styles.userProjects} ${className}`}>
-      {/*<h1 className={styles.misProyectos}>Mis proyectos</h1> <br /><br />*/}
       <div className={`${styles.projectsGrid} projectsGrid`}>
         {projects.map((project, index) => (
           <Card2

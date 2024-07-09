@@ -7,6 +7,7 @@ import UserContext from "../context/userContext";
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
 import Footer2 from "../componentes/Footer/Footer2"
+import Invitaciones from  "../componentes/Invitaciones/Invitaciones"
 
 
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
@@ -82,7 +83,10 @@ const toggleProfile = () => {
         <>
 {/*         <BarraBusqueda />
         <Outlet /> */}
+        {user && (
         <NavBar />
+        )}
+
         {/* {user && (
         <div className="logout">
           {/* <p>Hola, {user?.username}</p> */}
@@ -91,6 +95,9 @@ const toggleProfile = () => {
       {/* )} */}
                  
         <Outlet />
+        {user && (
+        <Invitaciones />
+        )}
         <Footer2 />
         </>
     )
