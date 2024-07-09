@@ -1,6 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import { useCallback } from "react";
 import Content from "./ProyectosComponents/Content";
 import UserProjects from "./ProyectosComponents/UserProjects";
+import ProximosProyectos from "./ProyectosComponents/ProximosProyectos";
+import ProyectosPasados from "./ProyectosComponents/ProyectosPasados";
+import ProximosAsistencias from "./ProyectosComponents/ProximasAsistencias";
+import AsistenciasPasados from "./ProyectosComponents/AsistenciasPasadas";
 import  Card2 from './ProyectosComponents/Card2';
 import styles from "./PERFILEMPRESA.module.css";
 import "./ProyectosComponents/Components.scss"
@@ -11,6 +16,65 @@ const PERFILEMPRESA = () => {
   const onButtonCrearCuentaContainerClick = useCallback(() => {
     // Please sync "Crear proyecto " to the project
   }, []);
+
+  const [contenido, setContenido] = useState("proyectos");
+  const [clase, setClase] = useState("");
+  const [clase2, setClase2] = useState("");
+  const [clase3, setClase3] = useState("");
+  const [clase4, setClase4] = useState("");
+  const [ocultar1, setOcultar1] = useState("");
+  const [ocultar2, setOcultar2] = useState("oculto");
+  const [ocultar3, setOcultar3] = useState("oculto");
+  const [ocultar4, setOcultar4] = useState("oculto");
+
+  const proyectosClick = () => {
+      setContenido("proyectos")
+      setClase("elegido1");
+      setClase2("");
+  };
+
+  const asistenciasClick = () => {
+      setContenido("asistencias")
+      setClase("");
+      setClase2("elegido1");
+  };
+
+  const proximosClick = () => {
+    if (contenido == "proyectos") {
+      setOcultar1("");
+      setOcultar2("oculto");
+      setOcultar3("oculto");
+      setOcultar4("oculto");
+    }else{
+      setOcultar1("oculto");
+      setOcultar2("oculto");
+      setOcultar3("");
+      setOcultar4("oculto");
+    }
+
+    setClase3("elegido2");
+    setClase4("");
+  };
+
+  const pasadosClick = () => {
+    if (contenido == "proyectos") {
+      setOcultar1("oculto");
+      setOcultar2("");
+      setOcultar3("oculto");
+      setOcultar4("oculto");
+    }else{
+      setOcultar1("oculto");
+      setOcultar2("oculto");
+      setOcultar3("oculto");
+      setOcultar4("");
+    }
+
+      setClase3("");
+      setClase4("elegido2");
+  };
+
+  //6686623e227867a3e8543cc4
+  //6686623e227867a3e8543cc4
 
   return (
     <>
@@ -33,12 +97,23 @@ const PERFILEMPRESA = () => {
           </div>
         </section>
 
-        <h2 id="mis-proyectos"></h2>
+        <div className="proyectos-asistencias">
+          <div>
+            <h2 id="misProyectos" className={clase} onClick={proyectosClick}>Mis Proyectos</h2>
+            <h2 id="misAsistencias"  className={clase2} onClick={asistenciasClick}>Mis asistencias</h2>            
+          </div>
+          <div>
+            <h3 id="proximos" className={clase3} onClick={proximosClick}>Próximos {contenido}</h3>
+            <h3 id="pasados" className={clase4} onClick={pasadosClick}> Pasados {contenido}</h3>
+          </div>
+        </div>
 
       {/*Dentro de este div mete las card generadas por el back y a esas card dile que llamen a Card2.scss para que se vean iguales a estas*/}
       <div id="lista-proyectos">
-      <UserProjects />
-
+        <ProximosProyectos className={ocultar1}/>
+        <ProyectosPasados className={ocultar2}/>
+        <ProximosAsistencias className={ocultar3}/>
+        <AsistenciasPasados className={ocultar4}/>
       </div>
 
         
