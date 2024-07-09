@@ -15,7 +15,8 @@ const CrearProyecto = () => {
     endDate: '',
     expectedEconomicImpact: '',
     expectedSocialImpact: '',
-    expectedEnvironmentalImpact: ''
+    expectedEnvironmentalImpact: '',
+    email: '' // Nuevo campo para el email del colaborador
   });
 
   const [errors, setErrors] = useState({});
@@ -78,6 +79,10 @@ const CrearProyecto = () => {
       formErrors.expectedEnvironmentalImpact = 'El impacto ambiental esperado es requerido.';
       valid = false;
     }
+    if (!formData.email) {
+      formErrors.email = 'El correo electrónico del colaborador es requerido.';
+      valid = false;
+    }
     
     setErrors(formErrors);
     return valid;
@@ -102,7 +107,8 @@ const CrearProyecto = () => {
           endDate: '',
           expectedEconomicImpact: '',
           expectedSocialImpact: '',
-          expectedEnvironmentalImpact: ''
+          expectedEnvironmentalImpact: '',
+          email: '' // Limpia el nuevo campo
         });
         setErrors({});
         setTimeout(() => {
@@ -219,7 +225,19 @@ const CrearProyecto = () => {
               {errors.endDate && <p className={styles.error}>{errors.endDate}</p>}
             </div>
           </div>
-          <br />
+          <div className={styles.formGroup}>
+            <br />
+            <label className={styles.formLabel}>Correo electrónico del colaborador</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.formInput}
+              placeholder="Correo electrónico del colaborador"
+            />
+            {errors.email && <p className={styles.error}>{errors.email}</p>}
+          </div>
           <div className={styles.formGroup}>
             <label className={styles.formLabel}>Resultados Esperados</label>
             <input

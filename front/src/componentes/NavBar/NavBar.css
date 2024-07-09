@@ -43,7 +43,7 @@
 }
 
 .navbar__link:hover {
-  color: #BA7E00;
+  color: #000000;
   text-decoration: underline;
 }
 
@@ -88,4 +88,14 @@
 .anchura2 {
   width: 100px;
   max-width: 100;
+}
+
+.navbar__link.active {
+  color: #BA7E00; /* Cambia el color del texto */
+  /* Otros estilos adicionales según tus preferencias */
+}
+
+/* Estilos específicos para el ícono de usuario activo */
+.navbar__user-icon.active {
+  border: 2px solid #333; /* Ejemplo de borde para resaltar */
 }

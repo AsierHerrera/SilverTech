@@ -38,18 +38,6 @@ const Recursos = () => {
   return (
     <>
       <section id="recursoList">
-        {user?.role === "admin" && (
-          <>
-            {creatingRecurso ? (
-              <Modal onClose={() => setCreatingRecurso(false)}>
-                <CreateRecurso onCreate={() => setCreatingRecurso(false)} />
-              </Modal>
-            ) : (
-              <button onClick={() => setCreatingRecurso(true)} id="btn-create">Nuevo Recurso</button>
-            )}
-          </>
-        )}
-
         <img src={banner} alt="" id="Banner" />
         <p className="cursos-compromiso">
           En nuestra sociedad, la población mayor de 50 años está creciendo y con ella, una economía llena de oportunidades conocida como la Silver Economy. En <span>SILVER</span><span>TECH</span>, hemos diseñado una serie de talleres y cursos específicamente dirigidos a esta demografía, con el objetivo de empoderar, educar y ofrecer nuevas oportunidades de desarrollo personal y profesional.

@@ -152,6 +152,25 @@ const createProject = async(postData)=>{
     return result;
 }
 
+const inviteUserToProject = async(projectId, data)=>{
+    const result = await fetchData(`/projects/${projectId}/invite`,"post",data);
+    return result;
+}
+
+
+const respondToInvitation = async(projectId, data)=>{
+    const result = await fetchData(`/projects/${projectId}/respondInvitation`,"post",data);
+    return result;
+}
+
+const getUserInvitations = async()=>{
+    const result = await fetchData("/projects/user/invitations","get");
+    return result;
+}
+const getUserResources = async()=>{
+    const result = await fetchData("/resources/user/resource","get");
+    return result;
+}
 
 export {
     register,
@@ -179,6 +198,9 @@ export {
     getProjectByUserId,
     createCompany,
     updateUser,
-    createProject
-
+    createProject,
+    inviteUserToProject,
+    respondToInvitation,
+    getUserInvitations,
+    getUserResources
 }
