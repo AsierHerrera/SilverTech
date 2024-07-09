@@ -129,11 +129,17 @@ const NavBar = () => {
                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
-                <Link className="dropdown__item" to="/dashboard-formaciones">Dashboard formaciones</Link>
-                <Link className="dropdown__item" to="/dashboard-eventos">Dashboard eventos</Link>
+                {userRole === 'admin' && <Link className="dropdown__item" to="/dashboard-formaciones">Dashboard formaciones</Link>}
+                {userRole === 'admin' && <Link className="dropdown__item" to="/dashboard-eventos">Dashboard eventos</Link>}
+                {!user ? (
+                    <Link className="dropdown__item" to="/register">Login</Link>
+                ) : (
+                    <Link className="dropdown__item" to="/register" onClick={handleLogout}>Logout</Link>
+                )}
 
 
               </div>
+              
             )}
           </div>
         </nav>

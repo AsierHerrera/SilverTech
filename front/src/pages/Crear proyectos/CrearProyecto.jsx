@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from "./CrearProyectos.module.css";
 import { createProject } from '../../utils/fetch';
 
@@ -18,7 +19,8 @@ const CrearProyecto = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [creacionexistosa, setCreacionRxistosa] = useState(false);
+  const [creacionExistosa, setCreacionExistosa] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -87,7 +89,7 @@ const CrearProyecto = () => {
       try {
         const response = await createProject(formData);
         console.log('Proyecto creado:', response.data);
-        setCreacionRxistosa(true)
+        setCreacionExistosa(true);
         // Limpia el formulario después de la creación exitosa
         setFormData({
           title: '',
@@ -103,6 +105,9 @@ const CrearProyecto = () => {
           expectedEnvironmentalImpact: ''
         });
         setErrors({});
+        setTimeout(() => {
+          navigate('/proyectos');
+        }, 2000);
       } catch (error) {
         console.error('Error al crear el proyecto:', error.message);
         setErrors({ form: 'Hubo un error al crear el proyecto. Por favor, inténtelo de nuevo.' });
@@ -112,7 +117,7 @@ const CrearProyecto = () => {
 
   return (
     <div>
-      <p className="navegation-history"> <span>Inicio</span>  {">"} <span>Recursos</span> {">"} <span>Cursos y Talleres</span></p>
+      <p className="navegation-history"> <span>Inicio</span>  {">"} <span>Recursos</span> {">"} <span>Cursos y Talleres</span></p><br /><br />
 
       <div className={styles.formContainer}>
         <h2 className={styles.formTitle}>Crear Nuevo proyecto</h2>
@@ -245,9 +250,9 @@ const CrearProyecto = () => {
             />
             {errors.expectedEnvironmentalImpact && <p className={styles.error}>{errors.expectedEnvironmentalImpact}</p>}
           </div>
-          {creacionexistosa && (
+          {creacionExistosa && (
                 <div className="alert alert-success" role="alert">
-                    Proyecto creado con exito.
+                    Proyecto creado con éxito.
                 </div>
                 )}
           <button type="submit" className={styles.formSubmit}>Crear Proyecto</button>
