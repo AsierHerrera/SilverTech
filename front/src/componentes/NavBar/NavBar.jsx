@@ -22,7 +22,11 @@ const NavBar = () => {
 
     const toggleDropdown = (name) => {
         setDropdowns((prevDropdowns) => ({
-            ...prevDropdowns,
+            expertos: false,
+            recursos: false,
+            proyectos: false,
+            networking: false,
+            usuario: false,
             [name]: !prevDropdowns[name],
         }));
     };
@@ -54,20 +58,18 @@ const NavBar = () => {
     }
 
     const token = getToken();
-    // console.log('token :>> ', token);
     const decodedToken = parseToken(token);
     const userRole = decodedToken ? decodedToken.role : null;
-    // console.log('userRole :>> ', userRole);
 
     return (
         <header className="navbar container">
-            <div>
+            <div className="navbar__logo-container">
                 <img src={logo} alt="Logo" className="navbar__logo" />
             </div>
 
             <div className="navbar__menu-bar">
                 <nav className="navbar__nav" ref={navRef}>
-                    <Link className="navbar__link" to="/Landing">Inicio</Link>
+                    <Link className="navbar__link" to="/landing">Inicio</Link>
 
                     <div className="navbar__item">
                         <button className="navbar__link" onClick={() => toggleDropdown('expertos')}>Contratación de Expertos</button>
@@ -87,8 +89,8 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/publicaciones">Publicaciones</Link>
                                 <Link className="dropdown__item" to="/silver-economy">Silver Economy</Link>
                                 <Link className="dropdown__item" to="/recursos">Cursos y Talleres</Link>
-                                <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas y Herramientas</Link>
-
+                                <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas і Herramientas</Link>
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
@@ -112,7 +114,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/foro">Foro</Link>
                                 <Link className="dropdown__item" to="/eventos">Eventos</Link>
                                 <Link className="dropdown__item" to="/charlas">Charlas</Link>
-                                {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
@@ -124,9 +126,8 @@ const NavBar = () => {
                         {dropdowns.usuario && (
                             <div className="dropdown__menu anchura1">
                                 <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
-                                <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
+                                <Link className="dropdown__item" to="/mis-proyectos">Mis Проекти</Link>
                                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
-                              
                                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
                                 {!user ? (
                                     <Link className="dropdown__item" to="/register">Login</Link>
