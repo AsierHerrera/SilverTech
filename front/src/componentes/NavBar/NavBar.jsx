@@ -5,7 +5,6 @@ import logo from './silvertech_logo2.jpg';
 import userIcon from './user_icon.png';
 import { getToken, deleteToken, parseToken } from '../../utils/local';
 import UserContext from '../../context/userContext';
-import CrearEvento from '../../pages/Crear proyectos/CrearProyecto';
 
 const NavBar = () => {
     const { user, setUser } = useContext(UserContext);
@@ -23,7 +22,11 @@ const NavBar = () => {
 
     const toggleDropdown = (name) => {
         setDropdowns((prevDropdowns) => ({
-            ...prevDropdowns,
+            expertos: false,
+            recursos: false,
+            proyectos: false,
+            networking: false,
+            usuario: false,
             [name]: !prevDropdowns[name],
         }));
     };
@@ -55,10 +58,8 @@ const NavBar = () => {
     }
 
     const token = getToken();
-    // console.log('token :>> ', token);
     const decodedToken = parseToken(token);
     const userRole = decodedToken ? decodedToken.role : null;
-    // console.log('userRole :>> ', userRole);
 
     return (
         <header className="navbar container">
@@ -89,7 +90,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/silver-economy">Silver Economy</Link>
                                 <Link className="dropdown__item" to="/recursos">Cursos y Talleres</Link>
                                 <Link className="dropdown__item" to="/plantillas-herramientas">Plantillas y Herramientas</Link>
-                                {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-recurso">Crear Recurso</Link>}
                             </div>
                         )}
                     </div>
@@ -113,7 +114,7 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/foro">Foro</Link>
                                 <Link className="dropdown__item" to="/eventos">Eventos</Link>
                                 <Link className="dropdown__item" to="/charlas">Charlas</Link>
-                               {userRole=='admin'&&  <Link className="dropdown__item" to="/crear-evento">Crear Evento</Link>}
+                                {userRole === 'admin' && <Link className="dropdown__item" to="/crear-evento">Crear Evento</Link>}
                             </div>
                         )}
                     </div>
@@ -127,7 +128,6 @@ const NavBar = () => {
                                 <Link className="dropdown__item" to="/mis-datos">Mis Datos</Link>
                                 <Link className="dropdown__item" to="/mis-proyectos">Mis Proyectos</Link>
                                 <Link className="dropdown__item" to="/recursos">Mis Formaciones</Link>
-                              
                                 <Link className="dropdown__item" to="/ajustes">Ajustes de Perfil</Link>
                                 {!user ? (
                                     <Link className="dropdown__item" to="/register">Login</Link>
