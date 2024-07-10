@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: models/userModel.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: models/userModel.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// models/userModel.js
+import mongoose from 'mongoose';
+
+/**
+ * @description Definición del modelo de usuario.
+ * @module userModel
+ * @class User
+ * @extends mongoose.Model
+ */
+
+/**
+ * Esquema de participación en un recurso.
+ * @typedef {Object} ParticipationSchema
+ * @property {mongoose.Schema.Types.ObjectId} resource - ID del recurso.
+ * @property {String} status - Estado de la participación. Puede ser "pending", "accepted" o "rejected".
+ * @property {Date} actionDate - Fecha de la acción de participación.
+ */
+
+/**
+ * Esquema de usuario.
+ * @typedef {Object} UserSchema
+ * @property {String} username - Nombre de usuario.
+ * @property {String} password - Contraseña del usuario.
+ * @property {String} email - Correo electrónico del usuario.
+ * @property {String} role - Rol del usuario. Puede ser "user" o "admin".
+ * @property {Array&lt;mongoose.Schema.Types.ObjectId>} resources - ID de los recursos del usuario.
+ * @property {Array&lt;ParticipationSchema>} participations - Participaciones del usuario.
+ * @property {Array&lt;mongoose.Schema.Types.ObjectId>} subforums - ID de los subforos del usuario.
+ * @property {Array&lt;mongoose.Schema.Types.ObjectId>} comments - ID de los comentarios del usuario.
+ * @property {mongoose.Schema.Types.ObjectId} company - ID de la compañía del usuario.
+ * @property {Array&lt;mongoose.Schema.Types.ObjectId>} projects - ID de los proyectos del usuario.
+ */
+
+const participationSchema = new mongoose.Schema({
+    resource: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Resource"
+    },
+    status: {
+        type: String,
+        enum: ["pending", "accepted", "rejected"],
+        default: "pending"
+    },
+    actionDate: {
+        type: Date,
+        required: true,
+        default: Date.now
+    }
+}, { timestamps: true });
+
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    role: {
+        type: String,
+        enum: ["user", "admin"],
+        default: "user"
+    },
+    resources: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Resource"
+    }],
+    participations: [participationSchema],
+    subforums: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Subforum"
+    }],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+    }],
+    company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Company"
+    },
+    projects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
+    }]
+}, {
+    timestamps: true // Esto agregará campos createdAt y updatedAt
+});
+
+const userModel = mongoose.model("User", userSchema);
+
+export default userModel;
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-controllers_Comments_commentApiController.html">controllers/Comments/commentApiController</a></li><li><a href="module-controllers_Comments_commentController.html">controllers/Comments/commentController</a></li><li><a href="module-controllers_Company_companyApiController.html">controllers/Company/companyApiController</a></li><li><a href="module-controllers_Company_companyController.html">controllers/Company/companyController</a></li><li><a href="module-controllers_Project_projectApiController.html">controllers/Project/projectApiController</a></li><li><a href="module-controllers_Project_projectController.html">controllers/Project/projectController</a></li><li><a href="module-controllers_Resources_resourceApiController.html">controllers/Resources/resourceApiController</a></li><li><a href="module-controllers_Resources_resourceController.html">controllers/Resources/resourceController</a></li><li><a href="module-controllers_Subforum_subforumApiController.html">controllers/Subforum/subforumApiController</a></li><li><a href="module-controllers_Users_userApiController.html">controllers/Users/userApiController</a></li><li><a href="module-controllers_Users_userController.html">controllers/Users/userController</a></li><li><a href="module-middlewares_authMiddleware.html">middlewares/authMiddleware</a></li></ul><h3>Classes</h3><ul><li><a href="global.html#Comment">Comment</a></li><li><a href="Company.html">Company</a></li><li><a href="Project.html">Project</a></li><li><a href="Resource.html">Resource</a></li><li><a href="Subforum.html">Subforum</a></li><li><a href="User.html">User</a></li></ul><h3>Global</h3><ul><li><a href="global.html#content">content</a></li><li><a href="global.html#dislikes">dislikes</a></li><li><a href="global.html#likes">likes</a></li><li><a href="global.html#name">name</a></li><li><a href="global.html#subforum">subforum</a></li><li><a href="global.html#user">user</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jul 10 2024 22:41:47 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

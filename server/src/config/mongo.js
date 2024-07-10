@@ -1,6 +1,7 @@
 import mongoose, { connect } from 'mongoose';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 
 const DB_HOST = process.env.DB_HOST || "localhost";
@@ -10,12 +11,6 @@ const DB_USER = process.env.DB_USER || "Asier";
 const DB_PASSWORD = process.env.DB_PASSWORD || "1234";
 
 const DB_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`;
-
-/**
- * Conecta a la base de datos usando el URI proporcionado.
- *
- * @return {Promise<void>} Una promesa que se resuelve cuando se establece la conexión.
- */
 
 const connectDB = async ()=>{
     try {

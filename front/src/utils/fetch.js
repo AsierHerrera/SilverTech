@@ -1,5 +1,9 @@
 import { getToken } from "./local";
 
+/**
+ * @module src/utils/fetch
+ */
+
 const API_URL = "http://localhost:3030/api";
 
 /**

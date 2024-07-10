@@ -7,6 +7,7 @@ import multer from 'multer';
 import path from 'path';
 import companyRoutes from "./routes/companyRouter.js"; 
 /* import userRouter from "./routes/user.js"; */
+import { fileURLToPath } from 'url'; //localhost:3030/docs
 
 
 
@@ -31,6 +32,13 @@ connectDB();
 app.get("/",(req,res)=>{
     res.json({message:"Hello World"});
 })
+
+/////////localhost:3030/docs
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(process.cwd(), 'public')));
+//////////
 
 app.use("/api",router);
 app.use('/api/companies', companyRoutes);

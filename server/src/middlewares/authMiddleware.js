@@ -2,6 +2,10 @@ import jwt from "jsonwebtoken";
 import userController  from "../controllers/Users/userController.js";
 
 /**
+ * @module middlewares/authMiddleware
+ */
+
+/**
  * Función middleware para verificar si el usuario está autenticado.
  *
  * @param {Object} req - Objeto de solicitud.

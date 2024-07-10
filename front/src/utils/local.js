@@ -1,4 +1,9 @@
 import {jwtDecode} from 'jwt-decode';
+
+/**
+ * @module src/utils/local
+ */
+
 /**
  * Guarda un token en el almacenamiento local del navegador.
  *

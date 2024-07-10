@@ -1,6 +1,10 @@
 import userController from "./userController.js";
 
 /**
+ * @module controllers/Users/userApiController
+ */
+
+/**
  * Recupera todos los usuarios usando el userController y responde con un array JSON de usuarios.
  *
  * @param {Object} req - El objeto de solicitud.

@@ -1,6 +1,11 @@
 import commentController from "./commentController.js";
 
 /**
+ * @module controllers/Comments/commentApiController
+ */
+
+
+/**
  * Recupera todos los comentarios del commentController y los envía como una respuesta JSON.
  *
  * @param {Object} req - El objeto de solicitud.

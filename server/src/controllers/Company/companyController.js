@@ -1,6 +1,9 @@
 import Company from '../../models/companyModel.js';
 import User from '../../models/userModel.js';
 
+/**
+ * @module controllers/Company/companyController
+ */
 
 
 /**

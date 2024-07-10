@@ -1,6 +1,11 @@
 import companyController from './companyController.js';
 
 /**
+ * @module controllers/Company/companyApiController
+ */
+
+
+/**
  * Crea una nueva empresa basada en el cuerpo de la solicitud y el ID del usuario.
  *
  * @param {Object} req - El objeto de solicitud que contiene el cuerpo de la solicitud.

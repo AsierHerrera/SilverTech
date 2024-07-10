@@ -1,6 +1,11 @@
 import Project from '../../models/projectModel.js';
 import userModel from '../../models/userModel.js';
 
+/**
+ * @module controllers/Project/projectController
+ */
+
+
 
 /**
  * Función para crear un nuevo proyecto asociado con un usuario.

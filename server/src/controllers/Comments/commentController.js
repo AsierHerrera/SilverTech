@@ -3,6 +3,10 @@ import subforumModel from "../../models/subforumModel.js";
 import userModel from "../../models/userModel.js"; // Importa el modelo de usuario
 
 /**
+ * @module controllers/Comments/commentController
+ */
+
+/**
  * Recupera todos los comentarios de la base de datos.
  *
  * @return {Promise<Array<Object>>} Un array de objetos de comentarios.

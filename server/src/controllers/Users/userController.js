@@ -4,6 +4,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 /**
+ * @module controllers/Users/userController
+ */
+
+/**
  * Recupera todos los usuarios de la base de datos.
  *
  * @return {Promise<Array<Object>>} Una promesa que se resuelve a un array de objetos de usuario.

@@ -1,4 +1,7 @@
 import resourceController from "./resourceController.js";
+/**
+ * @module controllers/Resources/resourceApiController
+ */
 
 /**
  * Recupera todos los recursos del resourceController y los envía como una respuesta JSON.

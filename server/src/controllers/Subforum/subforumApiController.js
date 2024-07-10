@@ -1,6 +1,10 @@
 import subforumController from "./subforumController.js"
 
 /**
+ * @module controllers/Subforum/subforumApiController
+ */
+
+/**
  * Recupera todos los subforos.
  *
  * @param {Object} req - El objeto de solicitud.

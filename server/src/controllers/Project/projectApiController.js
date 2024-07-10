@@ -3,6 +3,11 @@
 import projectController from './projectController.js';
 
 /**
+ * @module controllers/Project/projectApiController
+ */
+
+
+/**
  * Recupera todos los proyectos y los envía como una respuesta JSON.
  *
  * @param {Object} req - El objeto de solicitud.

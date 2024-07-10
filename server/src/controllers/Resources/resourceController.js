@@ -3,6 +3,11 @@ import userModel from "../../models/userModel.js";
 import subforumModel from "../../models/subforumModel.js";
 
 /**
+ * @module controllers/Resources/resourceController
+ */
+
+
+/**
  * Recupera todos los recursos de la base de datos.
  *
  * @return {Promise<Array<Object>>} Un array de objetos de recursos.
