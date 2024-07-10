@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/Project/projectApiController.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/Project/projectApiController.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// projectApiController.js
+
+import projectController from './projectController.js';
+
+/**
+ * Recupera todos los proyectos y los envía como una respuesta JSON.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const getAll = async (req, res) => {
+    try {
+        const projects = await projectController.getAll();
+        res.json({ data: projects });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+/**
+ * Recupera un proyecto por su ID y lo envía como una respuesta JSON.
+ *
+ * @param {Object} req - El objeto de solicitud que contiene el ID del proyecto.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const getById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const project = await projectController.getById(id);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+/**
+ * Crea un nuevo proyecto basado en el cuerpo de la solicitud y el ID del usuario autenticado.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const create = async (req, res) => {
+    try {
+        const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
+        const project = await projectController.create(req.body, userId);
+        res.status(201).json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+/**
+ * Actualiza un proyecto basado en el ID proporcionado y los datos del cuerpo de la solicitud.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const update = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const project = await projectController.update(id, req.body.data);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+/**
+ * Elimina un proyecto basado en el ID proporcionado en los parámetros de la solicitud.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const remove = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const project = await projectController.remove(id);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+/**
+ * Agrega un usuario a un proyecto basado en el ID del proyecto y el correo electrónico del usuario proporcionados.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;void>} Una promesa que se resuelve cuando se envía la respuesta.
+ */
+
+const addUserToProject = async (req, res) => {
+    try {
+
+        const projectId = req.params.id;
+        const userEmail = req.body.email;
+
+        const project = await projectController.addUserToProject(projectId, userEmail);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+/**
+ * Elimina a un usuario de un proyecto por su correo electrónico.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Promise&lt;Object>} El objeto del proyecto actualizado.
+ */
+
+const removeUserFromProject = async (req, res) => {
+    try {
+        const projectId = req.params.id;
+        const userEmail = req.body.email;
+
+        const project = await projectController.removeUserFromProject(projectId, userEmail);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+/**
+ * Recupera el proyecto asociado con el ID del usuario.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Object} El proyecto asociado con el ID del usuario.
+ */
+
+const getProjectByUserId = async (req, res) => {
+    try {
+        console.log("Llego aqui")
+        const company = await projectController.getByUserId(req.user._id);
+        if (!company) {
+            return res.status(404).json({ error: "No se encontró el proyecto asociado al usuario" });
+        }
+        res.status(200).json(company);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+export default {
+    getAll,
+    getById,
+    create,
+    update,
+    remove,
+    addUserToProject,
+    removeUserFromProject,
+    getProjectByUserId
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#acceptParticipation">acceptParticipation</a></li><li><a href="global.html#addUserToProject">addUserToProject</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#barraDeBusqueda">barraDeBusqueda</a></li><li><a href="global.html#connectDB">connectDB</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createCompany">createCompany</a></li><li><a href="global.html#deleteCompany">deleteCompany</a></li><li><a href="global.html#dislikeComment">dislikeComment</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getAllCompanies">getAllCompanies</a></li><li><a href="global.html#getByForumId">getByForumId</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getByProperty">getByProperty</a></li><li><a href="global.html#getByResource">getByResource</a></li><li><a href="global.html#getByToken">getByToken</a></li><li><a href="global.html#getByUser">getByUser</a></li><li><a href="global.html#getByUserId">getByUserId</a></li><li><a href="global.html#getCompanyById">getCompanyById</a></li><li><a href="global.html#getCompanyByUserId">getCompanyByUserId</a></li><li><a href="global.html#getProjectByUserId">getProjectByUserId</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#likeComment">likeComment</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#rejectParticipation">rejectParticipation</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removeUserFromProject">removeUserFromProject</a></li><li><a href="global.html#requestParticipation">requestParticipation</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateCompany">updateCompany</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jul 10 2024 21:29:40 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

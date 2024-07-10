@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/Subforum/subforumApiController.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/Subforum/subforumApiController.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import subforumController from "./subforumController.js"
+
+/**
+ * Recupera todos los subforos.
+ *
+ * @param {Object} req - El objeto de solicitud.
+ * @param {Object} res - El objeto de respuesta.
+ * @return {Object} La lista de todos los subforos.
+ */
+
+const getAll = async (req, res) => {
+    const subforums = await subforumController.getAll();
+    res.json({ data: subforums });
+}
+
+/**
+ * Recupera un subforo por su ID.
+ *
+ * @param {Object} req - El objeto de solicitud que contiene el parámetro ID.
+ * @param {Object} res - El objeto de respuesta para enviar los datos del subforo.
+ * @return {Object} Los datos del subforo recuperados por ID.
+ */
+
+const getById = async (req, res) => {
+    const id = req.params.id;
+    const subforum = await subforumController.getById(id);
+    res.json({ data: subforum });
+}
+
+/**
+ * Crea un nuevo subforo con el título y texto dados, asociado con el usuario actual.
+ *
+ * @param {Object} req - El objeto de solicitud que contiene el ID del usuario y los datos del subforo.
+ * @param {Object} res - El objeto de respuesta para enviar los datos del subforo creado.
+ * @return {Promise&lt;void>} - Una promesa que se resuelve cuando el subforo es creado y se envía la respuesta.
+ */
+
+const create = async (req, res) => {
+    const user = req.user._id;
+    const { title, text } = req.body;  // Extraer directamente el título del cuerpo de la solicitud
+    const subforumData = {
+        user,
+        title,
+        text
+    };
+    const subforum = await subforumController.create(subforumData);
+    res.json({ data: subforum });
+}
+
+/**
+ * Actualiza un subforo con el ID proporcionado usando los datos del cuerpo de la solicitud.
+ *
+ * @param {Object} req - El objeto de solicitud que contiene el ID y los datos actualizados del subforo.
+ * @param {Object} res - El objeto de respuesta para enviar los datos del subforo actualizado.
+ * @return {Promise&lt;void>} - Una promesa que se resuelve cuando el subforo es actualizado y se envía la respuesta.
+ */
+
+const update = async (req, res) => {
+    const id = req.params.id;
+    const subforum = await subforumController.update(id, req.body);
+    res.json({ data: subforum });
+}
+
+/**
+ * Elimina un subforo con el ID especificado y devuelve el subforo eliminado como una respuesta JSON.
+ *
+ * @param {Object} req - El objeto de solicitud que contiene el ID del subforo a eliminar.
+ * @param {Object} res - El objeto de respuesta utilizado para enviar el subforo eliminado como una respuesta JSON.
+ * @return {Promise&lt;void>} - Una promesa que se resuelve cuando el subforo es eliminado y se envía la respuesta.
+ */
+
+const remove = async (req, res) => {
+    const id = req.params.id;
+    const subforum = await subforumController.remove(id);
+    res.json({ data: subforum });
+}
+
+export default {
+    getAll,
+    getById,
+    create,
+    update,
+    remove
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#acceptParticipation">acceptParticipation</a></li><li><a href="global.html#addUserToProject">addUserToProject</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#barraDeBusqueda">barraDeBusqueda</a></li><li><a href="global.html#connectDB">connectDB</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createCompany">createCompany</a></li><li><a href="global.html#deleteCompany">deleteCompany</a></li><li><a href="global.html#dislikeComment">dislikeComment</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getAllCompanies">getAllCompanies</a></li><li><a href="global.html#getByForumId">getByForumId</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getByProperty">getByProperty</a></li><li><a href="global.html#getByResource">getByResource</a></li><li><a href="global.html#getByToken">getByToken</a></li><li><a href="global.html#getByUser">getByUser</a></li><li><a href="global.html#getByUserId">getByUserId</a></li><li><a href="global.html#getCompanyById">getCompanyById</a></li><li><a href="global.html#getCompanyByUserId">getCompanyByUserId</a></li><li><a href="global.html#getProjectByUserId">getProjectByUserId</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#likeComment">likeComment</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#rejectParticipation">rejectParticipation</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removeUserFromProject">removeUserFromProject</a></li><li><a href="global.html#requestParticipation">requestParticipation</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateCompany">updateCompany</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jul 10 2024 21:29:40 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

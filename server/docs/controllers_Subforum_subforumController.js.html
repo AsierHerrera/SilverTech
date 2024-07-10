@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/Subforum/subforumController.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/Subforum/subforumController.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import subforumModel from "../../models/subforumModel.js";
+import userModel from "../../models/userModel.js"; // Importa el modelo de usuario
+
+/**
+ * Recupera todos los subforos de la base de datos.
+ *
+ * @return {Promise&lt;Array&lt;Object>>} Un array de objetos de subforos.
+ * @throws {Object} Un objeto con un mensaje de error y un código de estado si hay un error al recuperar los subforos.
+ */
+
+const getAll = async () => {
+    try {
+        const subforums = await subforumModel.find();
+        return subforums;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error al obtener subforos", status: 500 };
+    }
+}
+
+/**
+ * Recupera un subforo por su ID.
+ *
+ * @param {string} id - El ID del subforo a recuperar.
+ * @return {Promise&lt;Object>} El subforo recuperado.
+ */
+
+const getById = async (id) => {
+    try {
+        const subforum = await subforumModel.findById(id);
+        if (!subforum) {
+            return { error: "Subforo no encontrado", status: 404 };
+        }
+        return subforum;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error al obtener subforo", status: 500 };
+    }
+}
+
+/**
+ * Crea un nuevo subforo y lo asocia con el usuario.
+ *
+ * @param {Object} subforumData - Los datos para el nuevo subforo.
+ * @return {Promise&lt;Object>} El subforo creado.
+ * @throws {Object} Un objeto de error con un mensaje y un código de estado si hubo un error al crear el subforo.
+ */
+
+const create = async (subforumData) => {
+    try {
+        const subforum = await subforumModel.create(subforumData);
+        const userId = subforumData.user;
+
+        // Agregar el ID del subforo creado a la lista de subforos del usuario
+        await userModel.findByIdAndUpdate(userId, { $push: { subforums: subforum._id } });
+
+        return subforum;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error al crear el subforo", status: 500 };
+    }
+}
+
+/**
+ * Actualiza un subforo basado en el ID y los datos proporcionados.
+ *
+ * @param {string} id - El ID del subforo a actualizar.
+ * @param {Object} data - Los datos para actualizar el subforo.
+ * @return {Object} El subforo actualizado o un objeto de error.
+ */
+
+const update = async (id, data) => {
+    try {
+        const subforum = await subforumModel.findByIdAndUpdate(id, data, { new: true });
+        if (!subforum) {
+            return { error: "Subforo no encontrado", status: 404 };
+        }
+        return subforum;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error al actualizar el subforo", status: 500 };
+    }
+}
+
+/**
+ * Elimina un subforo por su ID. También elimina el subforo de la lista de subforos de todos los usuarios.
+ *
+ * @param {string} id - El ID del subforo a eliminar.
+ * @return {Promise&lt;Object|{error: string, status: number}>} El subforo eliminado o un objeto de error.
+ */
+
+const remove = async (id) => {
+    try {
+        const subforum = await subforumModel.findByIdAndDelete(id);
+        if (!subforum) {
+            return { error: "Subforo no encontrado", status: 404 };
+        }
+
+        // También debes quitar el subforo de la lista de subforos del usuario
+        await userModel.updateMany({}, { $pull: { subforums: id } });
+
+        return subforum;
+    } catch (error) {
+        console.error(error);
+        return { error: "Error al eliminar el subforo", status: 500 };
+    }
+}
+
+export default {
+    getAll,
+    getById,
+    create,
+    update,
+    remove
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#acceptParticipation">acceptParticipation</a></li><li><a href="global.html#addUserToProject">addUserToProject</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#barraDeBusqueda">barraDeBusqueda</a></li><li><a href="global.html#connectDB">connectDB</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createCompany">createCompany</a></li><li><a href="global.html#deleteCompany">deleteCompany</a></li><li><a href="global.html#dislikeComment">dislikeComment</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getAllCompanies">getAllCompanies</a></li><li><a href="global.html#getByForumId">getByForumId</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getByProperty">getByProperty</a></li><li><a href="global.html#getByResource">getByResource</a></li><li><a href="global.html#getByToken">getByToken</a></li><li><a href="global.html#getByUser">getByUser</a></li><li><a href="global.html#getByUserId">getByUserId</a></li><li><a href="global.html#getCompanyById">getCompanyById</a></li><li><a href="global.html#getCompanyByUserId">getCompanyByUserId</a></li><li><a href="global.html#getProjectByUserId">getProjectByUserId</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#likeComment">likeComment</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#rejectParticipation">rejectParticipation</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removeUserFromProject">removeUserFromProject</a></li><li><a href="global.html#requestParticipation">requestParticipation</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateCompany">updateCompany</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jul 10 2024 21:29:40 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

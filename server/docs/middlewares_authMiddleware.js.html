@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: middlewares/authMiddleware.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: middlewares/authMiddleware.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import jwt from "jsonwebtoken";
+import userController  from "../controllers/Users/userController.js";
+
+/**
+ * Función middleware para verificar si el usuario está autenticado.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise&lt;void>} - Se resuelve cuando el usuario está autenticado o se rechaza con un error.
+ */
+
+const isAuthenticated = async(req,res,next)=>{
+    const authorization = req.headers.authorization;
+    if(!authorization){
+        return res.status(401).json({error:"no hay token jwt"});
+    }
+    try {
+        const token = authorization.split("Bearer ")[1];
+        const decoded =jwt.verify(token,process.env.JWT_SECRET);
+        const user = await userController.getById(decoded._id);
+        if(!user){
+            return res.status(400).json({error:"No existe el usuario"});
+        }
+        
+        req.user = user;
+        next();
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error:"ha habido un error"});
+    }
+
+}
+
+/**
+ * Función middleware para verificar si el usuario es administrador.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise&lt;void>} - Se resuelve cuando el usuario es administrador o se rechaza con un error.
+ */
+
+const isAdmin = async(req,res,next)=>{
+    const authorization  =req.headers.authorization;
+    if(!authorization){
+        return res.status(401).json({error:"no hay token jwt"});
+    }
+    try {
+        const token = authorization.split("Bearer ")[1];
+        const decoded =jwt.verify(token,process.env.JWT_SECRET);
+        const user = await userController.getById(decoded._id);
+        if(!user){
+            return res.status(400).json({error:"No existe el usuario"});
+        }
+        if(user.role !== "admin"){
+            return res.status(401).json({error:"No estás autorizado"});
+        }
+        req.user = user;
+        next();
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error:"ha habido un error"});
+    }
+
+}
+
+/**
+ * Función middleware para autenticar al usuario usando un token JWT.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise&lt;void>} - Se resuelve si el usuario está autenticado, de lo contrario se rechaza con un error.
+ */
+
+const authMiddleware = async (req, res, next) => {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
+
+        if (!user) {
+            throw new Error();
+        }
+
+        req.token = token;
+        req.user = user;
+        next();
+    } catch (e) {
+        res.status(401).send({ error: 'Por favor, autentíquese.' });
+    }
+};
+
+export default authMiddleware;
+
+export {
+    isAuthenticated,
+    isAdmin
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#acceptParticipation">acceptParticipation</a></li><li><a href="global.html#addUserToProject">addUserToProject</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#barraDeBusqueda">barraDeBusqueda</a></li><li><a href="global.html#connectDB">connectDB</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createCompany">createCompany</a></li><li><a href="global.html#deleteCompany">deleteCompany</a></li><li><a href="global.html#dislikeComment">dislikeComment</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getAllCompanies">getAllCompanies</a></li><li><a href="global.html#getByForumId">getByForumId</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getByProperty">getByProperty</a></li><li><a href="global.html#getByResource">getByResource</a></li><li><a href="global.html#getByToken">getByToken</a></li><li><a href="global.html#getByUser">getByUser</a></li><li><a href="global.html#getByUserId">getByUserId</a></li><li><a href="global.html#getCompanyById">getCompanyById</a></li><li><a href="global.html#getCompanyByUserId">getCompanyByUserId</a></li><li><a href="global.html#getProjectByUserId">getProjectByUserId</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#likeComment">likeComment</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#rejectParticipation">rejectParticipation</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removeUserFromProject">removeUserFromProject</a></li><li><a href="global.html#requestParticipation">requestParticipation</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateCompany">updateCompany</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jul 10 2024 21:29:40 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
