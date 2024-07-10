@@ -1,11 +1,31 @@
 import {jwtDecode} from 'jwt-decode';
+/**
+ * Guarda un token en el almacenamiento local del navegador.
+ *
+ * @param {string} token - El token que se va a guardar.
+ * @return {void} Esta función no devuelve nada.
+ */
+
 const saveToken =(token)=>{
     localStorage.setItem("token",token);
 }
 
+/**
+ * Recupera el token almacenado en el almacenamiento local del navegador.
+ *
+ * @return {string} El valor del token almacenado en el almacenamiento local.
+ */
+
 const getToken = ()=>{
     return localStorage.getItem("token");
 }
+
+/**
+ * Decodes a JWT token and returns the decoded payload.
+ *
+ * @param {string} token - The JWT token to decode.
+ * @return {Object|null} The decoded payload of the token, or null if the token is invalid.
+ */
 
 const parseToken = (token) => {
     try {

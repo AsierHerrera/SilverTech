@@ -2,6 +2,13 @@ import resourceModel from "../../models/resourceModel.js";
 import userModel from "../../models/userModel.js";
 import subforumModel from "../../models/subforumModel.js";
 
+/**
+ * Recupera todos los recursos de la base de datos.
+ *
+ * @return {Promise<Array<Object>>} Un array de objetos de recursos.
+ * @throws {Object} Un objeto con el mensaje de error "Error al obtener recursos" y el código de estado 500 si hay un error al recuperar los recursos.
+ */
+
 const getAll = async () => {
     try {
         const resources = await resourceModel.find();
@@ -11,6 +18,13 @@ const getAll = async () => {
         return { error: "Error al obtener recursos", status: 500 };
     }
 }
+
+/**
+ * Busca de forma asíncrona subforos y recursos basándose en los datos de búsqueda proporcionados.
+ *
+ * @param {string} busquedaData - Los datos de búsqueda para buscar en subforos y recursos.
+ * @return {Promise<Object>} Un objeto que contiene los subforos y recursos encontrados.
+ */
 
 async function barraDeBusqueda(busquedaData) {
     try {
@@ -43,6 +57,13 @@ async function barraDeBusqueda(busquedaData) {
     }
 }
 
+/**
+ * Recupera un recurso por su ID.
+ *
+ * @param {string} id - El ID del recurso a recuperar.
+ * @return {Object} El recurso recuperado o un objeto de error.
+ */
+
 const getById = async (id) => {
     try {
         const resource = await resourceModel.findById(id);
@@ -56,6 +77,14 @@ const getById = async (id) => {
     }
 }
 
+/**
+ * Recupera todos los recursos asociados con un usuario dado.
+ *
+ * @param {string} userId - El ID del usuario.
+ * @return {Promise<Array<Object>>} Una promesa que se resuelve en un array de objetos de recursos.
+ * @throws {Error} Si hay un error al recuperar los recursos.
+ */
+
 const getByUser = async (userId) => {
     try {
         const resources = await resourceModel.find({ "users.user": userId });
@@ -65,6 +94,14 @@ const getByUser = async (userId) => {
         return { error: "Error al obtener recursos por usuario", status: 500 };
     }
 }
+
+/**
+ * Crea un nuevo recurso y lo asocia con el usuario especificado.
+ *
+ * @param {Object} data - Los datos para el nuevo recurso.
+ * @param {string} userId - El ID del usuario.
+ * @return {Promise<Object>} Una promesa que se resuelve con el recurso creado.
+ */
 
 const create = async (data, userId) => {
     try {
@@ -84,6 +121,14 @@ const create = async (data, userId) => {
     }
 }
 
+/**
+ * Actualiza un recurso por su ID con nuevos datos.
+ *
+ * @param {string} id - El ID del recurso a actualizar.
+ * @param {Object} data - Los nuevos datos para actualizar el recurso.
+ * @return {Promise<Object>} El recurso actualizado o un objeto de error.
+ */
+
 const update = async (id, data) => {
     try {
         const resource = await resourceModel.findByIdAndUpdate(id, data, { new: true });
@@ -96,6 +141,13 @@ const update = async (id, data) => {
         return { error: "Error al actualizar el recurso", status: 500 };
     }
 }
+
+/**
+ * Elimina un recurso de forma asíncrona por su ID.
+ *
+ * @param {string} id - El ID del recurso a eliminar.
+ * @return {Promise<Object>} El recurso eliminado o un objeto de error.
+ */
 
 const remove = async (id) => {
     try {
@@ -116,6 +168,14 @@ const remove = async (id) => {
         return { error: "Error al eliminar el recurso", status: 500 };
     }
 }
+
+/**
+ * Solicita participación de un usuario en un recurso específico.
+ *
+ * @param {string} resourceId - El ID del recurso para la participación.
+ * @param {string} userId - El ID del usuario que solicita la participación.
+ * @return {Promise<object>} El recurso actualizado con los detalles de la participación.
+ */
 
 const requestParticipation = async (resourceId, userId) => {
     try {
@@ -150,6 +210,14 @@ const requestParticipation = async (resourceId, userId) => {
         return { error: "Error al solicitar participación en el recurso", status: 500 };
     }
 }
+
+/**
+ * Acepta la solicitud de participación de un usuario en un recurso específico.
+ *
+ * @param {string} resourceId - El ID del recurso para la participación.
+ * @param {string} userId - El ID del usuario que solicita la participación.
+ * @return {Promise<object>} El recurso con los detalles de participación actualizados.
+ */
 
 const acceptParticipation = async (resourceId, userId) => {
     try {
@@ -191,6 +259,14 @@ const acceptParticipation = async (resourceId, userId) => {
         return { error: "Error al aceptar la participación en el recurso", status: 500 };
     }
 }
+
+/**
+ * Una función que rechaza la participación de un usuario en un recurso.
+ *
+ * @param {string} resourceId - El ID del recurso para el rechazo de la participación.
+ * @param {string} userId - El ID del usuario cuya participación está siendo rechazada.
+ * @return {Promise<object>} El recurso actualizado con los detalles de la participación.
+ */
 
 const rejectParticipation = async (resourceId, userId) => {
     try {

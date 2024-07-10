@@ -2,6 +2,15 @@ import { getToken } from "./local";
 
 const API_URL = "http://localhost:3030/api";
 
+/**
+ * Recupera de manera asíncrona datos de la ruta especificada usando el método y los datos de entrada proporcionados.
+ *
+ * @param {string} route - La ruta desde la cual recuperar los datos.
+ * @param {string} method - El método HTTP a utilizar para la solicitud.
+ * @param {object} inputData - Los datos que se enviarán con la solicitud (por defecto es null).
+ * @return {Promise} Una promesa que se resuelve con los datos recuperados o un objeto de error.
+ */
+
 const fetchData = async(route,method,inputData=null)=>{    
     const url = new URL(API_URL + route);
     const token = localStorage.getItem('token'); 

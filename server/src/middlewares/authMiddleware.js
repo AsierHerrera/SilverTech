@@ -1,6 +1,15 @@
 import jwt from "jsonwebtoken";
 import userController  from "../controllers/Users/userController.js";
 
+/**
+ * Función middleware para verificar si el usuario está autenticado.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise<void>} - Se resuelve cuando el usuario está autenticado o se rechaza con un error.
+ */
+
 const isAuthenticated = async(req,res,next)=>{
     const authorization = req.headers.authorization;
     if(!authorization){
@@ -23,6 +32,15 @@ const isAuthenticated = async(req,res,next)=>{
     }
 
 }
+
+/**
+ * Función middleware para verificar si el usuario es administrador.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise<void>} - Se resuelve cuando el usuario es administrador o se rechaza con un error.
+ */
 
 const isAdmin = async(req,res,next)=>{
     const authorization  =req.headers.authorization;
@@ -48,6 +66,15 @@ const isAdmin = async(req,res,next)=>{
     }
 
 }
+
+/**
+ * Función middleware para autenticar al usuario usando un token JWT.
+ *
+ * @param {Object} req - Objeto de solicitud.
+ * @param {Object} res - Objeto de respuesta.
+ * @param {Function} next - Función del siguiente middleware.
+ * @return {Promise<void>} - Se resuelve si el usuario está autenticado, de lo contrario se rechaza con un error.
+ */
 
 const authMiddleware = async (req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '');

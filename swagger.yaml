@@ -1,0 +1,679 @@
+openapi: 3.0.0
+info:
+  title: Tu API
+  description: Documentación de la API en castellano
+  version: 1.0.0
+servers:
+  - url: http://localhost:3030
+paths:
+  /usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Crear un usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '201':
+          description: Usuario creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /usuarios/{id}:
+    get:
+      summary: Obtener un usuario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      summary: Actualizar un usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Usuario actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      summary: Eliminar un usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /subforos:
+    get:
+      summary: Obtener todos los subforos
+      responses:
+        '200':
+          description: Lista de subforos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subforum'
+    post:
+      summary: Crear un subforo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubforumInput'
+      responses:
+        '201':
+          description: Subforo creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subforum'
+  /subforos/{id}:
+    get:
+      summary: Obtener un subforo por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Subforo encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subforum'
+    put:
+      summary: Actualizar un subforo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubforumInput'
+      responses:
+        '200':
+          description: Subforo actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subforum'
+    delete:
+      summary: Eliminar un subforo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Subforo eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subforum'
+  /comentarios:
+    get:
+      summary: Obtener todos los comentarios
+      responses:
+        '200':
+          description: Lista de comentarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+    post:
+      summary: Crear un comentario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentInput'
+      responses:
+        '201':
+          description: Comentario creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /comentarios/{id}:
+    get:
+      summary: Obtener un comentario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Comentario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+    put:
+      summary: Actualizar un comentario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentInput'
+      responses:
+        '200':
+          description: Comentario actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+    delete:
+      summary: Eliminar un comentario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Comentario eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /recursos:
+    get:
+      summary: Obtener todos los recursos
+      responses:
+        '200':
+          description: Lista de recursos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Resource'
+    post:
+      summary: Crear un recurso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceInput'
+      responses:
+        '201':
+          description: Recurso creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+  /recursos/{id}:
+    get:
+      summary: Obtener un recurso por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Recurso encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+    put:
+      summary: Actualizar un recurso
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceInput'
+      responses:
+        '200':
+          description: Recurso actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+    delete:
+      summary: Eliminar un recurso
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Recurso eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+  /empresas:
+    get:
+      summary: Obtener todas las empresas
+      responses:
+        '200':
+          description: Lista de empresas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Company'
+    post:
+      summary: Crear una empresa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyInput'
+      responses:
+        '201':
+          description: Empresa creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+  /empresas/{id}:
+    get:
+      summary: Obtener una empresa por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empresa encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+    put:
+      summary: Actualizar una empresa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyInput'
+      responses:
+        '200':
+          description: Empresa actualizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+    delete:
+      summary: Eliminar una empresa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empresa eliminada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        projects:
+          type: array
+          items:
+            type: string
+        resources:
+          type: array
+          items:
+            type: string
+        subforums:
+          type: array
+          items:
+            type: string
+        comments:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    UserInput:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+    Subforum:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        user:
+          type: string
+        comments:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    SubforumInput:
+      type: object
+      properties:
+        title:
+          type: string
+        text:
+          type: string
+        user:
+          type: string
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        subforum:
+          type: string
+        user:
+          type: string
+        likes:
+          type: number
+        dislikes:
+          type: number
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    CommentInput:
+      type: object
+      properties:
+        content:
+          type: string
+        subforum:
+          type: string
+        user:
+          type: string
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        modality:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        price:
+          type: number
+        instructor:
+          type: string
+        resourceType:
+          type: string
+        availableSlots:
+          type: number
+        participations:
+          type: array
+          items:
+            type: object
+            properties:
+              user:
+                type: string
+              status:
+                type: string
+              registrationDate:
+                type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    ResourceInput:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        modality:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        price:
+          type: number
+        instructor:
+          type: string
+        resourceType:
+          type: string
+        availableSlots:
+          type: number
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        cif:
+          type: string
+        address:
+          type: string
+        postalCode:
+          type: string
+        website:
+          type: string
+        phone:
+          type: string
+        sector:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        userId:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    CompanyInput:
+      type: object
+      properties:
+        name:
+          type: string
+        cif:
+          type: string
+        address:
+          type: string
+        postalCode:
+          type: string
+        website:
+          type: string
+        phone:
+          type: string
+        sector:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        userId:
+          type: string
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        category:
+          type: string
+        professionalReference:
+          type: string
+        contactInfo:
+          type: string
+        description:
+          type: string
+        beneficiaries:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        expectedResults:
+          type: object
+          properties:
+            economicImpact:
+              type: string
+            socialImpact:
+              type: string
+            environmentalImpact:
+              type: string
+        createdBy:
+          type: string
+        users:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    ProjectInput:
+      type: object
+      properties:
+        title:
+          type: string
+        category:
+          type: string
+        professionalReference:
+          type: string
+        contactInfo:
+          type: string
+        description:
+          type: string
+        beneficiaries:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        expectedEconomicImpact:
+          type: string
+        expectedSocialImpact:
+          type: string
+        expectedEnvironmentalImpact:
+          type: string

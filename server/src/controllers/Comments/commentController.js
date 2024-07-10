@@ -2,6 +2,12 @@ import commentModel from "../../models/commentModel.js";
 import subforumModel from "../../models/subforumModel.js";
 import userModel from "../../models/userModel.js"; // Importa el modelo de usuario
 
+/**
+ * Recupera todos los comentarios de la base de datos.
+ *
+ * @return {Promise<Array<Object>>} Un array de objetos de comentarios.
+ * @throws {Object} Un objeto de error con el mensaje "Error al obtener comentarios" y el código de estado 500 si hay un error al recuperar los comentarios.
+ */
 const getAll = async () => {
     try {
         const comments = await commentModel.find();
@@ -12,6 +18,12 @@ const getAll = async () => {
     }
 }
 
+/**
+ * Recupera un comentario por su ID.
+ *
+ * @param {string} id - El ID del comentario a recuperar.
+ * @return {Promise<Object>} El objeto del comentario recuperado.
+ */
 const getById = async (id) => {
     try {
         const comment = await commentModel.findById(id);
@@ -25,6 +37,13 @@ const getById = async (id) => {
     }
 }
 
+/**
+ * Recupera todos los comentarios realizados por un usuario específico.
+ *
+ * @param {string} userId - El ID del usuario cuyos comentarios se están recuperando.
+ * @return {Promise<Array<Object>>} Un array de objetos de comentarios realizados por el usuario especificado.
+ * @throws {Object} Un objeto de error con el mensaje "Error al obtener comentarios por usuario" y el código de estado 500 si hay un error al recuperar los comentarios.
+ */
 const getByUser = async (userId) => {
     try {
         const comments = await commentModel.find({ user: userId });
@@ -35,6 +54,14 @@ const getByUser = async (userId) => {
     }
 }
 
+/**
+ * Crea de forma asíncrona un nuevo comentario asociado a un subforo.
+ *
+ * @param {Object} data - Los datos para el nuevo comentario.
+ * @param {string} subforumId - El ID del subforo con el que se asociará el comentario.
+ * @param {Object} user - El usuario que crea el comentario.
+ * @return {Promise<Object>} El comentario recién creado.
+ */
 const create = async (data, subforumId, user) => {
     try {
         const subforum = await subforumModel.findById(subforumId); // Busca el subforo por ID
@@ -56,6 +83,13 @@ const create = async (data, subforumId, user) => {
 
 
 
+/**
+ * Actualiza un comentario por su ID con nuevos datos.
+ *
+ * @param {string} id - El ID del comentario a actualizar.
+ * @param {Object} data - Los nuevos datos para actualizar el comentario.
+ * @return {Object} El comentario actualizado o un objeto de error.
+ */
 const update = async (id, data) => {
     try {
         const comment = await commentModel.findByIdAndUpdate(id, data, { new: true });
@@ -68,6 +102,14 @@ const update = async (id, data) => {
         return { error: "Error al actualizar el comentario", status: 500 };
     }
 }
+
+/**
+ * Elimina un comentario basado en el ID proporcionado y el ID del usuario después de verificar los permisos.
+ *
+ * @param {string} id - El ID del comentario a eliminar.
+ * @param {string} userId - El ID del usuario que intenta eliminar el comentario.
+ * @return {Object} Un objeto que indica el éxito o el fracaso de la operación de eliminación.
+ */
 
 const remove = async (id, userId) => {
     try {
@@ -92,9 +134,24 @@ const remove = async (id, userId) => {
     }
 };
 
+/**
+ * Recupera los comentarios asociados con un ID de foro dado.
+ *
+ * @param {string} forumId - El ID del foro.
+ * @return {Promise<Array<Object>>} Una promesa que se resuelve en un array de objetos de comentarios.
+ */
+
 const getByForumId = async (forumId) => {
     return await commentModel.find({ subforum: forumId }).populate('user').exec();
 }
+
+/**
+ * Da "like" a un comentario actualizando el documento del comentario en la base de datos.
+ *
+ * @param {string} commentId - El ID del comentario al que se le va a dar "like".
+ * @param {string} userId - El ID del usuario que da "like" al comentario.
+ * @return {Promise<Object|{error: string, status: number}>} El documento del comentario actualizado o un objeto de error.
+ */
 
 const likeComment = async (commentId, userId) => {
     try {
@@ -122,6 +179,14 @@ const likeComment = async (commentId, userId) => {
         return { error: "Error liking the comment", status: 500 };
     }
 };
+
+/**
+ * Da "dislike" a un comentario por un usuario y actualiza el conteo de "dislike" del comentario.
+ *
+ * @param {string} commentId - El ID del comentario al que se le va a dar "dislike".
+ * @param {string} userId - El ID del usuario que da "dislike" al comentario.
+ * @return {Promise<Object>} El comentario actualizado después de dar "dislike" o un objeto de error.
+ */
 
 const dislikeComment = async (commentId, userId) => {
     try {

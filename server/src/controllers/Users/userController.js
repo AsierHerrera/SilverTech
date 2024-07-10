@@ -3,6 +3,13 @@ import resourceModel from "../../models/resourceModel.js"; // Importar modelo de
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+/**
+ * Recupera todos los usuarios de la base de datos.
+ *
+ * @return {Promise<Array<Object>>} Una promesa que se resuelve a un array de objetos de usuario.
+ * @throws {Error} Si ocurre un error al recuperar los usuarios.
+ */
+
 const getAll = async () => {
     try {
         const users = await userModel.find();
@@ -12,6 +19,13 @@ const getAll = async () => {
         return { error: "Error al obtener usuarios", status: 500 };
     }
 }
+
+/**
+ * Recupera campos específicos de datos de usuario.
+ *
+ * @param {Object} user - El objeto de usuario que contiene los campos de datos.
+ * @return {Object} Un objeto que contiene los campos especificados de datos de usuario.
+ */
 
 function getUserData(user){
     return {
@@ -23,6 +37,13 @@ function getUserData(user){
     }
 }
 
+
+/**
+ * Recupera un usuario por su ID.
+ *
+ * @param {string} id - El ID del usuario que se desea recuperar.
+ * @return {Promise<Object>} El objeto de usuario si se encuentra, o un objeto de error si no se encuentra o si ocurrió un error.
+ */
 
 const getById = async (id) => {
     try {
@@ -37,6 +58,14 @@ const getById = async (id) => {
     }
 }
 
+/**
+ * Recupera un usuario por una propiedad específica.
+ *
+ * @param {string} property - La propiedad por la que se desea buscar.
+ * @param {string} value - El valor de la propiedad que se desea coincidir.
+ * @return {Promise<Object>} El objeto de usuario encontrado basado en la propiedad.
+ */
+
 const getByProperty = async (property, value) => {
     try {
         const user = await userModel.find({ [property]: value });
@@ -46,6 +75,13 @@ const getByProperty = async (property, value) => {
         return { error: "Error al obtener usuario por propiedad", status: 500 };
     }
 }
+
+/**
+ * Recupera un recurso por su ID y popula el campo de usuario.
+ *
+ * @param {string} resourceId - El ID del recurso que se desea recuperar.
+ * @return {Object} El usuario asociado con el recurso si se encuentra.
+ */
 
 const getByResource = async (resourceId) => {
     try {
@@ -59,6 +95,13 @@ const getByResource = async (resourceId) => {
         return { error: "Error al obtener usuarios por recurso", status: 500 };
     }
 }
+/**
+ * Autentica a un usuario basado en los datos proporcionados.
+ *
+ * @param {Object} data - Los datos del usuario que contienen correo electrónico, nombre de usuario y contraseña.
+ * @return {Object} Un objeto que contiene un token y la información del usuario si la autenticación es exitosa.
+ */
+
 
 const login = async (data) => {
     const { email, username, password } = data;
@@ -98,6 +141,13 @@ const login = async (data) => {
         return { error: "Ha habido un error", status: 500 };
     }
 }
+
+/**
+ * Registra un nuevo usuario con los datos proporcionados.
+ *
+ * @param {Object} data - Los datos del usuario que contienen nombre de usuario, correo electrónico, contraseña y confirmación de contraseña.
+ * @return {Promise<Object>} Un objeto que contiene el usuario registrado o un error.
+ */
 
 const register = async (data) => {
     try {
@@ -140,6 +190,13 @@ const register = async (data) => {
     }
 }
 
+/**
+ * Crea un nuevo usuario con los datos proporcionados si el nombre de usuario aún no está en uso.
+ *
+ * @param {Object} userData - Los datos del usuario que contienen nombre de usuario, correo electrónico, contraseña y rol.
+ * @return {Object} El usuario creado si es exitoso, o un objeto de error con un código de estado.
+ */
+
 const create = async (userData) => {
     try {
         const existingUser = await userModel.findOne({ username: userData.username });
@@ -159,6 +216,14 @@ const create = async (userData) => {
     }
 }
 
+/**
+ * Actualiza un usuario con el ID proporcionado usando los datos proporcionados.
+ *
+ * @param {string} id - El ID del usuario que se va a actualizar.
+ * @param {Object} data - Los datos con los que se actualizará el usuario.
+ * @return {Promise<Object|{error: string, status: number}>} El objeto de usuario actualizado si tiene éxito, o un objeto de error con un código de estado.
+ */
+
 const update = async (id, data) => {
     try {
         const user = await userModel.findByIdAndUpdate(id, data, { new: true });
@@ -171,6 +236,13 @@ const update = async (id, data) => {
         return { error: "Error al actualizar el usuario", status: 500 };
     }
 }
+
+/**
+ * Elimina un usuario de la base de datos por su ID.
+ *
+ * @param {string} id - El ID del usuario que se va a eliminar.
+ * @return {Promise<Object|{error: string, status: number}>} El objeto de usuario eliminado si tiene éxito, o un objeto de error con un código de estado.
+ */
 
 const remove = async (id) => {
     try {

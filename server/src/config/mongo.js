@@ -11,6 +11,12 @@ const DB_PASSWORD = process.env.DB_PASSWORD || "1234";
 
 const DB_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`;
 
+/**
+ * Conecta a la base de datos usando el URI proporcionado.
+ *
+ * @return {Promise<void>} Una promesa que se resuelve cuando se establece la conexión.
+ */
+
 const connectDB = async ()=>{
     try {
         await mongoose.connect(DB_URI);
