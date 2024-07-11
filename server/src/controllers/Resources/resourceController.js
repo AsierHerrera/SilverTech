@@ -1,6 +1,8 @@
 import resourceModel from "../../models/resourceModel.js";
 import userModel from "../../models/userModel.js";
 import subforumModel from "../../models/subforumModel.js";
+import commentModel from "../../models/commentModel.js";
+import Project from "../../models/projectModel.js";
 
 const getAll = async () => {
     try {
@@ -14,34 +16,51 @@ const getAll = async () => {
 
 async function barraDeBusqueda(busquedaData) {
     try {
-        if (busquedaData.length > 2) {
-            const subforos = await subforumModel.find({
-                $or: [
-                    { name: { $regex: busquedaData, $options: 'i' } },
-                    { description: { $regex: busquedaData, $options: 'i' } }
-                ]
-            });
-
-            const recursos = await resourceModel.find({
-                $or: [
-                    { name: { $regex: busquedaData, $options: 'i' } },
-                    { description: { $regex: busquedaData, $options: 'i' } },
-                    { resourceType: { $regex: busquedaData, $options: 'i' } }
-                ]
-            });
-
-            console.log("SUBFOROS ENCONTRADOS:", subforos);
-            console.log("RECURSOS ENCONTRADOS:", recursos);
-
-            return { data: { subforos, recursos } };
-        } else {
-            return { data: [], message: 'La búsqueda debe tener más de 3 caracteres' };
-        }
+      if (busquedaData.length > 2) {
+        const subforos = await subforumModel.find({
+          $or: [
+            { title: { $regex: busquedaData, $options: 'i' } },
+            { text: { $regex: busquedaData, $options: 'i' } }
+          ]
+        }).limit(10);
+  
+        const recursos = await resourceModel.find({
+          $or: [
+            { name: { $regex: busquedaData, $options: 'i' } },
+            { description: { $regex: busquedaData, $options: 'i' } },
+            { resourceType: { $regex: busquedaData, $options: 'i' } }
+          ]
+        }).limit(10);
+  
+        const comments = await commentModel.find({
+          content: { $regex: busquedaData, $options: 'i' }
+        }).limit(10);
+  
+        const projects = await Project.find({
+          $or: [
+            { title: { $regex: busquedaData, $options: 'i' } },
+            { description: { $regex: busquedaData, $options: 'i' } },
+            { category: { $regex: busquedaData, $options: 'i' } }
+          ]
+        }).limit(10);
+  
+        console.log("SUBFOROS ENCONTRADOS:", subforos);
+        console.log("RECURSOS ENCONTRADOS:", recursos);
+        console.log("COMENTARIOS ENCONTRADOS:", comments);
+        console.log("PROYECTOS ENCONTRADOS:", projects);
+  
+        return { data: { subforos, recursos, comments, projects } };
+      } else {
+        return { 
+          data: { subforos: [], recursos: [], comments: [], projects: [] }, 
+          message: 'La búsqueda debe tener más de 3 caracteres' 
+        };
+      }
     } catch (error) {
-        console.error("Error al buscar subforos y recursos:", error);
-        return { error: error.message };
+      console.error("Error al buscar:", error);
+      return { error: error.message };
     }
-}
+  }
 
 const getById = async (id) => {
     try {

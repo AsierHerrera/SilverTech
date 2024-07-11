@@ -88,10 +88,16 @@ const createRecurso = async(recursoData)=>{
     return result;
 }
 
-const barraBusqueda = async(busquedaData)=>{
-    const result = await fetchData("/resources/busqueda/"+busquedaData,"get");
-    return result;
-}
+const barraBusqueda = async (busquedaData) => {
+    try {
+      const result = await fetchData("/resources/busqueda/" + busquedaData, "get");
+      console.log("Raw API response:", result); 
+      return result;
+    } catch (error) {
+      console.error("Error in barraBusqueda:", error);
+      throw error;
+    }
+  };
 const getAllCommentsByPostId = async (forumId) => {
     const result = await fetchData(`/comments/subforum/${forumId}`, "get");
     return result;

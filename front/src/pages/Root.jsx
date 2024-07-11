@@ -81,10 +81,13 @@ const toggleProfile = () => {
 
     return (
         <>
-{/*         <BarraBusqueda />
-        <Outlet /> */}
+      
+        {/* <Outlet /> */}
         {user && (
+            <>
         <NavBar />
+        <BarraBusqueda />
+        </>
         )}
 
         {/* {user && (

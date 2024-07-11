@@ -5,12 +5,13 @@ const getAll = async (req, res) => {
     res.json( resources );
 }
 
-const barraDeBusqueda = async(req,res)=>{
-    const busquedaData = req.params.busquedaData
-    console.log("BusquedaData es:",busquedaData)
-    const {error,data} = await resourceController.barraDeBusqueda(busquedaData);
-    res.json({error,data});
-}
+const barraDeBusqueda = async (req, res) => {
+    const busquedaData = req.params.busquedaData;
+    console.log("BusquedaData received:", busquedaData);
+    const { error, data } = await resourceController.barraDeBusqueda(busquedaData);
+    console.log("Data to be sent:", { error, data });
+    res.json({ error, data });
+  };
 
 const getById = async (req, res) => {
     const id = req.params.id;

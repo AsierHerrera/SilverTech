@@ -1,0 +1,83 @@
+/* BarraBusqueda.css */
+
+/* Стилі для пошукової строки */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 70%;
+    max-width: 1000px;
+}
+
+.search-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: calc(100% - 30px); /* Залишаємо місце для іконки */
+    padding: 10px 30px 10px 10px; /* Відступи відповідно: верхній, правий, нижній, лівий */
+    font-size: 16px;
+    border: 1px solid #091864;
+    border-radius: 4px;
+    outline: none;
+    padding-left: 50px; /* Відступ для тексту після іконки */
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #091864;
+    pointer-events: none;
+}
+
+/* Стилі для контейнера результатів */
+.results-container {
+    margin-top: 20px; /* Відступ від пошукової строки */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Стилі для кожної карточки результату */
+.result-section {
+    width: 800px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.result-section:hover {
+    transform: translateY(-5px); /* Зміна положення при наведенні */
+}
+
+.result-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.result-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.result-item:hover {
+    background-color: #f1f1f1;
+}

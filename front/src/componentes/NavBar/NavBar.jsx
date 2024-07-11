@@ -63,6 +63,13 @@ const NavBar = () => {
         };
     }, []);
 
+    const toggleDropdown = (name) => {
+        setDropdowns((prevDropdowns) => ({
+            ...prevDropdowns,
+            [name]: !prevDropdowns[name],
+        }));
+    };
+
     async function handleLogout(e) {
         e.preventDefault();
         setUser(null);
