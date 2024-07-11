@@ -8,7 +8,6 @@ import { BiLike } from "react-icons/bi";
 import moment from 'moment';
 import Footer2 from "../../componentes/Footer/Footer2";
 
-
 const SubforumDetails = () => {
     const { id } = useParams();
     const [post, setPost] = useState(null);
@@ -24,6 +23,19 @@ const SubforumDetails = () => {
     const data = parseToken(token);
     const userId = data._id;
     const userRole = data.role;
+
+    const fetchComments = async () => {
+        try {
+            const commentsResult = await getAllCommentsByPostId(id);
+            if (!commentsResult.error) {
+                setComments(Array.isArray(commentsResult.data) ? commentsResult.data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)) : []);
+            } else {
+                setError(commentsResult.error);
+            }
+        } catch (error) {
+            setError(error.message);
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -75,8 +87,9 @@ const SubforumDetails = () => {
             };
             const result = await createComment(id, newCommentData);
             if (!result.error) {
-                setComments([...comments, result.data].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)));
                 setNewComment("");
+                // Після успішного додавання коментаря оновлюємо список коментарів
+                fetchComments();
             } else {
                 setError(result.error);
             }
@@ -90,7 +103,8 @@ const SubforumDetails = () => {
             const updatedComment = { content: editCommentContent };
             const result = await updateComment(commentId, updatedComment);
             if (!result.error) {
-                setComments(comments.map(comment => comment._id === commentId ? result.data : comment).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)));
+                // Після успішного редагування коментаря оновлюємо список коментарів
+                fetchComments();
                 setEditCommentId(null);
                 setEditCommentContent("");
             } else {
@@ -137,7 +151,7 @@ const SubforumDetails = () => {
 
     return (
         <>
-        <p className="navegation-history-foro" > <span>Inicio</span>  {">"} <span>Networking</span> {">"} <span></span>Foro</p>
+        <p className="navegation-history-foro" > <span>Inicio</span>  {">"} <span>Networking</span> {">"} <span>Foro</span></p>
         <div className="container">
         <div className="post-page">
             {post && (
@@ -171,12 +185,11 @@ const SubforumDetails = () => {
                                 ) : (
                                     <div>
                                         <div className="comment-details">
-                                            <p className="comment-details-item">{moment(post.createdAt).format('DD MMM, YYYY HH:mm')
-                                            }</p>
+                                            <p className="comment-details-item">{moment(comment.createdAt).format('DD MMM, YYYY HH:mm')}</p>
                                             <p className="comment-details-item"><BiLike style={{ width: '24px', height: '24px' }}  /></p>
                                         </div>
                                         
-                                        <p style={{ fontSize: 18, fontWeight: 'bold',  color: '#212121', fontamily: "Montserrat"}}>{findUsernameById(comment.user)}</p>
+                                        <p style={{ fontSize: 18, fontWeight: 'bold',  color: '#212121', fontFamily: "Montserrat"}}>{findUsernameById(comment.user)}</p>
                                         <p>{comment.content}</p>
                                         {(comment.user._id === userId || userRole === 'admin') && (
                                             <div className="comment-actions">
