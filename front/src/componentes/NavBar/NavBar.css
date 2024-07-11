@@ -1,14 +1,16 @@
 .navbar {
+  width: 100% !important;
+  margin: 0px !important;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0px;
 }
 
 .navbar__logo-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
+  align-items: start;
   width: 100%;
   padding: 0.5rem 0;
 }
@@ -16,20 +18,40 @@
 .navbar__logo {
   width: 180px;
   height: auto;
+  margin-top: 1vh;
+  margin-left: 5vw;
+}
+
+.navbar__logo-container > p{
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 1vh;
+  margin-right: 10vw;
 }
 
 .navbar__menu-bar {
+  width: 100%;
+  margin: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #ffffff;
   padding: 0.5rem 0;
 }
 
 .navbar__nav {
+  width: 65%;
   display: flex;
-  gap: 2rem;
   align-items: center;
+  justify-content: space-between; 
+  padding-right: 10vw;
 }
 
 .navbar__link {
@@ -40,15 +62,21 @@
   cursor: pointer;
   background: none;
   border: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar__link:hover {
   color: #000000;
   text-decoration: underline;
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar__item {
   position: relative;
+  padding: 0px;
+  margin: 0px;
 }
 
 .dropdown__menu {
@@ -61,12 +89,14 @@
   display: flex;
   flex-direction: column;
   z-index: 1000;
+
 }
 
 .dropdown__item {
   color: black;
   text-decoration: none;
   padding: 0.5rem 1rem;
+
 }
 
 .dropdown__item:hover {
@@ -98,4 +128,15 @@
 /* Estilos específicos para el ícono de usuario activo */
 .navbar__user-icon.active {
   border: 2px solid #333; /* Ejemplo de borde para resaltar */
+}
+
+/* barra de  navegacion*/
+
+#searchBar{
+  width: 60vw;
+  margin-top: 4vh;
+}
+
+#searchBar > form > *{
+  border: 1px solid #000000;
 }

@@ -1,5 +1,6 @@
 import "./Recurso.scss";
 import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import banner from "../../../public/banner_curso.png";
 import banner2 from "../../../public/banner2_curso.png";
 import avatar1 from "../../../public/avatar_angel.png";
@@ -50,7 +51,7 @@ const Recurso = ()=>{
                         <p>Asistentes: <span>60</span> </p>
                         <p>Plazas disponibles: <span>40</span> </p>
                         <p>Precio: <span>75 EURO</span></p>
-                        <button>Reservar plaza</button>
+                        <button> Reservar Plaza </button>
                     </div>
                     <div className="curso-introduccion">
                         <h3>Introducción</h3>
@@ -235,7 +236,7 @@ const Recurso = ()=>{
                 </article>
             </section>
             <div id="reservar-plazas">
-                <button>Reservar Plazas</button>                
+                <Link to={`/pago/1`} id="reservar2">Reservar Plazas</Link>                   
             </div>
 
         </>
