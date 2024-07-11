@@ -232,10 +232,6 @@
 .curso-mapa{
     margin-top: 5vh;
     margin-bottom: 300px;
-    width: 678px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .curso-mapa > h3{
@@ -246,13 +242,11 @@
     border-radius: 5px;
     margin: 0px;
     margin-bottom: -180px;
-    width: 678px;
 }
 
 .curso-mapa > button{
     margin: 0px;
-    width: 50%;
-    margin-left: 25%;
+    margin-left: 220px;
     border-radius: 5px;
     border: none;
     -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
@@ -273,17 +267,19 @@
     justify-content: center;
 }
 
-#reservar-plazas > button{
+#reservar2{
     -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.2);
     box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.1);
-    margin-bottom: 10vh;
+    margin-bottom: 0vh;
     border-radius: 10px;
     background-color: $Secondary_Normal;
     color: $Primary_Dark;
+    font-size: 120%;
     font-weight: 700;
     padding: 3vh 6vw;
     border: none;
+    text-decoration: none;
 }
 
 //columna 2
