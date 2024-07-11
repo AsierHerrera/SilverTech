@@ -89,9 +89,10 @@ const NavBar = () => {
     }, [location.pathname]);
 
     return (
-        <header className="navbar container">
+        <header className="navbar">
             <div className="navbar__logo-container">
                 <img src={logo} alt="Logo" className="navbar__logo" />
+                <p>Idiomas</p>
             </div>
 
             <div className="navbar__menu-bar">
@@ -114,7 +115,7 @@ const NavBar = () => {
                             className={`navbar__link ${activeSections.expertos ? 'active' : ''}`}
                             onClick={() => toggleDropdown('expertos')}
                         >
-                            Expertos
+                           Contratación de Expertos {/* ▽▼∇⋁∨ⅴ⋎ */}
                         </button>
                         {dropdowns.expertos && (
                             <div className="dropdown__menu anchura1">
@@ -199,7 +200,7 @@ const NavBar = () => {
                             className={`navbar__link ${activeSections.usuario ? 'active' : ''}`}
                             onClick={() => toggleDropdown('usuario')}
                         >
-                            <img src={userIcon} alt="Usuario" className="navbar__user-icon" />
+                            {/*<img src={userIcon} alt="Usuario" className="navbar__user-icon" />*/}👤 Perfil 
                         </button>
                         {dropdowns.usuario && (
                             <div className="dropdown__menu anchura1">
@@ -217,7 +218,14 @@ const NavBar = () => {
                             </div>
                         )}
                     </div>
-                </nav>
+
+                </nav>                    
+
+            </div>                
+            <div id='searchBar'>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="🔍  Buscar" aria-label="Buscar"/>
+                </form>
             </div>
         </header>
     );
