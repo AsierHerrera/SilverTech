@@ -8,6 +8,11 @@ import path from 'path';
 import companyRoutes from "./routes/companyRouter.js"; 
 /* import userRouter from "./routes/user.js"; */
 import { fileURLToPath } from 'url'; //localhost:3030/docs
+import { swaggerUi } from "swagger-ui-express";
+import swaggerDocument from './swagger.json';
+
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 
 
