@@ -14,9 +14,9 @@ const CreateRecurso = ({onCreate})=>{
         const price = e.target.price.value; 
 
         const data = {img,name,description,day,time,place,tickes,price};
-        console.log("data: ",data)
+        //console.log("data: ",data)
         const result = await createRecurso(data);
-        console.log("result",result)
+        //console.log("result",result)
         onCreate();
         window.location.reload()
     }

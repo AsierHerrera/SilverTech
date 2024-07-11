@@ -11,7 +11,7 @@ function App() {
 
 
   useEffect(()=>{
-    console.log("user",user);
+    //console.log("user",user);
   },[user]);
  
   return (

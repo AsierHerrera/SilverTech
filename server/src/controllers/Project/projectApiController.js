@@ -22,7 +22,7 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
-        console.log("USER ID EN CREATE", userId)
+        //console.log("USER ID EN CREATE", userId)
         const project = await projectController.create(req.body, userId);
         res.status(201).json({ data: project });
     } catch (error) {
@@ -87,7 +87,7 @@ const inviteUserToProject = async (req, res) => {
     try {
         const projectId = req.params.id;
         const userMail = req.body.email;
-        console.log("USERMAIL", userMail)
+        //console.log("USERMAIL", userMail)
 
         const project = await projectController.inviteUserToProject(projectId, userMail);
         res.json({ data: project });
@@ -99,11 +99,11 @@ const inviteUserToProject = async (req, res) => {
 const respondToInvitation = async (req, res) => {
     try {
         const projectId = req.params.id;
-        console.log("PROJECTID BACK", projectId)
+        //console.log("PROJECTID BACK", projectId)
         const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
-        console.log("UserID BACK", userId)
+        //console.log("UserID BACK", userId)
         const response = req.body.response;
-        console.log("RESPUESTA BACK", response)
+        //console.log("RESPUESTA BACK", response)
 
 
         const project = await projectController.respondToInvitation(projectId, userId, response);

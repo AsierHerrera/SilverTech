@@ -32,8 +32,8 @@ const Subforum = () => {
   const createPostRef = useRef(null);
   const token = getToken();
   const currentUser = parseToken(token);
-  console.log('users :>> ', users);
-  console.log('currentUser :>> ', currentUser);
+  //console.log('users :>> ', users);
+  //console.log('currentUser :>> ', currentUser);
 
 
   useEffect(() => {

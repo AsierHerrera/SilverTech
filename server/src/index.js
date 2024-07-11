@@ -53,8 +53,8 @@ app.use('/uploads', express.static('uploads'));
 
 app.post('/uploads', upload.single('file'), (req, res) => {
   try {
-    console.log(req.file); 
-    console.log(req.body); 
+    //console.log(req.file); 
+    //console.log(req.body); 
       res.json({ message: 'Imagen subida correctamente', file: req.file });
   } catch (error) {
       console.error(error);
@@ -63,5 +63,5 @@ app.post('/uploads', upload.single('file'), (req, res) => {
 });////
 
 app.listen(CONTAINER_PORT ,()=>{
-    console.log("Aplicacion en marcha en el puerto "+process.env.APP_PORT);
+    //console.log("Aplicacion en marcha en el puerto "+process.env.APP_PORT);
 })

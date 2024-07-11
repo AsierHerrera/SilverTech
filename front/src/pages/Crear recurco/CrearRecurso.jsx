@@ -72,7 +72,7 @@ const CrearRecurso = () => {
     if (validate()) {
       try {
         const response = await createRecurso(formData);
-        console.log('Recurso creado:', response.data);
+        //console.log('Recurso creado:', response.data);
         setCreacionRxistosa(true);
         setFormData({
           name: '',

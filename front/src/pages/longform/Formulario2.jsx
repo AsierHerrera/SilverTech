@@ -55,7 +55,7 @@ const Formulario2 = () => {
         e.preventDefault();
         try {
             const createdCompany = await createCompany(formData);
-            console.log('Empresa creada:', createdCompany);
+            //console.log('Empresa creada:', createdCompany);
             setRegistroExitoso(true); // Mostrar mensaje de éxito
             // Puedes también limpiar el formulario si es necesario
             setFormData({

@@ -91,7 +91,7 @@ const createRecurso = async(recursoData)=>{
 const barraBusqueda = async (busquedaData) => {
     try {
       const result = await fetchData("/resources/busqueda/" + busquedaData, "get");
-      console.log("Raw API response:", result); 
+      //console.log("Raw API response:", result); 
       return result;
     } catch (error) {
       console.error("Error in barraBusqueda:", error);

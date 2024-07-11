@@ -22,7 +22,7 @@ const Recursos = () => {
     const fetchRecursosData = async () => {
       try {
         const recursosData = await getRecursos();
-        console.log("Recursos obtenidos:", recursosData);
+        //console.log("Recursos obtenidos:", recursosData);
         setRecursos(recursosData);
       } catch (error) {
         console.error('Error al obtener los recursos:', error.message);

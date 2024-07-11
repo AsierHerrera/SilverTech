@@ -34,7 +34,7 @@ const register = async (req, res) => {
     if (user.error) {
         return res.json({ error: user.error });
     }
-    console.log("USER EN API CONTROLLER", user);
+    //console.log("USER EN API CONTROLLER", user);
     res.json({ data: user });
 }
 
@@ -65,7 +65,7 @@ const remove = async (req, res) => {
 
 async function logout(req, res) {
     req.user = null;
-    console.log("req.user", req.user);
+    //console.log("req.user", req.user);
     res.json(req.user);
 }
 

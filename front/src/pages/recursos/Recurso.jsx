@@ -19,7 +19,7 @@ import Footer2 from "../../componentes/Footer/Footer2";
 
 const Recurso = ()=>{
     const recurso = useLoaderData();
-    console.log("recurso: ", recurso)
+    //console.log("recurso: ", recurso)
 
     return (
         <>

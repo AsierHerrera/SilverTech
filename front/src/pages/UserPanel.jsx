@@ -34,7 +34,7 @@ const UserPanel = () => {
         const savedUser = localStorage.getItem('userData');
         if (savedUser) {
             const parsedUser = JSON.parse(savedUser);
-            console.log("parsedUser: ", parsedUser);
+            //console.log("parsedUser: ", parsedUser);
             if (parsedUser) {
                 setUser(parsedUser);
             } else {
@@ -63,7 +63,7 @@ const UserPanel = () => {
             return;
         }
         const updatedUser = { ...user, username: name };
-        console.log("updatedUser: ", updatedUser);
+        //console.log("updatedUser: ", updatedUser);
         setUser(updatedUser);
         setGlobalUser(updatedUser); // Update the global user context
         localStorage.setItem('userData', JSON.stringify(updatedUser));

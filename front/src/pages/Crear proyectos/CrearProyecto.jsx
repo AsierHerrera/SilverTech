@@ -93,7 +93,7 @@ const CrearProyecto = () => {
     if (validate()) {
       try {
         const response = await createProject(formData);
-        console.log('Proyecto creado:', response.data);
+        //console.log('Proyecto creado:', response.data);
         setCreacionExistosa(true);
         // Limpia el formulario después de la creación exitosa
         setFormData({

@@ -7,9 +7,9 @@ const getAll = async (req, res) => {
 
 const barraDeBusqueda = async (req, res) => {
     const busquedaData = req.params.busquedaData;
-    console.log("BusquedaData received:", busquedaData);
+    //console.log("BusquedaData received:", busquedaData);
     const { error, data } = await resourceController.barraDeBusqueda(busquedaData);
-    console.log("Data to be sent:", { error, data });
+    //console.log("Data to be sent:", { error, data });
     res.json({ error, data });
   };
 

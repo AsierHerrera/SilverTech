@@ -18,7 +18,6 @@ import Pago3 from "./pages/pagos/Pago3";
 import Subforum from "./pages/subforom/Subforum";
 import SubforumDetails from "./pages/subforumDetails/SubforumDetails";
 import { getOnePostInSubforumById } from "./utils/fetch";
-import Landing from "./pages/Landing";
 import Guias from "./pages/Guias";
 import Libros from "./pages/Libros";
 import DocumentacionLegalAccesibilidad from "./pages/DocumentacionLegalAccesibilidad";

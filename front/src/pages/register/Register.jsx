@@ -52,7 +52,7 @@ const Register = ({ onLogin }) => {
                 }
                 result = await register(userData);
                 if (!result.error) {
-                    console.log("EL RESULTADO ES:", result)
+                    //console.log("EL RESULTADO ES:", result)
                     setIsRegister(false);
                     setError("Usuario registrado correctamente");
                     saveToken(result.data.token);
@@ -69,7 +69,7 @@ const Register = ({ onLogin }) => {
                     saveToken(result.token);
                     setUser(result.user);
                     localStorage.setItem("userData", JSON.stringify(result.user));
-                    navigate("/Landing");
+                    navigate("/landing");
                 } else {
                     setError(result.error);
                 }

@@ -44,10 +44,10 @@ async function barraDeBusqueda(busquedaData) {
           ]
         }).limit(10);
   
-        console.log("SUBFOROS ENCONTRADOS:", subforos);
-        console.log("RECURSOS ENCONTRADOS:", recursos);
-        console.log("COMENTARIOS ENCONTRADOS:", comments);
-        console.log("PROYECTOS ENCONTRADOS:", projects);
+        //console.log("SUBFOROS ENCONTRADOS:", subforos);
+        //console.log("RECURSOS ENCONTRADOS:", recursos);
+        //console.log("COMENTARIOS ENCONTRADOS:", comments);
+        //console.log("PROYECTOS ENCONTRADOS:", projects);
   
         return { data: { subforos, recursos, comments, projects } };
       } else {
@@ -78,7 +78,7 @@ const getById = async (id) => {
 const getByUser = async (userId) => {
     try {
         const resources = await resourceModel.find({ "participations.user": userId });
-        console.log("RECURSOS POR USUARIO", resources)
+        //console.log("RECURSOS POR USUARIO", resources)
         return resources;
     } catch (error) {
         console.error(error);

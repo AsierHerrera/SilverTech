@@ -1,7 +1,7 @@
 import companyController from './companyController.js';
 
 const createCompany = async (req, res) => {
-    console.log('Datos recibidos:', req.body);
+    //console.log('Datos recibidos:', req.body);
     try {
         const company = await companyController.create(req.body, req.user._id);
         res.status(201).json(company);

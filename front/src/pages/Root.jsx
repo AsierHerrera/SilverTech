@@ -11,7 +11,7 @@ import Invitaciones from  "../componentes/Invitaciones/Invitaciones"
 
 
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
-import Landing from "./Landing";
+
 
 
 const Root = () => {

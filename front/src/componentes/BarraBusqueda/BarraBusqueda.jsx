@@ -18,11 +18,11 @@
 
 //     const searchBarra = async (term) => {
 //         try {
-//             console.log("Searching for:", term);
+//             //console.log("Searching for:", term);
 //             const response = await barraBusqueda(term);
-//             console.log("Raw response:", response);
+//             //console.log("Raw response:", response);
 //             if (response && response.data) {
-//                 console.log("Setting search results:", response.data);
+//                 //console.log("Setting search results:", response.data);
 //                 setSearchResults(response.data);
 //             } else {
 //                 console.error('La respuesta de la API no es válida:', response);
@@ -33,11 +33,11 @@
 //     };
 
 //     const debouncedSearch = useCallback(debounce((term) => {
-//         console.log("Debounced search called with term:", term);
+//         //console.log("Debounced search called with term:", term);
 //         if (term.length > 2) {
 //             searchBarra(term);
 //         } else {
-//             console.log("Search term too short, clearing results");
+//             //console.log("Search term too short, clearing results");
 //             setSearchResults({ subforos: [], recursos: [], comments: [], projects: [] });
 //         }
 //     }, 300), []);
@@ -49,7 +49,7 @@
 //     };
 
 //     const handleResultClick = (item, type) => {
-//         console.log("Item seleccionado:", item, "Tipo:", type);
+//         //console.log("Item seleccionado:", item, "Tipo:", type);
 //         switch (type) {
 //             case 'subforo':
 //                 navigate(`/foro`);
@@ -130,11 +130,11 @@ function SearchBar() {
 
     const searchBarra = async (term) => {
         try {
-            console.log("Searching for:", term);
+            //console.log("Searching for:", term);
             const response = await barraBusqueda(term);
-            console.log("Raw response:", response);
+            //console.log("Raw response:", response);
             if (response && response.data) {
-                console.log("Setting search results:", response.data);
+                //console.log("Setting search results:", response.data);
                 setSearchResults(response.data);
             } else {
                 console.error('La respuesta de la API no es válida:', response);
@@ -145,11 +145,11 @@ function SearchBar() {
     };
 
     const debouncedSearch = useCallback(debounce((term) => {
-        console.log("Debounced search called with term:", term);
+        //console.log("Debounced search called with term:", term);
         if (term.length > 2) {
             searchBarra(term);
         } else {
-            console.log("Search term too short, clearing results");
+            //console.log("Search term too short, clearing results");
             setSearchResults({ subforos: [], recursos: [], comments: [], projects: [] });
         }
     }, 300), []);
@@ -161,7 +161,7 @@ function SearchBar() {
     };
 
     const handleResultClick = (item, type) => {
-        console.log("Item seleccionado:", item, "Tipo:", type);
+        //console.log("Item seleccionado:", item, "Tipo:", type);
         switch (type) {
             case 'subforo':
                 navigate(`/foro`);

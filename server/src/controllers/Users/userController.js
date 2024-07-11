@@ -61,7 +61,7 @@ const getByResource = async (resourceId) => {
 
 const login = async (data) => {
     const { email, username, password } = data;
-    console.log("La data es:_", data)
+    //console.log("La data es:_", data)
     if ((!email || !username) && !password) {
         return { error: "Faltan datos", status: 400 };
     }
@@ -88,8 +88,8 @@ const login = async (data) => {
             process.env.JWT_SECRET,
             { expiresIn: 60 * 60 * 24 }
         );
-        console.log("EL TOKEN ES:", token)
-        console.log("EL USer ES:", user)
+        //console.log("EL TOKEN ES:", token)
+        //console.log("EL USer ES:", user)
         return { token, user };
 
     } catch (error) {

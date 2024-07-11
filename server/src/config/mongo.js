@@ -14,7 +14,7 @@ const DB_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_N
 const connectDB = async ()=>{
     try {
         await mongoose.connect(DB_URI);
-        console.log("Connected to database");
+        //console.log("Connected to database");
     } catch (error) {
         console.error("NO HAY CONEXION",error);
     }

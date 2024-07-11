@@ -16,7 +16,7 @@ const ProfilePicUpload = () => {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
-                console.log('Imagen subida correctamente', response.data);
+                //console.log('Imagen subida correctamente', response.data);
                 const newProfilePicUrl = `http://localhost:3030/uploads/${response.data.file.filename}`;
                 setProfilePic(newProfilePicUrl); 
                 localStorage.setItem('profilePic', newProfilePicUrl); 

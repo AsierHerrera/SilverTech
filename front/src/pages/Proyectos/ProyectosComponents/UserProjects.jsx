@@ -14,7 +14,7 @@ const UserProjects = ({ className = '' }) => {
     const fetchProjectsData = async () => {
       try {
         const projectsData = await getProjectByUserId();
-        console.log("Proyectos obtenidos:", projectsData);
+        //console.log("Proyectos obtenidos:", projectsData);
         setProjects(projectsData);
       } catch (error) {
         console.error('Error al obtener los proyectos:', error.message);

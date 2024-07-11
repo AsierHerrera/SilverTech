@@ -17,7 +17,7 @@ const ProyectosFinalizados = ({ className = '' }) => {
       try {
         const projectsData = await getProjectByUserId();        
         setProjects(projectsData);
-        console.log("Proyectos renderizados", projects)
+        //console.log("Proyectos renderizados", projects)
       } catch (error) {
         console.error('Error al obtener los proyectos:', error.message);
       }

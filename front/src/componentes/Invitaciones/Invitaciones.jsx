@@ -12,7 +12,7 @@ const Invitaciones = () => {
         const userId = "ID_DEL_USUARIO"; // Asegúrate de obtener el ID del usuario correctamente
         const result = await getUserInvitations(userId);
         if (result && result.data && Array.isArray(result.data)) {
-          console.log("invitaciones recibidas", result)
+          //console.log("invitaciones recibidas", result)
           setInvitations(result.data);
         }
       } catch (error) {
@@ -24,8 +24,8 @@ const Invitaciones = () => {
 
   const handleResponse = async (projectId, response) => {
     try {
-      console.log("ESTADO INVITACIONES",invitations)
-      console.log(projectId, response)
+      //console.log("ESTADO INVITACIONES",invitations)
+      //console.log(projectId, response)
       await respondToInvitation(projectId, {response});
       setInvitations(invitations.filter(inv => inv.projectId !== projectId));
     } catch (error) {
