@@ -60,6 +60,30 @@ const companySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    size: {
+        type: String,
+        required: true
+    },
+    nivelDeConocimiento: {
+        type: String,
+        required: true
+    },
+    edadPublico: {
+        type: Array,
+        required: true
+    },
+    queBuscas: {
+        type: Array,
+        required: true
+    },
+    presupuesto: {
+        type: String,
+        required: true
+    },
+    contenidoInteres: {
+        type: Array,
+        required: true
     }
 }, {
     timestamps: true // Esto agregará los campos createdAt y updatedAt

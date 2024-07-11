@@ -40,6 +40,11 @@ import CrearProyecto from "./pages/Crear proyectos/CrearProyecto";
 /* import MisDatos from "./pages/UserPanel";
 import MisFormaciones from "./pages/UserPanel"; */
 import ProyectosFinalizados from "./pages/Proyectos Finalizados/ProyectosFinalizados"
+import Formulario2 from "./pages/longform/Formulario2";
+import Dashboard from "./pages/Dashboard/DashboardFormaciones";
+import DashboardEventos from "./pages/Dashboard/DashboardEventos";
+import CrearRecurso from "./pages/Crear recurco/CrearRecurso";
+
 
 
 
@@ -49,7 +54,8 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />, 
     children: [
-      { path: "/Landing", element: <Landing /> },
+      { path: "/form2", element: <Formulario2 /> },
+      { path: "/landing", element: <Home /> },
       { path: "/recursos", element: <Recursos /> },
       { path: "/recursos/:id", element: <Recurso /> },
       { path: "/foro", element: <Subforum /> },
@@ -84,10 +90,20 @@ const router = createBrowserRouter([
      { path: "/mis-datos", element: <UserPanel /> },
       { path: "/mis-formaciones", element: <UserPanel /> },
       { path: "/ajustes", element: <UserPanel /> },
+      { path: "/dashboard-formaciones", element: <Dashboard /> },
+      { path: "/dashboard-eventos", element: <DashboardEventos /> },
+
+
+      
       {
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/crear-recurso",
+        element: <CrearRecurso/>
+
+      }
     ],
   },
   // {

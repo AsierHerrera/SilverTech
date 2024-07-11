@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "./Footer2.scss";
+import facebook from "../../../public/Vector.png"
 
 const FooterBig = ()=>{
   return (
@@ -15,7 +16,7 @@ const FooterBig = ()=>{
           <p className="negrita">Contacta</p>
           <p><img src="/svg-6.svg" alt="" /> info@silvertech.com</p>
           <p><img src="/svg-7.svg" alt="" /> +34 600 000 000</p>
-          <p><img src="/vector.svg" alt="" /><img src="/frame.svg" alt="" /></p>
+          <p><img src={facebook} alt="" /><img src="/frame.svg" alt="" /></p>
         </div>
       </div>
       <div id="footer-seccion2">

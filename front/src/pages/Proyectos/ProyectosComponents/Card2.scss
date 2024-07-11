@@ -59,9 +59,22 @@
 }
 
 .seccion3-proyecto {
+    width: 90%;
+    margin-left: 5%;
     display: flex;
     justify-content: center;
     font-weight: 500;
+    box-sizing: content-box;
+}
+
+p.test2 {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.overflow-ellipsis {
+    text-overflow: ellipsis;
 }
 
 .seccion3-proyecto  span {
@@ -69,6 +82,7 @@
 }
 
 .ver-proyecto {
+    height: 6vh;
     background-color: $Secondary_Normal;
     color: $Primary_Dark;
     text-decoration: none;
@@ -76,8 +90,10 @@
     font-weight: bold;
     margin-bottom: 0px;
     border-radius: 0px 0px 10px 10px;
-    padding-top: 1.5vh; // Ajuste del padding superior
-    padding-bottom: 1.5vh; // Ajuste del padding inferior
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .ver-proyecto:hover {

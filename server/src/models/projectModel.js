@@ -81,6 +81,10 @@ const projectSchema = new mongoose.Schema({
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    }],
+    invitations: [{
+        userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' }
     }]
 }, {
     timestamps: true

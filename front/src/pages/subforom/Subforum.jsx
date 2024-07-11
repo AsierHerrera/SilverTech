@@ -155,7 +155,8 @@ const Subforum = () => {
 
   return (
     <>
-      <div className="container">
+      <div>
+                  <p className="navegation-history-foro" > <span>Inicio</span>  {">"} <span>Networking</span> {">"} <span></span>Foro</p>
                   <div className="hero">
                   <div className="hero-content">
                     <div className="text-content">
@@ -169,7 +170,10 @@ const Subforum = () => {
                   {/* <button className="messaging-button">
                     <span className="icon">📩</span> Mensajería
                   </button> */}
-                </div>
+                </div>        
+      </div>
+      <div className="container">
+
     <div className="container" >
         <div className="filters">
           <button onClick={handleSortByMostCommented}> <FiArrowUpRight/> Sort by Most Commented</button>
@@ -254,7 +258,6 @@ const Subforum = () => {
         </div>
         
       </div>
-      <Footer2 />
     </>
   );
 };

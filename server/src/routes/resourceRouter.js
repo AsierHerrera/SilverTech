@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", resourceApiController.getAll);
 router.get("/:id", resourceApiController.getById);
-router.get("/user/:userId", isAuthenticated, resourceApiController.getByUser); // Nueva ruta
+router.get("/user/resource", isAuthenticated, resourceApiController.getByUser); // Nueva ruta
 router.post("/", isAuthenticated, isAdmin, resourceApiController.create);
 router.put("/:id", isAuthenticated, resourceApiController.update);
 router.delete("/:id", isAdmin, resourceApiController.remove);

@@ -1,5 +1,3 @@
-// projectApiController.js
-
 import projectController from './projectController.js';
 
 /**
@@ -53,6 +51,7 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
+        console.log("USER ID EN CREATE", userId)
         const project = await projectController.create(req.body, userId);
         res.status(201).json({ data: project });
     } catch (error) {
@@ -107,7 +106,6 @@ const remove = async (req, res) => {
 
 const addUserToProject = async (req, res) => {
     try {
-
         const projectId = req.params.id;
         const userEmail = req.body.email;
 
@@ -150,14 +148,50 @@ const removeUserFromProject = async (req, res) => {
 
 const getProjectByUserId = async (req, res) => {
     try {
-        console.log("Llego aqui")
-        const company = await projectController.getByUserId(req.user._id);
-        if (!company) {
-            return res.status(404).json({ error: "No se encontró el proyecto asociado al usuario" });
-        }
-        res.status(200).json(company);
+        const projects = await projectController.getByUserId(req.user._id);
+        res.status(200).json(  projects );
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const inviteUserToProject = async (req, res) => {
+    try {
+        const projectId = req.params.id;
+        const userMail = req.body.email;
+        console.log("USERMAIL", userMail)
+
+        const project = await projectController.inviteUserToProject(projectId, userMail);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const respondToInvitation = async (req, res) => {
+    try {
+        const projectId = req.params.id;
+        console.log("PROJECTID BACK", projectId)
+        const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
+        console.log("UserID BACK", userId)
+        const response = req.body.response;
+        console.log("RESPUESTA BACK", response)
+
+
+        const project = await projectController.respondToInvitation(projectId, userId, response);
+        res.json({ data: project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const getUserInvitations = async (req, res) => {
+    try {
+        const userId = req.user._id; // Asumiendo que obtienes el userId de la autenticación
+        const invitations = await projectController.getUserInvitations(userId);
+        res.json({ data: invitations });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 };
 
@@ -169,5 +203,8 @@ export default {
     remove,
     addUserToProject,
     removeUserFromProject,
-    getProjectByUserId
+    getProjectByUserId,
+    inviteUserToProject,
+    respondToInvitation,
+    getUserInvitations
 };

@@ -13,7 +13,7 @@ import resourceController from "./resourceController.js";
 
 const getAll = async (req, res) => {
     const resources = await resourceController.getAll();
-    res.json({ data: resources });
+    res.json( resources );
 }
 
 /**
@@ -54,9 +54,9 @@ const getById = async (req, res) => {
  */
 
 const getByUser = async (req, res) => {
-    const userId = req.params.userId;
+    const userId = req.user._id;
     const resources = await resourceController.getByUser(userId);
-    res.json({ data: resources });
+    res.json(resources);
 }
 
 /**

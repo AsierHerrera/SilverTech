@@ -92,7 +92,8 @@ const getById = async (id) => {
 
 const getByUser = async (userId) => {
     try {
-        const resources = await resourceModel.find({ "users.user": userId });
+        const resources = await resourceModel.find({ "participations.user": userId });
+        console.log("RECURSOS POR USUARIO", resources)
         return resources;
     } catch (error) {
         console.error(error);

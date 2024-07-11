@@ -31,7 +31,7 @@ const UserProjects = ({ className = '' }) => {
 
   return (
     <section className={`${styles.userProjects} ${className}`}>
-      <h1 className={styles.misProyectos}>Mis proyectos</h1> <br /><br />
+      {/*<h1 className={styles.misProyectos}>Mis proyectos</h1> <br /><br />*/}
       <div className={`${styles.projectsGrid} projectsGrid`}>
         {projects.map((project, index) => (
           <Card2

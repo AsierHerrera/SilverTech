@@ -6,6 +6,8 @@ import UserContext from "../context/userContext";
 /* import UserProfile from "./userProfile/UserProfile"; */
 import { fetchUserData } from "../utils/fetch";
 import NavBar from "../componentes/NavBar/NavBar";
+import Footer2 from "../componentes/Footer/Footer2"
+import Invitaciones from  "../componentes/Invitaciones/Invitaciones"
 
 
 import BarraBusqueda from "../componentes/BarraBusqueda/BarraBusqueda"
@@ -32,12 +34,12 @@ const Root = () => {
         }
         setUser(data.data);
     }
-    async function handleLogout(e) {
-        e.preventDefault();
-        setUser(null);
-        deleteToken();
-        navigate("/register");
-    } 
+    // async function handleLogout(e) {
+    //     e.preventDefault();
+    //     setUser(null);
+    //     deleteToken();
+    //     navigate("/register");
+    // } 
 
 
 const toggleProfile = () => {
@@ -81,15 +83,22 @@ const toggleProfile = () => {
         <>
 {/*         <BarraBusqueda />
         <Outlet /> */}
-        <NavBar />
         {user && (
+        <NavBar />
+        )}
+
+        {/* {user && (
         <div className="logout">
-           <p>Hola, {user?.username}</p> 
-          <Link to="/register" onClick={handleLogout}>Logout</Link>
-        </div>
-      )}
+          {/* <p>Hola, {user?.username}</p> */}
+          {/* <Link to="/register" onClick={handleLogout}>Logout</Link>
+        </div> *
+      {/* )} */}
                  
         <Outlet />
+        {user && (
+        <Invitaciones />
+        )}
+        <Footer2 />
         </>
     )
 };

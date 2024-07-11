@@ -41,6 +41,12 @@ function getUserData(user){
     }
 }
 
+/**
+ * Recupera un usuario por su ID.
+ *
+ * @param {string} id - El ID del usuario que se desea recuperar.
+ * @return {Promise<Object>} El objeto de usuario si se encuentra, o un objeto de error si no se encuentra o si ocurrió un error.
+ */
 
 /**
  * Recupera un usuario por su ID.
@@ -109,7 +115,7 @@ const getByResource = async (resourceId) => {
 
 const login = async (data) => {
     const { email, username, password } = data;
-    console.log("La dta es:_", data)
+    console.log("La data es:_", data)
     if ((!email || !username) && !password) {
         return { error: "Faltan datos", status: 400 };
     }
@@ -187,7 +193,14 @@ const register = async (data) => {
             return user;
         }
 
-        return user;
+        // Llamar a la función de login después de la creación del usuario
+        const loginData = { username: user.username, password: data.password };
+        const loginResult = await login(loginData);
+        if (loginResult.error) {
+            return loginResult;
+        }
+
+        return loginResult;
     } catch (error) {
         console.error(error);
         return { error: "Error al registrar el usuario", status: 500 };
